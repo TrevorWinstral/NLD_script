@@ -1,0 +1,66 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage{bbm}
+\usepackage{url}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ left=20mm,
+ right=20mm
+ }
+
+\linespread{1.1}
+\usepackage{soul} % For strikethrough
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{subfigure}
+
+
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs}
+
+\usepackage{xcolor}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+
+\renewcommand{\iff}{\Longleftrightarrow}
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+
+\theoremstyle{remark}
+\newtheorem{ex}{Example}[chapter]
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}} % to number specific equations
+
+\usepackage{enumitem}
+\setenumerate[1]{label=(\roman*)}
+
+\title{Nonlinear Dynamics and Chaos}
+\author{Prof. George Haller\\ Transcription: Trevor Winstral}
+\date{2022}
+\setcounter{chapter}{-1}
+
+\begin{document}
+\maketitle
+\tableofcontents 
+\newpage
+
+\include{intro.tex}
+\newpage
+
+\include{chap1.tex}
+\newpage
+
+\end{document}
+
