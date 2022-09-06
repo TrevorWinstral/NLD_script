@@ -348,7 +348,7 @@ If $x_{\epsilon}(t)$ is in $C^{r}_{\epsilon}$, we have $\varphi_1(t) = \left.\fr
 \textbf{Answer} Regularity with respect to $\mu $ actually follows from regularity with respect to $x_0$. Use the trick of extending the IVP with a dummy variable $\mu $ 
 \begin{align}
 	\begin{dcases}
-		\dot{x} = f(x,t,u) \\ \dot{mu} = 0 \\ x(t_0) = x_0 \\ \mu (t_0) = mu_0.
+		\dot{x} = f(x,t,u) \\ \dot{\mu} = 0 \\ x(t_0) = x_0 \\ \mu (t_0) = \mu_0.
 	\end{dcases}
 \end{align}
 Thus with $X=
@@ -370,3 +370,104 @@ $. Therefore we have
 \end{align*}
 Applying the previous result on regularity with respect to $x_0$ to \eqref{eq:ivp_param}, we have that $f\in C^{r}_{x,\mu }$ implies that $X(t) \in C^{r}_{X_0}$ in turn implying that $x(t; t_0, x_0, \cdot) \in C^{r}_{\mu }$. The solution is as smooth in parameters as the RHS of the dynamic system.
 
+\begin{ex}[Periodic Oscillations of a nonlinear springboard]
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/ch1/16springboard_setup.png}
+	\hspace{0.05\textwidth}
+	\includegraphics[width=0.3\textwidth]{figures/ch1/17springboard_spring.png}
+	\caption{Setup for the nonlinear springboard.}
+\end{figure}
+
+By increasing $x$, the effective free length of the beam is shortened, thereby stiffening spring type nonlinearity. This yield the following equations of motion
+\begin{align}
+	\begin{dcases}
+		\ddot{x} + x + \epsilon x^3 = 0; \quad 0 \leq \epsilon \ll 1 \\
+		x(0) = a_0;\quad \dot{x}(0)=0.
+	\end{dcases}
+\end{align}
+So we have weak nonlinearity with no known explicit solution. Rewriting this as a first order ODE ($x_1=x;\ x_2=\dot{x}$ ), and note that the RHS is $C^{r}_{x,\mu }$, therefore there exists a unique local solution that is also $C^{r}_{\mu }$. Thus the expansion is justified
+\begin{align*}
+	x_{\epsilon}(t) = \varphi_0(t) + \epsilon \varphi_1(t) + \ldots + \mathcal{O}(\epsilon ^{r}) \numberthis \label{eq:starstar}.	
+\end{align*}
+We can see that for $\epsilon=0$ we find that $\varphi_0(t) = a_0 \cos(t)$.
+
+Now we look specifically for $T$-periodic solutions, as we would expect such a solution physically, therefore we have
+\begin{align}
+	\varphi_i(t) = \varphi_i(t+T).
+\end{align}
+The period $T$ still has to be determined. Plugging this Ansatz to \eqref{eq:starstar} into the IVP to get
+\begin{align*}
+	&\mathcal{O}(1):\quad \ddot{\varphi}_0 + \varphi_0 &&= 0 \\
+	&\mathcal{O}(\epsilon):\quad \ddot{\varphi}_1 + \underbrace{\varphi_1}_{\omega = 1} &&= -\varphi_0^{3} = -a_0^{3}\cos ^{3}(t) = -a_0^{3}\left[ \frac{1}{4} \cos (3t) + \frac{3}{4} \underbrace{ \cos(t)}_{ \textrm{resonance} }\right] \numberthis \label{eq:3star}.
+\end{align*}
+We can see that \eqref{eq:3star} is a second order linear oscillator with resonant forcing. We have the initial conditions
+\begin{align}
+	\varphi_1(0) = 0;\quad \dot{\varphi_1}(t) = 0.
+\end{align}
+This holds as $\varphi_0 = a_0 \cos(t)$ already solves the IVP. We find the solution of \eqref{eq:3star}
+\begin{align}
+	\varphi_1(t) &= \varphi_1^{ \textrm{hom} }(t) + \varphi_{1}^{ \textrm{part} }(t) \\
+		     &= \underbrace{A \cos(t) + B \sin (t)}_{ \textrm{TBD from initial conditions} } + 
+		     \underbrace{ C \cos(3t) + D t \cos(t) + Et\sin(t) }_{\textrm{TBD from \eqref{eq:3star}}}.
+\end{align}
+Observe that $\varphi_1(t)$ contains $t \cos(t)$ and $t \sin(t)$, thus it cannot be periodic, so our Ansatz already fails for $i=1$. We conclude that no solution of this type exists; our Ansatz was too restrictive and $T$ should depend on $\epsilon$.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.3\textwidth]{figures/ch1/18failed_ansatz.png}
+	\caption{$x$ for $a_0=1$.}
+\end{figure}
+
+\noindent
+\textbf{Lindstedt's idea} We should seek solution of the form
+\begin{align}
+	x_{\epsilon}(t) = \varphi_0(t;\epsilon) + \epsilon \varphi_1 (t;\epsilon) + \epsilon^2 \varphi_2(t;\epsilon) + \mathcal{O}(\epsilon^3).
+\end{align}
+Furthermore $\varphi_i$ should be $T_\epsilon$ periodic, i.e. the period depends on the nonlinearity $\epsilon$.
+\begin{align}
+	\varphi_i(t+T_\epsilon; \epsilon) = \varphi_i(t;\epsilon).
+\end{align}
+Rewriting the period as
+\begin{align}
+	T_\epsilon = \frac{2 \pi }{\omega(\epsilon)}; \quad \omega(\epsilon) = 1 + \epsilon \omega_1 + \epsilon^2 \omega_2 + \mathcal{O}(\epsilon^3).
+\end{align}
+We then rescale time according to $\tau = \omega(\epsilon) t$ to find
+\begin{align}
+	\frac{d}{d\tau} = \frac{1}{\omega(\epsilon)} \frac{d}{dt} \implies 
+	\boxed{[\omega(\epsilon)]^2 x'' + x + \epsilon x^3 = 0.}
+\end{align}
+Where we have taken $x'$ to represent $\frac{dx}{d\tau}$. Plugging in our new Ansatz into the rescaled ODE yields
+\begin{align}
+	\left( 1 + 2 \epsilon \omega_1 + \mathcal{O}(\epsilon^2) \right) \left[ \varphi_0'' + \epsilon \varphi'' + \mathcal{O}(\epsilon^2) \right] + \left[ \varphi_0 + \epsilon \varphi_1 + \mathcal{O}(\epsilon^2) \right] + \epsilon \left[\varphi_0^{3} + \mathcal{O}(\epsilon) \right] = 0.
+\end{align}
+Matching equal powers of $\epsilon$ yields
+\begin{align}
+	\mathcal{O}(1)&:\ \varphi_0'' + \varphi_0 = 0 \implies \varphi_0(\tau) = a_0 \cos(\tau);\quad \varphi_0(0)=a_0;\quad \dot{\varphi_0}(0) = 0 \\
+	\mathcal{O}(\epsilon)&:\ \varphi_1'' + \varphi_1 = - \phi_0^{3} - 2\omega_1 \varphi_{0}'' = 
+	\left(2 \omega_1 a_0 - \frac{3}{4}a_0^{3}\right) \underbrace{\cos (\tau)}_{ \textrm{resonance} } - \frac{a_0^{3}}{4} \cos(3 \tau); \\
+			     &\phantom{:}\ \varphi_1(0)=0; \quad \dot{\varphi_1}(0) = 0. 
+\end{align}
+From the first line, we can see the initial condition are fulfilled. In this step we used that $\dot{\varphi}(t=0) = 0$ if and only if $\omega(\epsilon)\varphi '(0) = 0$. We get the solution
+\begin{align}
+	\varphi_1(t) = A \cos(\tau) + B \sin(\tau) + C \cos(3\tau) + D\tau \cos(\tau) + E \tau \sin(\tau).
+\end{align}
+The presence of resonance again excludes periodic solutions, but now we can select $\omega_1$ to eliminate these terms.
+\begin{align}
+	2\omega_1 a_0 - \frac{3}{4} a_0 ^{3} = 0 \implies \boxed{\omega_1 = \frac{3}{8}a_0^{2}.}
+\end{align}
+This successfully eliminates the resonance and determines the missing frequency term at $\mathcal{O}(\epsilon)$. Thus we find
+\begin{align}
+	x_\epsilon(\tau) = a_0 \cos(\tau) - \frac{\epsilon}{32}a_0^{3}\left( \cos(\tau) - \cos (3\tau) \right) + \mathcal{O}(\epsilon^2).
+\end{align}
+In the original time scaling this is
+\begin{align}
+	x_\epsilon (t) = a_0 \cos (\omega t) - \frac{\epsilon}{32} a_0^3 \left( \cos(\omega t) - \cos(3\omega t)\right) + \mathcal{O}(\epsilon^2); \quad \omega = 1+ \frac{3}{8}\epsilon a_0^2 + \mathcal{O}(\epsilon^2).	
+\end{align}
+This procedure can be continued to higher order terms, where we select $\omega_2$ so that the $\mathcal{O}(\epsilon^2)$ terms cancel.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.45\textwidth]{figures/ch1/19approximation_accuracy.png}
+	\caption{Approximation (dots) vs analytic solution (solid line).}
+\end{figure}
+
+\end{ex}
