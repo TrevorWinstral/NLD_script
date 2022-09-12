@@ -1,4 +1,6 @@
 \chapter{Introduction}
+First we shall introduce the most important characters in our following exploration. The ideas and definitions here will be recurring regularly as we examine them from different perspectives and using different tools.
+
 \begin{definition}[Dynamical System (DS)]
 	A triple $(P,E, \mathcal{F})$, with
 	\begin{itemize}
@@ -18,7 +20,7 @@ Corresponding to these there are various types of evolution rules
 	\begin{align}
 		\boxed{x_{n+1} = F(x_n , n).}	
 	\end{align}
-	If there is nno explicit dependence on $n$, i.e. $\frac{\partial F}{\partial n} = 0$, then 
+	If there is no explicit dependence on $n$, i.e. $\frac{\partial F}{\partial n} = 0$, then 
 	\begin{align}
 		\boxed{ x_{n+1} F(x_n) = F(F(x_{n-1})) = \underbrace{F \circ \ldots \circ F}_{n+1 \textrm{ times} }(x_0) = F^{n+1}(x_0).}
 	\end{align}
@@ -113,7 +115,7 @@ f(x) =
 Qualitatively analysis gives the following facts
 \begin{itemize}
 	\item $x_1, x_2) = (0,0)$ and $(x_1, x_2) = (\pi , 0)$ are zeros of $f$,
-	\item Energy is concerved, hence both small and large amplitude oscillations are expected,
+	\item Energy is conserved, hence both small and large amplitude oscillations are expected,
 	\item We have the symmetries $(x_1, x_2, t) \mapsto (x_1, -x_2, -t)$ and $(x_1, x_2, t) \mapsto (-x_1, x_2, -t)$.
 \end{itemize}
 \begin{figure}[h]
@@ -124,13 +126,13 @@ Qualitatively analysis gives the following facts
 	\caption{Left: The symmetries of the dynamic system. Right: Phase portrait of the pendulum. The blue trajectories are separatrix.}
 \end{figure}
 \begin{definition}
-	A separatrix connects fixed points, is unovservable by itself, and separates regions of similar behavior.
+	A separatrix connects fixed points, is unobservable by itself, and separates regions of similar behavior.
 \end{definition}
 
 \end{ex}
 
 \begin{ex}[Exploit geometry of phase space for analysis]
-	Two bikes \emph{can} make it from $A$ to $B$ on different rountes without exceeding distance $D$. Assume two trucks are trying to make it between $A$ and $B$, on different roades in teh opposite direction, carrying load of width $D$. Can the trucks make it without hitting each other?	
+	Two bikes \emph{can} make it from $A$ to $B$ on different routes without exceeding distance $D$. Assume two trucks are trying to make it between $A$ and $B$, on different roads in the opposite direction, carrying load of width $D$. Can the trucks make it without hitting each other?	
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.5\textwidth]{figures/intro/7routes.png}

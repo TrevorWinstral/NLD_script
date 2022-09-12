@@ -1,4 +1,5 @@
 \chapter{Stability of fixed points}
+Now we would like to begin to explore the behavious of dynamic systems around fixed points. This will allow us to find out if we should expect to observe a fixed stated, and to understand what happens if we perturb the system away from this fixed state.
 \section{Basic definitions}
 Consider
 \begin{align}
@@ -23,7 +24,7 @@ Assume that $x=0$ is a fixed point, i.e. $f(0,t) = 0$ for all $t \in \mathbb{R}$
 \end{definition}
 
 \begin{ex}[Stability of lower  equilibrium of the pendulum]
-	Recall we have $\ddot{\varphi} + \sin(\phi) = 0$, and we transform this into a first order ODe by setting $x_1 = \varphi$ and $x_2 = \dot{\varphi}$ to obtain
+	Recall we have $\ddot{\varphi} + \sin(\phi) = 0$, and we transform this into a first order ODE by setting $x_1 = \varphi$ and $x_2 = \dot{\varphi}$ to obtain
 	\begin{align}
 		\begin{dcases}
 			\dot{x_1} = x_2 \\
@@ -153,7 +154,7 @@ Meanwhile for unstability
 \end{ex}
 \newpage
 \section{Stability based on linearization}
-In the following section we shall always assume that our system is autonomous. We will have the following setup
+We would like to derive a more general method to analyze the stability of fixed points, thus we try to simplify our system around the fixed point and discover what this can tell us about the full (unsimplified) system. In the following section we shall always assume that our system is autonomous. We will have the following setup
 \begin{align*}
 	\dot{x}=f(x),\quad f\in C^1,\quad x=
 	\begin{pmatrix}

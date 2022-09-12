@@ -1,4 +1,5 @@
 \chapter{Fundamentals}
+ In this chapter, we first review some fundamental properties of continuous dynamical systems that will be used heavily in later chapters. As we will see, these technical results are interesting in their own right. They can help in interpreting or cross-checking numerical results or physical models for self-consistency or accuracy.
 \section{Existence and uniqueness of solutions}
 Consider  
 \begin{align}
@@ -119,7 +120,7 @@ If the solution is unique, we have a few facts that can be derived from the geom
 \end{tikzpicture}
 \end{figure}
 \end{ex}
-
+To address this problem of local solutions not being able to be continued into global solution, we have the following theorem.
 \begin{theorem}[Continuation of solution]
 	If a local solutions cannot be continued to to a time $T$, then we must have
 	\begin{align}
@@ -190,6 +191,7 @@ Given the IVP
 	\end{dcases}
 \end{align}
 With $x \in \mathbb{R}^{n}$ and $f\in C^r$ for some $r\geq 1$, we have the solution $x(t; t_0, x_0)$.
+
 \textbf{Question} How does the solution depend on initial data?
 But first, why do we care about this? Because we robust solutions with respect to errors and uncertainties in the initial data.
 \begin{theorem}[]
@@ -300,7 +302,7 @@ So we have that trajectories are level curves of $\Psi(x,y)$. We can then derive
 	\includegraphics[width=0.5\textwidth]{figures/ch1/13ftle_final.png}
 	\caption{Top left: The analytic phase plot. Top right: The exploration done to calculate FTLE. Bottom: The FTLE plot.}
 \end{figure}
-Figures here were taken from Shawn Shadden of UC Berkely.
+Figures here were taken from Shawn Shadden of UC Berkeley.
 \end{ex}
 
 \begin{ex}[ABC flow]
@@ -332,6 +334,7 @@ We now have the IVP
 With $x \in \mathbb{R}^{n},\ f\in C^r,\ r\geq 1$, therefore we have a solution $x(t; t_0, x_0, \mu ) \in C^r_{x_0}$.
 
 \textbf{Question} How does the solution depend on $\mu $? 
+
 \textbf{Why Care?} We would like robustness of solutions with respect to parameter changes or uncertainties in the model.
 \begin{ex}[Perturbation Theory]
 Given a weakly nonlinear oscillator
@@ -379,14 +382,14 @@ Applying the previous result on regularity with respect to $x_0$ to \eqref{eq:iv
 	\caption{Setup for the nonlinear springboard.}
 \end{figure}
 
-By increasing $x$, the effective free length of the beam is shortened, thereby stiffening spring type nonlinearity. This yield the following equations of motion
+By increasing $x$, the effective free length of the beam is shortened, thereby stiffening spring type non-linearity. This yield the following equations of motion
 \begin{align}
 	\begin{dcases}
 		\ddot{x} + x + \epsilon x^3 = 0; \quad 0 \leq \epsilon \ll 1 \\
 		x(0) = a_0;\quad \dot{x}(0)=0.
 	\end{dcases}
 \end{align}
-So we have weak nonlinearity with no known explicit solution. Rewriting this as a first order ODE ($x_1=x;\ x_2=\dot{x}$ ), and note that the RHS is $C^{r}_{x,\mu }$, therefore there exists a unique local solution that is also $C^{r}_{\mu }$. Thus the expansion is justified
+So we have weak non-linearity with no known explicit solution. Rewriting this as a first order ODE ($x_1=x;\ x_2=\dot{x}$ ), and note that the RHS is $C^{r}_{x,\mu }$, therefore there exists a unique local solution that is also $C^{r}_{\mu }$. Thus the expansion is justified
 \begin{align*}
 	x_{\epsilon}(t) = \varphi_0(t) + \epsilon \varphi_1(t) + \ldots + \mathcal{O}(\epsilon ^{r}) \numberthis \label{eq:starstar}.	
 \end{align*}
@@ -423,7 +426,7 @@ Observe that $\varphi_1(t)$ contains $t \cos(t)$ and $t \sin(t)$, thus it cannot
 \begin{align}
 	x_{\epsilon}(t) = \varphi_0(t;\epsilon) + \epsilon \varphi_1 (t;\epsilon) + \epsilon^2 \varphi_2(t;\epsilon) + \mathcal{O}(\epsilon^3).
 \end{align}
-Furthermore $\varphi_i$ should be $T_\epsilon$ periodic, i.e. the period depends on the nonlinearity $\epsilon$.
+Furthermore $\varphi_i$ should be $T_\epsilon$ periodic, i.e. the period depends on the non-linearity $\epsilon$.
 \begin{align}
 	\varphi_i(t+T_\epsilon; \epsilon) = \varphi_i(t;\epsilon).
 \end{align}
