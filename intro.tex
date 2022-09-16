@@ -38,7 +38,7 @@ Corresponding to these there are various types of evolution rules
 
 \begin{ex}[Cobweb diagram of a one-dimensional DDS]
 
-	In such cases and in one-dimensional problems, a simple way to analyze the behavior of the system is the so-called {\em cobweb} diagram. We may plot $x_{n+1}$ as a function of $x_{n}$, as demonstrated in Fig. \ref{fig:intro:1}. The image of an initial condition $x_0$ lies on the graph at $x_{n+1}=F(x_0)$. We can also compute the next iterate by vertically projecting the point $(x_0, F(x_0))$ to the diagonal line defined by $x_{n+1}= x_n$. Following the projection of this point to the vertical axis we find the intersection with the graph at the point $(x_1, F(x_1))$.  It follows, that fixed points on the cobweb diagram, correspond to the intersections of the graph of $F$ with the diagonal line $x_{n+1} = x_n$. 
+	In such cases and in one-dimensional problems, a simple way to analyze the behavior of the system is the so-called {\em cobweb} diagram. We may plot $x_{n+1}$ as a function of $x_{n}$, as demonstrated in Fig. \ref{fig:intro:1}. The image of an initial condition $x_0$ lies on the graph at $x_{n+1}=F(x_0)$. We can also compute the next iterate by horizontally projecting the point $(x_0, F(x_0))$ to the diagonal line defined by $x_{n+1}= x_n$. Following the projection of this point to the horizontal axis ($x_n$) we find the intersection with the graph at the point $(x_1, F(x_1))$.  It follows, that fixed points on the cobweb diagram, correspond to the intersections of the graph of $F$ with the diagonal line $x_{n+1} = x_n$. 
 	\end{ex}
 
 	\begin{figure}[H]
@@ -99,7 +99,7 @@ And the induced flow map in this case is the one-parameter family of maps
 	\begin{align}
 		\dot{x} = ax(b-x).
 	\end{align}
-	In this case we have $E=\mathbb{R}$ and $\mathcal{F} = \{F^{t}\}_{t=-\infty }^{+\infty }$. This system has globally existing unique solutions (see later).	We may analyze the behavior of this system by plotting the $\dot{x}$ as a function of $x$, analogously to the cobweb diagram. This is demonstrated in Fig. \ref{fig:intro:3}. At $x$ values, where $\dot{x}$ is positive $x(t)$ is growing, while at negative values it is decreasing. This means, that fixed points, at which $x(t)=\text{const.}$ correspond to intersections of the graph with the vertical axis. 
+	In this case we have $E=\mathbb{R}$ and $\mathcal{F} = \{F^{t}\}_{t=-\infty }^{+\infty }$. This system has globally existing unique solutions (see later).	We may analyze the behavior of this system by plotting the $\dot{x}$ as a function of $x$, analogously to the cobweb diagram. This is demonstrated in Fig. \ref{fig:intro:3}. At $x$ values, where $\dot{x}$ is positive $x(t)$ is growing, while at negative values it is decreasing. This means, that fixed points, at which $x(t)=\text{const.}$ correspond to intersections of the graph with the horizontal axis. 
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.4\textwidth]{figures/intro/3RHS.png}	
