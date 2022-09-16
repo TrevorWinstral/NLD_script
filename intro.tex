@@ -1,5 +1,14 @@
 \chapter{Introduction}
-First we shall introduce the most important characters in our following exploration. The ideas and definitions here will be recurring regularly as we examine them from different perspectives and using different tools.
+
+
+First we shall introduce the most important characters in our following exploration. The ideas and definitions here will be recurring regularly as we examine them from different perspectives and using different tools. The content covered by this course can be found in the following books. For further details on some of the results, we recommend consulting these. 
+
+\begin{itemize}
+\item J. Guckenheimer \& P. Holmes, Nonlinear Oscillations, Dynamical Systems and Bifurcations of Vector Fields
+\item F. Verhulst, Nonlinear Differential Equations and Dynamical Systems
+\item V. I. Arnold, Ordinary Differential Equations
+\item S. Strogatz, Nonlinear Dynamics and Chaos
+\end{itemize}
 
 \begin{definition}[Dynamical System (DS)]
 	A triple $(P,E, \mathcal{F})$, with
@@ -16,22 +25,32 @@ The two main types of evolutionary variable spaces are
 \end{enumerate}
 Corresponding to these there are various types of evolution rules
 \begin{enumerate}
-	\item In a DDS we have iterated mappings 
+	\item[(i)] In a DDS we have iterated mappings 
+\end{enumerate}
+
 	\begin{align}
 		\boxed{x_{n+1} = F(x_n , n).}	
 	\end{align}
 	If there is no explicit dependence on $n$, i.e. $\frac{\partial F}{\partial n} = 0$, then 
 	\begin{align}
-		\boxed{ x_{n+1} F(x_n) = F(F(x_{n-1})) = \underbrace{F \circ \ldots \circ F}_{n+1 \textrm{ times} }(x_0) = F^{n+1}(x_0).}
+		\boxed{ x_{n+1}= F(x_n) = F(F(x_{n-1})) = \underbrace{F \circ \ldots \circ F}_{n+1 \textrm{ times} }(x_0) = F^{n+1}(x_0).}
 	\end{align}
-\begin{ex}[]
-	\begin{figure}[h]
+
+\begin{ex}[Cobweb diagram of a one-dimensional DDS]
+
+	In such cases and in one-dimensional problems, a simple way to analyze the behavior of the system is the so-called {\em cobweb} diagram. We may plot $x_{n+1}$ as a function of $x_{n}$, as demonstrated in Fig. \ref{fig:intro:1}. The image of an initial condition $x_0$ lies on the graph at $x_{n+1}=F(x_0)$. We can also compute the next iterate by vertically projecting the point $(x_0, F(x_0))$ to the diagonal line defined by $x_{n+1}= x_n$. Following the projection of this point to the vertical axis we find the intersection with the graph at the point $(x_1, F(x_1))$.  It follows, that fixed points on the cobweb diagram, correspond to the intersections of the graph of $F$ with the diagonal line $x_{n+1} = x_n$. 
+	\end{ex}
+
+	\begin{figure}[H]
 	\centering
 	\includegraphics[width = \textwidth]{figures/intro/1DDS.png}
+	\caption{Analysis of a one-dimensional system defined on the interval $x\in[a,b]$ using the cobweb diagram.}
+		\label{fig:intro:1}
 \end{figure}
-\end{ex}
+\begin{enumerate}
+\item[(ii)] In a CDS we have a first order system of ordinary differential equations (ODE)
+\end{enumerate}
 
-\item In a CDS we have a first order system of ordinary differential equations (ODE)
 	\begin{align}
 		\boxed{
 			\dot{x} = f(x,t)
@@ -44,23 +63,26 @@ Corresponding to these there are various types of evolution rules
 			x(t_0) = x_0
 		\end{dcases}
 	\end{align}
-	\begin{figure}[h]
-	\centering
-	\includegraphics[width = 0.8\textwidth]{figures/intro/2CDS.png}
-	\end{figure}
-	
 	Assuming there exists a unique solution $\varphi(t; t_0, x_0)$ with $\dot{\varphi} = f(\phi,t)$ and $\varphi(t_0)= x_0$, then the following flow map is well defined
 	\begin{align}
 		\boxed{
 		F_{t_0}^{t}(x_0) := \varphi(t; t_0, x_0).}
 	\end{align}
-	Such an $F_{t_0}^{t}$ has nice properties
+	Geometrically, this solution can be viewed as a trajectory in phase space (cf. Fig. \ref{fig:intro:2}). 
+		\begin{figure}[H]
+		\centering
+	\includegraphics[width = 0.8\textwidth]{figures/intro/2CDS.png}
+	\caption{Trajectory of a continuous dynamical system. The right-hand-side is given by $f(x,t)$, which is the tangent vector to this curve at the point $x$ at time $t$. }
+	\label{fig:intro:2}
+	\end{figure}
+	Such an $F_{t_0}^{t}$ has the properties
 	\begin{itemize}
-		\item $F_{t_0}^{t}$ is as smooth as $f(x,t)$,
-		\item $F_{t_0}^{t_0} = I$ and $F_{t_0}^{t_2} = F_{t_1}^{t_2} \circ F_{t_0}^{t_1}$ (group property),
-		\item $\left(F_{t_0}^{t}\right)^{-1} = F_{t}^{t_0}$ exists and is smooth.
+		\item[(i)] $F_{t_0}^{t}$ is as smooth as $f(x,t)$,
+		\item[(ii)] $F_{t_0}^{t_0} = I$ and $F_{t_0}^{t_2} = F_{t_1}^{t_2} \circ F_{t_0}^{t_1}$,
+		\item[(iii)] $\left(F_{t_0}^{t}\right)^{-1} = F_{t}^{t_0}$ exists and is smooth.
 \end{itemize}
-A special case of this is the autonomous system 
+Properties (ii) and (iii) together are called the group property. 
+A special case of continuous dynamical systems is the autonomous system 
 \begin{align}
 	\boxed{\dot{x} = f(x).}	
 \end{align}
@@ -72,19 +94,19 @@ And the induced flow map in this case is the one-parameter family of maps
 \begin{align}
 	\boxed{ F^{t} = F_{0}^{t}: x_0 \mapsto x(t,x_0).}
 \end{align}
-\end{enumerate}
-\begin{ex}[Logisitic Equation]
-	For a resource-limited population, we have the following dynamic system for $a> 0$, $b> 0$, and the population $x\in \mathbb{R}_+ \cup \{0\}$
+\begin{ex}[The logisitic Equation]
+	For a resource-limited population, we have the following dynamical system for $a> 0$, $b> 0$, and the population $x\in \mathbb{R}_+ \cup \{0\}$
 	\begin{align}
 		\dot{x} = ax(b-x).
 	\end{align}
-	In this case we have $E=\mathbb{R}$ and $\mathcal{F} = \{F^{t}\}_{t=-\infty }^{+\infty }$. This system has globally existing unique solutions (see later).	
-	\begin{figure}[h]
+	In this case we have $E=\mathbb{R}$ and $\mathcal{F} = \{F^{t}\}_{t=-\infty }^{+\infty }$. This system has globally existing unique solutions (see later).	We may analyze the behavior of this system by plotting the $\dot{x}$ as a function of $x$, analogously to the cobweb diagram. This is demonstrated in Fig. \ref{fig:intro:3}. At $x$ values, where $\dot{x}$ is positive $x(t)$ is growing, while at negative values it is decreasing. This means, that fixed points, at which $x(t)=\text{const.}$ correspond to intersections of the graph with the vertical axis. 
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.4\textwidth]{figures/intro/3RHS.png}	
 		\hspace{0.05\textwidth}
 		\includegraphics[width=0.4\textwidth]{figures/intro/4solutions.png}
 		\caption{Left: Analysis of the right hand side. Right: Evolution in the extended phase space $P \times \mathbb{R}$.}
+		\label{fig:intro:3}
 	\end{figure}
 
 \end{ex}
@@ -112,35 +134,43 @@ f(x) =
 	x_2 \\ - \frac{g}{l}\sin(x_1)	
 \end{pmatrix}.
 \end{align}
-Qualitatively analysis gives the following facts
+Qualitative analysis gives the following facts
 \begin{itemize}
-	\item $x_1, x_2) = (0,0)$ and $(x_1, x_2) = (\pi , 0)$ are zeros of $f$,
-	\item Energy is conserved, hence both small and large amplitude oscillations are expected,
-	\item We have the symmetries $(x_1, x_2, t) \mapsto (x_1, -x_2, -t)$ and $(x_1, x_2, t) \mapsto (-x_1, x_2, -t)$.
+	\item $(x_1, x_2) = (0,0)$ and $(x_1, x_2) = (\pi , 0)$ are zeros of $f$.
+	\item Energy is conserved, hence both small and large amplitude oscillations are expected.
+	\item The function $f(x)$ has symmetries: it is invariant under the transformations $(x_1, x_2, t) \mapsto (x_1, -x_2, -t)$ and $(x_1, x_2, t) \mapsto (-x_1, x_2, -t)$. See the left panel of Fig. \ref{fig:intro:4}.
 \end{itemize}
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth]{figures/intro/6pendulum_symmetries.png}
 	\hspace{0.05\textwidth}
 	\includegraphics[width=0.4\textwidth]{figures/intro/5pendulum.png}
-	\caption{Left: The symmetries of the dynamic system. Right: Phase portrait of the pendulum. The blue trajectories are separatrix.}
+	\caption{Left: The symmetries of the dynamic system. Right: Phase portrait of the pendulum. Red dots show the fixed points, while the blue trajectories make up the separatrix.}
+	\label{fig:intro:4}
+
 \end{figure}
-\begin{definition}
-	A separatrix connects fixed points, is unobservable by itself, and separates regions of similar behavior.
+\begin{definition}[Separatrix]
+	A separatrix is a boundary (i.e., a codimension-1 surface) in phase space which separates regions of qualitatively different behaviors. In practice, it is unobservable by itself and connects different fixed points. The separatrix of the pendulum is shown in the right panel of Fig. \ref{fig:intro:4}. 
 \end{definition}
 
 \end{ex}
 
 \begin{ex}[Exploit geometry of phase space for analysis]
-	Two bikes \emph{can} make it from $A$ to $B$ on different routes without exceeding distance $D$. Assume two trucks are trying to make it between $A$ and $B$, on different roads in the opposite direction, carrying load of width $D$. Can the trucks make it without hitting each other?	
-	\begin{figure}[h]
+	Consider two cities, $A$ and $B$. The two cities are connected by two roads, denoted by the blue and green curves of the left panel of Fig. \ref{fig:intro:5}. We assume that traveling on the two roads, it is possible for two bikes to make it from $A$ to $B$ without ever being further away from each other than a distance $d<D$. 
+	
+	Given this information, can two trucks make it between A and B, on different roads in the opposite direction, carrying load of width $D$?
+The two trajectories must intersect by continuity, thus at that point the trucks must be at the same positions as the bikes, implying they are within distance D. Therefore the trucks must crash!
+	Assume two trucks are trying to make it between $A$ and $B$, on different roads in the opposite direction, carrying load of width $D$. Can the trucks make it without hitting each other? We can view this problem as a continuous dynamical system with two coordinates, $x_1$ and $x_2$ which parametrize the two routes between $A$ and $B$. This dynamical system is, in general, nonautonomous. 
+		\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.5\textwidth]{figures/intro/7routes.png}
 		\hspace{0.05\textwidth}
 		\includegraphics[width=0.3\textwidth]{figures/intro/8truck_geometry.png}
-		\caption{Left: An example of the two bike routes. Right: Blue represents the phase trajectory of the two biker, red represents the phase trajectory of the two trucks.}
+		\caption{Left: An example of the two bike routes. Right: Blue represents the trajectory of the two bikes, red represents the trajectory of the two trucks.}
+		\label{fig:intro:5}
 	\end{figure}
-
+	
+The right panel of Fig. \ref{fig:intro:5} shows the trajectories of the two trucks  and the two bikes in phase space. 
 The two trajectories must intersect by continuity, thus at that point the trucks must be at the same positions as the bikes, implying they are within distance $D$. Therefore the trucks must crash!	
 \end{ex}
 

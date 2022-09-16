@@ -17,7 +17,7 @@ Does this initial value problem have a unique solution? We have the following th
 \end{align}
 \end{theorem}
 \begin{ex}[Free falling mass]
-	We have that the total energy is conserved
+	Consider a point mass of mass $m$ at position $x$. The acceleration due to gravity is denoted by $g$. Measuring the potential energy from the reference point $x=x_0$, we have that the total energy is conserved
 	\begin{align}
 		\frac{1}{2} m \dot{x}^2 = mg(x-x_0).
 	\end{align}
@@ -28,25 +28,29 @@ This implies that
 		x(0) = x_0
 	\end{dcases}
 \end{align}
-on the set $P = \{ x \in \mathbb{R}:\ x \geq x_0\}$. Therefore we have that $f\in C^0$ in phase space, so by Peano's theorem (cf. \ref{thm:Peano}), there exists a local solution.
-	\begin{figure}[h]
+on the set $P = \{ x \in \mathbb{R}:\ x \geq x_0\}$. Therefore we have that $f\in C^0$ in phase space, so by Peano's theorem (cf. Theorem \ref{thm:Peano}), there exists a local solution. A schematic diagram is shown in Fig. \ref{fig:chap1:1}. 
+	\begin{figure}[H]
+		\label{fig:chap1:1}
 		\centering
 		\includegraphics[width=0.4\textwidth]{figures/ch1/1freefall.png}
+		\caption{Schematic diagram of the point mass in free fall.}
 	\end{figure}
 	The solution is actually $x(t) = x_0 + \frac{g}{2}(t-t_0)^2$, however $x(t) = x_0$ is also a solution to the IVP, therefore we do not have a unique solution. Physically there exists a solution, but this IVP was derived from a heuristic energy-principle, not from Newton's laws, which are not equivalent.
 \end{ex}
 \begin{definition}
-A function is called locally Lipschitz around $x_0$ if there exists an open set $U_{x_0}$ and $L>0$ such that for all $x,y \in U_{x_0}$
+A function $f$ is called locally Lipschitz around $x_0$ if there exists an open set $U_{x_0}$ and $L>0$ such that for all $x,y \in U_{x_0}$
 \begin{align}
 	\boxed{\left| f(y,t) - f(x,t)\right| \leq L |y - x|.}
 \end{align}
 \end{definition}
 
 \begin{ex}[Lipschitz functions]
-	Here we have an example of a Lipschitz and a non-Lipschitz function around $x_0$.
+	Fig. \ref{fig:chap1:2} shows an example of a Lipschitz and a non-Lipschitz function around $x_0$.
 	\begin{figure}[h]
+		\label{fig:chap1:2}
 		\centering
 		\includegraphics[width=0.8\textwidth]{figures/ch1/2lipschitz.png}
+		\caption{Interpretation of the Lipschitz property.}
 	\end{figure}
 \end{ex}
 
@@ -56,9 +60,9 @@ A function is called locally Lipschitz around $x_0$ if there exists an open set 
 		\item  $f \in C^0$ in $t$ near $(t_0, x_0)$,
 		\item $f$ is locally Lipschitz in $x$ near $(t_0, x_0)$.
 	\end{enumerate}
-	Then there exists a unique local solution to the IVP. The proof from Arnold's ODE. 	
+	Then there exists a unique local solution to the IVP. The proof can be found in Arnold's book on ODEs.  	
 \end{theorem}
-\textbf{Note} $f$ is $C^1$ $\implies$ $f $ is Lipschitz $\implies $ $f$ is $C^0$.
+\textbf{Note} the following relations. If $f$ is $C^1$ $\implies$ $f $ is Lipschitz $\implies $ $f$ is $C^0$. 
 \begin{ex}[Free falling mass revisted]
 	We check if $f$ is Lipschitz.
 	\begin{align}
@@ -69,15 +73,29 @@ Thus $f$ is not Lipschitz near $x_0$.
 
 \section{Geometric consequences of uniqueness}
 If the solution is unique, we have a few facts that can be derived from the geometric point of view.
-\begin{enumerate}
-	\item The trajectories of autonomous systems cannot intersect. Note that fixed points do not violate this (e.g. pendulum equations).
-		\begin{figure}[h]
+\begin{itemize}
+	\item[(i)] The trajectories of autonomous systems cannot intersect. Note that fixed points do not violate this. See Fig. \ref{fig:chap1:3} which shows the phase portrait of the pendulum. 
+	\end{itemize}
+
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.3\textwidth]{figures/ch1/3pendulum_trajectories.png}
 			\caption{The phase portrait of the pendulum. Trajectories do not intersect since each arrow is pointing at separate trajectories.}
+			\label{fig:chap1:3}
+
+		\end{figure}
+\begin{itemize}
+	\item[(ii)] For non-autonomous systems, intersections in phase space are possible: a trajectory may occupy the same point $x$ at different time instants (see the left panel of Fig. \ref{fig:chap1:4}). In this case we can extend the phase space in order to get an autonomous system where there cannot be any intersections.
+			\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\textwidth]{figures/ch1/4intersecting_trajectories.png}
+			\hspace{0.05\textwidth}
+			\includegraphics[width=0.3\textwidth]{figures/ch1/5extended_space.png}
+			\caption{Left: Intersecting trajectories in phase space for a non-autonomous system. Right: The same trajectory in the extended phase space, without intersections.}
+			\label{fig:chap1:4}
+
 		\end{figure}
 		
-	\item For non-autonomous systems, intersections in phase space are possible. In which case we can extend the phase space in order to get an autonomous system where there cannot be any intersections.
 		\begin{align}
 			X = 
 			\begin{pmatrix}
@@ -89,14 +107,7 @@ If the solution is unique, we have a few facts that can be derived from the geom
 			\end{pmatrix};\
 			\dot{X} = F(X).
 		\end{align}
-		\begin{figure}[h]
-			\centering
-			\includegraphics[width=0.4\textwidth]{figures/ch1/4intersecting_trajectories.png}
-			\hspace{0.05\textwidth}
-			\includegraphics[width=0.3\textwidth]{figures/ch1/5extended_space.png}
-			\caption{Left: Intersecting trajectories in phase space for a non-autonomous system. Right: The same trajectory in the extended phase space, without intersections.}
-		\end{figure}
-\end{enumerate}
+\end{itemize}
 
 \section{Local vs global existence}
 \begin{ex}[Exploding solution]
@@ -106,8 +117,8 @@ If the solution is unique, we have a few facts that can be derived from the geom
 			x(t_0) = 1.
 		\end{dcases}
 	\end{align}
-	Integrating yields the solution $x(t) = \frac{1}{1 - (t-t_0)}$. This solution blows up at $t_{\infty }=t_0 + 1$, therefore the solution is only local.	
-\begin{figure}[h]
+	Integrating yields the solution $x(t) = \frac{1}{1 - (t-t_0)}$. This solution blows up at $t_{\infty }=t_0 + 1$, therefore the solution is only local.	This is demonstrated in Fig. \ref{fig:chap1:5}.
+\begin{figure}[H]
 \centering	
 \begin{tikzpicture}
 	\begin{axis}
@@ -118,18 +129,20 @@ If the solution is unique, we have a few facts that can be derived from the geom
 		\addplot[color=black, dashed] coordinates {(0,1) (1,1)} node[pos=0, above right] {$x_{0}$};
 	\end{axis}
 \end{tikzpicture}
+\caption{Solution to the ODE $\dot{x}=x^2$ started from $x(t_0)=1$.}
+\label{fig:chap1:5}
 \end{figure}
 \end{ex}
 To address this problem of local solutions not being able to be continued into global solution, we have the following theorem.
 \begin{theorem}[Continuation of solution]
-	If a local solutions cannot be continued to to a time $T$, then we must have
+	If a local solutions cannot be continued to a time $t=T$, then we must have
 	\begin{align}
 		\boxed{\lim_{t\to T} |x(t)|= \infty.}
 	\end{align}
-The proof from Arnold's ODE.	
+The proof can be found in Arnold's book on ODEs.
 \end{theorem}
 
-\begin{ex}[Coupled Pendulum System]
+\begin{ex}[Coupled Pendulum System] Consider two pendulums of masses $m_1$ and $m_2$. They both have  length $l$. The angles of these pendula are denoted by $\varphi_1$ and $\varphi_2$. Let us assume that they are coupled by a nonlinear spring, which can be described by a potential $V(\varphi_1, \varphi_2)$. This setup is illustrated in Fig. \ref{fig:chap1:6}. 
 	We set $x_1 = \varphi_1,\ x_2 = \dot{\varphi_1},\ x_3 = \varphi_2,\ x_4=\dot{\varphi_2} $ and get the following equation of motion
 \begin{align}
 	\begin{dcases}
@@ -141,6 +154,7 @@ The RHS is smooth, therefore there exists a unique local solution to any IVP.
 	\centering
 	\includegraphics[width=0.6\textwidth]{figures/ch1/6coupled_pendulum.png}
 	\caption{Physical setup of the coupled pendulum with a nonlinear spring.}
+	\label{fig:chap1:6}
 \end{figure}
 The phase space is given by 
 \begin{align}
@@ -193,29 +207,30 @@ Given the IVP
 With $x \in \mathbb{R}^{n}$ and $f\in C^r$ for some $r\geq 1$, we have the solution $x(t; t_0, x_0)$.
 
 \textbf{Question} How does the solution depend on initial data?
-But first, why do we care about this? Because we robust solutions with respect to errors and uncertainties in the initial data.
+But first, why do we care about this? Because we expect solution that are robust with respect to errors and uncertainties in the initial data.
 \begin{theorem}[]
 	If $f \in C^r$ for $r\geq 1$ then $x(t; t_0, x_0)$ is $C^r$ in $(t_0, x_0)$. Proof in Arnold's ODE.
 \end{theorem}
 
-The geometric meaning of this is that for $U \subset P \subset \mathbb{R}^{n}$ we have that $F_{t_0}^{t}(U)$ is a smooth deformation of $U$.
+The geometric meaning of this is that for $U \subset P \subset \mathbb{R}^{n}$ we have that $F_{t_0}^{t}(U)$ is a smooth deformation of $U$ (see Fig. \ref{fig:chap1:7}).
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\textwidth]{figures/ch1/7smooth_transform.png}
-	\caption{The smooth transformation of $U$. The red point on the right it $F _{t_0}^t(x_0)$, i.e. the image of $x_0$ through the evolution operator.}
+	\caption{The smooth transformation of $U$. The red point on the right is $F _{t_0}^t(x_0)$, i.e., the image of $x_0$ under the evolution operator.}
+	\label{fig:chap1:7}
 \end{figure}
 It turns out $\left(F_{t_0}^{t}\right)^{-1} = F_{t}^{t_0}$ is also $C^r$, hence we have that $F_{t_0}^{t}$ is a diffeomorphism. 
 
-Now, how can we compute the Jacobian of the flow map $\frac{\partial x(t; t_0, x_0)}{ \partial x_0} = DF _{t_0}^{t}(x_0)$? We will use the IVP.
+Now, how can we compute the Jacobian of the flow map $\frac{\partial x(t; t_0, x_0)}{ \partial x_0} = DF _{t_0}^{t}(x_0)$? We start from the IVP and take the gradient (with respect to $x_0$) of both sides. On the left hand side we can exchange order of the time derivative and the gradient and on the right hand side we use the chain rule. We end up with the equation
 \begin{align}
 	\frac{d}{dt}\frac{\partial x}{\partial x_0} = D_x f(x(t; t_0, x_0), t) \frac{\partial x}{\partial x_0}.
 \end{align}
-The flow gradient satisfies the IVP
+This means, that the flow map gradient satisfies the IVP
 \begin{align}
 	\frac{d}{dt}\left[ DF_{t_0}^{t}(x_0)\right] &= D_{x}f(F_{t_0}^{t}(x_0), t) DF_{t_0}^{t}(x_0) \\
 	DF_{t_0}^{t_0}(x_0) &= I.
 \end{align}
-This gives us the equation of variations (linear, non-autonomous)
+This is called the equation of variations, which is a linear, non-autonomous ODE for the matrix $M = DF _{t_0}^{t}(x_0)$
 \begin{align}
 	\begin{dcases}
 		\dot{M} = D_x f(x(t; t_0, x_0)) M \\ M(t_0) = I.
