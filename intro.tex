@@ -11,25 +11,25 @@ First we shall introduce the most important characters in our following explorat
 \begin{definition}[Dynamical System (DS)]
 	A triple $(P,E, \mathcal{F})$, with
 	\begin{itemize}
-		\item $P :$ the phase space for the dynamical variable $\textbf{x} \in P$,
+		\item $P :$ the phase space for the dynamical variable ${x} \in P$,
 		\item  $E:$ base space of the evolutionary variable (e.g. time) $t \in E$,
 		\item $\mathcal{F}: $ the evolution rule (deterministic) which defines the transition from one state to the next.
 \end{itemize}
 \end{definition}
 The two main types of evolutionary variable spaces are
 \begin{enumerate}
-	\item Discrete dynamical systems (DDS) $t\in E=\mathbb{Z}$ with trajectory $\{ \textbf{x}_0,  \textbf{x}_1, \ldots\}$,
-	\item Continuous dynamical systems (CDS) $t\in E=\mathbb{R}$ with trajectory $\{ \textbf{x}_t\}_{t \in \mathbb{R}}$.
+	\item Discrete dynamical systems (DDS) $t\in E=\mathbb{Z}$ with trajectory $\{ {x}_0,  {x}_1, \ldots\}$,
+	\item Continuous dynamical systems (CDS) $t\in E=\mathbb{R}$ with trajectory $\{ {x}_t\}_{t \in \mathbb{R}}$.
 \end{enumerate}
 Corresponding to these there are various types of evolution rules
 \begin{enumerate}
 	\item In a DDS we have iterated mappings 
 	\begin{align}
-		\boxed{ \textbf{x}_{n+1} = F( \textbf{x}_n , n).}	
+		\boxed{ {x}_{n+1} = F( {x}_n , n).}	
 	\end{align}
 	If there is no explicit dependence on $n$, i.e. $\frac{\partial F}{\partial n} = 0$, then 
 	\begin{align}
-		\boxed{  \textbf{x}_{n+1} F( \textbf{x}_n) = F(F( \textbf{x}_{n-1})) = \underbrace{F \circ \ldots \circ F}_{n+1 \textrm{ times} }( \textbf{x}_0) = F^{n+1}( \textbf{x}_0).}
+		\boxed{  {x}_{n+1} F( {x}_n) = F(F( {x}_{n-1})) = \underbrace{F \circ \ldots \circ F}_{n+1 \textrm{ times} }( {x}_0) = F^{n+1}( {x}_0).}
 	\end{align}
 \begin{ex}[Cobweb diagram of a one-dimensional DDSs]
 	In such cases and in one-dimensional problems, a simple way to analyze the behavior of the system is the so-called \textit{cobweb} diagram. We may plot $x_{n+1}$ as a function of $x_{n}$, as demonstrated in Fig. \ref{fig:cobweb}. The image of an initial condition $x_0$ lies on the graph at $x_{n+1}=F(x_0)$. We can also compute the next iterate by horizontally projecting the point $(x_0, F(x_0))$ to the diagonal line defined by $x_{n+1}= x_n$. Following the porjection of this point to the horizontal axis $(x_n)$ we find the intersection with the graph at the point $(x_1, F(x_1))$. It follows that fixed points on the cobweb diagram, correspond to the intersection of the graph of $F$ with the diagonal line $x_{n+1}= x_n$.
@@ -43,20 +43,20 @@ Corresponding to these there are various types of evolution rules
 \item In a CDS we have a first order system of ordinary differential equations (ODE)
 	\begin{align}
 		\boxed{
-			\dot{ \textbf{x}} = f( \textbf{x},t)
+			\dot{ {x}} = f( {x},t)
 		}
 	\end{align}
-	for $ \textbf{x}\in P$ and $t \in E$. This yields the initial value problem (IVP):
+	for $ {x}\in P$ and $t \in E$. This yields the initial value problem (IVP):
 	\begin{align}
 		\begin{dcases}
-			\dot{ \textbf{x}} = f( \textbf{x},t) \\
-			 \textbf{x}(t_0) =  \textbf{x}_0
+			\dot{ {x}} = f( {x},t) \\
+			 {x}(t_0) =  {x}_0
 		\end{dcases}
 	\end{align}
-	Assuming there exists a unique solution $\varphi(t; t_0,  \textbf{x}_0)$ with $\dot{\varphi} = f(\phi,t)$ and $\varphi(t_0)=  \textbf{x}_0$, then the following flow map is well defined
+	Assuming there exists a unique solution $\varphi(t; t_0,  {x}_0)$ with $\dot{\varphi} = f(\phi,t)$ and $\varphi(t_0)=  {x}_0$, then the following flow map is well defined
 	\begin{align}
 		\boxed{
-		F_{t_0}^{t}( \textbf{x}_0) := \varphi(t; t_0,  \textbf{x}_0).}
+		F_{t_0}^{t}( {x}_0) := \varphi(t; t_0,  {x}_0).}
 	\end{align}
 
 Geometrically, this solution can be viewed as a trajectory in phase space (cf. Fig. \ref{fig:cds_traj}).
@@ -68,21 +68,21 @@ Geometrically, this solution can be viewed as a trajectory in phase space (cf. F
 	
 	Such an $F_{t_0}^{t}$ has the properties
 	\begin{enumerate}
-		\item $F_{t_0}^{t}$ is as smooth as $f( \textbf{x},t)$,
+		\item $F_{t_0}^{t}$ is as smooth as $f( {x},t)$,
 		\item $F_{t_0}^{t_0} = I$ and $F_{t_0}^{t_2} = F_{t_1}^{t_2} \circ F_{t_0}^{t_1}$,
 		\item $\left(F_{t_0}^{t}\right)^{-1} = F_{t}^{t_0}$ exists and is smooth.
 \end{enumerate}
 Properties (ii) and (iii) together are called the group property. A special case of continuous dynamical systems is the autonomous system.
 \begin{align}
-	\boxed{\dot{ \textbf{x}} = f( \textbf{x}).}	
+	\boxed{\dot{ {x}} = f( {x}).}	
 \end{align}
 The autonomy of a system implies
 \begin{align}
-	 \textbf{x}(s,t_0,  \textbf{x}_0) =  \textbf{x}(\underbrace{s-t_0}_{t}, 0,  \textbf{x}_0) \stackrel{!}{=}  \textbf{x}(t, \textbf{x}_0).
+	 {x}(s,t_0,  {x}_0) =  {x}(\underbrace{s-t_0}_{t}, 0,  {x}_0) \stackrel{!}{=}  {x}(t, {x}_0).
 \end{align}
 The induced flow map in this case is the one-parameter family of maps
 \begin{align}
-	\boxed{ F^{t} = F_{0}^{t}:  \textbf{x}_0 \mapsto  \textbf{x}(t, \textbf{x}_0).}
+	\boxed{ F^{t} = F_{0}^{t}:  {x}_0 \mapsto  {x}(t, {x}_0).}
 \end{align}
 \end{enumerate}
 \begin{ex}[Logisitic Equation]
@@ -106,7 +106,7 @@ Given the equation of motion
 \begin{align}
 	ml^2 \ddot{\varphi} = -mgl \sin(\varphi).
 \end{align}
-We let $ x_1 = \varphi$ and $ \textbf{x}_2 =\dot{\varphi}$ to transform into the first-order ODE form
+We let $ x_1 = \varphi$ and $ {x}_2 =\dot{\varphi}$ to transform into the first-order ODE form
 \begin{align}
 	\begin{dcases}
 	\dot{x}_1 = x_2 \\
@@ -115,11 +115,11 @@ We let $ x_1 = \varphi$ and $ \textbf{x}_2 =\dot{\varphi}$ to transform into the
 \end{align}
 Thus we have 
 \begin{align}
- \textbf{x} = 
+ {x} = 
 \begin{pmatrix}
 	x_1 \\ x_2
 \end{pmatrix}; \quad
-f( \textbf{x}) = 
+f( {x}) = 
 \begin{pmatrix}
 	x_2 \\ - \frac{g}{l}\sin(x_1)	
 \end{pmatrix}.

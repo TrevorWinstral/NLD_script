@@ -4,14 +4,14 @@
 Consider  
 \begin{align}
 \begin{dcases}
-	\dot{ \textbf{x}} = f( \textbf{x},t); &  \textbf{x} \in \mathbb{R}^{n} \\
-	 \textbf{x}(t_0) =  \textbf{x}_0
+	\dot{ {x}} = f( {x},t); &  {x} \in \mathbb{R}^{n} \\
+	 {x}(t_0) =  {x}_0
 \end{dcases}.
 \end{align}
 Does this initial value problem have a unique solution? We have the following theorems to help us answer that question.
 \begin{theorem}[Peano]
 	\label{thm:Peano}
-	If $f\in C^0$ near $( \textbf{x}_0, t_0)$, then there exists a local solution $\varphi(t)$, i.e., 
+	If $f\in C^0$ near $( {x}_0, t_0)$, then there exists a local solution $\varphi(t)$, i.e., 
 \begin{align}
 	\dot{\varphi}(t) = f(\varphi(t), t), \varphi(t_0) = x_0;\ \forall  t\in (t_0 - \epsilon, t_0 + \epsilon);\ 0<  \epsilon \ll 1.
 \end{align}
@@ -38,9 +38,9 @@ on the set $P = \{ x \in \mathbb{R}:\ x \geq x_0\}$. Therefore we have that $f\i
 	The solution is actually $x(t) = x_0 + \frac{g}{2}(t-t_0)^2$, however $x(t) = x_0$ is also a solution to the IVP, therefore we do not have a unique solution. Physically there exists a solution, but this IVP was derived from a heuristic energy-principle, not from Newton's laws, which are not equivalent.
 \end{ex}
 \begin{definition}
-A function $f$ is called locally Lipschitz around $ \textbf{x}_0$ if there exists an open set $U_{ \textbf{x}_0}$ and $L>0$ such that for all $ \textbf{x}, \textbf{y} \in U_{ \textbf{x}_0}$
+A function $f$ is called locally Lipschitz around $ {x}_0$ if there exists an open set $U_{ {x}_0}$ and $L>0$ such that for all $ {x}, {y} \in U_{ {x}_0}$
 \begin{align}
-	\boxed{\left \| f( \textbf{y},t) - f( \textbf{x},t)\right \| \leq L  \| \textbf{y} -  \textbf{x} \|.}
+	\boxed{\left \| f( {y},t) - f( {x},t)\right \| \leq L  \| {y} -  {x} \|.}
 \end{align}
 \end{definition}
 
@@ -57,8 +57,8 @@ A function $f$ is called locally Lipschitz around $ \textbf{x}_0$ if there exist
 \begin{theorem}[Picard]
 	Assume 
 	\begin{enumerate}
-		\item  $f \in C^0$ in $t$ near $(t_0,  \textbf{x}_0)$,
-		\item $f$ is locally Lipschitz in $ \textbf{x}$ near $(t_0,  \textbf{x}_0)$.
+		\item  $f \in C^0$ in $t$ near $(t_0,  {x}_0)$,
+		\item $f$ is locally Lipschitz in $ {x}$ near $(t_0,  {x}_0)$.
 	\end{enumerate}
 	Then there exists a unique local solution to the IVP. The proof can be found in Arnold's book on ODEs. 	
 \end{theorem}
@@ -92,15 +92,15 @@ If the solution is unique, we have a few facts that can be derived from the geom
 			\label{fig:automization}
 		\end{figure}
 		\begin{align}
-			 \textbf{X} = 
+			 {X} = 
 			\begin{pmatrix}
-				 \textbf{x} \\ t
+				 {x} \\ t
 			\end{pmatrix},\
-			F( \textbf{X}) = 
+			F( {X}) = 
 			\begin{pmatrix}
-				f( \textbf{x},t) \\ 1
+				f( {x},t) \\ 1
 			\end{pmatrix};\
-			\dot{ \textbf{X}} = F( \textbf{X}).
+			\dot{ {X}} = F( {X}).
 		\end{align}
 \end{enumerate}
 
@@ -132,7 +132,7 @@ To address this problem of local solutions not being able to be continued into g
 \begin{theorem}[Continuation of solution]
 	If a local solutions cannot be continued to a time $t=T$, then we must have
 	\begin{align}
-		\boxed{\lim_{t\to T}  \| \textbf{x}(t) \|= \infty.}
+		\boxed{\lim_{t\to T}  \| {x}(t) \|= \infty.}
 	\end{align}
 The proof can be found in Arnold's book on ODEs.	
 \end{theorem}
@@ -153,7 +153,7 @@ The RHS is smooth, therefore there exists a unique local solution to any IVP.
 \end{figure}
 The phase space is given by 
 \begin{align}
-	P = \{ \textbf{x}:\ x_1 \in S^1,\ x_2 \in \mathbb{R},\ x_3 \in S^1,\ x_4 \in \mathbb{R} \} = S^1 \times \mathbb{R}\times S^1 \times \mathbb{R}.
+	P = \{ {x}:\ x_1 \in S^1,\ x_2 \in \mathbb{R},\ x_3 \in S^1,\ x_4 \in \mathbb{R} \} = S^1 \times \mathbb{R}\times S^1 \times \mathbb{R}.
 \end{align}
 Where $S^1$ is the 1 dimensional sphere (i.e. a circle). With this space we know that $ \|x_1 \|$ and $ \|x_3 \|$ are bounded. Due to energy being conserved we have
 \begin{align}
@@ -163,31 +163,31 @@ Where $S^1$ is the 1 dimensional sphere (i.e. a circle). With this space we know
 Hence $ \|x_2 \|$ and $ \|x_4 \|$ are also bounded, therefore all solutions exist globally.
 \end{ex}
 \begin{definition}
-	A linear system is one such that for $ \textbf{x}\in \mathbb{R}^{n},\ \bm{A}(t) \in \mathbb{R}^{n\times n}$ and $\bm{A}\in C^0$ 
+	A linear system is one such that for $ {x}\in \mathbb{R}^{n},\ {A}(t) \in \mathbb{R}^{n\times n}$ and ${A}\in C^0$ 
 	\begin{align}
-		\boxed{\dot{ \textbf{x}} = \bm{A}(t)  \textbf{x}.}
+		\boxed{\dot{ {x}} = {A}(t)  {x}.}
 	\end{align}
 \end{definition}
 
 \begin{remark}[]
-	Note that $\bm{A} $ can be written as $\bm{A}=\bm{S} +\bm{\Omega }$ where $\bm{S} = \frac{1}{2}(\bm{A} + \bm{A}^T)$ is symmetric (i.e. $\bm{S} = \bm{S}^T)$ and $\bm{\Omega} = \frac{1}{2}(\bm{A} - \bm{A}^T)$ is skew symmetric (i.e. $\bm{\Omega} = -\bm{\Omega}^T$). Furthermore the eigenvalues of $\bm{S}$, $\lambda_i$, are all real and their respective eigenvectors, $e_i$, are orthogonal.
+	Note that ${A} $ can be written as ${A}={S} +{\Omega }$ where ${S} = \frac{1}{2}({A} + {A}^T)$ is symmetric (i.e. ${S} = {S}^T)$ and ${\Omega} = \frac{1}{2}({A} - {A}^T)$ is skew symmetric (i.e. ${\Omega} = -{\Omega}^T$). Furthermore the eigenvalues of ${S}$, $\lambda_i$, are all real and their respective eigenvectors, $e_i$, are orthogonal.
 \end{remark}
 
 \begin{ex}[Global existence in linear systems]
 \begin{align}
-	\langle  \textbf{x}, \dot{ \textbf{x}} \rangle &= \frac{1}{2} \frac{d}{dt}  \| \textbf{x}(t) \|^2 = \langle  \textbf{x}, \bm{A}(t)  \textbf{x}\rangle = \langle  \textbf{x}, (\bm{S}(t) + \bm{\Omega}(t) )  \textbf{x} \rangle \\
-				   &= \langle  \textbf{x}, S(t)  \textbf{x} \rangle + \underbrace{\langle  \textbf{x}, \bm{\Omega}(t)  \textbf{x} \rangle}_{=0} \stackrel{(*)}{=} 
+	\langle  {x}, \dot{ {x}} \rangle &= \frac{1}{2} \frac{d}{dt}  \| {x}(t) \|^2 = \langle  {x}, {A}(t)  {x}\rangle = \langle  {x}, ({S}(t) + {\Omega}(t) )  {x} \rangle \\
+				   &= \langle  {x}, S(t)  {x} \rangle + \underbrace{\langle  {x}, {\Omega}(t)  {x} \rangle}_{=0} \stackrel{(*)}{=} 
 				   \sum_{i=1}^{n} \lambda_i(t) x_i^2 \\
-				   &\leq \lambda_{ \textrm{max} }(t) \sum_{i=1}^{n} x_i^2 = \lambda _{ \textrm{max} }(t)  \|  \textbf{x}(t) \|^2.
+				   &\leq \lambda_{ \textrm{max} }(t) \sum_{i=1}^{n} x_i^2 = \lambda _{ \textrm{max} }(t)  \|  {x}(t) \|^2.
 \end{align}
-Where in $(*)$ we used that $ \textbf{x} = \sum_{i=1}^{n} x_i  \textbf{e}_i $ with $ \| \textbf{e}_i \|=1$ and $ \textbf{e}_i \perp  \textbf{e}_j$ for all $i \neq j$. Thus we get
+Where in $(*)$ we used that $ {x} = \sum_{i=1}^{n} x_i  {e}_i $ with $ \| {e}_i \|=1$ and $ {e}_i \perp  {e}_j$ for all $i \neq j$. Thus we get
 \begin{align}
-	\frac{\frac{1}{2}\frac{d}{dt} \| \textbf{x}(t) \|^2}{ \| \textbf{x}(t) \|^2} \leq \lambda_{ \textrm{max} }(t) 
-	\implies \int_{t_0}^{t} \log \left( \frac{ \| \textbf{x}(s) \|^2}{ \| \textbf{x}(t_0) \|^2} \right) ds \leq \lambda _{ \textrm{max} }(s) ds.
+	\frac{\frac{1}{2}\frac{d}{dt} \| {x}(t) \|^2}{ \| {x}(t) \|^2} \leq \lambda_{ \textrm{max} }(t) 
+	\implies \int_{t_0}^{t} \log \left( \frac{ \| {x}(s) \|^2}{ \| {x}(t_0) \|^2} \right) ds \leq \lambda _{ \textrm{max} }(s) ds.
 \end{align}
 By exponentiating both sides, we obtain
 \begin{align}
-\boxed{  \| \textbf{x}(t) \| \leq  \| \textbf{x}(t_0)  \| \exp\left(\int_{t_0}^{t} \lambda_{ \textrm{max} }(s)ds\right).}
+\boxed{  \| {x}(t) \| \leq  \| {x}(t_0)  \| \exp\left(\int_{t_0}^{t} \lambda_{ \textrm{max} }(s)ds\right).}
 \end{align}
 Therefore, by the continuation theorem, global solutions exist as long as $\int_{t_0}^{t} \lambda_{ \textrm{max} }(s) ds < \infty $.
 \end{ex}
@@ -196,14 +196,14 @@ Therefore, by the continuation theorem, global solutions exist as long as $\int_
 Given the IVP
 \begin{align}
 	\begin{dcases}
-	\dot{ \textbf{x}} = f( \textbf{x},t) \\  \textbf{x}(t_0) =  \textbf{x}_0.
+	\dot{ {x}} = f( {x},t) \\  {x}(t_0) =  {x}_0.
 	\end{dcases}
 \end{align}
-With $ \textbf{x} \in \mathbb{R}^{n}$ and $f\in C^r$ for some $r\geq 1$, we have the solution $ \textbf{x}(t; t_0,  \textbf{x}_0)$.
+With $ {x} \in \mathbb{R}^{n}$ and $f\in C^r$ for some $r\geq 1$, we have the solution $ {x}(t; t_0,  {x}_0)$.
 
 The dependence of the solution on initial data is of interest to us. This is due to us wanting the solution to be robust with respect to errors and uncertainties in the initial data. To address this, we have Theorem \ref{thm:robust_initial_conditions}.
 \begin{theorem}[]
-	If $f \in C^r$ for $r\geq 1$ then $ \textbf{x}(t; t_0,  \textbf{x}_0)$ is $C^r$ in $(t_0,  \textbf{x}_0)$. Proof in Arnold's ODE.
+	If $f \in C^r$ for $r\geq 1$ then $ {x}(t; t_0,  {x}_0)$ is $C^r$ in $(t_0,  {x}_0)$. Proof in Arnold's ODE.
 	\label{thm:robust_initial_conditions}
 \end{theorem}
 
@@ -211,55 +211,55 @@ The geometric meaning of this is that for $U \subset P \subset \mathbb{R}^{n}$ w
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\textwidth]{figures/ch1/7smooth_transform.png}
-	\caption{The smooth transformation of $U$. The red point on the right it $F _{t_0}^t( \textbf{x}_0)$, i.e. the image of $ \textbf{x}_0$ under the evolution operator.}
+	\caption{The smooth transformation of $U$. The red point on the right it $F _{t_0}^t( {x}_0)$, i.e. the image of $ {x}_0$ under the evolution operator.}
 	\label{fig:deformation}
 \end{figure}
 It turns out $\left(F_{t_0}^{t}\right)^{-1} = F_{t}^{t_0}$ is also $C^r$, hence we have that $F_{t_0}^{t}$ is a diffeomorphism. 
 
-Now, how can we compute the Jacobian of the flow map $\frac{\partial  \textbf{x}(t; t_0,  \textbf{x}_0)}{ \partial  \textbf{x}_0} = DF _{t_0}^{t}( \textbf{x}_0)$? We start from the IVP and take the gradient (with respect to $x_0$) of both sides. On the left hand side we can exchange order of the time derivative and the gradient and on teh right hand side we use the chain rule. We end up with the equation
+Now, how can we compute the Jacobian of the flow map $\frac{\partial  {x}(t; t_0,  {x}_0)}{ \partial  {x}_0} = DF _{t_0}^{t}( {x}_0)$? We start from the IVP and take the gradient (with respect to $x_0$) of both sides. On the left hand side we can exchange order of the time derivative and the gradient and on the right hand side we use the chain rule. We end up with the equation
 \begin{align}
-	\frac{d}{dt}\frac{\partial  \textbf{x}}{\partial  \textbf{x}_0} = D_ \textbf{x} f( \textbf{x}(t; t_0,  \textbf{x}_0), t) \frac{\partial  \textbf{x}}{\partial  \textbf{x}_0}.
+	\frac{d}{dt}\frac{\partial  {x}}{\partial  {x}_0} = D_ {x} f( {x}(t; t_0,  {x}_0), t) \frac{\partial  {x}}{\partial  {x}_0}; \quad \frac{\partial x}{\partial x_0} \in \mathbb{R}^{n \times n}.
 \end{align}
 This means, that the flow map gradient satisfies the IVP
 \begin{align}
-	\frac{d}{dt}\left[ DF_{t_0}^{t}( \textbf{x}_0)\right] &= D_{ \textbf{x}}f(F_{t_0}^{t}( \textbf{x}_0), t) DF_{t_0}^{t}( \textbf{x}_0) \\
-	DF_{t_0}^{t_0}( \textbf{x}_0) &= I.
+	\frac{d}{dt}\left[ DF_{t_0}^{t}( {x}_0)\right] &= D_{ {x}}f(F_{t_0}^{t}( {x}_0), t) DF_{t_0}^{t}( {x}_0) \\
+	DF_{t_0}^{t_0}( {x}_0) &= I.
 \end{align}
 This is called the equation of variations, which is a linear, non-autonomous ODE for the matrix $M = DF_{t_0}^{t}(x_0)$
 \begin{align}
 	\begin{dcases}
-		\dot{M} = D_ \textbf{x} f( \textbf{x}(t; t_0,  \textbf{x}_0)) M \\ M(t_0) = I.
+		\dot{M} = D_ {x} f( {x}(t; t_0,  {x}_0)) M \\ M(t_0) = I.
 	\end{dcases}
 \end{align}
 
 \begin{ex}[Locations of extreme deformation in phase space]
 	We define 
 	\begin{align}
-		 \bm{\xi}(t) &:= \tilde{ \bm{x}}(t) -  \bm{x}(t) =  \textbf{x}(t; t_0, \tilde{ \textbf{x}}_0) -  \textbf{x}(t; t_0,  \textbf{x}_0)\\
-		       &=  \textbf{x}(t; t_0,  \textbf{x}_0) + \frac{\partial  \textbf{x}}{\partial  \textbf{x}_0}(t; t_0,  \textbf{x}_0) \bm{\xi}_0 + \mathcal{O}( \| \bm{\xi}_0 \|^2) -  \textbf{x}(t; t_0,  \textbf{x}_0) \\
-		       &= DF_{t_0}^{t}( \textbf{x}_0) \bm{\xi}_0 + \mathcal{O}( \| \bm{\xi}_0 \|^2).
+		 {\xi}(t) &:= \tilde{ {x}}(t) -  {x}(t) =  {x}(t; t_0, \tilde{ {x}}_0) -  {x}(t; t_0,  {x}_0)\\
+		       &=  {x}(t; t_0,  {x}_0) + \frac{\partial  {x}}{\partial  {x}_0}(t; t_0,  {x}_0) {\xi}_0 + \mathcal{O}( \| {\xi}_0 \|^2) -  {x}(t; t_0,  {x}_0) \\
+		       &= DF_{t_0}^{t}( {x}_0) {\xi}_0 + \mathcal{O}( \| {\xi}_0 \|^2).
 	\end{align}
-	Where we used the Taylor expansion and assume the perturbation to $ \textbf{x}_0$ is small, i.e. $ \| \bm{\xi}_0 \| \ll 1$.
+	Where we used the Taylor expansion and assume the perturbation to $ {x}_0$ is small, i.e. $ \| {\xi}_0 \| \ll 1$.
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.5\textwidth]{figures/ch1/8dispersion.png}
 	\end{figure}
 	Therefore we have
 	\begin{align}
-		 \| \bm{\xi}(t) \|^2 &= \langle DF_{t_0}^{t}( \textbf{x}_0)  \bm{\xi}_0, DF_{t_0}^{t}( \textbf{x}_0) \bm{\xi}_0 \rangle + \mathcal{O}( \| \bm{\xi}_0 \|^3) \\
-			   &= \langle  \bm{\xi}_0, \underbrace{\left[ DF_{t_0}^{t}( \textbf{x}_0) \right]^T DF_{t_0}^{t}( \textbf{x}_0)}_{=: C_{t_0}^{t}( \textbf{x}_0)}  \bm{\xi}_0 \rangle + \mathcal{O}( \| \bm{\xi}_0 \|^3).
+		 \| {\xi}(t) \|^2 &= \langle DF_{t_0}^{t}( {x}_0)  {\xi}_0, DF_{t_0}^{t}( {x}_0) {\xi}_0 \rangle + \mathcal{O}( \| {\xi}_0 \|^3) \\
+			   &= \langle  {\xi}_0, \underbrace{\left[ DF_{t_0}^{t}( {x}_0) \right]^T DF_{t_0}^{t}( {x}_0)}_{=: C_{t_0}^{t}( {x}_0)}  {\xi}_0 \rangle + \mathcal{O}( \| {\xi}_0 \|^3).
 	\end{align}
-	$C_{t_0}^{t}( \textbf{x}_0)$ is known as the Cauchy-Green strain tensor (field of $n\times n$ symmetric matrices).
+	$C_{t_0}^{t}( {x}_0)$ is known as the Cauchy-Green strain tensor (field of $n\times n$ symmetric matrices).
 	Therefore the largest possible deformation is
 	\begin{align}
-		\max_{ \textbf{x}_0, \bm{\xi}_0} \frac{ \| \bm{\xi}(t) \|^2}{ \| \bm{\xi}_0 \|^2} = \max_{ \textbf{x}_0,  \bm{\xi}_0}\frac{\langle  \bm{\xi}_0, C_{t_0}^{t}( \textbf{x}_0)  \bm{\xi}_0 \rangle}{ \| \bm{\xi}_0 \|^2} = \max_{ \textbf{x}_0} \lambda_{n}( \textbf{x}_0).
+		\max_{ {x}_0, {\xi}_0} \frac{ \| {\xi}(t) \|^2}{ \| {\xi}_0 \|^2} = \max_{ {x}_0,  {\xi}_0}\frac{\langle  {\xi}_0, C_{t_0}^{t}( {x}_0)  {\xi}_0 \rangle}{ \| {\xi}_0 \|^2} = \max_{ {x}_0} \lambda_{n}( {x}_0).
 	\end{align}
-	Where we used that $C_{t_0}^{t}$ is positive definite in the last equality, and that $\lambda_n( \textbf{x}_0)$ is the largest eigenvalue of $C_{t_0}^{t}( \textbf{x}_0)$. Because we typically have exponential growth we introduce the following quantity.	
+	Where we used that $C_{t_0}^{t}$ is positive definite in the last equality, and that $\lambda_n( {x}_0)$ is the largest eigenvalue of $C_{t_0}^{t}( {x}_0)$. Because we typically have exponential growth we introduce the following quantity.	
 \end{ex}
 \begin{definition}
 	The finite-time Lyapunov exponent is defined as
 	\begin{align}
-		\boxed{ \textrm{FTLE} _{t_0}^{t}( \textbf{x}_0) := \frac{1}{2(t-t_0)} \log(\lambda_n( \textbf{x}_0)).}
+		\boxed{ \textrm{FTLE} _{t_0}^{t}( {x}_0) := \frac{1}{2(t-t_0)} \log(\lambda_n( {x}_0)).}
 	\end{align}
 \end{definition}
 The FTLE is a diagnostic quantity for Lagrangian Coherent Structures (LCS), i.e. influential surfaces governing the evolution in $P$.
@@ -276,11 +276,25 @@ The FTLE is a diagnostic quantity for Lagrangian Coherent Structures (LCS), i.e.
 	\label{fig:FTLE_surface}
 \end{figure}
 
-The ridges of $ \textrm{FTLE} _{t_0}^{t}$ are the repelling LCS, meanwhile the ridges of $ \textrm{FTLE} _{t}^{t_0}$ are the attracting LCS as depicted in Fig. \ref{fig:FTLE_ridges}. Now we are left with the problem of computing $F_{t_0}^{t}( \textbf{x}_0)$. Recall that analytically we start with $F_{t_0}^{t}( \textbf{x}_0)$ and use this to calculate $DF_{t_0}^{t}( \textbf{x}_0)$. From here we can find $C_{t_0}^{t}( \textbf{x}_0)$, giving us $\lambda_n( \textbf{x}_0)$ and thereby the FTLE. We now outline a process to compute the FTLE numerically.
+The ridges of $ \textrm{FTLE} _{t_0}^{t}$ are the repelling LCS, meanwhile the ridges of $ \textrm{FTLE} _{t}^{t_0}$ are the attracting LCS as depicted in Fig. \ref{fig:FTLE_ridges}. Now we are left with the problem of computing $F_{t_0}^{t}( {x}_0)$. Recall that analytically we start with $F_{t_0}^{t}( {x}_0)$ and use this to calculate $DF_{t_0}^{t}( {x}_0)$. From here we can find $C_{t_0}^{t}( {x}_0)$, giving us $\lambda_n( {x}_0)$ and thereby the FTLE. We now outline a process to compute the FTLE numerically.
 \begin{enumerate}
-	\item Define an initial $M\times N$ grid of initial data $ \textbf{x}_0(i,j) \in \mathbb{R}^2$.
-	\item Launch trajectories numerically from grid points to obtain a discrete approximation of $F_{t_0}^{t}( \textbf{x}_0)$ as $F_{t_0}^{t}( \textbf{x}_0(i,j))$.
-	\item Use finite differencing to approximate $DF_{t_0}^{t}( \textbf{x}_0(i,j)).$
+	\item Define an initial $M\times N$ grid of initial data $ {x}_0(i,j) \in \mathbb{R}^2$.
+	\item Launch trajectories numerically from grid points to obtain a discrete approximation of $F_{t_0}^{t}( {x}_0)$ as $F_{t_0}^{t}( {x}_0(i,j))$.
+	\item Use finite differencing to approximate 
+		\begin{align}
+			DF_{t_0}^{t}( {x}_0(i,j)) \approx
+		\begin{pmatrix}
+			\frac{x(t; t_0, x_0(i,j) + \delta e_1)_1 - x(t; t_0, x_{0}(i,j) - \delta e_1)_1}{2\delta} &
+			\ldots &
+			\frac{x(t; t_0, x_0(i,j) + \delta e_n)_1 - x(t; t_0, x_{0}(i,j) - \delta e_n)_1}{2\delta}\\
+			\vdots & & \vdots \\
+			\frac{x(t; t_0, x_0(i,j) + \delta e_1)_n - x(t; t_0, x_{0}(i,j) - \delta e_1)_n}{2\delta} &
+			\ldots &
+			\frac{x(t; t_0, x_0(i,j) + \delta e_n)_n - x(t; t_0, x_{0}(i,j) - \delta e_n)_n}{2\delta} 
+		\end{pmatrix}
+		.
+		\end{align}
+		
 \end{enumerate}
 This process then yields the surface we see in Fig. \ref{fig:FTLE_surface}.
 \begin{ex}[Calculating the FTLE for the double gyre]
@@ -288,7 +302,7 @@ This process then yields the surface we see in Fig. \ref{fig:FTLE_surface}.
 \begin{align}
 	\Psi(x,y) = -\sin(\pi x) \sin(\pi y).
 \end{align}
-	The components $(u,v)$ of the fluid velocity ($\bm{v} = (u,v)$) are obtained as partial derivatives of the stream function, according to the formulas
+	The components $(u,v)$ of the fluid velocity (${v} = (u,v)$) are obtained as partial derivatives of the stream function, according to the formulas
 	\begin{align}
 		\begin{dcases}
 			u = \frac{\partial \Psi}{\partial y} \\ 
@@ -347,12 +361,12 @@ This is an exact solution to Euler's equations.  We have an autonomous velocity 
 We now have the IVP
 \begin{align}
 	\begin{dcases}
-		\dot{ \textbf{x}} = f( \textbf{x},t, \bm{\mu} ) \\  \textbf{x}(t_0) =  \textbf{x}_0.
+		\dot{ {x}} = f( {x},t, {\mu} ) \\  {x}(t_0) =  {x}_0.
 	\end{dcases}
 \end{align}
-With $ \textbf{x} \in \mathbb{R}^{n},\ f\in C^r,\ r\geq 1$, therefore we have a solution $ \textbf{x}(t; t_0,  \textbf{x}_0,  \bm{\mu} ) \in C^r_{ \textbf{x}_0}$.
+With $ {x} \in \mathbb{R}^{n},\ f\in C^r,\ r\geq 1$, therefore we have a solution $ {x}(t; t_0,  {x}_0,  {\mu} ) \in C^r_{ {x}_0}$.
 
-We now examine how solutions depend $ \bm{\mu } $. This is critical as solutions should be robust to changes or uncertainties in the model.
+We now examine how solutions depend $ {\mu } $. This is critical as solutions should be robust to changes or uncertainties in the model.
 \begin{ex}[Perturbation Theory]
 Given a weakly nonlinear oscillator
 \begin{align}
@@ -365,30 +379,30 @@ The usual approach is to seek solutions by expanding from the known solution of 
 If $x_{\epsilon}(t)$ is in $C^{r}_{\epsilon}$, we have $\varphi_1(t) = \left.\frac{\partial x_\epsilon(t)}{\partial \epsilon}\right \|_{\epsilon =0}$ and $\varphi_2(t) = \left.\frac{\partial^2 x_\epsilon(t)}{\partial \epsilon^2}\right \|_{\epsilon =0}$
 \end{ex}
 
-Regularity with respect to the parameter $ \bm{\mu} $ actually follows from regularity with respect to the initial condition $ \textbf{x}_0$. We can use the following trick to extend the IVP with a dummy variable $ \bm{\mu} $ 
+Regularity with respect to the parameter $ {\mu} $ actually follows from regularity with respect to the initial condition $ {x}_0$. We can use the following trick to extend the IVP with a dummy variable $ {\mu} $ 
 \begin{align}
 	\begin{dcases}
-		\dot{ \textbf{x}} = f( \textbf{x},t,u) \\ \dot{ \bm{\mu}} = 0 \\  \textbf{x}(t_0) =  \textbf{x}_0 \\  \bm{\mu} (t_0) =  \bm{\mu}_0.
+		\dot{ {x}} = f( {x},t,u) \\ \dot{ {\mu}} = 0 \\  {x}(t_0) =  {x}_0 \\  {\mu} (t_0) =  {\mu}_0.
 	\end{dcases}
 \end{align}
-Thus with $ \textbf{X}=
+Thus with $ {X}=
 \begin{pmatrix}
-	 \textbf{x} \\  \bm{\mu} 
+	 {x} \\  {\mu} 
 \end{pmatrix}
-\in \mathbb{R}^{n+p}$ and $F( \textbf{X}_0) = 
+\in \mathbb{R}^{n+p}$ and $F( {X}_0) = 
 \begin{pmatrix}
 	f \\ 0
-\end{pmatrix};\  \textbf{X}_0 = 
+\end{pmatrix};\  {X}_0 = 
 \begin{pmatrix}
-	 \textbf{x}_0 \\  \bm{\mu} _0
+	 {x}_0 \\  {\mu} _0
 \end{pmatrix}
 $. We have the extended IVP
 \begin{align*}
 	\begin{dcases}
-		\dot{ \textbf{X}} = F( \textbf{X}) \\  \textbf{X}(t_0) =  \textbf{X}_0.
+		\dot{ {X}} = F( {X}) \\  {X}(t_0) =  {X}_0.
 	\end{dcases} \numberthis \label{eq:ivp_param}
 \end{align*}
-Applying the previous result on regularity with respect to $ \textbf{x}_0$ to \eqref{eq:ivp_param}, we have that $f\in C^{r}_{ \textbf{x}, \bm{\mu} }$ implies that $ \textbf{X}(t) \in C^{r}_{ \textbf{X}_0}$ in turn implying that $ \textbf{x}(t; t_0,  \textbf{x}_0, \cdot) \in C^{r}_{ \bm{\mu} }$. The solution is as smooth in parameters as the RHS of the dynamical system.
+Applying the previous result on regularity with respect to $ {x}_0$ to \eqref{eq:ivp_param}, we have that $f\in C^{r}_{ {x}, {\mu} }$ implies that $ {X}(t) \in C^{r}_{ {X}_0}$ in turn implying that $ {x}(t; t_0,  {x}_0, \cdot) \in C^{r}_{ {\mu} }$. The solution is as smooth in parameters as the RHS of the dynamical system.
 
 \begin{ex}[Periodic Oscillations of a nonlinear springboard]
 \begin{figure}[h!]
@@ -406,7 +420,7 @@ Given an elastic beam extending from a solid guide, we measure the deflection of
 		x(0) = a_0;\quad \dot{x}(0)=0.
 	\end{dcases}
 \end{align}
-So we have weak nonlinearity with no known explicit solution. Although weak, this nonlinearity is still significant, as can be seen in Fig. \ref{fig:effect_nonlin_springboard}. Rewriting this as a first order ODE ($x_1=x;\ x_2=\dot{x}$ ), and note that the RHS is $C^{r}_{ \textbf{x}, \bm{\mu} }$, therefore there exists a unique local solution that is also $C^{r}_{ \bm{\mu} }$. Thus the expansion is justified
+So we have weak nonlinearity with no known explicit solution. Although weak, this nonlinearity is still significant, as can be seen in Fig. \ref{fig:effect_nonlin_springboard}. Rewriting this as a first order ODE ($x_1=x;\ x_2=\dot{x}$ ), and note that the RHS is $C^{r}_{ {x}, {\mu} }$, therefore there exists a unique local solution that is also $C^{r}_{ {\mu} }$. Thus the expansion is justified
 \begin{align*}
 	x_{\epsilon}(t) = \varphi_0(t) + \epsilon \varphi_1(t) + \ldots + \mathcal{O}(\epsilon ^{r}) \numberthis \label{eq:starstar}.	
 \end{align*}
