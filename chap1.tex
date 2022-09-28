@@ -216,9 +216,9 @@ The geometric meaning of this is that for $U \subset P \subset \mathbb{R}^{n}$ w
 \end{figure}
 It turns out $\left(F_{t_0}^{t}\right)^{-1} = F_{t}^{t_0}$ is also $C^r$, hence we have that $F_{t_0}^{t}$ is a diffeomorphism. 
 
-Now, how can we compute the Jacobian of the flow map $\frac{\partial  \textbf{x}(t; t_0,  \textbf{x}_0)}{ \partial  \textbf{x}_0} = DF _{t_0}^{t}( \textbf{x}_0)$? We start from the IVP and take the gradient (with respect to $x_0$) of both sides. On the left hand side we can exchange order of the time derivative and the gradient and on teh right hand side we use the chain rule. We end up with the equation
+Now, how can we compute the Jacobian of the flow map $\frac{\partial  \textbf{x}(t; t_0,  \textbf{x}_0)}{ \partial  \textbf{x}_0} = DF _{t_0}^{t}( \textbf{x}_0)$? We start from the IVP and take the gradient (with respect to $x_0$) of both sides. On the left hand side we can exchange order of the time derivative and the gradient and on the right hand side we use the chain rule. We end up with the equation
 \begin{align}
-	\frac{d}{dt}\frac{\partial  \textbf{x}}{\partial  \textbf{x}_0} = D_ \textbf{x} f( \textbf{x}(t; t_0,  \textbf{x}_0), t) \frac{\partial  \textbf{x}}{\partial  \textbf{x}_0}.
+	\frac{d}{dt}\frac{\partial  \textbf{x}}{\partial  \textbf{x}_0} = D_ \textbf{x} f( \textbf{x}(t; t_0,  \textbf{x}_0), t) \frac{\partial  \textbf{x}}{\partial  \textbf{x}_0}; \quad \frac{\partial x}{\partial x_0} \in \mathbb{R}^{n \times n}.
 \end{align}
 This means, that the flow map gradient satisfies the IVP
 \begin{align}
