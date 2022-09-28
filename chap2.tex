@@ -520,5 +520,208 @@ Both of these are $C^{0}$ curves through ${p}$ and their existence follows from 
 	\label{fig:nonlin_pend_phase_p}
 \end{figure}
 
+Next we analyze the stability of the fixed point $q$. Once again, our first step is to linearize
+\begin{align}
+	\dot{y} = Ay, \quad A = Df(q) = 
+	\begin{pmatrix}
+		0 & 1 \\ -1 & 0
+	\end{pmatrix}
+	;\quad \det (A- \lambda I) = 0.
+\end{align}
+From here, we see that the determinate is equal $\lambda^2 + 1 = 0$, yielding the roots $\lambda_{1,2}= \pm i$, i.e. the fixed point is \underline{not} hyperbolic. Thus the linearized dynamics is inconclusive for the nonlinear system. In this particular case, $q$ turns out to be stable, which can be concluded from another approach (see later).
 \end{ex}
+
+In the last example, the importance of hyperbolicity was not eccentuated, as the latter fixed point had the same stability type in the linearized system as in the full system. This leads us to question if there are cases where the stability type between the linear and nonlinear systems is not preserved.
+
+\begin{ex}[Criticality of hyperbolicity in Hartman-Grobman]
+	Let the dynamical system be
+	\begin{align}
+		\dot{x} = ax^3,\quad x\in\mathbb{R},\quad a \neq 0.
+	\end{align}
+	This system has a fixed point at $x=0$, linearizing here gives
+	\begin{align}
+		A = \left. 3ax^2 \right|_{x=0} = 0 \implies \dot{y}= 0y = 0.
+	\end{align}
+	We have a single root $\lambda_1 = 0$, hence $x=0$ is a nonhyperbolic fixed point. Disregarding this fact, we may be inclined to conclude that $x=0$ is a stable fixed point. This is not the case, as we can see by analyzing the full nonlinear dynamics for $a>0$ as in Fig. \ref{fig:hyperbol_counter_ex}, where we observe that $x=0$ is an unstable fixed point.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/ch2/19hyperbol_counter_ex.png}
+	\caption{Nonlinear dynamics for the dynamical system $\dot{x}= ax^3$ with $a>0$.}
+	\label{fig:hyperbol_counter_ex}
+\end{figure}
+\end{ex}
+
+Now that we have understood how to use the Hartman-Grobman theorem, we would like to to be able to definitely conclude the stability type of a fixed point, once we have the linearization. To achieve this, we require a sufficient and necessary criterion for all of the eigenvalues of the linearized system to be left of the imaginary axis, i.e. $ \textrm{Re} \lambda_i < 0$ for all $i$.
+
+\begin{theorem}[Routh-Hurwitz]
+Consider the polynomial
+\begin{align}
+	a_n \lambda^{n} + a_{n-1} \lambda ^{n-1} + \ldots + a_{1} \lambda + a_0 = 0.
+\end{align}
+Without loss of generality assume $a_0 > 0$, if $a_0 <0$ then multiply by $-1$ and if $a_0=0$ then $\lambda =0$ is a root and therefore we cannot have asymptotic stability. Next, define the following series of subdeterminants
+\begin{align}
+	D_0 = a_0,\ D_1 =a_1,\ D_2 =
+	\begin{vmatrix}
+		a_1 & a_0 \\
+		a_3 & a_2
+	\end{vmatrix}
+	,\ D_3 = 
+	\begin{vmatrix}
+		a_1 & a_0 & 0 \\
+		a_3 & a_2 & a_1 \\
+		a_5 & a_4 & a_3
+	\end{vmatrix}
+	,\ldots,\ D_n =
+	\begin{vmatrix}
+		a_1 & a_0 & 0 & \ldots & 0 \\
+		a_3 & a_2 & a_1 & \ldots & 0 \\
+		\vdots & & & & \vdots \\
+		0 & \ldots &  a_n & a_{n-1} & a_{n-2}\\
+		0 &  \ldots  & & 0  & a_n
+	\end{vmatrix}
+\end{align}
+Then we have that if for all $i$ $D_i >0$ then $ \textrm{Re} \lambda_i <0$ for all $i$.
+
+Further if for each $i$ $ \textrm{Re} \lambda _i<0$ then $a_i >0$ for all $i$ (a necessary condition). Therefore if there exists an $a_k<0$, we know immediately that the fixed point cannot be asymptotically stable.
+\end{theorem}
+\begin{remark}[]
+For a given $i$ we construct the matrix used for calculating $D_i$ as follows: write the elements $a_1,\ldots,a_i$ along the diagonal, then in each row $k$ write the $a_j$ in descending index order such that $a_k$ aligns with the placement inherited from us writing along the diagonal. The leftover spaces are filled with zeros. 
+\end{remark}
+
+\begin{remark}[]
+	Adolf Hurwitz discovered this criterion independently of Edward Routh in 1895 while holding a chair at the ETH.
+\end{remark}
+
+\begin{ex}[Applying Routh-Hurwitz criterion]
+	Given the polynomial
+	\begin{align}
+		a_3 \lambda ^3 + a_2 \lambda^2 + a_1 \lambda + a_0 = 0.
+	\end{align}
+	The Routh-Hurwitz criterion is
+	\begin{align}
+	D_0 = a_0 > 0;\ D_1 = a_1 >0;\ D_2 = a_1 a_2 - a_0 a_3>0;\ D_3 = a_3 D_2 >0.	
+	\end{align}
+	Therefore 
+	\begin{align}
+		\boxed{
+			a_0> 0,\ a_1 > 0,\ a_1a_2 - a_0a_3 > 0,\ a_3 > 0
+		}
+	\end{align}
+	forms a sufficient and necessary condition for asymptotic stability ( $a_i >0$ follows from here) for $n=3$.
+\end{ex}
+
+\begin{ex}[Watt's centrifugal governer for steam engines]
+	Now we put together everything built until now in the example of Watt's centrifugal governor for steam engines. Originally this system was used in mills in the 1700's, then it was adapted by Watt to the steam engine in 1788. This adaptation has been credited as a major factor in the industrial revolution, and is a first example of feedback control. The system is outlined in Fig. \ref{fig:governor}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.34\textwidth]{figures/ch2/20governor.png}
+	\caption{Schematic for Watt's centrifugal governor. The yellow arrow points towards a damper on the rotation about the spindle (red arrow). On the right the blue arrow designates a steam engine cylinder.}
+	\label{fig:governor}
+\end{figure}
+The two masses (of mass $\frac{m}{2}$) rotate counter clockwise, and their position in radians is given by $\theta$, with their rotational velocity $\dot{\theta}$. The masses are attached by a rod of length $L$ and their deflection from the vertical position is measured by $\varphi$. Thus smaller $\dot{\theta}$ allowed for an increase in steam supply.
+
+Following changes in the design, the systems suddenly became unstable. To address this Vishnegradky studied the root caus in 1877. We first derive the equation of motion. For the governor we use the equation of motion for a rotation hoop (with viscous damping coefficient $b$).
+\begin{align}
+	mL^2 \ddot{\varphi} + bL^2\left( \frac{g}{L} - \dot{\theta}^2 \cos(\varphi) \right) \sin(\varphi) = 0;\quad b>0.
+\end{align}
+Next, let $\omega $ denote the angular velocity of the steam engine, i.e. with the gear ratio $n$ $\dot{\theta} = n \omega$. Then we find
+\begin{align}
+	m \dot{\varphi} = -b \dot{\varphi} - m \left( \frac{g}{L} - n^2 w^2 \cos(\varphi) \right) \sin(\varphi).
+\end{align}
+Now we derive the equation of motion for the steam engine. Denote the moment of inertia for the engine by $J$, the driving torque from the steam as $P_1$ and the constant load $P$, we obtain
+\begin{align}
+	J \dot{\omega } = P_1 - P.
+\end{align}
+In this case we have $P_1 = P^{*} + k\left( \cos(\varphi) - \cos(\varphi^{*}) \right)$ for the desired operation angle $\varphi^{*}$, the gain $k$, and $P*$ the value of $P$ at $\varphi^{*}$. Putting this together yields
+\begin{align}
+	J \dot{\omega } = k \cos(\varphi) - P_0;\quad P_0 = P - P^{*} + k \cos(\varphi^{*}).
+\end{align}
+Let $\dot{\varphi} = \Psi$ to transform into a three-dimensional set of equations (ODE)
+\begin{align}
+	\begin{dcases}
+		\dot{\varphi} = \Psi \\
+		\dot{\Psi} = -\frac{b}{m} \Psi - \left( \frac{g}{L} - n^2 \omega^2 \cos(\varphi) \right) \sin (\varphi) \\
+		\dot{\omega } = \frac{k}{J}\cos(\varphi) - \frac{P_0}{J}.
+	\end{dcases};
+	\quad x =
+	\begin{pmatrix}
+		\varphi \\ \Psi \\ \omega 
+	\end{pmatrix}
+	.
+\end{align}
+Then our operation point is the fixed point $x_0$ of this system
+\begin{align}
+	f(x_0) = 0 \implies \Psi_0 = 0;\ \omega_0^2 = \frac{g}{Ln^2 \cos(\varphi_0)};\ \cos(\varphi_0) = \frac{P_0}{k}.
+\end{align}
+If $\sin(\varphi_0)=0$, we have an unphysical state and ignore this case. We also nondimensionalize for simplification and set $L=1$. Now we linearize at the fixed point $x_0$ 
+\begin{align}
+	\dot{y} = Ay; \quad A = Df(x_0) =
+	\begin{pmatrix}
+		0 & 1 & 0 \\
+		n^2 \omega^2 \cos^2(\varphi_0) & -\frac{b}{m} & n^2 \omega _0 \sin^2(\varphi_0) \\
+		-\frac{k}{J}\sin(\varphi_0) & 0 & 0
+	\end{pmatrix}
+.	
+\end{align}
+With this we obtain the characteristic equation $\det(A - \lambda I )= 0$ 
+\begin{align}
+	\underbrace{1}_{a_3} \lambda^3 + \underbrace{\frac{b}{m}}_{a_2}\lambda ^2 + \underbrace{ \frac{g}{L}\frac{\sin^2(\varphi_0)}{\cos(\varphi_0)}}_{a_1} \lambda + \underbrace{ \frac{g}{L} \frac{2k \sin^2 (\varphi_0)}{J \omega_0}}_{a_0} = 0.
+\end{align}
+Now check the Routh-Hurwitz criterion for asymptotic stability:
+\begin{enumerate}
+	\item The necessary condition for $ \textrm{Re} \lambda _k<0$ for all $k$: $a_j> 0$ for all $ $ is fulfilled.
+	\item Next we check the subdeterminants
+\begin{align}
+	D_0 = a_0 = \frac{g}{L} \frac{2k \sin^2 (\varphi_0)}{J \omega_0}>0;\quad 
+	D_1 = a_1 = \frac{g}{L}\frac{\sin^2 (\varphi_0)}{\cos(\varphi_0)} >0; \\
+	D_2 = 
+	\begin{vmatrix}
+		a_1 & a_0 \\
+		a_3 & a_2
+	\end{vmatrix}
+	= a_1a_2 - a_0a_3 = \frac{b}{m}\frac{g}{L}\frac{\sin^2(\varphi_0)}{\cos(\varphi_0)} - \frac{g}{L}\frac{2k \sin^2(\varphi_0}{J \omega_0} >0;
+	D_3 > 0 \iff D_2 >0  \textrm{ and } a_3=1>0.
+\end{align}
+The only actual condition for $x_0$ to be asymptotically stable is $D_2 >0$ 
+\begin{align}
+	\frac{bJ}{m} > \frac{2 P_0}{\omega_0}.
+\end{align}
+From the equation for fixed points we know 
+\begin{align*}
+	P_0 \omega_0^2 = \frac{gk}{Ln^2} =  \textrm{const.} \numberthis \label{eq:watt1}\\
+	\omega_0^2 + 2P_0 \omega_0 \frac{d \omega_0}{d P_0} = 0.
+\end{align*}
+From the first equation, we realize that we must write $\omega_0 = \omega_0(P_0)$. To obtain the second equation, we derive the first equation \eqref{eq:watt1} with respect to $P_0$. Therefore we find 
+\begin{align}
+	\frac{d \omega_0}{d P_0} = - \frac{\omega_0}{2P_0}.
+\end{align}
+
+\end{enumerate}
+Next, define the \emph{non-uniformity of performance}
+\begin{align}
+	\nu = \left| \frac{d \omega_0}{d P_0} \right| = \frac{\omega_0}{2P_0}.
+\end{align}
+Then our criterion for asymptotic stability becomes
+\begin{align}
+\frac{bj}{m}\nu > 1.	
+\end{align}
+To conclude, the following have harmful effects of stability
+\begin{itemize}
+	\item Bigger engines which increase $m$ 
+	\item Better machining of surfaces decreasing $b$ 
+	\item Increased operating speed decreasing $J$ 
+	\item Versatility in operation decreasing $\nu $.
+\end{itemize}
+These have the effect of pushing the eigenvalues to the right in the complex plane (towards the imaginary axis) as is illustrated in Fig \ref{fig:watt_eigv}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch2/21watt_eigv}
+	\caption{Change in the eigenvector configuration as small modification are made to the Watt engine governor.}
+	\label{fig:watt_eigv}
+\end{figure}
+\end{ex}
+\newpage
+
+\section{Lyapunov's direct (second) method for stability}
+
 
