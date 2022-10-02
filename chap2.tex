@@ -607,7 +607,7 @@ For a given $i$ we construct the matrix used for calculating $D_i$ as follows: w
 			a_0> 0,\ a_1 > 0,\ a_1a_2 - a_0a_3 > 0,\ a_3 > 0
 		}
 	\end{align}
-	forms a sufficient and necessary condition for asymptotic stability ( $a_i >0$ follows from here) for $n=3$.
+	forms a sufficient and necessary condition for asymptotic stability ($a_i >0$ follows from here) for $n=3$.
 \end{ex}
 
 \begin{ex}[Watt's centrifugal governer for steam engines]
@@ -620,11 +620,11 @@ For a given $i$ we construct the matrix used for calculating $D_i$ as follows: w
 \end{figure}
 The two masses (of mass $\frac{m}{2}$) rotate counter clockwise, and their position in radians is given by $\theta$, with their rotational velocity $\dot{\theta}$. The masses are attached by a rod of length $L$ and their deflection from the vertical position is measured by $\varphi$. Thus smaller $\dot{\theta}$ allowed for an increase in steam supply.
 
-Following changes in the design, the systems suddenly became unstable. To address this Vishnegradky studied the root caus in 1877. We first derive the equation of motion. For the governor we use the equation of motion for a rotation hoop (with viscous damping coefficient $b$).
+Following changes in the design, the systems suddenly became unstable. To address this Vishnegradky studied the root cause in 1877. We first derive the equation of motion. For the governor we use the equation of motion for a rotating hoop (with viscous damping coefficient $b$).
 \begin{align}
 	mL^2 \ddot{\varphi} + bL^2\left( \frac{g}{L} - \dot{\theta}^2 \cos(\varphi) \right) \sin(\varphi) = 0;\quad b>0.
 \end{align}
-Next, let $\omega $ denote the angular velocity of the steam engine, i.e. with the gear ratio $n$ $\dot{\theta} = n \omega$. Then we find
+Next, let $\omega $ denote the angular velocity of the steam engine, i.e. with the gear ratio $n$ we have $\dot{\theta} = n \omega$. Then we find
 \begin{align}
 	m \dot{\varphi} = -b \dot{\varphi} - m \left( \frac{g}{L} - n^2 w^2 \cos(\varphi) \right) \sin(\varphi).
 \end{align}
@@ -672,15 +672,15 @@ Now check the Routh-Hurwitz criterion for asymptotic stability:
 	\item The necessary condition for $ \textrm{Re} \lambda _k<0$ for all $k$: $a_j> 0$ for all $ $ is fulfilled.
 	\item Next we check the subdeterminants
 \begin{align}
-	D_0 = a_0 = \frac{g}{L} \frac{2k \sin^2 (\varphi_0)}{J \omega_0}>0;\quad 
-	D_1 = a_1 = \frac{g}{L}\frac{\sin^2 (\varphi_0)}{\cos(\varphi_0)} >0; \\
-	D_2 = 
+	D_0 &= a_0 = \frac{g}{L} \frac{2k \sin^2 (\varphi_0)}{J \omega_0}>0;\quad \\ 
+	D_1 &= a_1 = \frac{g}{L}\frac{\sin^2 (\varphi_0)}{\cos(\varphi_0)} >0; \\
+	D_2 &= 
 	\begin{vmatrix}
 		a_1 & a_0 \\
 		a_3 & a_2
 	\end{vmatrix}
-	= a_1a_2 - a_0a_3 = \frac{b}{m}\frac{g}{L}\frac{\sin^2(\varphi_0)}{\cos(\varphi_0)} - \frac{g}{L}\frac{2k \sin^2(\varphi_0}{J \omega_0} >0;
-	D_3 > 0 \iff D_2 >0  \textrm{ and } a_3=1>0.
+	= a_1a_2 - a_0a_3 = \frac{b}{m}\frac{g}{L}\frac{\sin^2(\varphi_0)}{\cos(\varphi_0)} - \frac{g}{L}\frac{2k \sin^2(\varphi_0)}{J \omega_0} >0;\\
+	D_3 &> 0 \iff D_2 >0  \textrm{ and } a_3=1>0.
 \end{align}
 The only actual condition for $x_0$ to be asymptotically stable is $D_2 >0$ 
 \begin{align}
@@ -723,5 +723,240 @@ These have the effect of pushing the eigenvalues to the right in the complex pla
 \newpage
 
 \section{Lyapunov's direct (second) method for stability}
+Stability analysis via linearization is not perfect. For nonhyperbolic fixed points, the results obtained are inconclusive, and this case turns out to be somewhat common for conservative systems. Furthermore, linearization does not give any insight into the size of the domain of stability. Hence, a method for determining stability type without relying on linearization would be desirable. This is given to us by Lyapunov's direct method.
 
+\begin{theorem}[]
+	Consider
+	\begin{align}
+		\dot{x} = f(x), \quad f\in C^1,\quad x \in \mathbb{R}^{n};\quad f(x_0) = 0.
+	\end{align}
+	Assume that there exists a $V:U \to \mathbb{R}$ with $V\in C^1(U)$ for $U \subset \mathbb{R}^{n}$ open and $x_0 \in U$ which fulfills the following
+	\begin{enumerate}
+		\item $V$ is positive definite in a neighborhood of $x_0$, i.e.
+			\begin{align}
+				V(x_0)=0;\quad V(x)>0,\ x\in U\setminus \{ x_0 \}.
+			\end{align}
+		\item $\dot{V}$ is negative semidefinite in the same neighborhood, i.e.
+			\begin{align}
+				\dot{V} = \langle DV(x), f(x) \rangle \leq 0,\ x\in U.
+			\end{align}
+	\end{enumerate}
+	Then $x=x_0$ is Lyapunov stable. $V$ is called a Lyapunov function. The hypotheses are illustrated in Fig. \ref{fig:lyap_thm_assumptions}.	
+\end{theorem}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch2/23lyap_thm_assumptions1.png}
+	\hspace{0.05\textwidth}
+	\includegraphics[width=0.4\textwidth]{figures/ch2/23lyap_thm_assumptions2.png}
+	\caption{Geometric interpretation of hypotheses of Lyapunov's direct method. Left depicts hypothesis (i) and right hypothesis (ii). The angle between $DV(x)$ and $f(x)$ is at least $\frac{\pi }{2}$. In each image the blue $V(x)=$const. is a level surface diffeomorphic to $S^{n-1}$.}
+	\label{fig:lyap_thm_assumptions}
+\end{figure}
 
+\begin{proof}
+	First choose $\epsilon > 0$ and define $\alpha(\epsilon)= \min_{x\in \partial B_\epsilon(x_0)} V(x) > 0$. Note that $\alpha(\epsilon)$ is well defined as $V\in C^{0}(U)$ and $\partial B_{\epsilon}(x)$ is compact and spherical for small enough $\epsilon$. There exists an $x^{*} \in \partial B_{\epsilon}(x)$ with $V(x^{*}) = \alpha(\epsilon) \leq V(x)$ for all $x\in \delta B_{\epsilon}(x)$. Next, define $U_{\epsilon}= \{ x\in B_{\epsilon}:\ V(x) < \alpha(\epsilon)  \ $. Notice that $x_0 \in V_{\epsilon}$ implies that $V_\epsilon$ is nonempty and open, thus $U_{\epsilon} \cap \partial B_{\epsilon}(x_ 0) $ is empty. Therefore there exists a ball $B_{\delta(\epsilon)} \subset U_{\epsilon} $ which contains $x_0$. This can be seen in Fig. \ref{fig:lyap_pf_1}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.45\textwidth]{figures/ch2/22lyap_pf_1.png}
+	\caption{The constellation of $U$, $U_\epsilon$, $\partial B_{\epsilon}(x_0)$, and $B_{\delta(\epsilon)}(x_0)$ from the proof of Lyapunov's direct method. The red arrow points at $B_{\delta(\epsilon)}(x_0)$ and the yellow arrow at a connected component of $U_\epsilon$.}
+	\label{fig:lyap_pf_1}
+\end{figure}
+
+Now observe that for every $\tilde{x}_{0} \in B_{\delta(\epsilon)}(x_0)$ we have that $V(x(t; \tilde{x}_{0})) \leq V(\tilde{x}_{0} < \alpha(\epsilon))$. The first inequality comes from hypothesis (ii) and the second inequality from the definition of $U_{\epsilon}$. This implies that for $x(t; \tilde{x}_0) \in U_{\epsilon}$ we have that $x(t; \tilde{x}_{0})$ is not in $\partial B_{\epsilon}(x_0)$ for any $t> 0$. Hence $x(t; \tilde{x}_0)$ must stay in the ball $B_{\epsilon}(x_0)$ for all times $t> 0$ by continuity. 
+\end{proof}
+
+Now we present some extensions to this theorem for various different stability types. These are necessary, as the previous theorem only provides a sufficient condition for stability (it is not ``if and only if").
+
+\begin{theorem}[Theorem 2]
+Consider the same dynamical system. Assume
+\begin{enumerate}
+	\item $V(x)$ is positive definite,
+	\item $\dot{V}(x)$ is negative definite, i.e.
+		\begin{align}
+			\dot{V}(x) < 0,\ x\in U\setminus \{x_0\}.
+		\end{align}
+\end{enumerate}
+		Then $x=x_0$ is asymptotically stable. These hypotheses are illustrated in Fig. \ref{fig:lyap_thm2_hypos}.
+\end{theorem}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch2/24lyap_thm2_hypos.png}
+	\caption{The hypotheses of Theorem 2 illustrated, the key difference being that the arrows (denoting the flow of the dynamical system) cross the level surfaces of $V$ (blue rings) toward $x_0$.}
+	\label{fig:lyap_thm2_hypos}
+\end{figure}
+
+\begin{theorem}[Theorem 3]
+	Consider the same dynamical system. Assume
+	\begin{enumerate}
+		\item $V(x)$ is positive definite,
+		\item $\dot{V}(x)$ is positive definite, i.e.
+		\begin{align}
+			\dot{V}(x)>0,\ x\in U\setminus \{x_0\}.
+		\end{align}
+	\end{enumerate}
+	Then $x=x_0$ is unstable. The hypotheses are illustrated in Fig. \ref{fig:lyap_thm3_hypos}.
+\end{theorem}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch2/25lyap_thm3_hypos.png}
+	\caption{The hypotheses of Theorem 3 illustrated, the key difference being that the arrows (denoting the flow of the dynamical system) cross the level surfaces of $V$ (blue rings) away from $x_0$.}
+	\label{fig:lyap_thm3_hypos}
+\end{figure}
+
+\begin{theorem}[Theorem 4]
+	Consider the same dynamical system. Assume
+	\begin{enumerate}
+		\item $V(x)$ is indefinite, i.e. arbitrarily close to $x_0$ there exists $a,b \in U$ such that $V(x_1)\cdot V(x_2) <0$ (they have opposite signs and are not equal to 0) and $V(x_0)=0$.
+		\item $\dot{V}(x)$ is definite near $x_0$ (either positive or negative).
+	\end{enumerate}
+	Then $x=x_0$ is unstable. The geometry of the hypotheses are  illustrated in Fig. \ref{fig:lyap_thm4_hypos}.
+\end{theorem}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch2/26lyap_thm4_hypos.png}
+	\hspace{0.05\textwidth}
+	\includegraphics[width=0.4\textwidth]{figures/ch2/26lyap_thm4_hypos2.png}
+	\caption{The geometry of hypotheses (i) (left) and (ii) (right) for $\dot{V}$ positive definite of Theorem 4 illustrated. On the right level surfaces are designated by lines, blue corresponds to $V=0$, red $V>0$, and green $V<0$, which can be seen as the dotted lines of the same colors on the left.}
+	\label{fig:lyap_thm4_hypos}
+\end{figure}
+
+\begin{remark}[]
+	In each of these theorems, the definiteness of $ \dot{V}$ can be replaced by semidefiniteness, if we add that the set $\{x\in U:\ \dot{V}(x)=0 \}$ does not contain full trajectories of the system. This is called Krasovki's condition.
+\end{remark}
+
+Now we would like to put these theorems into practice with a few examples.
+\begin{ex}[Stability analysis of pendulum with Lyapunov's direct method]
+	Recall that using linearization, we were only able to conclude the stability type of one of the fixed points for the dynamical system of the pendulum
+	\begin{align}
+		ml^2 \ddot{\varphi} + mgl \sin(\varphi) =0.
+	\end{align}
+Now we will use the energy as a Lyapunov function, which is often very useful. The energy is given by
+\begin{align}
+	E(x) = E(\varphi, \dot{\varphi}) = \frac{1}{2}ml^2 \dot{\varphi}^2 + mgl(1-\cos(\varphi)) 
+	= \frac{1}{2}ml^2 \dot{x_2}^2 + mgl(1-\cos(x_1)).
+\end{align}
+Transforming the dynamical system to be an ODE we obtain
+\begin{align}
+	x = 
+	\begin{pmatrix}
+		x_1 \\x_2
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		\varphi \\ \dot{\varphi}
+	\end{pmatrix}
+	;\quad \dot{x}=
+	\begin{pmatrix}
+		\dot{x_1} \\ \dot{x_2}
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		x_2 \\ - \frac{g}{l} \sin (x_1)
+	\end{pmatrix}
+	=f(x).
+\end{align}
+At the fixed point $x=(0,0)$ we have
+\begin{align}
+	E(0,0) = 0;\quad DE(0,0) = 0I;\quad D^2(0,0) =
+\begin{pmatrix}
+	mgl & 0 \\
+	0 & ml^2
+\end{pmatrix}.
+\end{align}
+We have that the Hessian of $E$ is positive definite. Therefore $E$ is positive definite at $(0,0)$. Further we have
+\begin{align}
+	\dot{E}(x) = \langle DE(x), f(x) \rangle 
+	=
+	\begin{pmatrix}
+		mgl \sin(x_1) &  ml^2 x_2
+	\end{pmatrix}
+	\begin{pmatrix}
+		x_2 \\ - \frac{g}{l}\sin (x_1)			
+	\end{pmatrix}
+	= 0.	
+\end{align}
+Thus $\dot{E}$ is negative semidefinite. Now the hypotheses of Theorem 1 are fulfilled, hence $x=0$ is Lyapunov stable. Importantly, this is a nonlinear result and we never had to reduce the system!
+
+At the fixed point $x = (\pi, 0)^T$. We check again using the energy. First we realize that $E(\pi, 0)= 2mgl$, so we subtract the constant and redefine to obtain $\tilde{E}= E - 2mgl$. Now $E(\pi, 0) = 0$, although this is not essential. Next we calculate
+\begin{align}
+	DE(\pi, 0) = 0I;\quad D^2E(\pi, 0) = 
+	\begin{pmatrix}
+		-mgl & 0 \\
+		0 & ml^2
+	\end{pmatrix}
+	.
+\end{align}
+Hence, $E$ is indefinite at $(\pi, 0)$. Next we find $\dot{E}(\pi, 0) = 0$, i.e. $\dot{E}$ is semidefinite. We cannot apply Theorem 4, but linearization already concluded that $(\pi,0)$ was unstable.
+\end{ex}
+ \begin{ex}[Stability analysis of friction pendulum]
+	 We have a shaft which is constantly rotating with angular speed $\Omega $, around this shaft is a sleeve which rubs against the shaft creating friction. To this sleeve is a mass $m$ attached at distance $l$, the deflection of this mass from its standard position (directly below the shaft) is measured by $\varphi$. The gravity constant is given by $g$. This setup is depicted in Fig. \ref{fig:friction_pend}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch2/27friction_pend.png}
+	\caption{The setup of the friction pendulum.}
+	\label{fig:friction_pend}
+\end{figure}
+The torque driving the pendulum is given by 
+\begin{align}
+	T(\dot{\varphi}) = T_0  \textrm{sign}(\Omega - \dot{\varphi}).
+\end{align}
+From this we get the equation of motion
+\begin{align}
+	ml^2 \ddot{\varphi} + mgl \sin(\varphi) = T(\dot{\varphi}) = T_0  \textrm{sign} (\Omega - \dot{\varphi}).
+\end{align}
+By assuming $\Omega \gg 1$, i.e. very fast rotation of the shaft, we find that $T(\dot{\varphi}) = T_0$. Next we transform the coordinates in order to get an ODE
+\begin{align}
+	\begin{pmatrix}
+		x_1 \\ x_2
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		\varphi \\ \dot{\varphi}
+	\end{pmatrix}
+	;\quad
+	\begin{pmatrix}
+		\dot{x}_1 \\ \dot{x_2}
+	\end{pmatrix}
+=
+\begin{pmatrix}
+	x_2 \\ - \frac{g}{l} \sin(x_1) + \frac{T_0}{ml^2}
+\end{pmatrix}
+.
+\end{align}
+Thus the fixed point $x_0$ is at $(\overline{x}_1, \overline{x}_2)$ given by 
+\begin{align}
+	\sin(\overline{x}_1) = \frac{T_0}{mgl};\quad \overline{x}_2=0.
+\end{align}
+Since the system is forced, energy is not conserved and we cannot use it as a Lyapunov function. However, there may still exist a conserved quantity. Consider using
+\begin{align}
+	V(x) = \left[  \textrm{total energy at time } t \right] - \left[  \textrm{work put in between time } t  \textrm{ and } t_0 \right] = \left[ \textrm{initial energy} \right] =  \textrm{const.}  
+\end{align}
+This is a conserved quantity in all mechanics problems, but generally cannot be calculated without already knowing the trajectories. Here, however, we can
+\begin{align}
+	V(x) = \frac{1}{2} ml x_0^2 + mgl(1- \cos(x_1)) - T_0(\underbrace{x_1}_{\varphi(t)} - \underbrace{x_1(0)}_{\varphi(0)}).
+\end{align}
+We can drop the constant term $T_0 x_1(0)$. Now verify that $V$ is indeed constant
+\begin{align}
+	\dot{V}(x) = \frac{\partial V}{\partial x_1} \dot{x}_1 + \frac{\partial V}{\partial x_2} \dot{x}_2 = \left( mgl \sin(x_1) - T_0\right) x_2 + ml^2x_2 \left( - \frac{g}{l}\sin(x_1) + \frac{T_0}{ml^2} \right) = 0.
+\end{align}
+Hence $\dot{V}(x)$ is semidefinite, and may be used to conclude stability or instability. We must check the Lyapunov conditions for $V(x)$ 
+\begin{align}
+	DV(x_0) &= 
+\begin{pmatrix}
+	mgl \sin(\overline{x}_1) - T_0 & ml^2 \overline{x}_2
+\end{pmatrix}
+=
+\begin{pmatrix}
+	0& 0
+\end{pmatrix}
+\\
+D^2V(x_0) &= 
+\begin{pmatrix}
+	mgl \cos(\overline{x}_1) & 0 \\
+	0 & ml^2
+\end{pmatrix}.
+\end{align}
+The Hessian is positive definite as long as $\overline{x}_1 \in \left(-\frac{\pi }{2}, \frac{\pi }{2}\right)$, and all fixed points in this region are stable by Theorem 1. The Hessian is indefinite if $\overline{x}_1 \not \in \left[-\frac{\pi }{2}, \frac{\pi }{2}\right]$, but in this case Theorem 4 is not applicable as $\dot{V}$ is not definite.
+ \end{ex}
+ 
