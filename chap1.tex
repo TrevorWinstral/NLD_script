@@ -66,7 +66,7 @@ A function $f$ is called locally Lipschitz around $ {x}_0$ if there exists an op
 \begin{ex}[Free falling mass revisted]
 	We check if $f$ is Lipschitz.
 	\begin{align}
-		\frac{ \| f(x) - f(x_0)  \|}{ \|x-x_0 \|} = \frac{\sqrt{2g}}{\sqrt{ \|x-x_0 \|}} \geq  L  \| x - x_0 \|.
+		\frac{ | f(x) - f(x_0)  |}{ |x-x_0 |} = \frac{\sqrt{2g}}{\sqrt{ |x-x_0 |}} \geq  L  | x - x_0 |.
 	\end{align}
 Thus $f$ is not Lipschitz near $x_0$.	
 \end{ex}
@@ -203,7 +203,7 @@ With $ {x} \in \mathbb{R}^{n}$ and $f\in C^r$ for some $r\geq 1$, we have the so
 
 The dependence of the solution on initial data is of interest to us. This is due to us wanting the solution to be robust with respect to errors and uncertainties in the initial data. To address this, we have Theorem \ref{thm:robust_initial_conditions}.
 \begin{theorem}[]
-	If $f \in C^r$ for $r\geq 1$ then $ {x}(t; t_0,  {x}_0)$ is $C^r$ in $(t_0,  {x}_0)$. Proof in Arnold's ODE.
+	If $f \in C^r$ for $r\geq 1$ then $ {x}(t; t_0,  {x}_0)$ is $C^r$ in $(t_0,  {x}_0)$. Proof in Arnold's book on ODEs.
 	\label{thm:robust_initial_conditions}
 \end{theorem}
 
@@ -216,10 +216,43 @@ The geometric meaning of this is that for $U \subset P \subset \mathbb{R}^{n}$ w
 \end{figure}
 It turns out $\left(F_{t_0}^{t}\right)^{-1} = F_{t}^{t_0}$ is also $C^r$, hence we have that $F_{t_0}^{t}$ is a diffeomorphism. 
 
+\begin{remark}[The total differential]
+	We denote the total differential of a function $f:\mathbb{R}^{n}\to \mathbb{R}^{m}$ as $Df$. The total differential is a function which takes a location $x$ as the argument and returns the derivative of $f$ at the point $x$, i.e. the Jacobian. This implies evaluating the Jacobian at the point $x$. For a function  $f(x,y)= f(x_1, \ldots, x_n, y_1, \ldots, y_m):\mathbb{R}^{n+m} \to \mathbb{R}^{k}$ the total differential $Df$ means with respect to all of the variables and the total differential with respect to $x$, written $D_xf$ is the total differential only taken with respect to the $x$ variables. Thus for $f(x,y): \mathbb{R}^{n+m} \to \mathbb{R}$ we have the total differential
+	\begin{align}
+		Df &= 
+		\begin{pmatrix}
+			\frac{\partial f_1}{\partial x_1} & \ldots & \frac{\partial f_1}{\partial x_n} &\frac{\partial f_1}{\partial y_1} &\ldots &\frac{\partial f_1}{\partial y_m}\\
+			\vdots & & \vdots & \vdots && \vdots \\
+			\frac{\partial f_k}{\partial x_1} & \ldots & \frac{\partial f_k}{\partial x_n} &\frac{\partial f_k}{\partial y_1} & \ldots &\frac{\partial f_k}{\partial y_m} 
+		\end{pmatrix};\\[8pt]
+		Df(x_0, y_0) &= 
+		\begin{pmatrix}
+			\frac{\partial f_1}{\partial x_1}(x_0,y_0) & \ldots & \frac{\partial f_1}{\partial x_n} (x_0,y_0) &\frac{\partial f_1}{\partial y_1}(x_0,y_0)  &\ldots &\frac{\partial f_1}{\partial y_m}(x_0,y_0) \\
+			\vdots & & \vdots & \vdots && \vdots \\
+			\frac{\partial f_k}{\partial x_1}(x_0,y_0)  & \ldots & \frac{\partial f_k}{\partial x_n}(x_0,y_0)  &\frac{\partial f_k}{\partial y_1}(x_0,y_0)  & \ldots &\frac{\partial f_k}{\partial y_m}(x_0,y_0)  
+		\end{pmatrix},
+	\end{align}
+and the total differential with respect to $x$
+\begin{align}
+		D_x f = 
+		\begin{pmatrix}
+			\frac{\partial f_1}{\partial x_1} & \ldots & \frac{\partial f_1}{\partial x_n} \\
+			\vdots & & \vdots \\
+			\frac{\partial f_k}{\partial x_1} & \ldots & \frac{\partial f_k}{\partial x_n} 
+		\end{pmatrix};\quad
+		D_xf(x_0, y_0) = 
+		\begin{pmatrix}
+			\frac{\partial f_1}{\partial x_1}(x_0,y_0) & \ldots & \frac{\partial f_1}{\partial x_n} (x_0,y_0)\\
+			\vdots & & \vdots \\
+			\frac{\partial f_k}{\partial x_1}(x_0,y_0)  & \ldots & \frac{\partial f_k}{\partial x_n}(x_0,y_0) 
+		\end{pmatrix}.
+\end{align}
+\end{remark}
 Now, how can we compute the Jacobian of the flow map $\frac{\partial  {x}(t; t_0,  {x}_0)}{ \partial  {x}_0} = DF _{t_0}^{t}( {x}_0)$? We start from the IVP and take the gradient (with respect to $x_0$) of both sides. On the left hand side we can exchange order of the time derivative and the gradient and on the right hand side we use the chain rule. We end up with the equation
 \begin{align}
 	\frac{d}{dt}\frac{\partial  {x}}{\partial  {x}_0} = D_ {x} f( {x}(t; t_0,  {x}_0), t) \frac{\partial  {x}}{\partial  {x}_0}; \quad \frac{\partial x}{\partial x_0} \in \mathbb{R}^{n \times n}.
 \end{align}
+
 This means, that the flow map gradient satisfies the IVP
 \begin{align}
 	\frac{d}{dt}\left[ DF_{t_0}^{t}( {x}_0)\right] &= D_{ {x}}f(F_{t_0}^{t}( {x}_0), t) DF_{t_0}^{t}( {x}_0) \\
@@ -249,7 +282,7 @@ This is called the equation of variations, which is a linear, non-autonomous ODE
 		 \| {\xi}(t) \|^2 &= \langle DF_{t_0}^{t}( {x}_0)  {\xi}_0, DF_{t_0}^{t}( {x}_0) {\xi}_0 \rangle + \mathcal{O}( \| {\xi}_0 \|^3) \\
 			   &= \langle  {\xi}_0, \underbrace{\left[ DF_{t_0}^{t}( {x}_0) \right]^T DF_{t_0}^{t}( {x}_0)}_{=: C_{t_0}^{t}( {x}_0)}  {\xi}_0 \rangle + \mathcal{O}( \| {\xi}_0 \|^3).
 	\end{align}
-	$C_{t_0}^{t}( {x}_0)$ is known as the Cauchy-Green strain tensor (field of $n\times n$ symmetric matrices).
+	$C_{t_0}^{t}( {x}_0)$ is known as the Cauchy-Green strain tensor. It is positive definite and symmetric and due to its dependence on the initial condition, $C_{t_0}^{t}(x_0)$ actually defines a \emph{tensor field}.
 	Therefore the largest possible deformation is
 	\begin{align}
 		\max_{ {x}_0, {\xi}_0} \frac{ \| {\xi}(t) \|^2}{ \| {\xi}_0 \|^2} = \max_{ {x}_0,  {\xi}_0}\frac{\langle  {\xi}_0, C_{t_0}^{t}( {x}_0)  {\xi}_0 \rangle}{ \| {\xi}_0 \|^2} = \max_{ {x}_0} \lambda_{n}( {x}_0).
@@ -259,7 +292,7 @@ This is called the equation of variations, which is a linear, non-autonomous ODE
 \begin{definition}
 	The finite-time Lyapunov exponent is defined as
 	\begin{align}
-		\boxed{ \textrm{FTLE} _{t_0}^{t}( {x}_0) := \frac{1}{2(t-t_0)} \log(\lambda_n( {x}_0)).}
+		\boxed{ \textrm{FTLE} _{t_0}^{t}( {x}_0) := \frac{1}{2|t-t_0|} \log(\lambda_n( {x}_0)).}
 	\end{align}
 \end{definition}
 The FTLE is a diagnostic quantity for Lagrangian Coherent Structures (LCS), i.e. influential surfaces governing the evolution in $P$.
@@ -331,7 +364,6 @@ So we have that trajectories are level curves of $\Psi(x,y)$. We can then derive
 	\includegraphics[width=0.5\textwidth]{figures/ch1/11contour_phase.png}
 	\hspace{0.03\textwidth}
 	\includegraphics[width=0.45\textwidth]{figures/ch1/12ftle_exploration.png}
-	\caption{}
 	\includegraphics[width=0.5\textwidth]{figures/ch1/13ftle_final.png}
 	\caption{Top left: The analytic phase plot. Top right: The exploration done to calculate FTLE. Bottom: The FTLE plot. Figures here were taken from Shawn Shadden of UC Berkeley.} \label{fig:FTLE_double_gyre}
 \end{figure}
@@ -376,7 +408,7 @@ The usual approach is to seek solutions by expanding from the known solution of 
 \begin{align}
 	x_{\epsilon}(t) = \varphi_0(t) + \epsilon \varphi_1(t) + \epsilon^2 \varphi_2(t) + \ldots + \mathcal{O}(\epsilon^r).
 \end{align}
-If $x_{\epsilon}(t)$ is in $C^{r}_{\epsilon}$, we have $\varphi_1(t) = \left.\frac{\partial x_\epsilon(t)}{\partial \epsilon}\right \|_{\epsilon =0}$ and $\varphi_2(t) = \left.\frac{\partial^2 x_\epsilon(t)}{\partial \epsilon^2}\right \|_{\epsilon =0}$
+If $x_{\epsilon}(t)$ is in $C^{r}_{\epsilon}$, we have $\varphi_1(t) = \left.\frac{\partial x_\epsilon(t)}{\partial \epsilon}\right |_{\epsilon =0}$ and $\varphi_2(t) = \left.\frac{\partial^2 x_\epsilon(t)}{\partial \epsilon^2}\right |_{\epsilon =0}$
 \end{ex}
 
 Regularity with respect to the parameter $ {\mu} $ actually follows from regularity with respect to the initial condition $ {x}_0$. We can use the following trick to extend the IVP with a dummy variable $ {\mu} $ 
@@ -424,13 +456,13 @@ So we have weak nonlinearity with no known explicit solution. Although weak, thi
 \begin{align*}
 	x_{\epsilon}(t) = \varphi_0(t) + \epsilon \varphi_1(t) + \ldots + \mathcal{O}(\epsilon ^{r}) \numberthis \label{eq:starstar}.	
 \end{align*}
-We can see that for $\epsilon=0$ we find that $\varphi_0(t) = a_0 \cos(t)$.
+We can see, by substitution, that for $\epsilon=0$ we find that $\varphi_0(t) = a_0 \cos(t)$.
 
 Now we look specifically for $T$-periodic solutions, as we would expect such a solution physically, therefore we have
 \begin{align}
 	\varphi_i(t) = \varphi_i(t+T).
 \end{align}
-The period $T$ still has to be determined. Plugging this Ansatz to \eqref{eq:starstar} into the IVP to get
+The period $T$ still has to be determined. Plugging this power series into \eqref{eq:starstar} into the IVP to get
 \begin{align*}
 	&\mathcal{O}(1):\quad \ddot{\varphi}_0 + \varphi_0 &&= 0 \\
 	&\mathcal{O}(\epsilon):\quad \ddot{\varphi}_1 + \underbrace{\varphi_1}_{\omega = 1} &&= -\varphi_0^{3} = -a_0^{3}\cos ^{3}(t) = -a_0^{3}\left[ \frac{1}{4} \cos (3t) + \frac{3}{4} \underbrace{ \cos(t)}_{ \textrm{resonance} }\right] \numberthis \label{eq:3star}.
@@ -445,7 +477,7 @@ This holds as $\varphi_0 = a_0 \cos(t)$ already solves the IVP. The general solu
 		     &= \underbrace{A \cos(t) + B \sin (t)}_{ \textrm{TBD from initial conditions} } + 
 		     \underbrace{ C \cos(3t) + D t \cos(t) + Et\sin(t) }_{\textrm{TBD from \eqref{eq:3star}}}.
 \end{align}
-Observe due to a resonance between the natural frequency of the oscillator and the forcing secular terms, $t \cos(t)$ and $t \sin(t)$ appear. Thus it cannot be periodic, so our Ansatz already fails for $i=1$. We conclude that no solution of this type exists. Our Ansatz was too restrictive and $T$ should depend on $\epsilon$.
+Observe that due to a resonance between the natural frequency of the oscillator and the forcing secular terms, $t \cos(t)$ and $t \sin(t)$ appear. Thus it cannot be periodic, so our Ansatz already fails for $i=1$. We conclude that no solution of this type exists. Our Ansatz was too restrictive and $T$ should depend on $\epsilon$.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.3\textwidth]{figures/ch1/18failed_ansatz.png}
@@ -471,7 +503,7 @@ We then rescale time according to $\tau = \omega(\epsilon) t$ to find
 	\frac{d}{d\tau} = \frac{1}{\omega(\epsilon)} \frac{d}{dt} \implies 
 	\boxed{[\omega(\epsilon)]^2 x'' + x + \epsilon x^3 = 0.}
 \end{align}
-Where we have taken $x'$ to represent $\frac{dx}{d\tau}$. Plugging in our new Ansatz into the rescaled ODE yields
+Where we have taken $x'$ to represent $\frac{dx}{d\tau}$. Plugging our expression into the rescaled ODE yields
 \begin{align}
 	\left( 1 + 2 \epsilon \omega_1 + \mathcal{O}(\epsilon^2) \right) \left[ \varphi_0'' + \epsilon \varphi'' + \mathcal{O}(\epsilon^2) \right] + \left[ \varphi_0 + \epsilon \varphi_1 + \mathcal{O}(\epsilon^2) \right] + \epsilon \left[\varphi_0^{3} + \mathcal{O}(\epsilon) \right] = 0.
 \end{align}

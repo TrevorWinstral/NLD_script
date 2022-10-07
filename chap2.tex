@@ -10,20 +10,25 @@ Assume that $ {x}=0$ is a fixed point, i.e. $f({0},t) = {0}$ for all $t \in \mat
 	\dot{\tilde{ {x}}} = \dot{ {x}} = f( {x}_0 + \tilde{ {x}}, t) = \tilde{f}(\tilde{ {x}}, t).
 \end{align}
 We would like to understand how the dynamical system behaves near its equilibrium state. To this end we introduce the following definitions.
-\begin{definition}[Lyapupnov Stability]
-	$ {x}={0}$ is stable if for all $t_0$, for all $\epsilon>0$ small enough, there exists a $\delta=\delta(t_0, \epsilon)$, such that for all $ {x}_0 \in \mathbb{R}^{n}$ with $\| {x}_0\| \leq \delta$, we have 
+\begin{definition}[Lyapupnov Stability] \label{def:stable}
+	The fixed point $ {x}={0}$ is stable if for all $t_0$, for all $\epsilon>0$ small enough, there exists a $\delta=\delta(t_0, \epsilon)$, such that for all $ {x}_0 \in \mathbb{R}^{n}$ with $\| {x}_0\| \leq \delta$, we have 
 	\begin{align}
-		\left \|  {x}(t;t_0,  {x}_0) \right\| \leq \epsilon \quad \forall t \geq t_0.
+		\boxed{
+			\left \|  {x}(t;t_0,  {x}_0) \right\| \leq \epsilon \quad \forall t \geq t_0.
+		}
 	\end{align}
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\textwidth]{figures/ch2/1lyapunov_stability.png}
-	\caption{An example such a $\delta$, $B(r)$ represents the $n$-dimensional ball of radius $r$.}
+	\caption{An example such a $\delta$ for a given Lyapunov stable fixed point.}
 	\label{fig:lyapunov_stability_def}
 \end{figure}
 \end{definition}
+\begin{remark}[N-dimensional ball]
+	When writing $B(r)$ we refer to the ball of radius $r$ in $\mathbb{R}^{n}$, i.e. the set $\{x:\ \|x\| < r\}$.
+\end{remark}
 
-\begin{ex}[Stability of lower  equilibrium of the pendulum]
+\begin{ex}[Stability of the lower equilibrium of the pendulum]
 	Recall the equation of motion of the pendulum $\ddot{\varphi} + \sin(\varphi) = 0$, that we transform into a first order ODE by setting $x_1 = \varphi$ and $x_2 = \dot{\varphi}$ to obtain
 	\begin{align}
 		\begin{dcases}
@@ -31,7 +36,7 @@ We would like to understand how the dynamical system behaves near its equilibriu
 	\dot{x}_2 = -\sin(x_1).
 		\end{dcases}
 	\end{align}
-	For small $\epsilon>0$, this geometric procedure gives a $\delta(\epsilon)>0$ such that the definition of stability is satisfied for $ {x}=0$. We can see in Fig. \ref{fig:pend_lower_stability}  that for any point chosen within the blue circle, it's trajectory remains within the red circle for all time (cf. Fig. \ref{fig:lyapunov_stability_def}. Therefore $ {x}=0$ is (Lyapunov) stable.
+	For small $\epsilon>0$, this geometric procedure gives a $\delta(\epsilon)>0$ such that the definition of stability is satisfied for $ {x}=0$. We can see in Fig. \ref{fig:pend_lower_stability} that for any initial point chosen within the blue circle, it's trajectory remains within the red circle for all time (cf. Fig. \ref{fig:lyapunov_stability_def}). Therefore $ {x}=0$ is (Lyapunov) stable.
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.5\textwidth]{figures/ch2/2pendulum_stability.png}
@@ -57,7 +62,7 @@ We would like to understand how the dynamical system behaves near its equilibriu
 \end{definition}
 
 \begin{definition}[Domain of attraction] 
-	The \emph{domain of attraction} is the set of all $ {x}_0$'s for which
+	The \emph{domain of attraction} of the fixed point $x=0$ is the set of all $ {x}_0$'s for which
 	\begin{align}
 		\boxed{\lim_{t\to \infty } {x}(t;t_0,  {x}_0)=0. }	
 	\end{align}
@@ -86,9 +91,11 @@ Further we have the rate of energy change
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.35\textwidth]{figures/ch2/4damped_pendulum.png}
+	\caption{An example of a trajectory which loses energy, in this case due to damping.}
+	\label{fig:losing_energy_pend}
 \end{figure}
 
-Therefore, along trajectories energy decreases monotonically. By the $C^0$ dependence of the trajectory on initial conditions, the trajectories remain close to the undamped oscillations for small $c>0$. We conclude that trajectories are inward spirals for a small dissapation $c>0$ small. The fixed point $ {x}=0$ is still Lyapunov stable, but asymptotic stability does not yet follow (is the limit of $ {x}(t)$ equal to 0?).
+Therefore, along trajectories energy decreases monotonically as shown in Fig \ref{fig:losing_energy_pend}. By the $C^0$ dependence of the trajectory on initial conditions, the trajectories remain close to the undamped oscillations for small $c>0$. We conclude that trajectories are inward spirals for a small dissapation $c>0$. The fixed point $ {x}=0$ is still Lyapunov stable, but asymptotic stability does not yet follow (is the limit of $ {x}(t)$ equal to 0?).
 \begin{remark}[LaSalle's invariance principle]
 	This conclusion follows rigorously from LaSalle's invariance principle, namely if we assume that $\dot{ {x}}=f( {x})$, $f \in C^1$, and that there exists a $V\in C^1$ with 
 	\begin{align}
@@ -113,7 +120,7 @@ Therefore, along trajectories energy decreases monotonically. By the $C^0$ depen
 		\label{fig:polar_attractor}
 	\end{figure}
 
-	However, inspecting Fig. \ref{fig:polar_attractor} we see that that $p=(1,0)$ is an example of an attractor: a set with an open neighborhood of points that all approach the set as $t\to \infty $. From Fig. \ref{fig:polar_attractor} we can also see that both of the fixed points, $(0,0)$ and $(1,0)$, are not stable.
+	 From Fig. \ref{fig:polar_attractor} we can see that both of the fixed points, $(0,0)$ and $(1,0)$, are not stable. However, inspecting Fig. \ref{fig:polar_attractor} we see that that $p=(1,0)$ is an example of an attractor: a set with an open neighborhood of points that all approach the set as $t\to \infty $.
 \end{ex}
 
 \begin{definition}[Invariant set]
@@ -271,7 +278,7 @@ Where $\mu = \max_j ( \textrm{Re} \lambda_j) + \nu $, with $\nu >0$, as small as
 	Given ${y} =0$ a fixed point of the linear system $\dot{{y} } = {A} {y} $ with ${A} \in \mathbb{R}^{n \times n}$ the following statements hold:
 	\begin{enumerate}
 		\item Assume that $ \textrm{Re} \lambda _j < 0$ for all $j$. Then ${y} =0$ is asymptotically stable.
-		\item Assume that $ \textrm{Re} \lambda _j \leq 0$ for all $j$, and for all $\lambda_k$ with $ \textrm{Re} \lambda_k = 0$ we have $a_k = g_k$. then ${y} =0$ is stable.
+		\item Assume that $ \textrm{Re} \lambda _j \leq 0$ for all $j$, and for all $\lambda_k$ with $ \textrm{Re} \lambda_k = 0$ we have $a_k = g_k$. Then ${y} =0$ is stable.
 		\item Assume there exists a $k$ such that $ \textrm{Re} \lambda _k >0$. Then ${y} =0$ is unstable.
 	\end{enumerate}
 	These scenarios are illustrated in Fig. \ref{fig:eigv_setup}.
@@ -325,7 +332,7 @@ First, note that this is a conservative system, i.e. $E=$ const. Next we transfo
 \end{align}
 Thus we have a 4-dimensional, nonlinear, system of ODEs. We now linearize this at the fixed point $(x,y)= (0,0)$, i.e. $\dot{{x}} = {A} {x} $ with ${x} \in \mathbb{R}^{n}$.
 
-The system exhibits full spatial symmetry in $x$ and $y$, hence the eigenmodes will be the same in the $x$ and $y$ directions. This means we have repeated, purely imaginary, pairs of eigenvalues for ${A} $:  $\lambda_{1,2}=\lambda_{3,4}= \pm i \omega $. It is clear that scenarios (i) and (iii) of Theorem \ref{thm:lin_stab_eigv} do not apply to the linearized ODE. So we need to check if (ii) applies.
+The system exhibits full spatial symmetry in $x$ and $y$, hence the eigenmodes will be the same in the $x$ and $y$ directions. This means we have repeated pairs of purely imaginary eigenvalues for ${A} $:  $\lambda_{1,2}=\lambda_{3,4}= \pm i \omega $. It is clear that scenarios (i) and (iii) of Theorem \ref{thm:lin_stab_eigv} do not apply to the linearized ODE. So we need to check if (ii) applies.
 
 We have that $ \textrm{Re} \lambda _{k}=0$ for $k=1,2,3,4$. Also $a_k=2$ for $k=1,2,3,4$. Now assume $g_k < 2$. Then there would exists solutions of the form $te^{\pm i \omega t}{s}_k$, but this would contradict the conservation of energy, as either the (nonnegative) kinetic energy and/or the (nonnegative) potential energy would grow unbounded. Hence, the total energy could not be conserved. Therefore we know that $g_k = a_k$ and we can apply (ii) to find $x=y=0$ is Lyapunov stable for the linearized system. What does this imply for the nonlinear system?
 \end{ex}
@@ -340,9 +347,9 @@ And its linearization at the fixed point ${x} _0$
 	\dot{{y} } = Df({x} _0){y}, \quad y\in \mathbb{R}^{n},\quad Df({x} _0) \in \mathbb{R}^{n\times n}
 	\numberthis \label{eq:dosstar}.
 \end{align*}
-We would like to conclude that the linearized dynamics are qualitatively similar to the nonlinear dynamics. In order to study if this is the case, we have to formalize 'similar' mathematically.
+We would like to conclude that the linearized dynamics are qualitatively similar to the nonlinear dynamics. In order to study if this is the case, we have to formalize \emph{similar} mathematically.
 
-\begin{definition}[$C^k$ equivalence of dyanimical systems]
+\begin{definition}[$C^k$ equivalence of dynamical systems]
 Consider two autonomous dynamical systems:
 \begin{enumerate}
 	\item
@@ -370,7 +377,7 @@ $h:U\to U$ does this for all $x\in U$ in a $C^{k}$ fashion. This equivalence thr
 \end{definition}
 
 \begin{definition}[Topological equivalence]
-	For $k=0$, $C^{k}$ equivalence is also called \emph{topological equivalence}. In this case, a continuous, invertible, deformation takes orbits of one system into the orbits of the other. Under these conditions,  $h:U\to U$ is called a \emph{homeomorhpism}.
+	For $k=0$, $C^{k}$ equivalence is also called \emph{topological equivalence}. In this case, a continuous, invertible deformation takes orbits of one system into the orbits of the other. Under these conditions,  $h:U\to U$ is called a \emph{homeomorhpism}.
 \end{definition}
 \begin{ex}[Topologically equivalent linear systems for $n=2$]
 	To illustrate the meaning of topological equivalence, Fig. \ref{fig:topo_equiv} shows three linear systems ($\dot{{x} } = {Ax}  $ for $x\in \mathbb{R}^2$) which are topologically equivalent.
@@ -411,7 +418,7 @@ Building on the role of the eigenvalue configuration we noted in the previous ex
 \end{definition}
 	
 \begin{proposition}[]
-	The linearized stability type of a hyperbolic fixed point is preserved under small perturbations to the nonlinear system.
+	Under small perturbations to the nonlinear system, the linearized stability type of the hyperbolic fixed point is preserved.
 \end{proposition}
 Before proving this result, recall the Implicit Function Theorem (without proof).
 
@@ -422,18 +429,18 @@ Before proving this result, recall the Implicit Function Theorem (without proof)
 \begin{proof}[Proof (Proposition)]
 	Add a small perturbation to \eqref{eq:uno} i.e.
 \begin{align}
-	\dot{{x} } = f({x}) + \epsilon g({x} );\quad \|\epsilon \| \ll 1,\quad f({x} _0) =0.
+	\dot{{x} } = f({x}) + \epsilon g({x} );\quad |\epsilon | \ll 1,\quad f({x} _0) =0.
 \end{align}
-Now we ask if the perturbed system has a fixed point ${x} _{\epsilon}$ near ${x} _0$? We frame this in terms of the implicit function theorem
+Now we ask if the perturbed system has a fixed point ${x} _{\epsilon}$ near ${x} _0$. We frame this in terms of the implicit function theorem
 \begin{align}
 	F({x} ,\epsilon) = f({x} ) + \epsilon g({x} ) \stackrel{?}{=} 0;\quad F({x}_0, 0) = 0;\quad {x} \in \mathbb{R}^{n}, \quad F:\mathbb{R}^{n+1} \to \mathbb{R}^{1}.
 \end{align}
-We check that $D_{{x} }F({x_0} ,0) $ is nonsingular exactly when $Df({x_0)} $ is, this is fulfilled as we have no zero eigenvalues. The linearization at the perturbed fixed point takes the form
+We check that $D_{{x} }F({x_0} ,0) $ is nonsingular exactly when $Df({x_0)} $ is; this is fulfilled as we have no zero eigenvalues. The linearization at the perturbed fixed point takes the form
 \begin{align}
 	\dot{{y} } = D \left. \left[ f({x} ) + \epsilon g({x} ) \right]\right|_{{x} = {x_\epsilon} }{y} = \left[ Df({x_0}  + \mathcal{O}(\epsilon)) + \epsilon Dg({x_0} + \mathcal{O}(\epsilon)) \right] {y} 
 		=\underbrace{ \left[ Df({x_0})+ \mathcal{O}(\epsilon) \right]}_{={A_{\epsilon}} }{y}.
 \end{align}
-In the last equality we used the Taylor expansion in $\epsilon$. We have that the roots of $\det({A_{\epsilon}}-\lambda {I} ) = 0 $ depend continuously on the parameter $\epsilon$. Therefore, the roots stay within an $\mathcal{O}(\epsilon)$ neighborhood of the eigenvalues of $Df({x_0} )$ (see Fig. \ref{fig:eps_ball_eigv}). Hence we have that the eigenvalue configuration is unchanged for small enough $\epsilon$.
+In the last equality we used the Taylor expansion in $\epsilon$. We have that the roots of $\det({A_{\epsilon}}-\lambda {I} ) = 0 $ depend continuously on the parameter $\epsilon$. These roots correspond to the eigenvalues of $A_{\epsilon}$. Therefore, the roots stay within an $\mathcal{O}(\epsilon)$ neighborhood of the eigenvalues of $Df({x_0} )$ (see Fig. \ref{fig:eps_ball_eigv}). Hence we have that the eigenvalue configuration is unchanged for small enough $\epsilon$.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/ch2/16eps_ball_eigv.png}
@@ -444,7 +451,7 @@ In the last equality we used the Taylor expansion in $\epsilon$. We have that th
 \begin{remark}[]
 	In the above proof, not only does the hyperbolicity of fixed points remain preserved, but also the stability type.
 \end{remark}
-Meanwhile, for nonhyperbolic fixed points, this is not the case, and the smallest perturbation may change their stability type. This is due to the fact, that no matter how small the scale of the perturbation ($\epsilon$) the $\mathcal{O}(\epsilon)$ ball around eigenvalues on the imaginary axis will always intersect with $\mathbb{C}\setminus \{  \textrm{Im}\lambda_i =0 \}$ (i.e. points which are not on the imaginary axis).
+Meanwhile, for nonhyperbolic fixed points, this is not the case, and the smallest perturbation may change their stability type. This is due to the fact, that no matter how small the scale of the perturbation ($\epsilon$) the $\mathcal{O}(\epsilon)$ ball around eigenvalues on the imaginary axis will always intersect with $\mathbb{C}- \{  \textrm{Im}\lambda_i =0 \}$ (i.e. points which are not on the imaginary axis).
 
 Now we would like to connect the preservation of stability type under nonlinear perturbation to analyzing the stability type of fixed points of nonlinear dynamical systems based on their linearization. 
 \begin{theorem}[Hartman-Grobman]
@@ -456,6 +463,7 @@ Now we would like to apply this to the pendulum to systematically derive the sta
 \begin{ex}[Stability analysis of the pendulum via Hartman-Grobman]
 	Recall the transformed ODE for the pendulum
 	\begin{align}
+		\dot{x}=f(x)=
 		\begin{dcases}
 		\dot{x}_{1} = x_2 \\ \dot{x}_2 = -\sin(x_1)	
 		\end{dcases}
@@ -465,7 +473,15 @@ Now we would like to apply this to the pendulum to systematically derive the sta
 		\end{pmatrix}
 		.
 	\end{align}
-	We have two fixed points ${p} =(\pi ,0)$ and ${q} = (0,0)$. First we analyze the stability of the fixed point ${p} $. Start by linearizing at ${p} $ 
+	We have two fixed points ${p} =(\pi ,0)$ and ${q} = (0,0)$. First we analyze the stability of the fixed point ${p} $. The differential of $f$ at a point $a$ is
+\begin{align}
+	Df(a) =  
+		\begin{pmatrix}
+			0 & 1 \\
+			-\cos(a_1) & 0
+		\end{pmatrix}.
+\end{align}
+	Start by linearizing at ${p} $ 
 	\begin{align}
 		\dot{{y} } = {Ay};\quad {A}  = Df({p} ) = 
 		\begin{pmatrix}
@@ -489,9 +505,13 @@ Now we would like to apply this to the pendulum to systematically derive the sta
 	\end{align}
 	Neither of the eigenvalues lie on the imaginary axis, so $p$ is hyperbolic. This allows us to move between the nonlinear and linearized system for the stability analysis without compromising our results. We find the linearized dynamics to be
 	\begin{align}
-		{y} (t) = C_1 e^{t} {s_1}  + C_2 e^{-t}{s_2} = F^{t}{y_0} .
+		{y} (t) = C_1 e^{t} {s_1}  + C_2 e^{-t}{s_2}.
 	\end{align}
-	$F^{t}$ is the normalized fundamental matrix solution and ${y_0} $ is the initial condition. We can now fully describe the phase portrait of the linearization. The \emph{stable subspace} $E^{S}$ is $ \textrm{span} \{{s_2} \} = \{{y_0} :\ F^{t}{y_0} \xrightarrow{t \to \infty} 0 \} $. The unstable subspace $E^{U}$ is $ \textrm{span} \{{s_1}\} = \{{y_0} : \ F^{t}{y_0} \xrightarrow{t \to - \infty }0\} $. The phase portrait near the fixed point $p$ is illustrated in Fig. \ref{fig:pend_phase_p}
+	Using the initial conditions $y_0$ the trajectory can be expressed as
+	\begin{align}
+		y(t) =  F^{t}{y_0}, 
+	\end{align}
+	where $F^{t}$ is the normalized fundamental matrix solution. We can now fully describe the phase portrait of the linearization. The \emph{stable subspace} $E^{S}$ is $ \textrm{span} \{{s_2} \} = \{{y_0} :\ F^{t}{y_0} \xrightarrow{t \to \infty} 0 \} $. The unstable subspace $E^{U}$ is $ \textrm{span} \{{s_1}\} = \{{y_0} : \ F^{t}{y_0} \xrightarrow{t \to - \infty }0\} $. The phase portrait near the fixed point $p$ is illustrated in Fig. \ref{fig:pend_phase_p}
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.4\textwidth]{figures/ch2/17pend_phase_p}
@@ -528,10 +548,10 @@ Next we analyze the stability of the fixed point $q$. Once again, our first step
 	\end{pmatrix}
 	;\quad \det (A- \lambda I) = 0.
 \end{align}
-From here, we see that the determinate is equal $\lambda^2 + 1 = 0$, yielding the roots $\lambda_{1,2}= \pm i$, i.e. the fixed point is \underline{not} hyperbolic. Thus the linearized dynamics is inconclusive for the nonlinear system. In this particular case, $q$ turns out to be stable, which can be concluded from another approach (see later).
+From here, we see that the determinant is equal $\lambda^2 + 1 = 0$, yielding the roots $\lambda_{1,2}= \pm i$, i.e. the fixed point is \underline{not} hyperbolic. Thus the linearized dynamics is inconclusive for the nonlinear system. In this particular case, $q$ turns out to be stable by the definition of Lyapunov stability. Later we will use another approach to show this directly.
 \end{ex}
 
-In the last example, the importance of hyperbolicity was not eccentuated, as the latter fixed point had the same stability type in the linearized system as in the full system. This leads us to question if there are cases where the stability type between the linear and nonlinear systems is not preserved.
+In the last example, the importance of hyperbolicity was not accentuated, as the latter fixed point had the same stability type in the linearized system as in the full system. This leads us to question if there are cases where the stability type between the linear and nonlinear systems is not preserved.
 
 \begin{ex}[Criticality of hyperbolicity in Hartman-Grobman]
 	Let the dynamical system be
@@ -542,7 +562,7 @@ In the last example, the importance of hyperbolicity was not eccentuated, as the
 	\begin{align}
 		A = \left. 3ax^2 \right|_{x=0} = 0 \implies \dot{y}= 0y = 0.
 	\end{align}
-	We have a single root $\lambda_1 = 0$, hence $x=0$ is a nonhyperbolic fixed point. Disregarding this fact, we may be inclined to conclude that $x=0$ is a stable fixed point. This is not the case, as we can see by analyzing the full nonlinear dynamics for $a>0$ as in Fig. \ref{fig:hyperbol_counter_ex}, where we observe that $x=0$ is an unstable fixed point.
+	We have a single root $\lambda_1 = 0$, hence $x=0$ is a nonhyperbolic fixed point. Disregarding this fact, we may be inclined to conclude that $x=0$ is a stable fixed point, since $y=0$ is trivially a fixed point of the linearization $\dot{y}=0$. This is not the case, as we can see by analyzing the full nonlinear dynamics for $a>0$ as in Fig. \ref{fig:hyperbol_counter_ex}, where we observe that $x=0$ is an unstable fixed point.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/ch2/19hyperbol_counter_ex.png}
@@ -580,9 +600,9 @@ Without loss of generality assume $a_0 > 0$, if $a_0 <0$ then multiply by $-1$ a
 		0 &  \ldots  & & 0  & a_n
 	\end{vmatrix}
 \end{align}
-Then we have that if for all $i$ $D_i >0$ then $ \textrm{Re} \lambda_i <0$ for all $i$.
+Then we have that if and only if for all $i$ $D_i >0$ then $ \textrm{Re} \lambda_i <0$ for all $i$.
 
-Further if for each $i$ $ \textrm{Re} \lambda _i<0$ then $a_i >0$ for all $i$ (a necessary condition). Therefore if there exists an $a_k<0$, we know immediately that the fixed point cannot be asymptotically stable.
+A weaker neccesary condition is that if for all $i$ $ \textrm{Re} \lambda _i<0$ then $a_i >0$ for all $i$. Therefore if there exists an $a_k<0$, we know immediately that the fixed point cannot be asymptotically stable as not all of the $ \textrm{Re} \lambda _i $ can be strictly negative.
 \end{theorem}
 \begin{remark}[]
 For a given $i$ we construct the matrix used for calculating $D_i$ as follows: write the elements $a_1,\ldots,a_i$ along the diagonal, then in each row $k$ write the $a_j$ in descending index order such that $a_k$ aligns with the placement inherited from us writing along the diagonal. The leftover spaces are filled with zeros. 
@@ -592,7 +612,7 @@ For a given $i$ we construct the matrix used for calculating $D_i$ as follows: w
 	Adolf Hurwitz discovered this criterion independently of Edward Routh in 1895 while holding a chair at the ETH.
 \end{remark}
 
-\begin{ex}[Applying Routh-Hurwitz criterion]
+\begin{ex}[Applying the Routh-Hurwitz criterion]
 	Given the polynomial
 	\begin{align}
 		a_3 \lambda ^3 + a_2 \lambda^2 + a_1 \lambda + a_0 = 0.
@@ -610,7 +630,7 @@ For a given $i$ we construct the matrix used for calculating $D_i$ as follows: w
 	forms a sufficient and necessary condition for asymptotic stability ($a_i >0$ follows from here) for $n=3$.
 \end{ex}
 
-\begin{ex}[Watt's centrifugal governer for steam engines]
+\begin{ex}[Watt's centrifugal governor for steam engines]
 	Now we put together everything built until now in the example of Watt's centrifugal governor for steam engines. Originally this system was used in mills in the 1700's, then it was adapted by Watt to the steam engine in 1788. This adaptation has been credited as a major factor in the industrial revolution, and is a first example of feedback control. The system is outlined in Fig. \ref{fig:governor}.
 \begin{figure}[h!]
 	\centering
@@ -618,7 +638,7 @@ For a given $i$ we construct the matrix used for calculating $D_i$ as follows: w
 	\caption{Schematic for Watt's centrifugal governor. The yellow arrow points towards a damper on the rotation about the spindle (red arrow). On the right the blue arrow designates a steam engine cylinder.}
 	\label{fig:governor}
 \end{figure}
-The two masses (of mass $\frac{m}{2}$) rotate counter clockwise, and their position in radians is given by $\theta$, with their rotational velocity $\dot{\theta}$. The masses are attached by a rod of length $L$ and their deflection from the vertical position is measured by $\varphi$. Thus smaller $\dot{\theta}$ allowed for an increase in steam supply.
+The two masses (of mass $\frac{m}{2}$) rotate counter clockwise, and their position in radians is given by $\theta$, with their rotational velocity $\dot{\theta}$. The masses are attached by a rod of length $L$ and their deflection from the vertical position is measured by $\varphi$. Smaller $\dot{\theta}$ allowed for an increase in steam supply.
 
 Following changes in the design, the systems suddenly became unstable. To address this Vishnegradky studied the root cause in 1877. We first derive the equation of motion. For the governor we use the equation of motion for a rotating hoop (with viscous damping coefficient $b$).
 \begin{align}
@@ -653,12 +673,12 @@ Then our operation point is the fixed point $x_0$ of this system
 \begin{align}
 	f(x_0) = 0 \implies \Psi_0 = 0;\ \omega_0^2 = \frac{g}{Ln^2 \cos(\varphi_0)};\ \cos(\varphi_0) = \frac{P_0}{k}.
 \end{align}
-If $\sin(\varphi_0)=0$, we have an unphysical state and ignore this case. We also nondimensionalize for simplification and set $L=1$. Now we linearize at the fixed point $x_0$ 
+If $\sin(\varphi_0)=0$, we have an unphysical state and ignore this case. For simplification set $L=1$, this could be formally achieved by nondimensionalizing the length $L$. Now we linearize at the fixed point $x_0$ 
 \begin{align}
 	\dot{y} = Ay; \quad A = Df(x_0) =
 	\begin{pmatrix}
 		0 & 1 & 0 \\
-		n^2 \omega^2 \cos^2(\varphi_0) & -\frac{b}{m} & n^2 \omega _0 \sin^2(\varphi_0) \\
+		n^2 \omega^2 \cos(2\varphi_0) -g\cos(\varphi_0) & -\frac{b}{m} & n^2 \omega _0 \sin(2\varphi_0) \\
 		-\frac{k}{J}\sin(\varphi_0) & 0 & 0
 	\end{pmatrix}
 .	
@@ -725,23 +745,25 @@ These have the effect of pushing the eigenvalues to the right in the complex pla
 \section{Lyapunov's direct (second) method for stability}
 Stability analysis via linearization is not perfect. For nonhyperbolic fixed points, the results obtained are inconclusive, and this case turns out to be somewhat common for conservative systems. Furthermore, linearization does not give any insight into the size of the domain of stability. Hence, a method for determining stability type without relying on linearization would be desirable. This is given to us by Lyapunov's direct method.
 
-\begin{theorem}[]
+\begin{theorem}[] \label{thm:direct}
 	Consider
 	\begin{align}
 		\dot{x} = f(x), \quad f\in C^1,\quad x \in \mathbb{R}^{n};\quad f(x_0) = 0.
 	\end{align}
-	Assume that there exists a $V:U \to \mathbb{R}$ with $V\in C^1(U)$ for $U \subset \mathbb{R}^{n}$ open and $x_0 \in U$ which fulfills the following
+	Assume that there exists a function $V:U \to \mathbb{R}$ with $V\in C^1(U)$ for an open set $U \subset \mathbb{R}^{n}$ and $x_0 \in U$ which fulfills the following
 	\begin{enumerate}
 		\item $V$ is positive definite in a neighborhood of $x_0$, i.e.
 			\begin{align}
-				V(x_0)=0;\quad V(x)>0,\ x\in U\setminus \{ x_0 \}.
+				V(x_0)=0;\quad V(x)>0,\ x\in U-\{ x_0 \}.
 			\end{align}
 		\item $\dot{V}$ is negative semidefinite in the same neighborhood, i.e.
 			\begin{align}
-				\dot{V} = \langle DV(x), f(x) \rangle \leq 0,\ x\in U.
+				\dot{V} =\frac{d}{dt}V(x(t))= 
+				\langle DV(x(t)), \dot{x}(t) \rangle =
+				\langle DV(x(t)), f(x(t)) \rangle \leq 0,\ x\in U.
 			\end{align}
 	\end{enumerate}
-	Then $x=x_0$ is Lyapunov stable. $V$ is called a Lyapunov function. The hypotheses are illustrated in Fig. \ref{fig:lyap_thm_assumptions}.	
+	Then $x=x_0$ is Lyapunov stable (cf. Def. \ref{def:stable}). $V$ is called a Lyapunov function. The hypotheses are illustrated in Fig. \ref{fig:lyap_thm_assumptions}.	
 \end{theorem}
 \begin{figure}[h!]
 	\centering
@@ -752,8 +774,12 @@ Stability analysis via linearization is not perfect. For nonhyperbolic fixed poi
 	\label{fig:lyap_thm_assumptions}
 \end{figure}
 
+	\begin{remark}[]
+		To denote the boundary of a set $A$ we write $\partial A$.
+	\end{remark}
 \begin{proof}
-	First choose $\epsilon > 0$ and define $\alpha(\epsilon)= \min_{x\in \partial B_\epsilon(x_0)} V(x) > 0$. Note that $\alpha(\epsilon)$ is well defined as $V\in C^{0}(U)$ and $\partial B_{\epsilon}(x)$ is compact and spherical for small enough $\epsilon$. There exists an $x^{*} \in \partial B_{\epsilon}(x)$ with $V(x^{*}) = \alpha(\epsilon) \leq V(x)$ for all $x\in \delta B_{\epsilon}(x)$. Next, define $U_{\epsilon}= \{ x\in B_{\epsilon}:\ V(x) < \alpha(\epsilon)  \ $. Notice that $x_0 \in V_{\epsilon}$ implies that $V_\epsilon$ is nonempty and open, thus $U_{\epsilon} \cap \partial B_{\epsilon}(x_ 0) $ is empty. Therefore there exists a ball $B_{\delta(\epsilon)} \subset U_{\epsilon} $ which contains $x_0$. This can be seen in Fig. \ref{fig:lyap_pf_1}.
+	
+	First choose $\epsilon > 0$ and define $\alpha(\epsilon)= \min_{x\in \partial B_\epsilon(x_0)} V(x) > 0$. Note that $\alpha(\epsilon)$ is well defined as $V\in C^{0}(U)$ and $\partial B_{\epsilon}(x)$ is compact and spherical for small enough $\epsilon$. There exists an $x^{*} \in \partial B_{\epsilon}(x)$ with $V(x^{*}) = \alpha(\epsilon) \leq V(x)$ for all $x\in \partial B_{\epsilon}(x_0)$. Next, define $U_{\epsilon}= \{ x\in B_{\epsilon}(x_0):\ V(x) < \alpha(\epsilon)  \ $. Notice that $x_0 \in U_{\epsilon}$ because $V(x_0) =0$ and $V(x)\geq 0$ on $U$. Further $U_{\epsilon}$ is open due to the continuity of $V$. We have that  $U_{\epsilon} \cap \partial B_{\epsilon}(x_ 0) $ is empty by definintion, noting that for all $x\in \partial B_{\epsilon}(x_0)$ we have $V(x) \geq \alpha(\epsilon) $. Therefore there exists a ball $B_{\delta(\epsilon)} \subset U_{\epsilon} $ which contains $x_0$. This can be seen in Fig. \ref{fig:lyap_pf_1}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.45\textwidth]{figures/ch2/22lyap_pf_1.png}
@@ -761,7 +787,7 @@ Stability analysis via linearization is not perfect. For nonhyperbolic fixed poi
 	\label{fig:lyap_pf_1}
 \end{figure}
 
-Now observe that for every $\tilde{x}_{0} \in B_{\delta(\epsilon)}(x_0)$ we have that $V(x(t; \tilde{x}_{0})) \leq V(\tilde{x}_{0} < \alpha(\epsilon))$. The first inequality comes from hypothesis (ii) and the second inequality from the definition of $U_{\epsilon}$. This implies that for $x(t; \tilde{x}_0) \in U_{\epsilon}$ we have that $x(t; \tilde{x}_{0})$ is not in $\partial B_{\epsilon}(x_0)$ for any $t> 0$. Hence $x(t; \tilde{x}_0)$ must stay in the ball $B_{\epsilon}(x_0)$ for all times $t> 0$ by continuity. 
+Now observe that for every $\tilde{x}_{0} \in B_{\delta(\epsilon)}(x_0)$ we have that along trajectories $V(x(t; \tilde{x}_{0})) \leq V(\tilde{x}_{0}) < \alpha(\epsilon)$. The first inequality comes from hypothesis (ii) and the second inequality from the definition of $U_{\epsilon}$. This implies that for $x(t; \tilde{x}_0) \in U_{\epsilon}$ we have that $x(t; \tilde{x}_{0})$ is not in $\partial B_{\epsilon}(x_0)$ for any $t> 0$. The trajectory $x(t; \tilde{x}_0)$ is continuous, in order for it to leave the ball $B_{\epsilon}(x_0)$ it must intersect the boundary $\partial B_{\epsilon}(x_0)$. At this point $V(x)$ will atain a value of at least $\alpha(\epsilon)$ by definition, however this is in contradiction to the fact that $V(x(t;\tilde{x}_0))$ is strictly smaller that $\alpha(\epsilon)$. Therefore must stay in the ball $B_{\epsilon}(x_0)$ for all times.
 \end{proof}
 
 Now we present some extensions to this theorem for various different stability types. These are necessary, as the previous theorem only provides a sufficient condition for stability (it is not ``if and only if").
@@ -772,7 +798,7 @@ Consider the same dynamical system. Assume
 	\item $V(x)$ is positive definite,
 	\item $\dot{V}(x)$ is negative definite, i.e.
 		\begin{align}
-			\dot{V}(x) < 0,\ x\in U\setminus \{x_0\}.
+			\dot{V}(x) < 0,\ x\in U- \{x_0\}.
 		\end{align}
 \end{enumerate}
 		Then $x=x_0$ is asymptotically stable. These hypotheses are illustrated in Fig. \ref{fig:lyap_thm2_hypos}.
@@ -790,7 +816,7 @@ Consider the same dynamical system. Assume
 		\item $V(x)$ is positive definite,
 		\item $\dot{V}(x)$ is positive definite, i.e.
 		\begin{align}
-			\dot{V}(x)>0,\ x\in U\setminus \{x_0\}.
+			\dot{V}(x)>0,\ x\in U- \{x_0\}.
 		\end{align}
 	\end{enumerate}
 	Then $x=x_0$ is unstable. The hypotheses are illustrated in Fig. \ref{fig:lyap_thm3_hypos}.
@@ -822,11 +848,11 @@ Consider the same dynamical system. Assume
 \end{figure}
 
 \begin{remark}[]
-	In each of these theorems, the definiteness of $ \dot{V}$ can be replaced by semidefiniteness, if we add that the set $\{x\in U:\ \dot{V}(x)=0 \}$ does not contain full trajectories of the system. This is called Krasovki's condition.
+	In each of these theorems, the definiteness of $ \dot{V}$ can be replaced by semidefiniteness, if we add that the set $\{x\in U:\ \dot{V}(x)=0 \}$ does not contain full trajectories of the system. This is called Krasovsky's condition.
 \end{remark}
 
 Now we would like to put these theorems into practice with a few examples.
-\begin{ex}[Stability analysis of pendulum with Lyapunov's direct method]
+\begin{ex}[Stability analysis of the pendulum with Lyapunov's direct method]
 	Recall that using linearization, we were only able to conclude the stability type of one of the fixed points for the dynamical system of the pendulum
 	\begin{align}
 		ml^2 \ddot{\varphi} + mgl \sin(\varphi) =0.
@@ -836,7 +862,7 @@ Now we will use the energy as a Lyapunov function, which is often very useful. T
 	E(x) = E(\varphi, \dot{\varphi}) = \frac{1}{2}ml^2 \dot{\varphi}^2 + mgl(1-\cos(\varphi)) 
 	= \frac{1}{2}ml^2 \dot{x_2}^2 + mgl(1-\cos(x_1)).
 \end{align}
-Transforming the dynamical system to be an ODE we obtain
+Transforming the dynamical system to be an system of first order ODEs we obtain
 \begin{align}
 	x = 
 	\begin{pmatrix}
@@ -858,7 +884,7 @@ Transforming the dynamical system to be an ODE we obtain
 \end{align}
 At the fixed point $x=(0,0)$ we have
 \begin{align}
-	E(0,0) = 0;\quad DE(0,0) = 0I;\quad D^2(0,0) =
+	E(0,0) = 0;\quad DE(0,0) = 0\in \mathbb{R}^{2\times 2};\quad D^2E(0,0) =
 \begin{pmatrix}
 	mgl & 0 \\
 	0 & ml^2
@@ -876,18 +902,18 @@ We have that the Hessian of $E$ is positive definite. Therefore $E$ is positive 
 	\end{pmatrix}
 	= 0.	
 \end{align}
-Thus $\dot{E}$ is negative semidefinite. Now the hypotheses of Theorem 1 are fulfilled, hence $x=0$ is Lyapunov stable. Importantly, this is a nonlinear result and we never had to reduce the system!
+Thus $\dot{E}$ is negative semidefinite. Now the hypotheses of Theorem \ref{thm:direct} are fulfilled, hence $x=(0,0)$ is Lyapunov stable. Importantly, this is a nonlinear result and we did not need to refer to the linearization of the system!
 
-At the fixed point $x = (\pi, 0)^T$. We check again using the energy. First we realize that $E(\pi, 0)= 2mgl$, so we subtract the constant and redefine to obtain $\tilde{E}= E - 2mgl$. Now $E(\pi, 0) = 0$, although this is not essential. Next we calculate
+At the fixed point $x = (\pi, 0)$. We check again using the energy. First we realize that $E(\pi, 0)= 2mgl$, so we subtract the constant and redefine to obtain $\tilde{E}= E - 2mgl$. Now $\tilde{E}(\pi, 0) = 0$, although this is not essential. Next we calculate
 \begin{align}
-	DE(\pi, 0) = 0I;\quad D^2E(\pi, 0) = 
+	DE(\pi, 0) = 0\in \mathbb{R}^{n\times n};\quad D^2E(\pi, 0) = 
 	\begin{pmatrix}
 		-mgl & 0 \\
 		0 & ml^2
 	\end{pmatrix}
 	.
 \end{align}
-Hence, $E$ is indefinite at $(\pi, 0)$. Next we find $\dot{E}(\pi, 0) = 0$, i.e. $\dot{E}$ is semidefinite. We cannot apply Theorem 4, but linearization already concluded that $(\pi,0)$ was unstable.
+Hence, $E$ is indefinite at $(\pi, 0)$. From the previous calcuation we alread know that $\dot{E}(\pi, 0) = 0$, i.e. $\dot{E}$ is semidefinite. We cannot apply Theorem 4, but linearization already concluded that $(\pi,0)$ was unstable.
 \end{ex}
  \begin{ex}[Stability analysis of friction pendulum]
 	 We have a shaft which is constantly rotating with angular speed $\Omega $, around this shaft is a sleeve which rubs against the shaft creating friction. To this sleeve is a mass $m$ attached at distance $l$, the deflection of this mass from its standard position (directly below the shaft) is measured by $\varphi$. The gravity constant is given by $g$. This setup is depicted in Fig. \ref{fig:friction_pend}.
@@ -957,6 +983,6 @@ D^2V(x_0) &=
 	0 & ml^2
 \end{pmatrix}.
 \end{align}
-The Hessian is positive definite as long as $\overline{x}_1 \in \left(-\frac{\pi }{2}, \frac{\pi }{2}\right)$, and all fixed points in this region are stable by Theorem 1. The Hessian is indefinite if $\overline{x}_1 \not \in \left[-\frac{\pi }{2}, \frac{\pi }{2}\right]$, but in this case Theorem 4 is not applicable as $\dot{V}$ is not definite.
+The Hessian is positive definite as long as $\overline{x}_1 \in \left(-\frac{\pi }{2}, \frac{\pi }{2}\right)$, and all fixed points in this region are stable by Theorem \ref{thm:direct}. The Hessian is indefinite if $\overline{x}_1 \not \in \left[-\frac{\pi }{2}, \frac{\pi }{2}\right]$, but in this case Theorem 4 is not applicable as $\dot{V}$ is not definite.
  \end{ex}
  
