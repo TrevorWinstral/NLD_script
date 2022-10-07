@@ -646,7 +646,7 @@ Following changes in the design, the systems suddenly became unstable. To addres
 \end{align}
 Next, let $\omega $ denote the angular velocity of the steam engine, i.e. with the gear ratio $n$ we have $\dot{\theta} = n \omega$. Then we find
 \begin{align}
-	m \dot{\varphi} = -b \dot{\varphi} - m \left( \frac{g}{L} - n^2 w^2 \cos(\varphi) \right) \sin(\varphi).
+	m \ddot{\varphi} = -b \dot{\varphi} - m \left( \frac{g}{L} - n^2 w^2 \cos(\varphi) \right) \sin(\varphi).
 \end{align}
 Now we derive the equation of motion for the steam engine. Denote the moment of inertia for the engine by $J$, the driving torque from the steam as $P_1$ and the constant load $P$, we obtain
 \begin{align}
@@ -685,7 +685,7 @@ If $\sin(\varphi_0)=0$, we have an unphysical state and ignore this case. For si
 \end{align}
 With this we obtain the characteristic equation $\det(A - \lambda I )= 0$ 
 \begin{align}
-	\underbrace{1}_{a_3} \lambda^3 + \underbrace{\frac{b}{m}}_{a_2}\lambda ^2 + \underbrace{ \frac{g}{L}\frac{\sin^2(\varphi_0)}{\cos(\varphi_0)}}_{a_1} \lambda + \underbrace{ \frac{g}{L} \frac{2k \sin^2 (\varphi_0)}{J \omega_0}}_{a_0} = 0.
+	\underbrace{1}_{a_3} \lambda^3 + \underbrace{\frac{b}{m}}_{a_2}\lambda ^2 + \underbrace{ {g}\frac{\sin^2(\varphi_0)}{\cos(\varphi_0)}}_{a_1} \lambda + \underbrace{ {g} \frac{2k \sin^2 (\varphi_0)}{J \omega_0}}_{a_0} = 0.
 \end{align}
 Now check the Routh-Hurwitz criterion for asymptotic stability:
 \begin{enumerate}
@@ -708,7 +708,7 @@ The only actual condition for $x_0$ to be asymptotically stable is $D_2 >0$
 \end{align}
 From the equation for the fixed points we know 
 \begin{align*}
-	P_0 \omega_0^2 = \frac{gk}{Ln^2} =  \textrm{const.} \numberthis \label{eq:watt1}\\
+	P_0 \omega_0^2 = \frac{gk}{n^2} =  \textrm{const.} \numberthis \label{eq:watt1}\\
 	\omega_0^2 + 2P_0 \omega_0 \frac{d \omega_0}{d P_0} = 0.
 \end{align*}
 From the first equation, we realize that we must write $\omega_0 = \omega_0(P_0)$. To obtain the second equation, we derive the first equation \eqref{eq:watt1} with respect to $P_0$. Therefore we find 
@@ -723,7 +723,7 @@ Next, define the \emph{non-uniformity of performance}
 \end{align}
 Then our criterion for asymptotic stability becomes
 \begin{align}
-\frac{bj}{m}\nu > 1.	
+\frac{bJ}{m}\nu > 1.	
 \end{align}
 To conclude, the following have harmful effects of stability
 \begin{itemize}
