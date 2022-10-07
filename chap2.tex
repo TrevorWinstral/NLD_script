@@ -689,24 +689,24 @@ With this we obtain the characteristic equation $\det(A - \lambda I )= 0$
 \end{align}
 Now check the Routh-Hurwitz criterion for asymptotic stability:
 \begin{enumerate}
-	\item The necessary condition for $ \textrm{Re} \lambda _k<0$ for all $k$: $a_j> 0$ for all $ $ is fulfilled.
+	\item The necessary condition for $ \textrm{Re} \lambda _k<0$ for all $k$: $a_j> 0$ for all $ j$ is fulfilled.
 	\item Next we check the subdeterminants
 \begin{align}
-	D_0 &= a_0 = \frac{g}{L} \frac{2k \sin^2 (\varphi_0)}{J \omega_0}>0;\quad \\ 
-	D_1 &= a_1 = \frac{g}{L}\frac{\sin^2 (\varphi_0)}{\cos(\varphi_0)} >0; \\
+	D_0 &= a_0 = {g} \frac{2k \sin^2 (\varphi_0)}{J \omega_0}>0;\quad \\ 
+	D_1 &= a_1 = {g}\frac{\sin^2 (\varphi_0)}{\cos(\varphi_0)} >0; \\
 	D_2 &= 
 	\begin{vmatrix}
 		a_1 & a_0 \\
 		a_3 & a_2
 	\end{vmatrix}
-	= a_1a_2 - a_0a_3 = \frac{b}{m}\frac{g}{L}\frac{\sin^2(\varphi_0)}{\cos(\varphi_0)} - \frac{g}{L}\frac{2k \sin^2(\varphi_0)}{J \omega_0} >0;\\
+	= a_1a_2 - a_0a_3 = g\frac{b}{m}\frac{\sin^2(\varphi_0)}{\cos(\varphi_0)} - g\frac{2k \sin^2(\varphi_0)}{J \omega_0} >0;\\
 	D_3 &> 0 \iff D_2 >0  \textrm{ and } a_3=1>0.
 \end{align}
 The only actual condition for $x_0$ to be asymptotically stable is $D_2 >0$ 
 \begin{align}
 	\frac{bJ}{m} > \frac{2 P_0}{\omega_0}.
 \end{align}
-From the equation for fixed points we know 
+From the equation for the fixed points we know 
 \begin{align*}
 	P_0 \omega_0^2 = \frac{gk}{Ln^2} =  \textrm{const.} \numberthis \label{eq:watt1}\\
 	\omega_0^2 + 2P_0 \omega_0 \frac{d \omega_0}{d P_0} = 0.
@@ -736,7 +736,7 @@ These have the effect of pushing the eigenvalues to the right in the complex pla
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.4\textwidth]{figures/ch2/21watt_eigv}
-	\caption{Change in the eigenvector configuration as small modification are made to the Watt engine governor.}
+	\caption{Change in the eigenvalue configuration as small modification are made to the Watt engine governor.}
 	\label{fig:watt_eigv}
 \end{figure}
 \end{ex}
@@ -915,7 +915,7 @@ At the fixed point $x = (\pi, 0)$. We check again using the energy. First we rea
 \end{align}
 Hence, $E$ is indefinite at $(\pi, 0)$. From the previous calcuation we alread know that $\dot{E}(\pi, 0) = 0$, i.e. $\dot{E}$ is semidefinite. We cannot apply Theorem 4, but linearization already concluded that $(\pi,0)$ was unstable.
 \end{ex}
- \begin{ex}[Stability analysis of friction pendulum]
+ \begin{ex}[Stability analysis of the friction pendulum]
 	 We have a shaft which is constantly rotating with angular speed $\Omega $, around this shaft is a sleeve which rubs against the shaft creating friction. To this sleeve is a mass $m$ attached at distance $l$, the deflection of this mass from its standard position (directly below the shaft) is measured by $\varphi$. The gravity constant is given by $g$. This setup is depicted in Fig. \ref{fig:friction_pend}.
 \begin{figure}[h!]
 	\centering
@@ -958,9 +958,9 @@ Since the system is forced, energy is not conserved and we cannot use it as a Ly
 \begin{align}
 	V(x) = \left[  \textrm{total energy at time } t \right] - \left[  \textrm{work put in between time } t  \textrm{ and } t_0 \right] = \left[ \textrm{initial energy} \right] =  \textrm{const.}  
 \end{align}
-This is a conserved quantity in all mechanics problems, but generally cannot be calculated without already knowing the trajectories. Here, however, we can
+This is a conserved quantity in all mechanics problems, but generally cannot be calculated without already knowing the trajectories. Here we can, as
 \begin{align}
-	V(x) = \frac{1}{2} ml x_0^2 + mgl(1- \cos(x_1)) - T_0(\underbrace{x_1}_{\varphi(t)} - \underbrace{x_1(0)}_{\varphi(0)}).
+	V(x(t)) = \frac{1}{2} ml x_0^2 + mgl(1- \cos(x_1)) - T_0(\underbrace{x_1}_{\varphi(t)} - \underbrace{x_1(0)}_{\varphi(0)}).
 \end{align}
 We can drop the constant term $T_0 x_1(0)$. Now verify that $V$ is indeed constant
 \begin{align}
