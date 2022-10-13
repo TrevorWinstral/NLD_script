@@ -13,7 +13,7 @@ Does this initial value problem have a unique solution? We have the following th
 	\label{thm:Peano}
 	If $f\in C^0$ near $( {x}_0, t_0)$, then there exists a local solution $\varphi(t)$, i.e., 
 \begin{align}
-	\dot{\varphi}(t) = f(\varphi(t), t), \varphi(t_0) = x_0;\ \forall  t\in (t_0 - \epsilon, t_0 + \epsilon);\ 0<  \epsilon \ll 1.
+	\dot{\varphi}(t) = f(\varphi(t), t), \varphi(t_0) = x_0;\ \forall  t\in (t_0 - \varepsilon, t_0 + \varepsilon);\ 0<  \varepsilon \ll 1.
 \end{align}
 \end{theorem}
 \begin{ex}[Free falling mass]
@@ -217,7 +217,7 @@ The geometric meaning of this is that for $U \subset P \subset \mathbb{R}^{n}$ w
 It turns out $\left(F_{t_0}^{t}\right)^{-1} = F_{t}^{t_0}$ is also $C^r$, hence we have that $F_{t_0}^{t}$ is a diffeomorphism. 
 
 \begin{remark}[The total differential]
-	We denote the total differential of a function $f:\mathbb{R}^{n}\to \mathbb{R}^{m}$ as $Df$. The total differential is a function which takes a location $x$ as the argument and returns the derivative of $f$ at the point $x$, i.e. the Jacobian. This implies evaluating the Jacobian at the point $x$. For a function  $f(x,y)= f(x_1, \ldots, x_n, y_1, \ldots, y_m):\mathbb{R}^{n+m} \to \mathbb{R}^{k}$ the total differential $Df$ means with respect to all of the variables and the total differential with respect to $x$, written $D_xf$ is the total differential only taken with respect to the $x$ variables. Thus for $f(x,y): \mathbb{R}^{n+m} \to \mathbb{R}$ we have the total differential
+	We denote the total differential of a function $f:\mathbb{R}^{n}\to \mathbb{R}^{m}$ as $Df$. The total differential is a function which takes a location $x$ as the argument and returns the derivative of $f$ at the point $x$, i.e. the Jacobian. This implies evaluating the Jacobian at the point $x$. For a function  $f(x,y)= f(x_1, \ldots, x_n, y_1, \ldots, y_m):\mathbb{R}^{n+m} \to \mathbb{R}^{k}$ the total differential $Df$ means with respect to all of the variables and the total differential with respect to $x$, written $D_xf$ is the total differential only taken with respect to the $x$ variables. Thus for $f(x,y): \mathbb{R}^{n+m} \to \mathbb{R}^{k}$ we have the total differential
 	\begin{align}
 		Df &= 
 		\begin{pmatrix}
@@ -402,13 +402,13 @@ We now examine how solutions depend $ {\mu } $. This is critical as solutions sh
 \begin{ex}[Perturbation Theory]
 Given a weakly nonlinear oscillator
 \begin{align}
-	m \ddot{ x} + c \dot{ x} + k x = \epsilon f(x, \dot{x}, t),\ 0 \leq \epsilon \ll 1,\ x \in \mathbb{R}.
+	m \ddot{ x} + c \dot{ x} + k x = \varepsilon f(x, \dot{x}, t),\ 0 \leq \varepsilon \ll 1,\ x \in \mathbb{R}.
 \end{align}
-The usual approach is to seek solutions by expanding from the known solution of the linear limit $\epsilon=0$, i.e.
+The usual approach is to seek solutions by expanding from the known solution of the linear limit $\varepsilon=0$, i.e.
 \begin{align}
-	x_{\epsilon}(t) = \varphi_0(t) + \epsilon \varphi_1(t) + \epsilon^2 \varphi_2(t) + \ldots + \mathcal{O}(\epsilon^r).
+	x_{\varepsilon}(t) = \varphi_0(t) + \varepsilon \varphi_1(t) + \varepsilon^2 \varphi_2(t) + \ldots + \mathcal{O}(\varepsilon^r).
 \end{align}
-If $x_{\epsilon}(t)$ is in $C^{r}_{\epsilon}$, we have $\varphi_1(t) = \left.\frac{\partial x_\epsilon(t)}{\partial \epsilon}\right |_{\epsilon =0}$ and $\varphi_2(t) = \left.\frac{\partial^2 x_\epsilon(t)}{\partial \epsilon^2}\right |_{\epsilon =0}$
+If $x_{\varepsilon}(t)$ is in $C^{r}_{\varepsilon}$, we have $\varphi_1(t) = \left.\frac{\partial x_\varepsilon(t)}{\partial \varepsilon}\right |_{\varepsilon =0}$ and $\varphi_2(t) = \left.\frac{\partial^2 x_\varepsilon(t)}{\partial \varepsilon^2}\right |_{\varepsilon =0}$
 \end{ex}
 
 Regularity with respect to the parameter $ {\mu} $ actually follows from regularity with respect to the initial condition $ {x}_0$. We can use the following trick to extend the IVP with a dummy variable $ {\mu} $ 
@@ -448,15 +448,15 @@ Applying the previous result on regularity with respect to $ {x}_0$ to \eqref{eq
 Given an elastic beam extending from a solid guide, we measure the deflection of this beam with the variable $x$. This system is illustrated in the left panel of Fig. \ref{fig:nonlin_springboard}. By increasing $x$, the effective free length of the beam is shortened, thereby stiffening the spring nonlinearly. The effect of this nonlinearity on the force exerted on the spring is illustrated in the right panel of Fig. \ref{fig:nonlin_springboard}. This setup yields the following equations of motion
 \begin{align}
 	\begin{dcases}
-		\ddot{x} + x + \epsilon x^3 = 0; \quad 0 \leq \epsilon \ll 1 \\
+		\ddot{x} + x + \varepsilon x^3 = 0; \quad 0 \leq \varepsilon \ll 1 \\
 		x(0) = a_0;\quad \dot{x}(0)=0.
 	\end{dcases}
 \end{align}
 So we have weak nonlinearity with no known explicit solution. Although weak, this nonlinearity is still significant, as can be seen in Fig. \ref{fig:effect_nonlin_springboard}. Rewriting this as a first order ODE ($x_1=x;\ x_2=\dot{x}$ ), and note that the RHS is $C^{r}_{ {x}, {\mu} }$, therefore there exists a unique local solution that is also $C^{r}_{ {\mu} }$. Thus the expansion is justified
 \begin{align*}
-	x_{\epsilon}(t) = \varphi_0(t) + \epsilon \varphi_1(t) + \ldots + \mathcal{O}(\epsilon ^{r}) \numberthis \label{eq:starstar}.	
+	x_{\varepsilon}(t) = \varphi_0(t) + \varepsilon \varphi_1(t) + \ldots + \mathcal{O}(\varepsilon ^{r}) \numberthis \label{eq:starstar}.	
 \end{align*}
-We can see, by substitution, that for $\epsilon=0$ we find that $\varphi_0(t) = a_0 \cos(t)$.
+We can see, by substitution, that for $\varepsilon=0$ we find that $\varphi_0(t) = a_0 \cos(t)$.
 
 Now we look specifically for $T$-periodic solutions, as we would expect such a solution physically, therefore we have
 \begin{align}
@@ -465,7 +465,7 @@ Now we look specifically for $T$-periodic solutions, as we would expect such a s
 The period $T$ still has to be determined. Plugging this power series into \eqref{eq:starstar} into the IVP to get
 \begin{align*}
 	&\mathcal{O}(1):\quad \ddot{\varphi}_0 + \varphi_0 &&= 0 \\
-	&\mathcal{O}(\epsilon):\quad \ddot{\varphi}_1 + \underbrace{\varphi_1}_{\omega = 1} &&= -\varphi_0^{3} = -a_0^{3}\cos ^{3}(t) = -a_0^{3}\left[ \frac{1}{4} \cos (3t) + \frac{3}{4} \underbrace{ \cos(t)}_{ \textrm{resonance} }\right] \numberthis \label{eq:3star}.
+	&\mathcal{O}(\varepsilon):\quad \ddot{\varphi}_1 + \underbrace{\varphi_1}_{\omega = 1} &&= -\varphi_0^{3} = -a_0^{3}\cos ^{3}(t) = -a_0^{3}\left[ \frac{1}{4} \cos (3t) + \frac{3}{4} \underbrace{ \cos(t)}_{ \textrm{resonance} }\right] \numberthis \label{eq:3star}.
 \end{align*}
 We can see that \eqref{eq:3star} is a linear oscillator with a forcing coming from the zeroth order solution. Since the zeroth order solution $\varphi_0= a_0 \cos(t)$ already solves the IVP we have the following initial conditions 
 \begin{align}
@@ -477,44 +477,44 @@ This holds as $\varphi_0 = a_0 \cos(t)$ already solves the IVP. The general solu
 		     &= \underbrace{A \cos(t) + B \sin (t)}_{ \textrm{TBD from initial conditions} } + 
 		     \underbrace{ C \cos(3t) + D t \cos(t) + Et\sin(t) }_{\textrm{TBD from \eqref{eq:3star}}}.
 \end{align}
-Observe that due to a resonance between the natural frequency of the oscillator and the forcing secular terms, $t \cos(t)$ and $t \sin(t)$ appear. Thus it cannot be periodic, so our Ansatz already fails for $i=1$. We conclude that no solution of this type exists. Our Ansatz was too restrictive and $T$ should depend on $\epsilon$.
+Observe that due to a resonance between the natural frequency of the oscillator and the forcing secular terms, $t \cos(t)$ and $t \sin(t)$ appear. Thus it cannot be periodic, so our Ansatz already fails for $i=1$. We conclude that no solution of this type exists. Our Ansatz was too restrictive and $T$ should depend on $\varepsilon$.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.3\textwidth]{figures/ch1/18failed_ansatz.png}
-	\caption{Numerical integration of $x$ for $a_0=1$ and different values of $\epsilon$.}
+	\caption{Numerical integration of $x$ for $a_0=1$ and different values of $\varepsilon$.}
 	\label{fig:effect_nonlin_springboard}
 \end{figure}
 
 \noindent
 \textbf{Lindstedt's idea} We should seek a solution of the form
 \begin{align}
-	x_{\epsilon}(t) = \varphi_0(t;\epsilon) + \epsilon \varphi_1 (t;\epsilon) + \epsilon^2 \varphi_2(t;\epsilon) + \mathcal{O}(\epsilon^3).
+	x_{\varepsilon}(t) = \varphi_0(t;\varepsilon) + \varepsilon \varphi_1 (t;\varepsilon) + \varepsilon^2 \varphi_2(t;\varepsilon) + \mathcal{O}(\varepsilon^3).
 \end{align}
-Furthermore $\varphi_i$ should be $T_\epsilon$ periodic, i.e. the period should depend on the strength of the  nonlinearity $\epsilon$.
+Furthermore $\varphi_i$ should be $T_\varepsilon$ periodic, i.e. the period should depend on the strength of the  nonlinearity $\varepsilon$.
 \begin{align}
-	\varphi_i(t+T_\epsilon; \epsilon) = \varphi_i(t;\epsilon).
+	\varphi_i(t+T_\varepsilon; \varepsilon) = \varphi_i(t;\varepsilon).
 \end{align}
 Rewriting the period as
 \begin{align}
-	T_\epsilon = \frac{2 \pi }{\omega(\epsilon)}; \quad \omega(\epsilon) = 1 + \epsilon \omega_1 + \epsilon^2 \omega_2 + \mathcal{O}(\epsilon^3).
+	T_\varepsilon = \frac{2 \pi }{\omega(\varepsilon)}; \quad \omega(\varepsilon) = 1 + \varepsilon \omega_1 + \varepsilon^2 \omega_2 + \mathcal{O}(\varepsilon^3).
 \end{align}
-We then rescale time according to $\tau = \omega(\epsilon) t$ to find
+We then rescale time according to $\tau = \omega(\varepsilon) t$ to find
 \begin{align}
-	\frac{d}{d\tau} = \frac{1}{\omega(\epsilon)} \frac{d}{dt} \implies 
-	\boxed{[\omega(\epsilon)]^2 x'' + x + \epsilon x^3 = 0.}
+	\frac{d}{d\tau} = \frac{1}{\omega(\varepsilon)} \frac{d}{dt} \implies 
+	\boxed{[\omega(\varepsilon)]^2 x'' + x + \varepsilon x^3 = 0.}
 \end{align}
 Where we have taken $x'$ to represent $\frac{dx}{d\tau}$. Plugging our expression into the rescaled ODE yields
 \begin{align}
-	\left( 1 + 2 \epsilon \omega_1 + \mathcal{O}(\epsilon^2) \right) \left[ \varphi_0'' + \epsilon \varphi'' + \mathcal{O}(\epsilon^2) \right] + \left[ \varphi_0 + \epsilon \varphi_1 + \mathcal{O}(\epsilon^2) \right] + \epsilon \left[\varphi_0^{3} + \mathcal{O}(\epsilon) \right] = 0.
+	\left( 1 + 2 \varepsilon \omega_1 + \mathcal{O}(\varepsilon^2) \right) \left[ \varphi_0'' + \varepsilon \varphi'' + \mathcal{O}(\varepsilon^2) \right] + \left[ \varphi_0 + \varepsilon \varphi_1 + \mathcal{O}(\varepsilon^2) \right] + \varepsilon \left[\varphi_0^{3} + \mathcal{O}(\varepsilon) \right] = 0.
 \end{align}
-Matching equal powers of $\epsilon$ yields
+Matching equal powers of $\varepsilon$ yields
 \begin{align}
 	\mathcal{O}(1)&:\ \varphi_0'' + \varphi_0 = 0 \implies \varphi_0(\tau) = a_0 \cos(\tau);\quad \varphi_0(0)=a_0;\quad \dot{\varphi_0}(0) = 0 \\
-	\mathcal{O}(\epsilon)&:\ \varphi_1'' + \varphi_1 = - \phi_0^{3} - 2\omega_1 \varphi_{0}'' = 
+	\mathcal{O}(\varepsilon)&:\ \varphi_1'' + \varphi_1 = - \phi_0^{3} - 2\omega_1 \varphi_{0}'' = 
 	\left(2 \omega_1 a_0 - \frac{3}{4}a_0^{3}\right) \underbrace{\cos (\tau)}_{ \textrm{resonance} } - \frac{a_0^{3}}{4} \cos(3 \tau); \\
 			     &\phantom{:}\ \varphi_1(0)=0; \quad \dot{\varphi_1}(0) = 0. 
 \end{align}
-From the first line, we can see the initial conditions are fulfilled. In this step we used that $\dot{\varphi}(t=0) = 0$ if and only if $\omega(\epsilon)\varphi '(0) = 0$. We get the solution
+From the first line, we can see the initial conditions are fulfilled. In this step we used that $\dot{\varphi}(t=0) = 0$ if and only if $\omega(\varepsilon)\varphi '(0) = 0$. We get the solution
 \begin{align}
 	\varphi_1(t) = A \cos(\tau) + B \sin(\tau) + C \cos(3\tau) + D\tau \cos(\tau) + E \tau \sin(\tau).
 \end{align}
@@ -522,15 +522,15 @@ The presence of resonance again excludes periodic solutions, but now we can sele
 \begin{align}
 	2\omega_1 a_0 - \frac{3}{4} a_0 ^{3} = 0 \implies \boxed{\omega_1 = \frac{3}{8}a_0^{2}.}
 \end{align}
-This successfully eliminates the resonance and determines the missing frequency term at $\mathcal{O}(\epsilon)$. Thus we find
+This successfully eliminates the resonance and determines the missing frequency term at $\mathcal{O}(\varepsilon)$. Thus we find
 \begin{align}
-	x_\epsilon(\tau) = a_0 \cos(\tau) - \frac{\epsilon}{32}a_0^{3}\left( \cos(\tau) - \cos (3\tau) \right) + \mathcal{O}(\epsilon^2).
+	x_\varepsilon(\tau) = a_0 \cos(\tau) - \frac{\varepsilon}{32}a_0^{3}\left( \cos(\tau) - \cos (3\tau) \right) + \mathcal{O}(\varepsilon^2).
 \end{align}
 In the original time scaling this is
 \begin{align}
-	x_\epsilon (t) = a_0 \cos (\omega t) - \frac{\epsilon}{32} a_0^3 \left( \cos(\omega t) - \cos(3\omega t)\right) + \mathcal{O}(\epsilon^2); \quad \omega = 1+ \frac{3}{8}\epsilon a_0^2 + \mathcal{O}(\epsilon^2).	
+	x_\varepsilon (t) = a_0 \cos (\omega t) - \frac{\varepsilon}{32} a_0^3 \left( \cos(\omega t) - \cos(3\omega t)\right) + \mathcal{O}(\varepsilon^2); \quad \omega = 1+ \frac{3}{8}\varepsilon a_0^2 + \mathcal{O}(\varepsilon^2).	
 \end{align}
-This procedure can be continued to higher order terms, where we select $\omega_2$ so that the $\mathcal{O}(\epsilon^2)$ terms cancel.
+This procedure can be continued to higher order terms, where we select $\omega_2$ so that the $\mathcal{O}(\varepsilon^2)$ terms cancel.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.45\textwidth]{figures/ch1/19approximation_accuracy.png}
