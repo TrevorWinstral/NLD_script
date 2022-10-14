@@ -70,7 +70,7 @@ We now discuss what happens to these subspaces in the nonlinear system \eqref{eq
 			
 \item There exists a (not necessarily unique) \emph{center manifold} $W^{C}(p)$ for \eqref{eq:4star}, such that
 	\begin{itemize}
-		\item $W^{C}(p)$ is a $C^{r-1}$ manifold (surface), tangent to $E^{C}$ at $p$ with $ \textrm{dim }gc W^{C}(p) =  \textrm{dim } E^{C}$,
+		\item $W^{C}(p)$ is a $C^{r-1}$ manifold (surface), tangent to $E^{C}$ at $p$ with $ \textrm{dim } W^{C}(p) =  \textrm{dim } E^{C}$,
 	\end{itemize}
 			
 	\end{enumerate}
@@ -134,7 +134,7 @@ We now present a method to calculate $W^C(p)$ in general cases.
 		\begin{align}
 			\dot{z} = F(z); \quad F(0) = 0;\quad z \in \mathbb{R}^{c+d};\quad F \in C^{r},
 		\end{align}
-		where $c$ represents the number of center directions at the origin ($ \textrm{dim }gcE^{C}$) and $d$ denotes the remaining directions ($ \textrm{dim } E^{U} +  \textrm{dim } E^{S}$).
+	where $c$ represents the number of center directions at the origin ($ \textrm{dim }E^{C}$) and $d$ denotes the remaining directions ($ \textrm{dim } E^{U} +  \textrm{dim } E^{S}$).
 	\item Now block-diagonalize the linearization. This consists of four steps
 		\begin{enumerate}
 			\item First linearize the dynamics to find $\dot{z} = Mz + \mathcal{O}(\|z\|^2)$ with $M = DF(0) \in \mathbb{R}^{(c+d) \times (c+d)}$.
@@ -184,7 +184,7 @@ We now present a method to calculate $W^C(p)$ in general cases.
 		\begin{align}
 			\dot{y} = Dh(x(t)) \dot{x}(t).
 		\end{align}
-		We can now substitute $\dot{x}$ and $\dot{y}$ from \ref{eq4:trafod_eqn} to get the following nonlinear partial differential equation (PDE) for $h(x)$
+		We can now substitute $\dot{x}$ and $\dot{y}$ from \eqref{eq4:trafod_eqn} to get the following nonlinear partial differential equation (PDE) for $h(x)$
 \begin{align}
 	\boxed{
 		Bh(x) + g(x, h(x)) = Dh(x) \left[ Ax + f(x, h(x))\right] \numberthis \label{eq4:1star}.
