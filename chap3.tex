@@ -544,7 +544,7 @@ We begin by considering different types of center manifolds. We start by classif
 				\dot{x} = \tilde{\mu }\pm x^2;\quad x \in \mathbb{R};\quad \tilde{\mu } \in\mathbb{R}.
 			}
 		\end{align}
-		This is a codimension 1 bifurcation, i.e. only 1 parameter is needed for the universal unfolding. Hence we find a bifurcation diagram as shown in Fig. \ref{fig:codim1_bif}. This is called a \emph{fold} or \emph{saddle node} bifurcation, in this example it is \emph{supercritical}. \emph{Subcriticality} occurs when the diagram is symmetric with respect to the $x$-axis. The sign which is actually used is problem dependent.
+		This is a codimension 1 bifurcation, i.e. only 1 parameter is needed for the universal unfolding. Hence we find a bifurcation diagram as shown in Fig. \ref{fig:codim1_bif}. This is called a \emph{fold} or \emph{saddle node} bifurcation, in this example it is \emph{supercritical} as we show the $-x^2$ case. \emph{Subcriticality} occurs when the diagram is symmetric with respect to the $x$-axis. The sign which is actually used is problem dependent.
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=0.35\textwidth]{figures/ch3/13codim1_bif.png}
@@ -571,13 +571,123 @@ We begin by considering different types of center manifolds. We start by classif
 		\begin{align}
 			\dot{x} = \tilde{\mu }x \pm x^2 = x (\tilde{\mu } \pm x);\quad x \in \mathbb{R};\quad \tilde{\mu} \in \mathbb{R}.	
 		\end{align}
-		This so called transcritical bifurcation is depicted in Fig. \ref{fig:transcrit_bif}. In such bifurcations the observed stable state does not vary until the bifurcation, after which it begins to vary linearly.
+		This so called \emph{transcritical bifurcation} is depicted in Fig. \ref{fig:transcrit_bif}. In such bifurcations the observed stable state does not vary until the bifurcation, after which it begins to vary linearly.
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=0.35\textwidth]{figures/ch3/15transcrit_bif.png}
 			\caption{A transcritical bifurcation.}
 			\label{fig:transcrit_bif}
 		\end{figure}
+	\item \textbf{Single zero eigenvalue, origin remains a fixed point, \& RHS is an odd function} 
+		We have the same setup as previously, with the additional condition that
+		\begin{align}
+			f(y,0) = - f(-y,0)\implies D^2_{y}f(y,0) = -D^2_{y}f(-y,0) \implies D^2_{y}f(0,0) = 0.
+		\end{align}
+	This leads to the universal unfolding 
+	\begin{align}
+		\dot{x} = \tilde{\mu } x \pm x^3;\quad x \in \mathbb{R};\quad \mu \in \mathbb{R}.
+	\end{align}
+	This type of bifurcation is called a \emph{pitchfork bifurcation}. It is \emph{supercritical} for the $+x^3$ case (cf. Fig. \ref{fig:pitchfork_bif}), and subcritical for the $-x^3$ case. The actual sign is problem dependent.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.35\textwidth]{figures/ch3/16pitchfork_bif.png}
+	\caption{A supercritical pitchfork bifurcation.}
+	\label{fig:pitchfork_bif}
+\end{figure}
+\item \textbf{Purely imaginary pair of eigenvalues} 
+	Now we have the following setup, with the eigenvalue constellation shown in Fig. \ref{fig:imag_pair_eigv}. 
+	\begin{align}
+		f(0,0)=0;\quad  \textrm{dim } E^{C}=2; \quad \lambda_n(0)= \overline{\lambda }_{n-1}(0) = \pm i\omega \neq 0.
+	\end{align}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.25\textwidth]{figures/ch3/17imag_pair_eigv.png}
+	\includegraphics[width=0.55\textwidth]{figures/ch3/18loss_of_stab_pair_imag.png}
+	\caption{Left: Eigenvalue constellation for purely imaginary pair of eigenvalues. Right: Loss of stability in oscillating system as the pair of eigenvalues cross the imaginary axis.}
+	\label{fig:imag_pair_eigv}
+\end{figure}
+Such constellations are common in oscillatory systems at the loss of stability. This loss of stability is sketched in the right pane of Fig. \ref{fig:imag_pair_eigv}. The reduced system dynamics on the 2-dimensional $W^{C}(0)$ for $\mu =0$ is
+\begin{align}
+	\begin{pmatrix}
+		\dot{u} \\ \dot{v}
+	\end{pmatrix}
+	= 
+	\begin{pmatrix}
+		0 & -\omega \\
+		\omega & 0
+	\end{pmatrix}
+	\begin{pmatrix}
+		u \\ v
+	\end{pmatrix}
+	 +
+	 \begin{pmatrix}
+		 \tilde{f}(u,v) \\
+		 \tilde{g}(u,v)
+	 \end{pmatrix}
+	 . \numberthis \label{eq4:loss_stab_cent_mfd}
+\end{align}
+The coordinates $(u,v)$ correspond to the basis given by $\left[  \textrm{Re} (e_n),  \textrm{Im} (e_n)\right]$. The normal form on $W^{C}_{\mu }(0)$ is
+\begin{align}
+	\dot{r}&= r\left(d(\mu )+a(\mu )r^2\right) + \mathcal{O}(r^5); &&d(\mu )=  \textrm{Re} (\lambda _n(\mu )) \\
+	\dot{\theta } &= \omega(\mu ) + e( \mu )r^2 + \mathcal{O}(r^4);&&\omega(\mu )=  \textrm{Im} (\lambda _n(\mu )).
+\end{align}
+The functions $a$ and $e$ depend on the given $\tilde{f}$ and $\tilde{g}$ (thereby also on $f$). We then define
+\begin{align}
+	d_0 &= \frac{d}{d\mu } \textrm{Re} \left.\left[ \lambda _n(\mu ) \right] \right|_{\mu =0}; \quad \omega_0= \textrm{Im} (\lambda_n(\mu ))\\
+		a_0 &= a(0) = \frac{1}{16}\left. \left[\tilde{f}_{uuu} + \tilde{f}_{uvv} + \tilde{g}_{uuv} + \tilde{g}_{vvv}\right] \right|_{(u,v)=0} \\
+		    &\quad +\frac{1}{16\omega } \left. \left[\tilde{f}_{uv}(\tilde{f}_{uu}+ \tilde{f}_{vv}) - \tilde{g}_{uv}(\tilde{g}_{uu}+\tilde{g}_{vv}) - \tilde{f}_{uu} \tilde{g}_{uu} + \tilde{f}_{vv}\tilde{g}_{vv}\right]\right|_{(u,v)=0}.
+\end{align}
+Note that we must start from the standard form \eqref{eq4:loss_stab_cent_mfd}. 
+\end{enumerate}
+Building on this last case, we explore the extended center manifold in the next theorem.
+
+\begin{theorem}[Hopf-Bogdanov]
+	Assume the following
+	\begin{enumerate}
+		\item The eigenvalues $\lambda_n$ and $\overline{\lambda}_{n} $ do cross the imaginary axis for $\mu \neq 0$, i.e. $d_0 \neq 0$.
+		\item The leading order nonlinearity in $\dot{r}$ is nonzero, i.e. $a_0 \neq 0$.
+			Then there exists a \underline{unique} extended center manifold $W^{C}_{\mu }(0)$ for $0 \leq \mu  \ll 1$, on which the dynamical system is locally topologically equivalent to the universal unfolding 
+			\begin{align}
+			\boxed{
+			\dot{r} = r \left( d_0 \mu + a_0 r^2\right); \quad 
+			\dot{\theta}= \omega_0 + e_0r^2 + b_0 \mu ,}
+			\end{align}
+		for $b_0, e_0 \in \mathbb{R}$.	
+	\end{enumerate}
+\end{theorem}
+
+From here we explore two cases for the signs of $d_0$ and $a_0$.
+\begin{enumerate}
+	\item First, when each are strictly positive $d_0, a_0 >0$. This yields a subcritical pitchfork bifurcation in $r$ and a continued rotation in $\theta $. The bifurcation of $r$ and the dynamics of $u$ and $v$ for $\mu < 0 $ are illustrated in Fig. \ref{fig:case1_hb}, for $|\mu |$ and $|r|$ small enough.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.45\textwidth]{figures/ch3/19case1_r_bif.png}
+			\includegraphics[width=0.45\textwidth]{figures/ch3/20case1_theta_bif.png}
+			\caption{Left: The subcritical pitchfork bifurcation of $r$. The red arrow points towards the $r = \sqrt{\frac{-d_0 \mu }{a_0}}$, the symmetric negative part of this curve is dashed, as negative values of $r$ are not relevant for this problem (the radius cannot be negative). Right: The effect of $\mu <0$ on the system dynamics leading to an unstable limit cycle (red) in the $u-v$ plane.}
+			\label{fig:case1_hb}
+		\end{figure}
+		There is an increased sensitivity to perturbation as $\mu $ increases (the domain of attraction shrinks). Such behavior can be observed in the transition to turbulence in pipe flows. This is shown in Fig. \ref{fig:case1_full_bif}.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.6\textwidth]{figures/ch3/21case1_full_bif.png}
+			\caption{The full bifurcation diagram for the dynamical system in case (i).}
+			\label{fig:case1_full_bif}
+		\end{figure}
+	\item Next, the two coefficients have opposite signs $d_0 > 0$ and $a_0 <0$. This leads to the supercritical Hopf bifurcation and a stable limit cycle as shown in Fig. \ref{fig:case2_bif}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.5\textwidth]{figures/ch3/23case2_bif.png}
+			\includegraphics[width=0.4\textwidth]{figures/ch3/22case2_r_bif.png}
+			\caption{Left: The bifurcation in $r$, the blue arrow designates the curve given by $r=\sqrt{\frac{-d_0 \mu }{a_0}}$, again the negative part is not relevant as the radius is always non-negative. Right: The stable limit cycle that arises for this system.}
+			\label{fig:case2_bif}
+		\end{figure}
+	
+		There is a sudden development of stable periodic oscillation as $\mu  $ is increased. Often the parameter $\mu $ is a steady speed in the system which is changed gradually. Examples of this are 
+		\begin{itemize}
+			\item increasing wind speed leading to bridge oscillations and collapse,
+			\item increasing flight speed leading to wing flutter,
+			\item increasing driving speed leading to death wobble on motorcycles.
+		\end{itemize}
 		
 \end{enumerate}
 
