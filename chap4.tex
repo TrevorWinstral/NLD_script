@@ -144,3 +144,85 @@ Further assume that solutions exist for all times, therefore there exists a uniq
 \end{ex}
 
 We now introduce two theorems which give us more insight into these limit sets.
+\begin{theorem}[]
+	If $x(t;x_0)$ is bounded, then $\omega(x_0)$ and $\alpha(x_0)$ are nonempty, closed, and connected.
+\end{theorem}
+\begin{theorem}[Poincaré-Bendixon]
+	If $x(t;x_0)$ is bounded, then $\omega(x_0)$ and $\alpha(x_0)$ must be one of the following 
+	\begin{enumerate}
+		\item A connected set of fixed points,
+		\item A limit cycle,
+		\item A set of fixed points and their homo-/heteroclinic orbits (illustrated in Fig. \ref{fig:poincare-bendixon}).
+	\end{enumerate}
+	There is no complex (chaotic) in 2-dimensional autonomous nonlinear systems. 
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.85\textwidth]{figures/ch4/8poincare-bendixon.png}
+		\caption{Examples of a set of fixed points connected by homo-/heteroclinic orbits.}
+		\label{fig:poincare-bendixon}
+	\end{figure}	
+\end{theorem}
+\begin{remark}[]
+	The homo-/heteroclinic orbits are generally not robust, thus we should not expect to see them in a typical dynamical system. We can imagine the continuous line of the orbit being broken as shown in Fig. \ref{fig:pd_robust}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/ch4/9pd_robust.png}
+		\caption{The loss of the homoclinic orbit under a small perturbation. Before the perturbation $\Gamma=W^{S}(p)=W^{U}(p)$ ($p$ is the hyperbolic fixed point), meanwhile after the perturbation $W ^{S}(p) \neq W^{U} (p)$. The unstable manifold is given in red, and the stable manifold in blue.}
+		\label{fig:pd_robust}
+	\end{figure}
+	However, these orbits are robust within the class of conservative systems, and pertubations do not lead to global bifurcations as seen in Fig. \ref{fig:pd_conservative}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/ch4/10pd_conservative.png}
+		\caption{Small conservative perturbation does not lead to a global bifurcation in conservative systems. The energy level containing $\Gamma_0$ is robust, and perturbs to a new $\Gamma_\varepsilon$.}
+		\label{fig:pd_conservative}
+	\end{figure}
+	
+\end{remark}
+\begin{remark}[]
+	A consequence of the Poincaré-Bendixon Theorem is that a forward-invariant, bounded open set without fixed points \underline{must} contain a limit cycle. This is due to the elimination of possibilities (i) and (iii) in the theorem. 
+\end{remark}
+\begin{proposition}[Bendixson criterion]
+	Consider the following
+	\begin{align}
+		\dot{x}	= f(x);\quad x\in \mathbb{R}^{2}; f\in C^{1};\quad U  \textrm{ simply connected} .
+	\end{align}
+And further assume 
+ \begin{align}
+	  x\in U \implies \textrm{div }  f(x) \neq 0.
+\end{align}
+This in turn implies $\nabla \cdot f(x)$ has constant sign on $U$. Then there cannot exist a limit cycle in $U$.
+\end{proposition}
+\begin{proof}
+	Assume, towards a contradiction, that there exists a closed orbit $\Gamma$ of period $\tau$. Calculate 
+	\begin{align}
+	f^{\perp}(x) =
+	\begin{pmatrix}
+		f_2(x) \\ -f_1(x)
+	\end{pmatrix}
+	\implies \oint_{\Gamma }f^{\perp}\cdot \underbrace{dr}_{=\dot{r}dt}
+	=\int_{0}^{\tau} f^{\perp}(r(t)) \cdot f(r(t)) dt = 0.
+	\end{align}
+On the other hand we have by Green's Theorem
+\begin{align}
+	\oint_{\Gamma }f^{\perp}\cdot dr = \int \int_{\Gamma^{\degree}} \left(\nabla \times f^{\perp}\right)_{z}dA = - \int \int_{\Gamma^{\degree}} \underbrace{\nabla \cdot f}_{\neq -}dA \neq 0.
+\end{align}
+Here, $\Gamma^{\degree}$ denotes the interior of the area enclosed by $\Gamma$. These two equations stand in contradiction to each other, therefore no limit cycle can exist in $U$. 
+\end{proof}
+\begin{remark}[]
+	Another consequence of the Poincaré-Bendixson Theorem is that purely damped or purely forced perturbations of a conservative system cannot have limit cycles. 
+	\begin{align}
+		f(x) =
+		\begin{dcases}
+			\dot{x}_1 = x_2 \\
+			\dot{x}_2 = -V'(x_1) + g(x_1, x_2)
+		\end{dcases}
+		;\quad 
+		\nabla \cdot f = \nabla \cdot
+		\begin{pmatrix}
+			0 \\ g(x)
+		\end{pmatrix}.
+	\end{align}
+	The final term cannot equal 0 on any open set. If it is positive, we have pure forcing, alternatively if it is negative we have pure damping. In either case no limit cycle can exist.	
+\end{remark}
+
