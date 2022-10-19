@@ -205,3 +205,165 @@ This has implications for the Poincaré map of the original equation
 	P_{t_0}^{\varepsilon}:x_0 \mapsto x(t_0+T, x_0; \epsilon);\quad P_{t_0}^{\varepsilon} = P_{t_0}^{0} + \mathcal{O}(\epsilon) \implies \left( P_{t_0}^{\varepsilon}\right)^{n} = \left( P_{t_0}^{0}\right)^{n} + \mathcal{O}(\varepsilon).
 \end{align}
 This only holds if $n \leq \frac{1}{\varepsilon}$. The time $T$ map of the average system is $P_{t_0}^{0}$.
+
+\begin{ex}[Averaged system with a saddle-type fixed point ]
+	Consider a system with a hyperbolic fixed point $p_0$, by the persistence of hyperbolic fixed points, the perturbed $P_\varepsilon$ has a hyperbolic fixed point $p_\varepsilon$ which is $\mathcal{O}(\varepsilon)$ close to $p_0$. Furthermore, the $C^{1}$ manifolds $W^{U}_{ \textrm{loc} }(p_\varepsilon)$ and $W^{S}_{ \textrm{loc} }(p_{\varepsilon}$ are $\mathcal{O}(\varepsilon)$ close to their unperturbed counterparts. The unperturbed system and geometry of the perturbed system are shown in Fig. \ref{fig:avg_ex_2}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.37\textwidth]{figures/ch5/4avg_ex_2a.png}
+		\includegraphics[width=0.6\textwidth]{figures/ch5/5avg_ex_2b.png}
+		\caption{Left: The averaged system with the saddle type fixed point $P_0$. The upper red arrow designates the local unstable manifold, and the lower arrow the local stable manifold. Right: These in the extended phase space, time is represented by $S_1$ and runs clockwise. The hyperbolic limit cycle $\Gamma_\varepsilon$ is given by the yellow trajectory. Furthermore, the non-averaged local stable and unstable manifolds are drawn in red and blue respectively.}
+		\label{fig:avg_ex_2}
+	\end{figure}
+	
+\end{ex}
+\begin{remark}[]
+	We can show that fixed points persist for $P_\varepsilon$ as follows. First we take the flow map for the system $F_{t_0}^{t}(y_0;\varepsilon)$, then we use the Taylor expansion to find
+	\begin{align}
+		F_{t_0}^{t_0+T}(y_0; \varepsilon) &= F_{t_0}^{t_0+T}(y_0;0) + \frac{\partial}{\partial \varepsilon}F_{t_0}^{t_0 + T}(y_0;0)\varepsilon + \mathcal{O}(\varepsilon^2) \\
+						  &= y_0 + \varepsilon + \left.\frac{\partial (y(t_0+T);t_0;\varepsilon)}{\partial \varepsilon} \right|_{\varepsilon=0} + \mathcal{O}(\varepsilon^2) \\
+						  &= y_0 + \varepsilon \int_{0}^{T} \overline{f}(y_0)dt + \mathcal{O}(\varepsilon^2) .
+	\end{align}
+From this we have
+\begin{align}
+	P_{\varepsilon}(y_0) - y_0 \Leftrightarrow y_0 +\varepsilon T \overline{f}(y_0) + \mathcal{O}(\varepsilon^2) - y_0=0 \Leftrightarrow  T \overline{f}(y_0) + \mathcal{O}(\varepsilon) = 0.
+\end{align}
+And now we can use the Implicit Function Theorem to conclude.
+\end{remark}
+
+\begin{ex}[Averaged system with a stable focus]
+	Consider the averaged system with a stable focus around a fixed point $p_0 $. The transition to the perturbed system is shown in Fig. \ref{fig:avg_ex_3}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.4\textwidth]{figures/ch5/6avg_ex_3a.png}
+		\includegraphics[width=0.4\textwidth]{figures/ch5/7avg_ex_3b.png}
+		\caption{The stable focus around $p_0$ in the averaged system is preserved geometrically in the non-averaged system.}
+		\label{fig:avg_ex_3}
+	\end{figure}
+	
+\end{ex}
+\begin{ex}[Averaged system with a limit cycle]
+	Consider the averaged system with a limit cycle $\Gamma_0$. The non-averaged system also has a limit cycle $\Gamma_\varepsilon$ with $ \textrm{dim }W^{S}(\Gamma_\varepsilon) =\mathbb{R}^{n+1} $ in extended phase space. Thus in the full system we have an attracting 2-dimensional invariant torus. The averaged and non-averaged system, along with this torus are shown in Fig. \ref{fig:avg_ex_3}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.34\textwidth]{figures/ch5/8avg_ex_4a.png}
+		\includegraphics[width=0.34\textwidth]{figures/ch5/9avg_ex_4b.png}
+		\includegraphics[width=0.3\textwidth]{figures/ch5/10avg_ex_4c.png}
+		\caption{Left: The averaged system with the stable limit cycle $\Gamma_0$. Middle: The non-averaged system with the limit cycle $\Gamma_{\varepsilon}$. Right: The attracting 2-dimensional invariant torus (black arrow), trajectories can be seen as the thin yellow lines.}
+		\label{fig:avg_ex_3}
+	\end{figure}
+	
+\end{ex}
+
+\begin{ex}[Weakly nonlinear oscillations]
+	An important application of averaging is for weakly nonlinear oscillations. This is covered in-depth in Guckenheimer \& Holmes. The system is given by
+	\begin{align}
+		\ddot{x} + \omega_0^2 x = \varepsilon f(x, \dot{x}, \varepsilon).
+	\end{align}
+Averaging applies after a change of coordinates moving with the solutions of the $\varepsilon=0$ limit.	First transform the system to be a first-order ODE with $X= 
+\begin{pmatrix}
+	x \\ \dot{x}
+\end{pmatrix}
+$.
+\begin{align}
+	\dot{X} = AX + \varepsilon F(X,t); \quad A = 
+	\begin{pmatrix}
+		0 & 1 \\
+		-\omega_0^2 & 0
+	\end{pmatrix}
+	;\quad
+	F(X,t) = 
+	\begin{pmatrix}
+		0 \\ f(X_1, X_2, t)
+	\end{pmatrix}
+	\numberthis \label{eq6:1star}.
+\end{align}
+We cannot directly apply averaging to \eqref{eq6:1star}. Instead we introduce a coordinate change along the trajectories of the system. Let $\Phi(t;\omega_0)$ be the fundamental matrix of solutions. In fact, this is explicitly available
+\begin{align}
+	\Phi(t;\omega_0) =
+	\begin{pmatrix}
+		\cos(\omega_0 t) & -\sin(\omega_0 t) \\
+		-\omega_0 \sin(\omega_0 t) & -\omega_0 \cos(\omega_0 t)
+	\end{pmatrix}
+	.
+\end{align}
+Thus we change coordinates with $X(t) = \Phi(t, \omega_0) Y(t)$. As $\Phi$ is invertible, we have $Y(t) = \Phi^{-1}(t, \omega_0) X(t)$ with the inverse
+\begin{align}
+	\Phi^{-1}(t,\omega_0) = 
+	\begin{pmatrix}
+		\cos(\omega_0 t) & -\frac{1}{\omega_0}\sin(\omega_0 t) \\
+		-\sin(\omega_0 t) * - \frac{1}{\omega_0}\cos(\omega_0 t)
+	\end{pmatrix}
+	.
+\end{align}
+Now we substitute this transformation into the differential equation \eqref{eq6:1star} and use the fact that $\dot{\Phi} = A \Phi$ to find
+ \begin{align}
+	 \dot{\Phi}Y + \Phi \dot{Y} &= A\Phi Y + \varepsilon F(\Phi^{-1}Y, t)
+	 \implies \dot{Y} = \varepsilon \Phi^{-1}F(\Phi Y, t). \numberthis \label{eq6:2star}
+ \end{align}
+
+ This appears to be in the required form for averaging, except the right hand side is not generally periodic unless $\omega= k \omega_0$ for $k \in \mathbb{Z}$, i.e. resonance of order $k$. Often it is important to analyze near-resonant oscillations, i.e. $\omega\approx k \omega_0$. Thus our expectation is to find an almost sinusoidal response of frequency $\frac{\omega }{k}$. Therefore we instead use the transformation  $\Phi(t; \frac{\omega }{k}$ and find
+ \begin{align}
+	 \dot{Y } = \Phi^{-1}\left[ A \Phi - \dot{\Phi}\right] Y + \varepsilon \Phi^{-1}F(\Phi Y, t). 	
+ \end{align}
+Now write $Y = 
+\begin{pmatrix}
+	u \\ v
+\end{pmatrix}
+$, and we find
+\begin{align}
+\begin{dcases}
+	\dot{u} = -\frac{k}{\omega} \left[ \left( \frac{\omega^2 - k^2 \omega_0^2}{k^2}\right)x + \varepsilon f(x, \dot{x}, t) \right] \sin\left(\frac{\omega t}{k}\right) \\
+	\dot{v} = -\frac{k}{\omega} \left[ \left( \frac{\omega^2 - k^2 \omega_0^2}{k^2}\right)x + \varepsilon f(x, \dot{x}, t) \right] \cos\left(\frac{\omega t}{k}\right)
+\end{dcases}
+\end{align}
+Now we have that if $\omega^2 - k^2 \omega_0^2 = \mathcal{O}(\varepsilon)$, averaging applies to \eqref{eq6:2star}.
+
+Next we consider a specific example, the Duffing oscillator
+\begin{align}
+	f(x, \dot{x}, t) = \beta \cos(\omega t) - \delta \dot{x} - \alpha x^3,
+\end{align}
+with $\omega_0^2-\omega^2 = \varepsilon \Omega$, i.e. a nearly order one resonance. The transformed system then takes the form
+\begin{align}
+	\begin{dcases}
+		\dot{u} = \frac{\varepsilon}{\omega } [ &\Omega \left( u \cos(\omega t) - v \sin (\omega t)\right) - \omega \delta \left( u \sin(\omega t) + v \cos (\omega t)\right)  \\
+							    &+\alpha \left(u \cos(\omega t) - v \sin (\omega t)\right) ^{3} - \beta \cos(\omega t)  ] \sin(\omega t)
+\\
+		\dot{v} = \frac{\varepsilon}{\omega } [ &\Omega \left( u \cos(\omega t) - v \sin (\omega t)\right) - \omega \delta \left( u \sin(\omega t) + v \cos (\omega t)\right)  \\
+							    &+\alpha \left(u \cos(\omega t) - v \sin (\omega t)\right) ^{3} - \beta \cos(\omega t)  ] \cos(\omega t).
+	\end{dcases}
+\end{align}
+Averaging over one period $T = \frac{2 \pi }{\omega }$ we find
+\begin{align}
+	\frac{1}{T} \int_{0}^{T} \sin(\omega t) \cos(\omega t) dt = \frac{1}{2T}\int_{0}^{T} \sin(2\omega t) dt = \left[ - \frac{\cos (2 \omega t)}{4 \omega T} \right]_{0}^{T} = 0,
+\end{align}
+and
+\begin{align}
+	\frac{1}{T}\int_{0}^{T} \sin^2 (\omega t) dt = \frac{1}{T} \int_{0}^{T} \frac{1-\cos(2\omega t)}{2} dt = \frac{1}{T} \left[ \frac{1}{2} - \frac{\sin (2 \omega t)}{2 \omega} \right]_{0}^{T} = \frac{1}{2}.
+\end{align}
+Using trigonometric identities then leads to the equation
+\begin{align}
+	\begin{dcases}
+		\dot{u} = \frac{\varepsilon}{2 \omega }\left[ - \omega \delta u - \Omega v - \frac{3 \alpha }{4} ( u^2 + v^2) v\right] \\
+		\dot{v} = \frac{\varepsilon}{2 \omega } \left[ \Omega u - \omega \delta v + \frac{3 \alpha}{4} (u^2 + v^2) u - \beta \right].
+	\end{dcases}
+\end{align}
+This can be further simplified by using the polar coordinates $(r, \phi)$, i.e. 
+\begin{align}
+	\begin{pmatrix}
+		u \\v
+	\end{pmatrix}
+	= 
+	\begin{pmatrix}
+		r \cos(\phi) \\
+		r \sin (\phi)
+	\end{pmatrix}
+	\implies
+	\begin{dcases}
+		\dot{r} = \frac{\varepsilon}{2 \omega }\left[ - \omega \delta r - \beta \sin(\phi) \right] \\
+		r \dot{\phi} = \frac{\varepsilon}{2 \omega } \left[ \Omega r + \frac{3 \alpha }{4 }r^3 - \beta \cos(\phi) \right].
+	\end{dcases}
+\end{align}
+
+\end{ex}
+
