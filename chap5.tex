@@ -362,8 +362,156 @@ This can be further simplified by using the polar coordinates $(r, \phi)$, i.e.
 	\begin{dcases}
 		\dot{r} = \frac{\varepsilon}{2 \omega }\left[ - \omega \delta r - \beta \sin(\phi) \right] \\
 		r \dot{\phi} = \frac{\varepsilon}{2 \omega } \left[ \Omega r + \frac{3 \alpha }{4 }r^3 - \beta \cos(\phi) \right].
-	\end{dcases}
+	\end{dcases} \numberthis \label{eq6:2pound}
+\end{align}
+Next, recall that $x(t) = u(t) \cos(\omega t) - v(t) \sin(\omega t) = r(t)\cos(\omega t - \phi(t))$, i.e. we have slowly varying amplitude $r(t)$ and phase $\phi(t)$. The hyperbolic fixed points of \eqref{eq6:2pound} correspond to stead, almost sinusoidal response of the original system. The forced response curves, obtained by fixing $\alpha,\ \beta,$ and $\delta$ and plot the fixed point $(\overline{r}, \overline{\phi })$ of \eqref{eq6:2pound} as a function of the frequency parameter $\Omega $ (or $\frac{\omega }{\omega _0}$) as in Fig. \ref{fig:forced_response}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch5/11forced_response.png}
+	\caption{The forced response curved for the Duffing equation.}
+	\label{fig:forced_response}
+\end{figure}
+
+\end{ex}
+
+\section{The Harmonic Balancing Method}
+Averaging and other perturbation techniques are often restrictive due to their small-parameter assumptions and result in cumbersome expressions limiting their application to high-dimensional systems. To avoid these constraints, the \emph{Harmonic Balance} method computes the Fourier series approximation of the periodic response and is formally applicable without the previous restrictions. Consider the setup 
+\begin{align}
+	\dot{x} = f(x,t) = f(x,t+T); \quad x \in \mathbb{R}^{n};\quad f \in C^{r}_{x},\ r\geq 1,\ f \in C^{0}_{t}. \numberthis \label{eq6:one}
+\end{align}
+Now we seek a $T$-periodic response via the Fourier series. 
+\begin{remark}[]
+	It is not immediately clear that a periodic response exists in a periodically forced multi-degree of freedom mechanical system. See for instance Breuning \& Halle (Nonlinear Dynamics, 2019) for more detail.
+\end{remark}
+
+	Assume \eqref{eq6:one} exhibits a $T$-periodic response, say $x_{p}(t) = x_{p}(t+T)$. Then it can be expressed as a convergent Fourier series
+	\begin{align}
+		x_p(t) = \sum_{k \in \mathbb{Z}}^{} \hat{x}_{k}e^{ik\omega t} = x_0 + \sum_{j \in \mathbb{N}}^{} c_j \cos(j \omega t) + s_j \sin(j \omega t).
+	\end{align}
+	Substituting this into \eqref{eq6:one} and using that $f$ is $T$-periodic (in both variables) and therefore admits a convergent Fourier series we find
+	\begin{align}
+		\frac{d}{dt}x_p(t)  &= 	f(x_p(t), t)\\
+		\frac{d}{dt}\sum_{k \in \mathbb{Z}}^{} \hat{x}_k e^{ik \omega t}
+				    &=	\sum_{k \in \mathbb{Z}}^{} \hat{f}_{k}(x_p(t), t) e^{i k \omega t} \\
+		\sum_{k \in \mathbb{Z}}^{}  i k \omega \hat{x}_{k}e^{ik \omega t}	
+				    &= \sum_{k \in \mathbb{Z}}^{} \hat{f}_{k} (x_p(t), t) e^{ik \omega t}.
+	\end{align}
+	Now we can compare coefficients at different harmonics to find
+	\begin{align}
+		ik \omega \hat{x}_{k} = \hat{f}_{k}(x_{p}(t), t) = \hat{f}_{k}\left( \sum_{j \in \mathbb{Z}}^{} \hat{x}_{j}e^{ij \omega t}, t \right) \quad \forall k.
+	\end{align}
+	These are algebraic equations which give a solution for each coefficient. In general they are coupled, with a noteworthy exception if $f$ is linear. However, there are infinitely many equations to solve, so in practice we only use a finite truncation of the Fourier series to approximate the response. 
+	\begin{align}
+		\dot{x}_{H} = \sum_{k=-H}^{H} \hat{x}_{k}e^{ik \omega t}.
+	\end{align}
+	Now we instead solve $\dot{x}_H = f_{H}(x_{H}(t), t)$, leading to only $n(2H+1)$ equations.	
+Now recall a few basic results from Fourier Analysis.
+\begin{theorem}[]
+	For any $F\in C^0$ which is $T$-periodic, the truncation $F_{H}(t) = \sum_{k=-H}^{H} \hat{F}_{k}e^{ik \omega t}$ converges uniformly to $F(t)$.
+\end{theorem}
+\begin{theorem}[Decay of Fourier coefficients]
+	For $F\in C^{r}$ which is $T$-periodic, the Fourier coefficients $\hat{F}_{k}$ decay at least as fast as $\frac{1}{|k|^{r+1}}$, thus if $r=a $ the coefficients decay exponentially.
+	{\color{blue} not exactly sure what $a$ is  but that is what he wrote I think (pg123)}
+\end{theorem}
+\begin{remark}[]
+	Note that the decay estimate is asymptotic, hence it is generally unclear exactly where to truncate. However, the method seems to work well for many practical applications and produces fast results.
+\end{remark}
+
+We will now apply this method in a few examples.
+
+\begin{ex}[Linear spring-mass-damper oscillator]
+	Consider the following mass dampened linear spring
+	\begin{align}
+		\ddot{x} + 2 \zeta \omega _0 \dot{x} + \omega _0^2 x = F(t) = F_0 \cos (\omega t). 
+	\end{align}
+	As only a single harmonic is sufficient to describe $F$, the harmonic coefficients are decoupled. By taking the Fourier series of $x$ and $F=\frac{1}{2}\left( F_0 e^{i \omega t} + F_0 e^{-i \omega t}\right)$ we compare coefficients
+	\begin{align}
+		k=1&: \quad - \omega ^2 \hat{x}_1 e^{i \omega t} + i 2 \zeta \omega_0 \omega \hat{x}_1 e^{i \omega t} + \omega_0^2 \hat{x}_1 e^{i \omega t} = F_0 e^{i \omega t};\\
+		k=-1&: \quad  - \omega^2 \hat{x}_{-1}e^{-i\omega t} - i 2 \zeta \omega_0 \omega \hat{x}_{-1} e^{-i \omega t} + \omega_0^2 \hat{x}_{-1}e^{i \omega t} = F_0 e^{-i \omega  t}.
+	\end{align}
+We therefore calculate 
+\begin{align}
+	\hat{x}_1 = \frac{1}{2} \left( \frac{F_0}{\omega_062 - \omega ^2 + i 2 \zeta \omega_0 \omega }\right);
+\quad	
+	\hat{x}_{-1} = \frac{1}{2} \left( \frac{F_0}{\omega_062 - \omega ^2 - i 2 \zeta \omega_0 \omega }\right).
+\end{align}
+For all other values of $k$ $\hat{x}_{k}$ must equal zero. Now we can calculate the famous formula from linear vibration text books for the magnitude of the response
+\begin{align}
+	|x | =  \frac{F_0}{\omega_0^2\sqrt{\left( 1 - \left( \frac{\omega }{\omega_0}\right)^{2}\right)^2 + \left(2 \zeta \frac{\omega }{\omega_0}\right)^2  }}.
 \end{align}
 
 \end{ex}
 
+\begin{ex}[Duffing Oscillator]
+	Recall the Duffing oscillator
+\begin{align}
+	\ddot{x} + 2 \zeta \omega_0 \dot{x} + \omega_0^2  x + \alpha x^3 = F_0 \cos(\omega t).
+\end{align}
+We consider the Ansatz {\color{blue} (I know he said he didn't like using 'ansatz' but these are his notes I am copying) }
+\begin{align}
+	q_1(t) &= c_1 \cos(\omega t) + s_1 \sin(\omega t) \implies
+	\ddot{q}_1 + 2 \zeta \omega_0 \dot{q}_1 + \omega_0^2 q_{1} + \alpha q_{1}^{3} = F_0 \cos(\omega t). 
+\end{align}
+Now calculate $q_1^3$ using multi-angle trigonometric identities
+ \begin{align}
+	 q_1^{3} &= \left( c_1 \cos (\omega t) + s_1 \sin(\omega t)\right)^{3} \\
+		 &= c_{1}^{3} \cos^{3}(\omega t) + 3 c_1^2 s_1 \cos^{2}(\omega t)\sin(\omega t) + 3 c_1 s_{1}^{2}\cos(\omega t) \sin^2(\omega t) +s_1^{3}\sin^{3}(\omega t) \\
+		 &= \frac{3}{4}(c_1^3 + c_1 s^2) \cos(\omega t) + \frac{3}{4}(s_1^{3}+c_1^{2}s_1) \sin (\omega t) \\ 
+		 &\quad - \frac{1}{4} \left[ -3 c_1\cos (\omega t)\left (s^2 - 4 s_ 1^2\sin^2 (\omega t) \right) \right.\\
+		 &\qquad \quad + \left. \left (3 c_ 1^2 s_ 1 - s_ 1^3 \right)\sin (3 \omega t)+ c_ 1^3\cos (3 \omega t) - 1 \right]
+\end{align}
+\end{ex}
+Now we neglect the harmonics higher than 1 and balance the remaining
+\begin{align}
+	0&=	\left[\left(\omega _0^2 - \omega^2\right) c_1 + 2 \zeta \omega_0 \omega s_1 + \frac{3}{4} \alpha \left(c_1^3 + c_1 s_1^2\right) - F_0 \right] \cos(\omega t)  \\
+	 &\quad + \left[ \left( \omega_0^2 - \omega^2 \right) s_1 - 2 \zeta \omega_0 \omega c_1 + \frac{3}{4} \alpha \left(s_1^3 + c_1^2 s_1\right) \right] \sin(\omega t) +  \textrm{higher order harmonics}.  
+\end{align}
+Therefore we have two algebraic equations in $c_1$ and $s_1$. Using the polar coordinates $c_1 = A \cos(\phi)$ and $s_1 = A \sin(\phi)$ we find
+\begin{align}
+	\left( \omega _0^2 - \omega ^2\right) A \cos(\phi) + 2 \zeta \omega_0 \omega A \sin (\phi) + \frac{3}{4} \alpha \left( A^3 \cos^3(\phi) + A^3 \cos(\phi) \sin^2(\phi) \right) &= F_0\\
+	\left( \omega _0^2 - \omega ^2\right) A \sin(\phi) + 2 \zeta \omega_0 \omega A \cos (\phi) + \frac{3}{4} \alpha \left( A^3 \sin^3(\phi) + A^3 \sin(\phi) \cos^2(\phi) \right) &= 0.
+\end{align}
+Adding $\cos(\phi)$ times the first equation to $\sin(\phi)$ times the second we obtain
+\begin{align}
+	\left( \omega _0^2 - \omega^2 \right) A + \frac{3}{4} \alpha A^3 = F_0 \cos (\phi).
+\end{align}
+Similarly, adding $\sin(\phi)$ times the first equation to $\cos(\phi)$ times the second we obtain
+\begin{align}
+	2 \zeta \omega_0 \omega A = F_0 \sin (\phi).
+\end{align}
+We now take the sum of the squares of these two new equations, which yields
+\begin{align}
+	A^2 \left[ \left( \omega _0^2 - \omega ^2 + \frac{3}{4} \alpha A^2 \right) ^2 + 4 \zeta^2 \omega_0^2 \omega ^2 \right] = F_0^2.
+\end{align}
+This equation now allows us plot $A$ versus $\omega$ as in Fig. \ref{fig:forced_response2}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/ch5/12forced_response2.png}
+	\caption{Forced response curves derived via harmonic balancing for the Duffing oscillator.}
+	\label{fig:forced_response2}
+\end{figure}
+
+Unfortunately, in contrast to averaging, harmonic balancing does not return any stability information.
+{\color{blue} Here he has something about computing the Floquet multipliers, not exactly sure how to add that smoothly here}
+
+\begin{ex}[Unforced and undamped Duffing oscillator]
+	For unforced systems harmonic balancing can also be used to obtain internally parameterized periodic orbits. However, the expected period is a priori unknown. Consider the following
+	\begin{align}
+		 \ddot{x} + \omega _0^2 x + \alpha x^3 = 0.
+	\end{align}
+	Since the system in autonomous, the phase of the response is irrelevant. Thus the simplest Ansatz for a single harmonic response is
+	\begin{align}
+		x_1(t) = A \cos (\omega t),
+	\end{align}
+	for an unknown $\omega $. Applying the procedure as before and neglecting the higher harmonics we find
+	\begin{align}
+		\omega^2 = \omega_0 + \frac{3}{4} \alpha A^2.
+	\end{align}
+	For unforced, conservative, systems the frequency-amplitude relation gives the so-called \emph{backbone curve}, illustrated in Fig. \ref{fig:backbone}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/ch5/13backbone.png}
+	\caption{The backbone curve (denoted by the orange arrow) for the unforced and undamped Duffing oscillator. Under small forcing and damping, the backbone curve has been observed to connect the forced response curves' peaks (red arrow).}
+	\label{fig:backbone}
+\end{figure}
+\end{ex}
