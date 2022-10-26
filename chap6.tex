@@ -283,4 +283,186 @@ After an appropriate change of coordinates we find the geometry called \emph{Sma
 	\label{fig:smales_construction}
 \end{figure}
 
+A model for the right panel of Fig. \ref{fig:smales_construction} is given by \emph{Smale's Horseshoe map}. This is defined by first letting the set $S$ be equal to $[0,1]^2\in \mathbb{R}^{2}$, next the map itself is given by $f:S\to\mathbb{R}^{2}$. The map $f$ will not be defined explicitly, and instead geometrically. The unit square is divided into three horizontal strips, the upper one being labelled $H_2$ and the lower $H_1$. The square is then stretched vertically, and then smoothly bent to a horseshoe such that the previously upper horizontal strip now forms a vertical strip on the right side of the box $V_2$. Similarly, the lower horizontal strip now forms a vertical strip on the left $V_1$. Now the unit square can also be divided into three vertical strips, on the left $V_1$, an area in the middle, and on the right $V_2$. What was previously part of the middle horizontal strip now forms the connecting curve between $V_1$ and $V_2$. Furthermore, these vertical strips are straight, without any curvature on their boundary. The horseshoe map is depicted in Fig. \ref{fig:smale_map}. This map models the Poincaré map as seen before.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/ch6/17smale_map.png}
+	\caption{The two geometric steps of the Smale map, first a vertical stretch and then a fold into the horseshoe.}
+	\label{fig:smale_map}
+\end{figure}
 
+Using this construction, we would like to know if any initial conditions stay in $S$ for long times (after many iterations of the Horseshoe map), despite the overall instability coming from $P_{\varepsilon}$. To further study this we introduce a couple definitions.
+\begin{definition}
+	The set of all points which stay in $S$ under $k$ backwards iterations is given by $V^{k}$.
+\end{definition}
+\begin{definition}[]
+	For a map $f:X \to Y$, we denote the \emph{preimage} of a set $U\subset Y$ (or point $p\in Y$) as
+	\begin{align}
+		\boxed{
+			f^{-1}(U) = \left\{ x\in X:\ f(x) \in U\right\}.
+		}
+	\end{align}
+\end{definition}
+
+ Under 1 backward iteration the set $V^{1}$ is given by the closed and nonempty set
+	\begin{align}
+		V^{1} = f \left( S \cap f^{-1}(S) \right) = f(S) \cap S = V_1 \cup V_2.
+	\end{align}
+For 2 backward iterations we have
+\begin{align}
+	V^{2} = f^{2}\left(S \cap f^{-1}(S) \cap f^{-2}(S) \right) = f^{2}(S) \cap f(S) \cap S  = V_{11} \cup V_{12} \cup V_{22} \cup V_{21} = \bigcup_{i_k \in \{1,2\}} V_{i_1i_2}.
+\end{align}
+The sets $V_{ij}$ are defined in Fig. \ref{fig:V_subsets}, the indices for each component are given by their orbit, those which after one iteration are in $V_i$ ($i\in\{1,2\}$) have the first index $i$, those which after two iterations are in $V_{j}$ have the second index $j$. Also the set $V^{2}$ is closed, nonempty, contained in $V^{1}$, and has $2^2$ components.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.35\textwidth]{figures/ch6/18V_subsets.png}
+	\caption{The four components of $V^{2}$ with their index labels.}
+	\label{fig:V_subsets}
+\end{figure}
+
+This continues for any number of backward iterates $k$ 
+\begin{align}
+	V^{k} = f^{k}\left(S \cap f^{-1}(S) \cap \ldots \cap f^{k}(S)\right) = f^{k}(S) \cap \ldots \cap f^{1}(S) \cap S = \bigcup_{i_j \in \{1,2\}}V_{i_1 \ldots i_k}.
+\end{align}
+This set has $2^k$ disjoint components (vertical strips) and is closed, nonempty, and contained in $V^{k-1}$. Therefore we have an infinite, nested sequence of nonempty and closed sets, therefore by Cantor's theorem we have 
+\begin{align}
+\boxed{
+	V^{\infty } = \bigcap_{i=1}^{\infty } V^{i} \neq \emptyset.
+}
+\end{align}
+
+\begin{remark}[]
+	Cantor's theorem comes from the famous Cantor Dust which arises by first removing the open middle third of the unit interval in $\mathbb{R}$, and then iteratively removing the open middle third of each remaining interval. The Cantor Dust is a nonempty (in fact uncountably infinite) and disconnected set of points. For more on Cantor's theorem and Cantor's Dust, see any book on measure theory.
+\end{remark}
+
+\begin{definition}
+	A set $U$ is called \emph{perfect} if it is closed and has no isolated points, i.e. given any point $x\in U$ and any distance $\varepsilon$ we can find a distinct element $y\in U$ such that $\|x-y\| < \varepsilon$.
+\end{definition}
+\begin{remark}[]
+	This definition uses that the topology on $U$ was induced by a metric, which may not be the case in general, but is not relevant to the content here.
+\end{remark}
+
+In our case $V^{\infty }$ is in fact a Cantor set, i.e. it is a closed, nonempty set which is totally disconnected (the largest connected component is a line), and perfect.
+{\color{blue} this set isn't totally disconnected, totally disconnected means that every connected subset is a singleton, here every connected set is a line. The projection of $V^{\infty}$ onto the unit interval in $\mathbb{R}$ is totally disconnected. We would need to define the quotient topology $S/\sim$ for $[x] =\left\{x+ \lambda 
+	\begin{pmatrix}
+		0 \\1
+	\end{pmatrix}:\ \lambda \in [0,1] \right\}$ in order for each line to be a single element. I think this statement should apply to $\Lambda$, we should make that change and move this and the definition of perfect to after the definition of $\Lambda$.}
+
+\begin{definition}
+	Analogous to before we define the set of all points which stay in $S$ under $k$ forwards iterations is given by $H^{k}$. For each $k$ the set $H ^{k}$ is a nonempty set of $2^k$ closed, disjoint, horizontal strips, forming a nested sequence.
+\end{definition}
+By similar argumentation as before we have 
+\begin{align}
+	\boxed{
+		H^{\infty } = \bigcap_{k=1}^{\infty} H^{k} \neq \emptyset.
+	}
+\end{align}
+
+\begin{definition}
+	The set of all points which stay in $S$ for all forward and backward iterates of the Smale Horseshoe map  is given by
+	 \begin{align}
+		\boxed{
+\Lambda = H^{\infty } \cap V^{\infty }.
+		}
+	\end{align}
+	The geometry of this set is shown in Fig. \ref{fig:lambda_def}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.4\textwidth]{figures/ch6/19lambda_def.png}
+		\caption{The geometry of the set $\Lambda$, with the four regions containing points circled in orange. The red vertical lines represent the set $V^{\infty }$ and the blue horizontal lines the set $H^{\infty }$.}
+		\label{fig:lambda_def}
+	\end{figure}
+\end{definition}
+
+\begin{remark}[]
+The set $\Lambda$ is a Cantor set of points.
+\end{remark}
+
+Returning to our case study of a Poincaré map with a homoclinic tangle, the points in $\Lambda$ keep coming back forever to the unstable periodic orbit as shown in Fig. \ref{fig:returning_points}. 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.3\textwidth]{figures/ch6/20returning_points.png}
+	\caption{The homoclinic tangle with the set $S$ outlined in green and the elements of $\Lambda$ being denoted by the red dots within $S$.}
+	\label{fig:returning_points}
+\end{figure}
+
+\section{Dynamics of Smale's Horseshoe map on the invariant set $\Lambda$}
+We label any point $p\in \Lambda$ with an infinitely long binary sequence, which reflects the itinerary of $p$ in $\Lambda$ under iterations of $f$. For a given $p$, if we have 
+\begin{align}
+	\ldots,\
+	f^{-2}(p) \in V_{s_{-3}},\
+	f^{-1}(p) \in V_{s_{-2}},\
+	p \in V_{s_{-1}},\
+	p \in H_{s_{0}},\
+	f^{}(p) \in H_{s_{1}},\
+	f^{2}(p) \in H_{s_{2}},\
+\ldots	
+\end{align}
+for $s_i\in \{1,2\}$ then we would have the itinerary 
+\begin{align}
+	\boxed{
+s  = \ldots s_{-3}s_{-2}s_{-1} \bm{.}  s_0 s_{1}s_{2}\ldots.
+	}
+\end{align}
+This is a unique symbolic encoding for \underline{all} points in $\Lambda$. Therefore $\Lambda$ is diffeomorphic to a space of doubly infinite sequences of two symbols. Such a space is just the space of outcomes for an infinite coin-tossing experiment. This equivalence of $\Lambda$ to the doubly infinite sequence of two symbols leads us to \emph{symbolic dynamics}: the analogue of the horseshoe map on the symbol space $\Sigma$.
+
+In order to study these symbolic dynamics we need to know what the symbolic encoding of $f(p)$ is. For the analogue $\ldots s_{-2}s_{-1}\bm{.} s_0 s_1 s_2 \ldots = s\in \Sigma$ of $p\in \Lambda $, we can read off that $f(p)\in H_{s_1}$. Continuing in this fashion, we can see that $f(f(p))=f^{2}(p) \in H_{s_2}$ and so on, therefore $f(p)\in H^{\infty }$. By recalling that $f(H_{s_0}) = V_{s_0}$ we can see that $f(p) \in V_{s_0}$. Applying the definition of $f$ we find that $f^{-1}(f(p)) = p \in V_{s_{-1}}$. Therefore $f(p)\in V^{\infty }$ and thereby $f(p) \in \Lambda$. 
+
+From our examination of the forward iterates of $f(p)$ we know that the symbolic encoding of $f(p)$ to the right of the dot is
+\begin{align}
+	\bm{.}s_1 s_2 s_3\ldots. 
+\end{align}
+Similarly, from our examination of the backwards iterates of $f(p)$ we know that the symbolic encoded of $f(p)$ to the left of the dot is
+\begin{align}
+\ldots s_{-2} s_{-1} s_{0} \bm{.}. 
+\end{align}
+Putting these together we get the symbolic encoding for $f(p)$ is 
+\begin{align}
+	\ldots s_{-2} s_{-1} s_{0} \bm{.} s_1 s_2 s_3 \ldots \in \Sigma.
+\end{align}
+So the encoding of $f(p)$ in the symbolic space is just a shift to the left on the encoding of $p$.
+
+\begin{definition}
+	We define the following three maps:
+	\begin{enumerate}
+		
+\item The \emph{symbolic encoding map}
+	\begin{align}
+		\boxed{
+			\phi:\Lambda \to \Sigma;\quad p \mapsto s= \phi(p);
+		}
+	\end{align}
+	This map is a homeomorphism (i.e. it is continuous and has a continuous inverse).
+
+\item The \emph{Smale Horseshoe map restricted to $\Lambda$}
+	\begin{align}
+		\boxed{
+			\tilde{f}:\Lambda \to \Lambda;\quad p \mapsto f(p);
+		}
+	\end{align}
+\item The \emph{Bernoulli shift map}
+	\begin{align}
+		\boxed{
+			\sigma:\Sigma \to \Sigma;\quad
+			\ldots s_{-2} s_{-1} \bm{.} s_0 s_1 s_2 \ldots 
+			\mapsto
+			\ldots s_{-2}s_{-1}s_{0}\bm{.} s_1 s_2 s_3 \ldots.
+		}
+	\end{align}
+	
+	\end{enumerate}
+\end{definition}
+We have that the following diagram commutes
+\begin{equation}
+\begin{tikzcd}
+	\Sigma \arrow[r, "\sigma"] 
+& \Sigma \\
+\Lambda \arrow[u,"\phi"] \arrow[r, "\tilde{f}"]
+& \Lambda \arrow[u, "\phi"] 
+\end{tikzcd}.
+\end{equation}
+Therefore $\tilde{f} = \left. f\right|_{\Lambda}$ is topologically conjugate to a Bernoulli shift on $\Sigma$ 
+	\begin{align}
+		f = \phi^{-1} \circ \sigma \circ \phi.
+	\end{align}
+Hence, orbits of $f$ are taken to those of $\sigma$, with their orientation preserved.	
