@@ -544,7 +544,7 @@ We begin by considering different types of center manifolds. We start by classif
 				\dot{x} = \tilde{\mu }\pm x^2;\quad x \in \mathbb{R};\quad \tilde{\mu } \in\mathbb{R}.
 			}
 		\end{align}
-		This is a codimension 1 bifurcation, i.e. only 1 parameter is needed for the universal unfolding. Hence we find a bifurcation diagram as shown in Fig. \ref{fig:codim1_bif}. This is called a \emph{fold} or \emph{saddle node} bifurcation, in this example it is \emph{supercritical} as we show the $-x^2$ case. \emph{Subcriticality} occurs when the diagram is symmetric with respect to the $x$-axis. The sign which is actually used is problem dependent.
+		This is a codimension 1 bifurcation, i.e. only 1 parameter is needed for the universal unfolding. Hence we find a bifurcation diagram as shown in Fig. \ref{fig:codim1_bif}. This is called a \emph{fold} or \emph{saddle node} bifurcation, in this example it is \emph{supercritical} as we show the $-x^2$ case. \emph{Subcriticality} occurs when the diagram is mirrored with respect to the $x$-axis, i.e. when the fixed points disappear for $\mu > 0$. The sign which is actually used is problem dependent.
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=0.35\textwidth]{figures/ch3/13codim1_bif.png}
@@ -556,7 +556,7 @@ We begin by considering different types of center manifolds. We start by classif
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=0.4\textwidth]{figures/ch3/14hysteresis.png}
-			\caption{An example of hysteresis caused by two interacting fold bifurcations. In this case no memory is needed to model the hysteresis.}
+			\caption{An example of hysteresis caused by two interacting fold bifurcations. In this case, the hysteresis is a result of purely deterministic dynamics, no additional memory (or delay) terms were needed.}
 			\label{fig:hysteresis}
 		\end{figure}
 		
@@ -590,8 +590,8 @@ We begin by considering different types of center manifolds. We start by classif
 	This type of bifurcation is called a \emph{pitchfork bifurcation}. It is \emph{supercritical} for the $+x^3$ case (cf. Fig. \ref{fig:pitchfork_bif}), and subcritical for the $-x^3$ case. The actual sign is problem dependent.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.35\textwidth]{figures/ch3/16pitchfork_bif.png}
-	\caption{A supercritical pitchfork bifurcation.}
+	\includegraphics[width=0.35\textwidth]{figures/ch3/16pitchfork_bif_A.png}
+	\caption{A supercritical (i.e with a $+$ sign) pitchfork bifurcation.}
 	\label{fig:pitchfork_bif}
 \end{figure}
 \item \textbf{Purely imaginary pair of eigenvalues} 
@@ -666,7 +666,7 @@ From here we explore two cases for the signs of $d_0$ and $a_0$.
 			\caption{Left: The subcritical pitchfork bifurcation of $r$. The red arrow points towards the $r = \sqrt{\frac{-d_0 \mu }{a_0}}$, the symmetric negative part of this curve is dashed, as negative values of $r$ are not relevant for this problem (the radius cannot be negative). Right: The effect of $\mu <0$ on the system dynamics leading to an unstable limit cycle (red) in the $u-v$ plane.}
 			\label{fig:case1_hb}
 		\end{figure}
-		There is an increased sensitivity to perturbation as $\mu $ increases (the domain of attraction shrinks). Such behavior can be observed in the transition to turbulence in pipe flows. This is shown in Fig. \ref{fig:case1_full_bif}.
+		There is an increased sensitivity to perturbation as $\mu $ increases (the domain of attraction shrinks). This is shown in Fig. \ref{fig:case1_full_bif}. Such behavior can be observed in the transition to turbulence in pipe flows. In that context, the equation is referred to as the Stuart-Landau equation.
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=0.6\textwidth]{figures/ch3/21case1_full_bif.png}

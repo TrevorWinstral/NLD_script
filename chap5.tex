@@ -21,11 +21,11 @@ For this section, consider
 \begin{align}
 	\dot{x} = A(t)x + b(t);\quad x \in \mathbb{R}^{n};\quad A(t)\in \mathbb{R}^{n\times n};\quad b(t) \in \mathbb{R}^{n}. \numberthis \label{eq6:star}
 \end{align}
-We separate \eqref{eq6:star} into two parts. The homogeneous part
+We separate \eqref{eq6:star} into two parts. The homogeneous part is
 \begin{align}
 	\dot{x} = A(t)x \numberthis \label{eq6:homo}.
 \end{align}
-For the homogeneous part we have the solution $x(t) = \Phi_{t_0}^{t}x_0$, for the fundamental matrix solution $\Phi$ with the property $\Phi_{t_0}^{t_0} = I \in \mathbb{R}^{n\times n}$. The inhomogeneous part consists of the rest of \eqref{eq6:star}
+For the homogeneous part we have the solution $x(t) = \Phi_{t_0}^{t}x_0$, for the fundamental matrix solution $\Phi$ with the property $\Phi_{t_0}^{t_0} = I \in \mathbb{R}^{n\times n}$. The general solution of \eqref{eq6:star} is the sum of the general solution of \eqref{eq6:homo} and a particular solution of \eqref{eq6:star}. We can find the particular solution by, for example, the variation of constants formula. We refer to Arnold's book on ODEs for the derivation.  
 \begin{align}
 	\dot{x} = b(t).
 \end{align}
@@ -34,6 +34,10 @@ Thus we find the general solution to \eqref{eq6:star} to be
 	\boxed{
 		x(t) = \Phi_{t_0}^{t} x_0 + \Phi_{t_0}^{t}\int_{t_0}^{t} \left( \Phi_{t_0}^{s}\right)^{-1}b(s) ds.
 	}
+\end{align}
+Note that due to the group property of the flow map, the solution can be equivalently written as
+\begin{align}
+x(t) = \Phi_{t_0}^t x_0 + \int_{t_0}^t \Phi_s^t b(s) ds.
 \end{align}
 From here we can see that it is enough to understand the homogeneous part. The stability of $x=0$ in \eqref{eq6:homo} is equivalent to the stability of
 	$x_p(t) = \Phi_{t_0}^{t}\int_{t_0}^{t} \left( \Phi_{t_0}^{s}\right)^{-1}b(s)ds$
@@ -47,7 +51,7 @@ We now specify our system to be $T$-periodic, thus the evolution rule defined by
 \end{align}
 This implies
 \begin{align}
-	\Phi_{t_0}^{t-0 +T} = 	\Phi_{t_0+T}^{t-0 +2T} =\Phi_{t_0+2T}^{t-0 +3T} =\ldots =: P_{t_0},  
+	\Phi_{t_0}^{t_0 +T} = 	\Phi_{t_0+T}^{t_0 +2T} =\Phi_{t_0+2T}^{t_0 +3T} =\ldots =: P_{t_0},  
 \end{align}
 The operator $P_{t_0}$ is called the \emph{Poincaré map} (or time $T$ map) based at $t_0$. Thus we have
 \begin{align}
@@ -59,23 +63,23 @@ Time being a periodic variable allows us to study the geometry in the extended p
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/ch5/1poinc_geom.png}
-	\caption{The rectangle represents snapshots of $x$ taken at the interval $T$, thephase space of $x$ is displayed on this plane, while times circles periodically on $S^{1}$. In our snapshots we find $Px_0 = x_1$ and $P^2x_0 = x_2$.}
+	\caption{The map P records snapshots of the trajectory $x(t)$ taken at times $nT$. These snapshots are depicted along a single plane in the extended phase space. Due to periodicity, the extended phase space is made up as the product of the plane and the circle $S^1$. The snapshots shown are $Px_0 = x_1$ and $P^2 x_0 = x_2$.}
 	\label{fig:poinc_geom}
 \end{figure}
-Importantly, the stability of $x=0$ can be studied as the stability of the $x=0$ fixed point of the map $P_{t_0}$. Thus we label the eigenvalues of $P_{t_0}$ $\rho_1,\ldots,\rho_n\in\mathbb{C}$  and call these \emph{Floquet multipliers}. We know how to evaluate the stability type of a discrete system such as this, we have two cases
+Importantly, the stability of $x=0$ can be studied as the stability of the $x=0$ fixed point of the map $P_{t_0}$. Label the eigenvalues of $P_{t_0}$ $\rho_1,\ldots,\rho_n\in\mathbb{C}$ these are called \emph{Floquet multipliers}. Since this is now a discrete dynamical system, we know how to assess the stability type of its fixed point. We have two cases
 \begin{enumerate}
 	\item If there exists an eigenvalue with $|\rho_i|>1$ for $P_{t_0}$ or there exists a repeated eigenvalue with $|\rho_j|=1$ for which the algebraic multiplicity is greater than the geometric multiplicity ($a>g$), then $x=0$ is unstable for \eqref{eq6:homo};
-	\item Otherwise, if each eigenvalue of $P_{t_0}$ has magnitude strictly less than 1, i.e. $|\rho_j<1|$, then $x=0$ is asymptotically stable for \eqref{eq6:homo}.
+	\item Otherwise, if each eigenvalue of $P_{t_0}$ has magnitude strictly less than 1, i.e. $|\rho_j|<1$, then $x=0$ is asymptotically stable for \eqref{eq6:homo}.
 \end{enumerate}
 
 Floquet theory tells us that the following holds in general
 \begin{align}
 	\boxed{
-		\Phi_{t_0}^{t} = {B(t)} e^{\lambda(t-t_0)};\quad B(t+T) = B(t)\in \mathbb{R}^{n\times n};\quad \Lambda \in \mathbb{R}^{n\times n}  \textrm{ is constant} .
+		\Phi_{t_0}^{t} = {B(t)} e^{\Lambda(t-t_0)};\quad B(t+T) = B(t)\in \mathbb{R}^{n\times n};\quad \Lambda \in \mathbb{R}^{n\times n}  \textrm{ is constant} .
 	}
 \end{align}
 \begin{definition}[Floquet exponents]
-	The eigenvalues of $\Lambda$ are $\lambda_1,\ldots,\lambda_n\in \mathbb{C}$ are called \emph{Floquet exponents}. We have
+	The eigenvalues of $\Lambda$ are $\lambda_1,\ldots,\lambda_n\in \mathbb{C}$ and they are called \emph{Floquet exponents}. The previously defined Floquet multipliers are related to $\lambda_j$ as 
 	\begin{align}
 		\boxed{
 			\rho_j = e^{\lambda_j T} = e^{(\alpha_j + i \beta_j)T}.
@@ -88,7 +92,7 @@ Floquet theory tells us that the following holds in general
 This is generally only numerically computable.	
 \end{definition}
 
-We now explore a sufficient criterion for instability of $x=0$. For this we will use Liouville's Theorem (Abel's Theorem)
+We now explore a sufficient criterion for instability of $x=0$. For this, recall Liouville's Theorem (Abel's Theorem)
 \begin{align}
 	\boxed{
 		\det (\Phi_{t_0}^{t}) = \det(\Phi_{t_0}^{t})e^{\int_{t_0}^{t}  \textrm{Tr} \left[ A(s) \right] ds}.
@@ -111,19 +115,20 @@ Now we can compare the arguments of the exponential functions to derive
 \end{align}
 Therefore our claim holds due to the case differentiation for stability above.  Thus we can verify the stability without the numerical solution of \eqref{eq6:homo}.
 \end{proof}
-\begin{remark}[]
-	The change of variables $x = P(t)y$ transforms the system \eqref{eq6:homo} into the form $\dot{y}=By$, an autonomous linear ODE.
-	
-	Indeed we obtain that
-	\begin{align}
-		\dot{y} = P^{-1} (A(t)P - \dot{P})y,
-	\end{align}
-But
-\begin{align}
-	\frac{d}{dt}\left( P(t)e^{Bt}\right) = APe^{bt} \implies \dot{P} + PB = AP.
-\end{align}
-Together this implies $\dot{y} = By$.
-\end{remark}
+%\begin{remark}[]
+%	The change of variables $x = P(t)y$ transforms the system \eqref{eq6:homo} into the form $\dot{y}=By$, an autonomous linear ODE.
+%	
+%	Indeed we obtain that
+%	\begin{align}
+%		\dot{y} = P^{-1} (A(t)P - \dot{P})y,
+%	\end{align}
+%But
+%\begin{align}
+%	\frac{d}{dt}\left( P(t)e^{Bt}\right) = APe^{bt} \implies \dot{P} + PB = AP.
+%\end{align}
+%Together this implies $\dot{y} = By$.
+%\end{remark}
+
 \section{Averaging}
 We will now attempt to study the mean evolution of oscillatory systems
 \begin{align}
@@ -157,7 +162,7 @@ Averaging these equations yields
 		\dot{x}_2 = -\omega_0^2(1+ \overline{a})x_1.
 	\end{dcases}
 \end{align}
-Where $\overline{a}$ is the average of $a(t)$, a constant. The phase portrait of this is known, as it is just a standard pendulum, i.e. $x=0$ is stable. This means that the small forcing, when averaged, shouldn't move us from the stable position at $x=0$. But we know that by periodically swinging, we don't just stay stuck at the equilibrium point of the swing, and instead begin to swing! Therefore, averaging clearly does not work in this situation.
+Where $\overline{a}$ is the average of $a(t)$, a constant. The phase portrait of this is known, as it is just a standard pendulum, i.e. $x=0$ is stable. This means that the small forcing, when averaged, shouldn't move us from the stable position at $x=0$. But we know that by periodically swinging, we don't just stay stuck at the equilibrium point of the swing, but instead are able to reach larger amplitude oscillations. Therefore, averaging clearly does not work in this situation. 
 \end{ex}
 
 However, there are situations in which averaging does work.
@@ -171,9 +176,9 @@ The averaged system in this case is
 \begin{align}
 	\dot{y} = \varepsilon \frac{1}{T} \int_{0}^{T} f(y,t,0) = \varepsilon \overline{f_0}(y).	
 \end{align}
-Here only the leading order terms with respect to $\varepsilon$ in the integrand were taken, as $\epsilon \ll 0$. Now we transform our original equation into the averaged equation via a near-identity change of variables
+Here only the leading order terms with respect to $\varepsilon$ in the integrand were taken, as $\epsilon \ll 0$. Now we transform our original equation into the averaged equation via a near-identity, periodic change of variables
 \begin{align}
-	x=y+\varepsilon w(y,t);\quad w(t,t) = w(y, t).
+	x=y+\varepsilon w(y,t);\quad w(y,t) = w(y, t+T).
 \end{align}
 Plugging this transformation into our differential equation, we find
 \begin{align}
@@ -182,7 +187,7 @@ Plugging this transformation into our differential equation, we find
 	\left[\varepsilon  \underbrace{f(y+\varepsilon w(y,t),t,\varepsilon)}_{=\dot{x}} -\varepsilon \frac{\partial w}{\partial t} \right]\\ 
 		&=\varepsilon \left[f(y,t,0) - \frac{\partial w}{\partial t}\right]_{t} + \mathcal{O}(\varepsilon)^2.
 \end{align}
-In the last equation we used the Taylor expansion. We cannot set $w(y,t) = \int_{0}^{t} f(y,s,0)ds$ as that would be aperiodic. Instead we separate $f$ into two parts, the average and the deviation, $f(y,t,0) = \overline{f}_0 (y) + \tilde{f}(y,t)$. Note that the deviation has mean 0, therefore we set $w(y,t) = \int_{-}^{t} \tilde{f}(y,s)ds$ which is periodic. Therefore we find $\dot{y} = \varepsilon \overline{f}_0(y) + \mathcal{O}(\varepsilon^2)$, noting here that the order 2 term is still $T$ periodic. 
+In the last equation we used the Taylor expansion. We cannot set $w(y,t) = \int_{0}^{t} f(y,s,0)ds$ as that would make $\omega $ aperiodic. Instead we separate $f$ into two parts, the average and the deviation, $f(y,t,0) = \overline{f}_0 (y) + \tilde{f}(y,t)$. Note that the deviation has mean 0, therefore we set $w(y,t) = \int_{0}^{t} \tilde{f}(y,s)ds$ which is periodic. Therefore we find $\dot{y} = \varepsilon \overline{f}_0(y) + \mathcal{O}(\varepsilon^2)$, noting here that the order 2 term is still $T$ periodic. 
 
 This has given us that the original system is a $T$-periodic, $\mathcal{O}(\varepsilon^2)$ perturbation of the averaged system in the $y$ coordinates. 
 \end{ex}
@@ -204,15 +209,15 @@ This has implications for the Poincaré map of the original equation
 \begin{align}
 	P_{t_0}^{\varepsilon}:x_0 \mapsto x(t_0+T, x_0; \epsilon);\quad P_{t_0}^{\varepsilon} = P_{t_0}^{0} + \mathcal{O}(\epsilon) \implies \left( P_{t_0}^{\varepsilon}\right)^{n} = \left( P_{t_0}^{0}\right)^{n} + \mathcal{O}(\varepsilon).
 \end{align}
-This only holds if $n \leq \frac{1}{\varepsilon}$. The time $T$ map of the average system is $P_{t_0}^{0}$.
+This only holds if $n \leq \frac{1}{\varepsilon}$. The time $T$ map of the averaged system was denoted as $P_{t_0}^{0}$.
 
 \begin{ex}[Averaged system with a saddle-type fixed point ]
-	Consider a system with a hyperbolic fixed point $p_0$, by the persistence of hyperbolic fixed points, the perturbed $P_\varepsilon$ has a hyperbolic fixed point $p_\varepsilon$ which is $\mathcal{O}(\varepsilon)$ close to $p_0$. Furthermore, the $C^{1}$ manifolds $W^{U}_{ \textrm{loc} }(p_\varepsilon)$ and $W^{S}_{ \textrm{loc} }(p_{\varepsilon}$ are $\mathcal{O}(\varepsilon)$ close to their unperturbed counterparts. The unperturbed system and geometry of the perturbed system are shown in Fig. \ref{fig:avg_ex_2}.
+	Consider a system whose Poincaré map $P_0$ has a hyperbolic fixed point $p_0$. By the persistence of hyperbolic fixed points, the perturbed Poincaré map $P_\varepsilon$ also has a hyperbolic fixed point $p_\varepsilon$ which is $\mathcal{O}(\varepsilon)$ close to $p_0$. Furthermore, the $C^{1}$ manifolds $W^{U}_{ \textrm{loc} }(p_\varepsilon)$ and $W^{S}_{ \textrm{loc} }(p_{\varepsilon})$ are $\mathcal{O}(\varepsilon)$ close to their unperturbed counterparts. The unperturbed system and geometry of the perturbed system are shown in Fig. \ref{fig:avg_ex_2}.
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.37\textwidth]{figures/ch5/4avg_ex_2a.png}
 		\includegraphics[width=0.6\textwidth]{figures/ch5/5avg_ex_2b.png}
-		\caption{Left: The averaged system with the saddle type fixed point $P_0$. The upper red arrow designates the local unstable manifold, and the lower arrow the local stable manifold. Right: These in the extended phase space, time is represented by $S_1$ and runs clockwise. The hyperbolic limit cycle $\Gamma_\varepsilon$ is given by the yellow trajectory. Furthermore, the non-averaged local stable and unstable manifolds are drawn in red and blue respectively.}
+		\caption{Left: The averaged system with the saddle type fixed point $p_0$. The upper red arrow designates the local unstable manifold, and the lower arrow the local stable manifold. Right: The same in the extended phase space, time is represented by $S_1$ and runs clockwise. The hyperbolic limit cycle $\Gamma_\varepsilon$ is given by the yellow trajectory. Furthermore, the non-averaged local stable and unstable manifolds are drawn in red and blue respectively.}
 		\label{fig:avg_ex_2}
 	\end{figure}
 	
@@ -221,7 +226,7 @@ This only holds if $n \leq \frac{1}{\varepsilon}$. The time $T$ map of the avera
 	We can show that fixed points persist for $P_\varepsilon$ as follows. First we take the flow map for the system $F_{t_0}^{t}(y_0;\varepsilon)$, then we use the Taylor expansion to find
 	\begin{align}
 		F_{t_0}^{t_0+T}(y_0; \varepsilon) &= F_{t_0}^{t_0+T}(y_0;0) + \frac{\partial}{\partial \varepsilon}F_{t_0}^{t_0 + T}(y_0;0)\varepsilon + \mathcal{O}(\varepsilon^2) \\
-						  &= y_0 + \varepsilon + \left.\frac{\partial (y(t_0+T);t_0;\varepsilon)}{\partial \varepsilon} \right|_{\varepsilon=0} + \mathcal{O}(\varepsilon^2) \\
+						  &= y_0 + \varepsilon  \left.\frac{\partial (y(t_0+T);t_0;\varepsilon)}{\partial \varepsilon} \right|_{\varepsilon=0} + \mathcal{O}(\varepsilon^2) \\
 						  &= y_0 + \varepsilon \int_{0}^{T} \overline{f}(y_0)dt + \mathcal{O}(\varepsilon^2) .
 	\end{align}
 From this we have

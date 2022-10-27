@@ -463,6 +463,88 @@ We have that the following diagram commutes
 \end{equation}
 Therefore $\tilde{f} = \left. f\right|_{\Lambda}$ is topologically conjugate to a Bernoulli shift on $\Sigma$ 
 	\begin{align}
-		f = \phi^{-1} \circ \sigma \circ \phi.
+		\tilde{f} = \phi^{-1} \circ \sigma \circ \phi.
 	\end{align}
 Hence, orbits of $f$ are taken to those of $\sigma$, with their orientation preserved.	
+
+\begin{remark}[]
+	To denote an infintely repeating string, the bar notation will be used i.e.
+	\begin{align}
+		\overline{1} = 111\ldots,\quad \overline{123}=123123\ldots.
+	\end{align}
+\end{remark}
+
+It is possible to classify all of the orbits of $\sigma $ in $\Sigma$, the classes and their cardinality are as follows:
+\begin{enumerate}
+	\item \textbf{Fixed points} There are exactly two fixed points of $\sigma$, namely $\overline{1}\bm{.} \overline{1}$ and $\overline{2}\bm{.} \overline{2}$; 
+	\item \textbf{Period-two orbits} A single such orbit exists, that of $\overline{12}\bm{.} \overline{12}$, as $\sigma^{2}(\overline{12}\bm{.} \overline{12}) = \sigma(\overline{21}\bm{.} \overline{21} = \overline{12}\bm{.} \overline{12}$;
+	\item \textbf{Period-three orbits} There exists two such orbits, namely $\overline{112}\bm{.} \overline{112} \to \overline{121}\bm{.} \overline{121} \to \overline{211}\bm{.} \overline{211}$ and $\overline{221} \bm{.} \overline{221} \to \overline{212}\bm{.} \overline{212} \to \overline{122}\bm{.} \overline{122} $.
+	\item \textbf{Period-$\bm{k} $ orbits} For every natural number $k$, there exists 
+		\begin{align}
+			\boxed{N(k) = \frac{1}{k}\left(2^k - \sum_{i | k }^{} i N(i)\right)}		
+		\end{align}
+	orbits of period exactly $k$, the notation $i|k$ signifies integers $i$ which are divisors of $k$.	
+\end{enumerate}
+There exists a countable infinity (i.e. the elements can be organized uniquely into an infinite countable sequence) of periodic orbits of arbitrarily high period. The countable sequence ordering can be done by listing each orbit in the row corresponding to its minimal period. The specifig ordering within rows is based on the magnitude of the $k$-long string representing the orbit, considered as a decimal number, i.e. $\overline{112}\prec \overline{122}$, for each orbit the representative element is the one with the least magnitude as considered above. Thus $\overline{112}\bm{.} \overline{112}$ would go in the fourth row as it has the minimal period $3$ (not third row, as the fixed points have period length $0$ and occupy the first row), and in the leftmost position as $\overline{112} \prec \overline{122}$. Each row has a finite number of elements, so ordering each row is not a problem. Then the complete order is done by starting with $0$ for the first element in the first row (the fixed point $\overline{1}\bm{.} \overline{1}$), then reading from left to right before continuing to the next row. This list is well defined and countably infinite, containing all of the orbits of $\sigma$.
+
+Before further study, it is important to introducte a notion of distance on the space $\Sigma$.
+\begin{definition}
+	The distance on the space $\Sigma$ between two elements $s$ and $s'$ is given by
+	\begin{align}
+		d(s,s') = \sum_{i=-\infty }^{\infty } \frac{|s_i - s'_i |}{2^{|i|}}.
+	\end{align}
+Therefore two symbols are close if they agree on large central blocks.	
+\end{definition}
+\begin{remark}[]
+	The function $d$ satisfies all the axioms of a distance and tuple $(\Sigma, d) $ forms a complete metric space. 
+\end{remark}
+
+Consider a $k$-periodic point $s=\overline{a}\bm{.} \overline{a}$, where $a$ is a $k$-long binary sequence. Let $s' = \overline{a}a'\bm{.} \overline{a}$, clearly $s \neq s'$, therefore $d(s,s') \neq 0$, yet when we take the limit we find
+\begin{align}
+	\lim_{n\to \pm \infty }	d(\sigma^{n}(s), \sigma^{n}(s')) = 0.
+\end{align}
+Thus the underlying periodic orbit is unstable. Furthermore, $s$ has a countable infinity of homoclinic orbits. As the periodic orbit was arbitrary, these statements hold for all periodic orbits, hence all periodic orbits are unstable and have a countable infinity of homoclinic orbits.
+
+\begin{remark}[]
+Also note that any two periodic orbits (of arbitrary period) are connected by a countable infinity of heteroclinic orbits.
+\end{remark}
+
+Together, there exists a countable infinity of periodic and asymptotically periodic orbits, a sketch of this behavior is shown in Fig. \ref{fig:crazy_orbits}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.55\textwidth]{figures/ch6/21crazy_orbits.png}
+	\caption{A depiction of the (infinitely many) homo- and heteroclinic orbits which connect periodic orbits of $\sigma $.}
+	\label{fig:crazy_orbits}
+\end{figure}
+
+In fact there also exists a countable infinity of non-periodic (not even asymptotically periodic) orbits in $\Sigma$. To show this, we will show that $\Sigma$ is uncountable, i.e. that it cannot be arranged into a well-defined, countable sequence.
+\begin{proposition}[]
+	The set $\Sigma$ is uncountable.
+\end{proposition}
+\begin{proof}
+	It is enough to show that the set $\tilde{\Sigma}$ defined by 
+	 \begin{align}
+		 \tilde{\Sigma} = \{ \bm{.} s_1s_2s_3 \ldots:\ s_i\in \{0,1\}\}
+	\end{align}
+	is uncountable. This suffices as we can injectively embed $\tilde{\Sigma}$ into $\Sigma$ via the map $\bm{.} s_1s_2\ldots \mapsto \overline{1}\bm{.} (s_1+1)(s_2+1)\ldots$.
+
+	Every binary expansion for all real number in the interval $[0,1]$ is contained within $\tilde{\Sigma}$, therefore the cardinality of $\tilde{\Sigma}$ is at least as large as that of $[0,1]$ which is uncountable. In fact, the binary expansion is a bijection, and these two sets have the exact same cardinality. 
+\end{proof}
+
+\begin{definition}
+	The binary expansion of a number $x\in [0,1]$ is the sequence $(b_i)_{i=1}^{\infty }$ of 1s and 0s  such that 
+	\begin{align}
+		x = \sum_{i=1}^{\infty } \frac{b_i}{2^i}.
+	\end{align}
+	To calculate this sequence define the map $g(x) = 2x \mod 1$. Then generate the sequence $(x_i)_{i=1}^{\infty }=(x, g(x), g^2(x), \ldots)$. Finally, set each binary coefficient as
+	 \begin{align}
+		b_i =
+		\begin{cases}
+			0 & 2x_i < 1 \\
+			1 & 2x_i \geq 1
+		\end{cases}.
+	\end{align}
+	
+\end{definition}
+
