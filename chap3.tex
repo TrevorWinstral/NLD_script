@@ -2,7 +2,7 @@
 \section{Local nonlinear dynamics near fixed points}
 We are interested in the local nonlinear dynamics around fixed points. Consider
 \begin{align}
-	\dot{x}=f(x);\quad f\in C^{r},r \geq 1; \quad f(p) = 0, \numberthis \label{eq:4star}
+	\dot{x}=f(x);\quad f\in \mathcal{C}^{r},r \geq 1; \quad f(p) = 0, \numberthis \label{eq:4star}
 \end{align}
 i.e. $p$ is a fixed point of the dynamical system. The linearized system at $p$ is
 \begin{align}
@@ -50,7 +50,7 @@ We now discuss what happens to these subspaces in the nonlinear system \eqref{eq
 	\begin{enumerate}
 		\item There exists a unique \emph{stable manifold} $W^{S}(p)$ for \eqref{eq:4star}, such that
 	\begin{itemize}
-		\item $W^{S}(p)$ is a $C^{r}$ manifold (surface), tangent to $E^{S}$ at $p$ with $ \textrm{dim } W^{S}(p) =  \textrm{dim } E^{S}$,
+		\item $W^{S}(p)$ is a $\mathcal{C}^{r}$ manifold (surface), tangent to $E^{S}$ at $p$ with $ \textrm{dim } W^{S}(p) =  \textrm{dim } E^{S}$,
 		\item $W^{S}(p)$ is invariant for \eqref{eq:4star} and for $x\in W^{S}(p)$ we have 
 			\begin{align}
 				\| F^{t}(x)-p \| \leq K_{S} \exp\left[ t \left( \max_{ \textrm{Re} (\lambda_j) < 0}( \textrm{Re} (\lambda_j)) + \varepsilon_S \right) \right]
@@ -60,7 +60,7 @@ We now discuss what happens to these subspaces in the nonlinear system \eqref{eq
 			
 		\item There exists a unique \emph{unstable manifold} $W^{U}(p)$ for \eqref{eq:4star}, such that
 	\begin{itemize}
-		\item $W^{U}(p)$ is a $C^{r}$ manifold (surface), tangent to $E^{U}$ at $p$ with $ \textrm{dim } W^{U}(p) =  \textrm{dim } E^{U}$,
+		\item $W^{U}(p)$ is a $\mathcal{C}^{r}$ manifold (surface), tangent to $E^{U}$ at $p$ with $ \textrm{dim } W^{U}(p) =  \textrm{dim } E^{U}$,
 		\item $W^{U}(p)$ is invariant for \eqref{eq:4star} and for $x\in W^{U}(p)$ we have 
 			\begin{align}
 				\| F^{t}(x) -p\| \leq K_{U} \exp\left[ t \left( \max_{ \textrm{Re} (\lambda_j) > 0}( \textrm{Re} (\lambda_j)) + \varepsilon_U \right) \right]
@@ -70,7 +70,7 @@ We now discuss what happens to these subspaces in the nonlinear system \eqref{eq
 			
 \item There exists a (not necessarily unique) \emph{center manifold} $W^{C}(p)$ for \eqref{eq:4star}, such that
 	\begin{itemize}
-		\item $W^{C}(p)$ is a $C^{r-1}$ manifold (surface), tangent to $E^{C}$ at $p$ with $ \textrm{dim } W^{C}(p) =  \textrm{dim } E^{C}$,
+		\item $W^{C}(p)$ is a $\mathcal{C}^{r-1}$ manifold (surface), tangent to $E^{C}$ at $p$ with $ \textrm{dim } W^{C}(p) =  \textrm{dim } E^{C}$,
 	\end{itemize}
 			
 	\end{enumerate}
@@ -132,7 +132,7 @@ We now present a method to calculate $W^C(p)$ in general cases.
 \begin{enumerate}
 	\item Consider 
 		\begin{align}
-			\dot{z} = F(z); \quad F(0) = 0;\quad z \in \mathbb{R}^{c+d};\quad F \in C^{r},
+			\dot{z} = F(z); \quad F(0) = 0;\quad z \in \mathbb{R}^{c+d};\quad F \in \mathcal{C}^{r},
 		\end{align}
 	where $c$ represents the number of center directions at the origin ($ \textrm{dim }E^{C}$) and $d$ denotes the remaining directions ($ \textrm{dim } E^{U} +  \textrm{dim } E^{S}$).
 	\item Now block-diagonalize the linearization. This consists of four steps
@@ -168,11 +168,11 @@ We now present a method to calculate $W^C(p)$ in general cases.
 			\begin{align}
 				\dot{x} = Ax + f(x,y);\quad \dot{y} = By + g(x,y), \numberthis \label{eq4:trafod_eqn}
 			\end{align}
-			for $f,g \in C^{r}$ and $f,g = \mathcal{O}(\|x\|^2, \|y\|^2, \|x\|\|y\|)$. The geometry in these coordinates is depicted in Fig. \ref{fig:cmfd_trafo_geom}. The center manifold is given by
+			for $f,g \in \mathcal{C}^{r}$ and $f,g = \mathcal{O}(\|x\|^2, \|y\|^2, \|x\|\|y\|)$. The geometry in these coordinates is depicted in Fig. \ref{fig:cmfd_trafo_geom}. The center manifold is given by
 			\begin{align}
 				W^{C}(0) = \left\{ (x,y) \in U:\ y = h(x)\right\}
 			\end{align}
-			for $h:\mathbb{R}^{c} \to \mathbb{R}^{d}$ and $ h \in C^{r-1}$ as in the theorem.
+			for $h:\mathbb{R}^{c} \to \mathbb{R}^{d}$ and $ h \in \mathcal{C}^{r-1}$ as in the theorem.
 			\begin{figure}[h!]
 				\centering
 				\includegraphics[width=0.4\textwidth]{figures/ch3/4cmfd_trafo_geom.png}
@@ -223,7 +223,7 @@ In addition to \eqref{eq4:1star} being nonlinear, the boundary conditions are al
 	\begin{align}
 		h(x) = ax^2 + bx^3 + cx^4 + \mathcal{O}(x^5).
 	\end{align}
-	Since the right-hand side of the dynamical system was $C^\infty$, this expansion could formally be continued to any order. However, the expansion will not converge as that would imply the uniqueness of the center manifold. In this example, we work with a finite, order 4 truncation. Now use the invariance (the PDE \eqref{eq4:1star} we derived above) to find
+	Since the right-hand side of the dynamical system was $\mathcal{C}^\infty$, this expansion could formally be continued to any order. However, the expansion will not converge as that would imply the uniqueness of the center manifold. In this example, we work with a finite, order 4 truncation. Now use the invariance (the PDE \eqref{eq4:1star} we derived above) to find
 	\begin{align}
 		\dot{y} = h'(x)\dot{x} = \left[2ax+3bx^2 + 4cx^3 + \mathcal{O}(x^4) \right] x \left[ax^2+bx^3+cx^4 + \mathcal{O}(x^5) \right]. \numberthis \label{eq4:one}	
 	\end{align}
@@ -292,7 +292,7 @@ We begin with the setup
 		\dot{y} = By + g(x,y,\varepsilon)
 	\end{dcases}
 ;\quad x \in \mathbb{R}^{c},\ y \in \mathbb{R}^{d},\ 0\leq \varepsilon \ll 1;\\
-f,g \in C^{r},\ f,g=\mathcal{O}(\|x\|^2, \|y\|^2, \|x\|\|x\|, {\varepsilon \|x\|, \varepsilon \|y\|} ).
+f,g \in \mathcal{C}^{r},\ f,g=\mathcal{O}(\|x\|^2, \|y\|^2, \|x\|\|x\|, {\varepsilon \|x\|, \varepsilon \|y\|} ).
 \end{align}
 The order $\varepsilon \|x\|$ and $\varepsilon \|y\|$ terms are due to the perturbation of the linear part. Now assume $ \textrm{Re} (\lambda _j(A))= $ for $j=1,\ldots,c$ (the center directions) and $ \textrm{Re} (\lambda _j(B)) \neq  $ for $j=1,\ldots,d $ (the hyperbolic directions). Next, rewrite $\tilde{x}=
 \begin{pmatrix}
@@ -317,7 +317,7 @@ Here, $\tilde{g}=g$ and $\tilde{B}=B$. Further, note that $ \textrm{span} \left\
 	\begin{pmatrix}
 		x \\0
 	\end{pmatrix}
-\right\}$ is an invariant subspace for $\tilde{A}$. The eigenvalues of $\tilde{A}$ are the same as those of $A$ and an additional $0$, thus there are $c+1$ center directions and $d$ hyperbolic directions. Applying the center manifold theorem to the fixed point $0 \in \mathbb{R}^{c+1+d}$ of \eqref{eq4:unostar} we obtain that there exists a $\tilde{W}^{C}(0)$ $C^{r-1}$ manifold tangent to $E^{C}$ at $
+\right\}$ is an invariant subspace for $\tilde{A}$. The eigenvalues of $\tilde{A}$ are the same as those of $A$ and an additional $0$, thus there are $c+1$ center directions and $d$ hyperbolic directions. Applying the center manifold theorem to the fixed point $0 \in \mathbb{R}^{c+1+d}$ of \eqref{eq4:unostar} we obtain that there exists a $\tilde{W}^{C}(0)$ $\mathcal{C}^{r-1}$ manifold tangent to $E^{C}$ at $
 \begin{pmatrix}
 	\tilde{x} \\ \tilde{y}
 \end{pmatrix}
@@ -397,7 +397,7 @@ This can then be applied to the perturbed example from above.
 From this example we may still wonder what effect the higher order terms have on the center manifold.
 
 \section{Normal forms}
-For a general treatment see the book by Guckenheimer \& Holmes, here we will consider one example to illustrate the idea originally coming from Poincaré.
+For a general treatment see \cite{GuckenheimerHolmes}, here we will consider one example to illustrate the idea originally coming from Poincaré.
 
 \begin{ex}[Reduced dynamics on 1-dimensional manifold]
 	Consider the following 1-dimensional dynamical system
@@ -464,7 +464,7 @@ This transformation has removed the quartic terms from the equation.
 		y = \xi + h_5(\xi) = \xi + b \xi^5 + \mathcal{O}(\xi^6)
 	\end{align}
 	and then continue as before, but with $y$ now playing the role of $x$ and $\xi$ playing the role of $y$.
-\item The successive sequence of near identity coordinate changes turns out to converge usually. In general, it depends on the type of problem, sometimes resonant terms are not removeable and must stay as they are crucial to the dynamics. These resonant terms depend only on the linear part of the RHS, for more information see Chapter 3 in Guckenheimer \& Holmes.
+\item The successive sequence of near identity coordinate changes turns out to converge usually. In general, it depends on the type of problem, sometimes resonant terms are not removeable and must stay as they are crucial to the dynamics. These resonant terms depend only on the linear part of the RHS, for more information see Chapter 3 of \cite{GuckenheimerHolmes}.
 	\end{enumerate}
 Thus 
 \begin{align}

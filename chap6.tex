@@ -19,19 +19,19 @@ Therefore we have a perturbed Duffing oscillator. We transform the system into a
 		\dot{y} = -y +x - x^3 + \varepsilon \cos(t).
 	\end{dcases}
 \end{align}
-For $\varepsilon =0$ damping, two homoclinic orbits arise for the three fixed points. However, for nonzero damping, we get seemingly chaotic behavior. Both of these regimes are depicted in Fig. \ref{fig:pert_duffing}.
+For $\varepsilon =0$ driving, two homoclinic orbits arise for the three fixed points. However, for nonzero driving, we get seemingly chaotic behavior. Both of these regimes are depicted in Fig. \ref{fig:pert_duffing}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.45\textwidth]{figures/ch6/3unpert_duffing.png}
 	\includegraphics[width=0.45\textwidth]{figures/ch6/2pert_duffing.png}
-	\caption{Left: Duffing oscillator with $\varepsilon=0$ damping, the red arrows designate the homoclinic orbits. Right: (Clockwise from top left) The phase space of the (nonzero) perturbed Duffing oscillator; The Poincaré section of the damped Duffing oscillator, with the Poincaré map illustrated by the black arrows; The value of $x(t)$ over time, with no apparent pattern.}
+	\caption{Left: Duffing oscillator with $\varepsilon=0$ driving, the red arrows designate the homoclinic orbits. Right: (Clockwise from top left) The phase space of the driven Duffing oscillator; The Poincaré section of the driven Duffing oscillator, with the Poincaré map illustrated by the black arrows; The value of $x(t)$ over time, with no apparent pattern.}
 	\label{fig:pert_duffing}
 \end{figure}
 
 \end{ex}
 
-\begin{ex}[2-dimensional Rayleigh-Bernard convection]
-	A fluid is held between two plates. The upper plate is cold and the lower plate is hot. This causes convections to form as hotter fluid rises and colder fluid falls. So called convection cells then form for low Rayleigh numbers. This process is illustrated in Fig. \ref{fig:convection_cells}.
+\begin{ex}[2-dimensional Rayleigh-Bénard convection]
+	A fluid is held between two plates. The upper plate is cold and the lower plate is hot. This causes convections to start as hotter fluid rises and colder fluid falls. So called convection cells then form for low Rayleigh numbers. This process is illustrated in Fig. \ref{fig:convection_cells}.
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.65\textwidth]{figures/ch6/4convection_plates.png}
@@ -59,7 +59,7 @@ For $\varepsilon =0$ damping, two homoclinic orbits arise for the three fixed po
 
 Moving forward we will have a common mathematical setting
 \begin{align}
-	\dot{x} = f(x) + \varepsilon g(x,t);\quad x \in \mathbb{R}^{2},\quad g(x,t) =g(x,t+T);\quad 0 \leq \varepsilon \ll 1;\quad f,t\in C^{1}. \numberthis \label{eq7:one}
+	\dot{x} = f(x) + \varepsilon g(x,t);\quad x \in \mathbb{R}^{2},\quad g(x,t) =g(x,t+T);\quad 0 \leq \varepsilon \ll 1;\quad f,t\in \mathcal{C}^{1}. \numberthis \label{eq7:one}
 \end{align}
 We have a small $T$-periodic perturbation of a planar ODE which can be studied via a Poincaré map $P_{\varepsilon}^{t_0}:x_0 \mapsto x(t_0 + T; t_0,x_0)$. Assume that for $\varepsilon=0$ the system \eqref{eq7:one} has a saddle type fixed point with a homoclinic (or heteroclinic) orbit $x^{0}(t-t_0)$. Such a system is depicted in Fig. \ref{fig:assumptions}.
 \begin{figure}[h!]
@@ -83,11 +83,11 @@ More generally we define a hyperbolic fixed point for a map.
 	For a map $F:\mathbb{R}^{n}\to \mathbb{R}^{n}$ and a dynamical system with $x_{k+1} = F(x_k)$, the fixed point $p_0$ (i.e. $F(p_0) = p_0 $) is \emph{hyperbolic} if the linearization's $DF(p_0)\in \mathbb{R}^{n\times n}$ eigenvalues $\lambda_1,\ldots,\lambda_n $ never have unitary length: $|\lambda_i| \neq 1$ for $i=1,\ldots,n$.
 \end{definition}
 
-For each eigenvalue $\lambda _i$ of the linearization the corresponding eigenvector is given by $s_i$. Assume that $DF(p_0)$ is semisimple, i.e. all of the eigenvectors are linearly independent. The linearized dynamics at $p_0$ for $y=x-p_0$ small are
+For each eigenvalue $\lambda _i$ of the linearization the corresponding eigenvector is given by $s_i$. Assume that $DF(p_0)$ is semisimple, i.e. all of the eigenvectors are linearly independent. The linearized dynamics at $p_0$ for $y=x-p_0$ small is 
 \begin{align}
 	y_{k+1} = DF(p_0)y_k \implies y_k = \lambda_1^{k} c_1 s_1 + \ldots + \lambda_n^{k} c_n s_n.	
 \end{align}
-If all of the eigenvalues have less than unitary magnitude, $|\lambda _i|<1$ for $i=1,\ldots,n$, then $p_0$ is asymptotically stable. Otherwise if there exists an eigenvalue with norm strictly larger than 1, $p_0$ is unstable. The relationship of the nonlinear and linearized dynamics are shown in Fig. \ref{fig:lin_nonlin_relation}.
+If all of the eigenvalues have less than unitary magnitude, $|\lambda _i|<1$ for $i=1,\ldots,n$, then $p_0$ is asymptotically stable. Otherwise if there exists an eigenvalue with modulus strictly larger than 1, $p_0$ is unstable. The relationship of the nonlinear and linearized dynamics are shown in Fig. \ref{fig:lin_nonlin_relation}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.65\textwidth]{figures/ch6/9lin_nonlin_relationship.png}
@@ -95,17 +95,17 @@ If all of the eigenvalues have less than unitary magnitude, $|\lambda _i|<1$ for
 	\label{fig:lin_nonlin_relation}
 \end{figure}
 
-The fixed point $p_0$ along with the stable and unstable manifolds ($W^{S}(p_0)$ and $W^{U}(p_0)$) persist smoother under small smooth perturbations to $F$ near $p_0$.
+The fixed point $p_0$ along with the stable and unstable manifolds ($W^{S}(p_0)$ and $W^{U}(p_0)$) persist smoothly under small smooth perturbations to $F$ near $p_0$.
 
 \section{Consequences of hyperbolicity}
-Hyperbolicity has a few important consequences in our setting. Foremost, the perturbed hyperbolic fixed point $p_{\varepsilon}^{t_0}$ has a hyperbolic periodic orbit for the ODE.Furthermore, the solutions of the ODE are smooth in $\varepsilon$, thus the solutions within $W^{U}(p_{\varepsilon}^{t_0})$ and $W^{S}(p_{\varepsilon}^{t_0})$ remain $\mathcal{O}(\varepsilon)$ close to $\Gamma_0$, i.e.
+Hyperbolicity has a few important consequences in our setting. Foremost, the perturbed hyperbolic fixed point $p_{\varepsilon}^{t_0}$ translates to a hyperbolic periodic orbit for the ODE. Furthermore, the solutions of the ODE are smooth in $\varepsilon$, thus the solutions within $W^{U}(p_{\varepsilon}^{t_0})$ and $W^{S}(p_{\varepsilon}^{t_0})$ remain $\mathcal{O}(\varepsilon)$ close to $\Gamma_0$, i.e.
 
 \begin{align}
 	x_{\varepsilon}^{S}(t;t_0) &= x^{0}(t-t_0) + \varepsilon a^{S}(t) + \mathcal{O}(\varepsilon^{2} );\quad t\in [t_0,\infty ) \\
 	x_{\varepsilon}^{U}(t;t_0) &= x^{0}(t-t_0) + \varepsilon a^{U}(t) + \mathcal{O}(\varepsilon^{2} );\quad t\in (-\infty, t_0].
 \end{align}
 
-Now we examine what the global shape of these manifolds are for $\varepsilon>0$ and if they interact. To do this we will follow an idea from Poincaré, Arnold, and Melnikov. To this end we define the perpendicular to $f$ 
+Now we examine what the global shape of these manifolds are for $\varepsilon>0$ and if they interact. To do this we will follow an idea from Poincaré, Arnold, and Melnikov. To this end we define the perpendicular vector to $f$ 
 \begin{align}
 	f^{\perp}(x^{0}(0)) = 
 	\begin{pmatrix}
@@ -122,7 +122,7 @@ We would like to use this to measure the distance between $x^{U}_{\varepsilon}(t
 \end{figure}
 Thus we have a signed distance function
 \begin{align}
-	d_{\varepsilon}(t_0) = \frac{\left\langle f^{\perp}(x^{0}(0)), x^{U}_{\varepsilon(t_0; t_0) - x^{S}_{\varepsilon}(t_0; t_0)}\right\rangle}{\left| f^{\perp}(x^{0}(0))\right|} 
+	d_{\varepsilon}(t_0) = \frac{\left\langle f^{\perp}(x^{0}(0)), x^{U}_{\varepsilon}(t_0; t_0) - x^{S}_{\varepsilon}(t_0; t_0)\right\rangle}{\left| f^{\perp}(x^{0}(0))\right|} 
 	= \varepsilon  \frac{\left\langle f^{\perp}(x^{0}(0)), a^{U}(t_0) - a^{S}(t_0) \right\rangle}{\left| f^{\perp}(x^{0}(0))\right|} + \mathcal{O}(\varepsilon^2).
 \end{align}
 The numerator in the second equation is called the \emph{Melnikov function}
@@ -134,7 +134,7 @@ In fact Melnikov proved an identity for this function.
 	\begin{align}
 		M(t_0) = \int_{-\infty }^{\infty }  \langle f^{\perp}(x^{0}(t-t_0)), g(x^{0}(t-t_0),t)\rangle dt.
 	\end{align}
-	For the proof, see the book by Guckenheimer \& Holmes.	
+	For the proof, see \cite{GuckenheimerHolmes}.	
 \end{theorem}
 \begin{remark}[]
 	The integral in Melnikov's theorem converges as $|g(x^{0}(t-t_0),t)|$ is globally bounded as $t \to \pm \infty $ and $|f^{\perp}| = |f|$ and
@@ -154,7 +154,7 @@ Now observe that
 \end{align}
 Now we would like to know when we can find a solution $t_0(\varepsilon)$ such that $d_{\varepsilon}(t_0(\varepsilon))=0$ for $\varepsilon > 0$. To do this we use the Implicit Function Theorem. First assume that $F(\overline{t}_{0}, 0) = 0$, i.e. $M(\overline{t}_0) = 0$, and $\frac{\partial F}{\partial t_0}(\overline{t}_0), 0) \neq 0$, i.e. $\frac{\partial }{\partial t_0}M(\overline{t}_0) \neq 0$. If this condition is fulfilled the root is called \emph{transverse}.  Then there exists a unique $t_0(\varepsilon) = \overline{t}_{0} + \mathcal{O}(\varepsilon)$ which solves $F(t_0(\varepsilon), \varepsilon)=0$ for $\varepsilon \neq 0$ small enough. Also $t_0(\varepsilon)$ is smooth if $F(t_0,\cdot)$ is smooth.
 
-A transverse zero for $M(t_0)$ implies that the Melnikov distance $d_{\varepsilon }(t_{0}(\varepsilon)=0$, in turn implying that the intersection of the stable and unstable manifolds have a nonzero intersection, $W^{S}(p_{\varepsilon}^{t_0}) \cap W^{U}(p_{\varepsilon}^{t_0}) \neq \emptyset$. Therefore we have an element $q\in W^{S}(p_{\varepsilon}^{t_0}) \cap W^{U}(p_{\varepsilon}^{t_0})$, for this $q$ we also have that for every $n \in \mathbb{Z}$
+A transverse zero for $M(t_0)$ implies that the Melnikov distance $d_{\varepsilon }(t_{0}(\varepsilon)=0$, in turn implying that the stable and unstable manifolds intersect, $W^{S}(p_{\varepsilon}^{t_0}) \cap W^{U}(p_{\varepsilon}^{t_0}) \neq \emptyset$. Therefore we have an element $q\in W^{S}(p_{\varepsilon}^{t_0}) \cap W^{U}(p_{\varepsilon}^{t_0})$, for this $q$ we also have that for every $n \in \mathbb{Z}$
 \begin{align}
 	P_{\varepsilon}^{n}(q) \in W^{S}(p_{\varepsilon}^{t_0}) \cap W^{U}(p_{\varepsilon}^{t_0}). 
 \end{align}
@@ -163,13 +163,13 @@ Therefore we have that for each iterate of the Poincaré map there is a unique p
 	\centering
 	\includegraphics[width=0.45\textwidth]{figures/ch6/11inf_intersection_hetero.png}
 	\includegraphics[width=0.45\textwidth]{figures/ch6/11inf_intersection_homo.png}
-	\caption{The infinite intersections of the stable and unstable manifolds for a transitive zero. Left: The homoclinic case, this is aptly called a \emph{homoclinic tangle}. Right: The heteroclinic case.}
+	\caption{The infinite intersections of the stable and unstable manifolds for a transverse zero. Left: The homoclinic case, this is aptly called a \emph{homoclinic tangle}. Right: The heteroclinic case.}
 	\label{fig:inf_intersections}
 \end{figure}
-In the homoclinic tangle, we can see the accumulation of trajectories that are caused by the accumulation of the iterates of the Poincaré map. {\color{blue} He says to see the $\Lambda$ lemma, not sure exactly what is meant by that.}
+In the homoclinic tangle, we can see the accumulation of trajectories that are caused by the accumulation of the iterates of the Poincaré map. For more see the \emph{$\Lambda$-lemma} \cite{PalisPhd, Palis}.
 
 \begin{remark}[]
-	It is impossible for stable and unstable manifolds to intersect themselves. This is usually argued by stating that $q$ cannot have two distinctive preimages under a diffeomorphism. However, this is not sufficient as a self intersection does not imply that two distinct preimages exist, for instance a loop de loop manifold structure and suitable Poincaré map as in Fig. \ref{fig:loopdeloop}.
+	It is impossible for stable and unstable manifolds to intersect themselves. This is usually argued by stating that $q$ cannot have two distinctive preimages under a diffeomorphism. However, this is not sufficient as a self intersection does not imply that two distinct preimages exist, for instance a looping manifold structure and suitable Poincaré map as in Fig. \ref{fig:loopdeloop}.
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.25\textwidth]{figures/ch6/12loopdeloop.png}
@@ -224,7 +224,7 @@ A Hamiltonian for this system is given by
 \begin{align}
 	H = \frac{1}{2}y^2 - \frac{1}{2} x^2  + \frac{1}{4}x^4 = E_{0} =  \textrm{const} .
 \end{align}
-Further the phase portrait for $\varepsilon=0$ is known and shown in Fig. \ref{fig:duffing_phase}. {\color{blue} He has $\varepsilon>0$ in the script, pg 12, but I think that is wrong.}
+Further the phase portrait for $\varepsilon=0$ is known and shown in Fig. \ref{fig:duffing_phase}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/ch6/14duffing_phase.png}
@@ -253,7 +253,7 @@ Next, we ask if this is equal to zero and look for a transverse zero. To this en
 	 R^{0}(\omega) = \frac{\gamma }{\delta} \sin(\omega t_0).
 \end{align}
 {\color{blue} I wasn't sure how he got the graph and what the marks meant, so I thought it wouldn't be clear to students, so I tried to do this part myself. I get the inverse result of him}.
-A solution is then a transitive zero if the partial derivative with respect to $t_0$ is nontrivial
+A solution is then a transverse zero if the partial derivative with respect to $t_0$ is nontrivial
 \begin{align}
 	\sqrt{2} \gamma \pi  \omega ^2  \textrm{sech} \left( \frac{\pi \omega }{2}\right) \cos(\omega t_0) \neq 0
 \end{align}
@@ -499,6 +499,31 @@ Therefore two symbols are close if they agree on large central blocks.
 	The function $d$ satisfies all the axioms of a distance and tuple $(\Sigma, d) $ forms a complete metric space. 
 \end{remark}
 
+\begin{proposition}[The periodic orbits are dense]
+The set of all periodic orbits is dense in $\Sigma$.	
+\end{proposition}
+\begin{proof}
+	{\color{blue} this is not included in his notes, he just says 'Show it', but it is quite simple so I am adding here for now.}
+	Given an arbitrary element $s\in\Sigma$ and $k \in \mathbb{N}$, we would like to find a $2^{-k}$ periodic approximation of $s$. To do this define the two strings
+	\begin{align}
+		S_{-} = s_{-(k+1)}\ldots s_{-1}, \quad S_{+} = s_0 \ldots s_{k+1}.
+	\end{align}
+	For any two strings (of infinite length) $L$ and $R$ the element
+	 \begin{align}
+		s' = L S_{-}\bm{.} S_{+}R
+	\end{align}
+	is $2^{-k}$ close to $s$. This is because they can only disagree at indices with modulus strictly greater than $k+1$, therefore
+	\begin{align}
+		d(s',s) \leq \sum_{j=-(k+2)}^{-\infty }\frac{1}{2^{-|j|}} + \sum_{j=k+2}^{\infty } \frac{1}{2^{-|j|}} = 2\cdot 2^{-(k+1)} = 2^{-k}. 
+	\end{align}
+Now it is clear that the periodic element
+\begin{align}
+	s^{*} = \overline{S_{+}S_{-}} \bm{.} \overline{S_{+}S_{-}} = L' S_{-}\bm{.} S_{+}R'
+\end{align}
+is a $2^{-k}$ approximation for $s$. As $s$ and $k$ were arbitrary, this completes the proof.
+\end{proof}
+
+
 Consider a $k$-periodic point $s=\overline{a}\bm{.} \overline{a}$, where $a$ is a $k$-long binary sequence. Let $s' = \overline{a}a'\bm{.} \overline{a}$, clearly $s \neq s'$, therefore $d(s,s') \neq 0$, yet when we take the limit we find
 \begin{align}
 	\lim_{n\to \pm \infty }	d(\sigma^{n}(s), \sigma^{n}(s')) = 0.
@@ -547,4 +572,134 @@ In fact there also exists a countable infinity of non-periodic (not even asympto
 	\end{align}
 	
 \end{definition}
+\begin{ex}[Binary expansion]
+	Let $x=\frac{1}{5}$, we find the iterates of $g$ 
+	\begin{align}
+		x &= \frac{1}{5} & 2\cdot \frac{1}{5}<1 & \implies x_1 = 0\\
+		g\left(\frac{1}{5}\right) &= \frac{2}{5} & 2 \cdot \frac{2}{5}<1 &\implies x_2 = 0 \\
+		g^{2}\left(\frac{1}{5}\right) &= g\left(\frac{2}{5}\right) = \frac{4}{5} & 2\cdot \frac{4}{5} > 1 &\implies x_3 = 1 \\
+		g^{3}\left(\frac{1}{5}\right) &= g\left(\frac{4}{5}\right) = \frac{8}{5} \mod 1 = \frac{3}{5}& 2\cdot \frac{3}{5} > 1	  &\implies x_4 = 1 \\
+		g^{4}\left(\frac{1}{5}\right) &= g\left(\frac{3}{5}\right) = \frac{6}{5} \mod 1 = \frac{1}{5}& 2\cdot \frac{1}{5} < 1	  &\implies x_5 = 0. 
+	\end{align}
+	Since $g^{4}\left(\frac{1}{5}\right) = \frac{1}{5}$, we have reached a repeating loop (since our seed value was $\frac{1}{5}$), therefore we have that
+	\begin{align}
+		\frac{1}{5} = 0\cdot \frac{1}{2} + 0\cdot \frac{1}{4} + 1\cdot \frac{1}{8} + 1\cdot \frac{1}{16} + \ldots = \bm{.} \overline{0011}. 
+	\end{align}
+	
+\end{ex}
 
+\begin{proposition}[]
+	The map $\sigma$ has a dense orbit in $\Sigma$, i.e. an orbit which approaches any point in $\Sigma$ arbitrarily closely.
+\end{proposition}
+{\color{blue} This is listed as HW, but when I took the course the HW used this proposition, we didn't have to prove it. So I am giving a small proof here... Just finished the proof, bit longer than I expected.}
+\begin{proof}
+Without loss of generality, assume that $\delta<1$. Next, note that the maximal distance between two elements occurs when they disagree at every entry, so they have the distance
+\begin{align}
+	\sum_{i=-\infty }^{\infty } \frac{1}{2^{|i|}} = 2.
+\end{align}
+Therefore, the entire space is included in the ball $B\left( \overline{1}\bm{.} \overline{1}, 2\right)$. Now to show that for any given distance $\delta $, we want to find an element $s^{*}$ such that its orbit gets $\delta$ close to every element of $\Sigma$. Let 
+\begin{align}
+k = \min \left\{ j \in \mathbb{N}:\ 2^{-j}\leq \delta\right\},
+\end{align}
+i.e. the first index in the binary expansion of $\delta$ which is not $0$. Now we would like to find a finite $2^{-(k+1)}$-covering of $\Sigma$, i.e. a set of elements $s_i^{k}$ such that $\bigcup_{i}B\left(s_i^{k}, 2^{-(k+1)}\right)$. We start out with the covering $\bigcup_{j=1}^{\infty }B\left(q_j, 2^{-(k+1)}\right)$, with the $q_j$ being an enumeration of the periodic orbits. As we previously noted, $\Sigma$ is bounded as it can be contained in a finite ball, furthermore $\Sigma$ is also closed (the intersection of two closed sets is always closed due to the de Morgan identity), thus $\Sigma$ is compact and a finite subcovering exists. Hence we can deduce that only finitely many $q_i$ are needed, call these $\left(s_i^{k}\right)_{i=1}^{N}$, and let the string representation of each $s_{i}^{k}$ be given by $\overline{S_{i}^{k}}\bm{.} \overline{S_{i}^{k}}$. 
+
+If we can construct $s_{k}^{*}$ such that its orbit passes through each of the $B\left(s_i^{k}, 2^{-(k+1)}\right)$, then we know that the orbit of $s_{k}^{*}$ gets within distance $2^{-k}$ of every element in $\Sigma$, by the triangle inequality. 
+
+For any given $s_{i}^{k}$ the element
+\begin{align}
+	{L} \underbrace{S_{i}^{k} \ldots S_{i}^{k}}_{(k+3) \textrm{ times} }\bm{.}  \underbrace{S_{i}^{k} \ldots S_{i}^{k}}_{(k+4) \textrm{ times} } {R}
+\end{align}
+is within distance $2^{-(k+1)}$ of $s_{i}^{k}$, for $L$ and $R$ arbirary. This is because the string $S_{i}^{k}$ is of at least length 1, so the two strings can disagree only at elements with index modulus strictly greater than $k+2$ (we need the one more copy of $S_{i}^{k}$ on the right side as the 0th index is to the right of the $\bm{.} $ ), therefore the distance between them is upper bounded by
+	\begin{align}
+		\sum_{j=-(k+3)}^{-\infty }\frac{1}{2^{-|j|}} + \sum_{j = k+3}^{\infty } \frac{1}{2^{-|j|}} = 2 \cdot 2^{-(k+2)} = 2^{-(k+1)}.   	
+	\end{align}
+	Therefore, using $2k+7$ copies of $S_{i}^{k}$ we are able to approximate $s_{i}^{k}$ within distance $2^{-(k+1)}$. We now construct the element
+	\begin{align}
+		s_{k}^{*} = L \bm{.} \underbrace{S_{1}^{k} \ldots S_{1}^{k}}_{2k+7  \textrm{ times} } \ldots \underbrace{S_{N}^{k} \ldots S_{N}^{k}}_{2k+7  \textrm{ times} } R
+	\end{align}
+	for $L$ and $R$ arbitray. We now can see that for every $i\in\{1 \ldots N\}$, the element 
+	\begin{align}
+		L' \underbrace{S_{i}^{k} \ldots S_{i}^{k}}_{(k+3) \textrm{ times} } \bm{.} 
+		\underbrace{S_{i}^{k} \ldots S_{i}^{k}}_{(k+4) \textrm{ times} } R',
+	\end{align}
+	is contained within the orbit of $s_{k}^{*}$ for $L'$ and $R'$ chosen accordingly. Therefore we have now constructed the the desired $s_{k}^{*}$. Note here that this construction is well defined as each $S_{i}^{k}$ is of finite length. This construction can be done for each $k$, start from the infinite cover using periodic orbits, then construct a finite subcover using the compactness of $\Sigma$, finallly construct the element $s_{k}^{*}$ by concatenating the $2^{-(k+1)}$ approximations of the elements which consitute the finite subcover. 
+
+	To construct $s^{*}$, concatenate each of the strictly defined blocks (the block the the right of $\bm{.} $ and left $R$) of $s_{k}^{*}$ for each $k \in \mathbb{N}$. For any $n$, we know that we can get within distance $2^{-n}$ distance of each element in $\Sigma$, therefore we have constructed a dense orbit. This construction is well definied as the strictly defined block of any given $s_{k}^{*}$ is always of finite length. Thus we have constructed the element, whose orbit is dense in $\Sigma$.
+\end{proof}
+
+\begin{proposition}[]
+	The map $\sigma$ is topologically transitive, i.e. for any two open sets $A$ and $B$ in $\Sigma$, there exists an $N \in \mathbb{N}$ such that
+	\begin{align}
+		\sigma^{N}(A) \cap B \neq \emptyset.
+	\end{align}
+	This is called the \emph{mixing property}.
+\end{proposition}
+\begin{proof}
+	This is a consequence of the existence of a dense orbit.
+\end{proof}
+
+\begin{proposition}[Sensitive dependece on initial conditions]
+	Regardless of how close two distinct initial conditions $s$ and $s'$ are chosen, they will not remain close. There exists a $\Delta>0$ such that for every $s\in\Sigma$ and any $\delta>0$, there exists an $s' \in B\left(s, \delta\right)$ such that for an $N$ large enough the following holds
+	\begin{align}
+		d(\sigma^{N}(s), \sigma^{N}(s') ) > \Delta.
+	\end{align}
+	This is called the \emph{uniform instability of all orbits}. This fact is depicted in Fig. \ref{fig:unif_instab}.	
+\end{proposition}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/ch6/22unif_instab.png}
+	\caption{The uniform instability of orbits for the map $\sigma$.}
+	\label{fig:unif_instab}
+\end{figure}
+
+\begin{remark}[]
+	This by itself implies no complexity, the linear saddle
+	\begin{align}
+		\begin{dcases}
+			\dot{x} = \lambda x \\
+			\dot{y} = - \mu y,
+		\end{dcases}
+	\end{align}
+also has this property.	
+\end{remark}
+
+\begin{remark}[]
+	In the case of this map, every $s'\in B\left(s \delta \right)$ has an $N$ large enough such that the inequality holds.
+	{\color{blue} This is my addition.}
+\end{remark}
+
+These observations lead us to the following definition of a chaotic map.
+
+\begin{definition}[Chaotic map]
+	Let $M:C\to C$ be a $\mathcal{C}^{0}$ map on a compact metric space $C$. We call $M$ \emph{chaotic} if
+	\begin{enumerate}
+		\item $M$ is topologially transitive (the mixing property);
+		\item $M$ has sensitive dependence on initial conditions (a lack of reproduceability);
+		\item $M$ has a dense set of periodic orbits in $C$.
+	\end{enumerate}
+\end{definition}
+Therefore $\sigma$ is a chaotic map.
+ \begin{ex}[Chaos in a 1-dimensional model]
+ 	Consider the logistic map for resource-limited discrete population growth dynamics
+	\begin{align}
+		f:x\mapsto ax(1-x); a \in \mathbb{R}^{+}.
+	\end{align}
+	We will now continue with $a=4$. This is not an ODE, and we assume there are so small perturbations of known structures. The cobweb diagram is illustrated in Fig. \ref{fig:logistic_cobweb}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.4\textwidth]{figures/ch6/23logisitic_cobweb.png}
+		\caption{The cobweb diagram for the logisitic map with $a=4$. The sets $I_1$ and $I_2$ are defined as $[0, \frac{1}{2}]$ and $[\frac{1}{2}, 1]$.}
+		\label{fig:logistic_cobweb}
+	\end{figure}
+	We can see that for our choice of $a$, $f$ maps $[0,1]$ to $[0,1]$ and is not invertible. In fact each preimage of $\frac{1}{2}$ reaches $0$ in a finite number of iterations. Furthermore, the preimages of $\frac{1}{2}$ converge to either $x=0$ or $\frac{3}{4}$, of which there are a countable infinity of each. This implies that there is a countable infinity of homo- and heteroclinic orbits for $x=0$ and $\frac{3}{4}$. From Fig. \ref{fig:logistic_cobweb}, the dynamics appear complicated, with no stable fixed points (can be seen using the linearization).
+
+To better understand the dynamics we can encode the itinerary of a point $x\in I=[0,1]$ by if $x$ is in $I_{1}$ or $I_{2}$. We get a one-sided itinerary, because $f$ is not invertible. For example if $x\in I_{s_0}$, $f(x)\in I_{s_1}$, $f^{2}(x)\in I_{s_2}$ then we would encode $x$ as $\bm{.} s_0s_1s_2\ldots$ for $s_i \in \{ 1,2\}$.
+
+Note here that this symbolic encoding is not well defined for every point in $I$, as all preimages of $x=\frac{1}{2}$ have multiple encodings, since their iterates eventually reach $I_{1}\cap I_{2} =\frac{1}{2}$. to address this define $\Psi:\Sigma \to I$ for $\Sigma$ the set of semi-infinite binary symbols, by
+\begin{align}
+	\Psi: \bm{.} s_0s_1s_2 \mapsto x = I_{s_0} \cap f^{-1}(I_{s_1}) \cap f^{-2}(I_{s_2}) \cap \ldots.
+\end{align}
+We now have to ask if this is well definied, i.e. if it yields a unique $x$ value.
+ \end{ex}
+ 

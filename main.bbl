@@ -1,0 +1,46 @@
+\begin{thebibliography}{}
+
+\bibitem[Arnold, 1992]{Arnold}
+Arnold, V. (1992).
+\newblock {\em Ordinary Differential Equations}.
+\newblock Springer.
+
+\bibitem[Breuuning and Haller, 2019]{BreunningHaller}
+Breuuning, T. and Haller, G. (2019).
+\newblock When does a periodic response exist in a periodic forced
+  multi-degree-of-freedom mechanical system?
+\newblock {\em Nonlinear Dynamics}, 98:1761--1780.
+
+\bibitem[Chicone, 1999]{Chicone}
+Chicone, C. (1999).
+\newblock {\em Ordinary Differential Equations with Applications}.
+\newblock Springer.
+
+\bibitem[Guckenheimer and Holmes, 1990]{GuckenheimerHolmes}
+Guckenheimer, J. and Holmes, P. (1990).
+\newblock {\em Nonlinear Oscillations, Dynamical Systems, and Bifurcations of
+  Vector Fields}.
+\newblock Springer, New York, 3. print., rev. and corr. edition.
+
+\bibitem[Palis, 1967]{PalisPhd}
+Palis, J. (1967).
+\newblock {\em On Morse-Smale Diffeomorphisms}.
+\newblock PhD thesis, UC Berkely.
+
+\bibitem[Palis, 1969]{Palis}
+Palis, J. (1969).
+\newblock On morse-smale dynamical systems.
+\newblock {\em Topology}, 8:385--404.
+
+\bibitem[Strogatz, 2000]{Strogatz}
+Strogatz, S. (2000).
+\newblock {\em Nonlinear Dynamics and Chaos: With Applications to Physics,
+  Biology, Chemistry and Engineering}.
+\newblock Studies in nonlinearity. Westview.
+
+\bibitem[Verhulst, 1989]{Verhulst}
+Verhulst, F. (1989).
+\newblock {\em Nonlinear Differential Equations and Dynamical Systems}.
+\newblock Springer.
+
+\end{thebibliography}

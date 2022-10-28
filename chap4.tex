@@ -1,7 +1,7 @@
 \chapter{Nonlinear dynamical systems on the plane}
 For this chapter the general setup will be 
 \begin{align}
-	\dot{x} = f(x);\quad x \in \mathbb{R}^{2};\quad f\in C^1.
+	\dot{x} = f(x);\quad x \in \mathbb{R}^{2};\quad f\in \mathcal{C}^1.
 \end{align}
 \section{One degree of freedom conservative mechanical systems}
 Write $x = 
@@ -95,7 +95,7 @@ We find two stable fixed points at the potential minima and they are separated b
 \section{Global behavior in two dimensional autonomous dynamical systems}
 Consider the following dynamical system
 \begin{align}
-	\dot{x} = f(x);\quad x \in \mathbb{R}^{2};\quad f \in C^1.
+	\dot{x} = f(x);\quad x \in \mathbb{R}^{2};\quad f \in \mathcal{C}^1.
 \end{align}
 Further assume that solutions exist for all times, therefore there exists a unique solution $x(t; x_0)$ for all $t \in \mathbb{R}$ such that $x(0;x_0)=x_0$. Next, a few definitions are introduced enabling a deeper exploration of such systems.
 
@@ -186,11 +186,12 @@ We now introduce two theorems which give us more insight into these limit sets.
 \begin{proposition}[Bendixson criterion]
 	Consider the following
 	\begin{align}
-		\dot{x}	= f(x);\quad x\in \mathbb{R}^{2}; f\in C^{1};\quad U  \textrm{ simply connected} .
+		\dot{x}	= f(x);\quad x\in \mathbb{R}^{2}; f\in \mathcal{C}^{1};\quad U  \textrm{ simply connected} .
 	\end{align}
 And further assume 
+% everywhere with nabla cdot use  \textrm{div } 
  \begin{align}
-	  x\in U \implies \nabla \cdot  f(x) \neq 0.
+	  x\in U \implies  \textrm{div }   f(x) \neq 0.
 \end{align}
 This in turn implies $\nabla \cdot f(x)$ has constant sign on $U$. Then there cannot exist a limit cycle in $U$.
 \end{proposition}

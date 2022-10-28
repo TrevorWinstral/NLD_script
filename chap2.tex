@@ -3,7 +3,7 @@ Now we would like to begin to explore the behaviour of dynamical systems around 
 \section{Basic definitions}
 Consider
 \begin{align}
-	\dot{ {x}}=f( {x},t),\  {x} \in \mathbb{R}^{n},\ f\in C^{1}.
+	\dot{ {x}}=f( {x},t),\  {x} \in \mathbb{R}^{n},\ f\in \mathcal{C}^{1}.
 \end{align}
 Assume that $ {x}=0$ is a fixed point, i.e. $f({0},t) = {0}$ for all $t \in \mathbb{R}$. If the fixed point is originally at ${x}_0\neq {0}$, shift it to zero by letting $\tilde{ {x}}:= {x}- {x}_0$, therefore 
 \begin{align}
@@ -95,9 +95,9 @@ Further we have the rate of energy change
 	\label{fig:losing_energy_pend}
 \end{figure}
 
-Therefore, along trajectories energy decreases monotonically as shown in Fig \ref{fig:losing_energy_pend}. By the $C^0$ dependence of the trajectory on initial conditions, the trajectories remain close to the undamped oscillations for small $c>0$. We conclude that trajectories are inward spirals for a small dissapation $c>0$. The fixed point $ {x}=0$ is still Lyapunov stable, but asymptotic stability does not yet follow (is the limit of $ {x}(t)$ equal to 0?).
+Therefore, along trajectories energy decreases monotonically as shown in Fig \ref{fig:losing_energy_pend}. By the $\mathcal{C}^0$ dependence of the trajectory on initial conditions, the trajectories remain close to the undamped oscillations for small $c>0$. We conclude that trajectories are inward spirals for a small dissapation $c>0$. The fixed point $ {x}=0$ is still Lyapunov stable, but asymptotic stability does not yet follow (is the limit of $ {x}(t)$ equal to 0?).
 \begin{remark}[LaSalle's invariance principle]
-	This conclusion follows rigorously from LaSalle's invariance principle, namely if we assume that $\dot{ {x}}=f( {x})$, $f \in C^1$, and that there exists a $V\in C^1$ with 
+	This conclusion follows rigorously from LaSalle's invariance principle, namely if we assume that $\dot{ {x}}=f( {x})$, $f \in \mathcal{C}^1$, and that there exists a $V\in \mathcal{C}^1$ with 
 	\begin{align}
 		\dot{V} = \frac{dV( {x}(t))}{dt} \leq 0.	
 	\end{align}
@@ -152,7 +152,7 @@ This negation is demonstration in Fig. \ref{fig:instable_def}.
 \end{remark}
 
 \begin{remark}[]
-	By $C^0$ dependence of trajectories on initial conditions, if $ {x}(t;t_0, {x}_0)$ leaves $B(\varepsilon)$, then for $\tilde{ {x}}_0$ close enough to $ {x}_0$, $ {x}(t;t_0,\tilde{ {x}}_0)$ also leaves $B(\varepsilon)$. Since this is true on an open set around ${x}_0$, the measure of such trajectories in nonzero, the instability is observable!
+	By $\mathcal{C}^0$ dependence of trajectories on initial conditions, if $ {x}(t;t_0, {x}_0)$ leaves $B(\varepsilon)$, then for $\tilde{ {x}}_0$ close enough to $ {x}_0$, $ {x}(t;t_0,\tilde{ {x}}_0)$ also leaves $B(\varepsilon)$. Since this is true on an open set around ${x}_0$, the measure of such trajectories in nonzero, the instability is observable!
 \end{remark}
 
 \begin{ex}[Unstable fixed point of pendulum]
@@ -169,7 +169,7 @@ This negation is demonstration in Fig. \ref{fig:instable_def}.
 \section{Stability based on linearization}
 We would like to derive a more general method to analyze the stability of fixed points, thus we try to simplify our system around the fixed point and discover what this can tell us about the full (unsimplified) system. In the following section we shall always assume that our system is autonomous. We will have the following setup
 \begin{align*}
-	\dot{ {x}}=f( {x}),\quad f\in C^1,\quad  {x}=
+	\dot{ {x}}=f( {x}),\quad f\in \mathcal{C}^1,\quad  {x}=
 	\begin{pmatrix}
 		x_1\\ \vdots \\ x_n
 	\end{pmatrix}\in \mathbb{R}^{n}, \quad 
@@ -209,7 +209,7 @@ Now we would like to study the stability of the fixed point ${y} =0$ in \eqref{e
 \section{Review of linear dynamical systems}
 Recall the setup
 \begin{align}
-	\dot{{y} } = {A} (t){y}, \quad {y} \in \mathbb{R}^{n}, \quad {A} \in \mathbb{R}^{n \times n}, \quad {A} \in C^{0}_{t}.
+	\dot{{y} } = {A} (t){y}, \quad {y} \in \mathbb{R}^{n}, \quad {A} \in \mathbb{R}^{n \times n}, \quad {A} \in \mathcal{C}^{0}_{t}.
 \end{align}
 The following facts have already been established
 \begin{itemize}
@@ -348,7 +348,7 @@ We have that $ \textrm{Re} \lambda _{k}=0$ for $k=1,2,3,4$. Also $a_k=2$ for $k=
 \section{Stability of fixed points in nonlinear systems}
 Following the previous example, we would like to know what information about the stability of fixed points of nonlinear systems we can derive from the linearized system. The full nonlinear system is
 \begin{align*}
-	\dot{{x} } = f(x),\quad f({x} _{0}) = {0}, \quad {x} \in \mathbb{R}^{n}, \quad f \in C^{1}. \numberthis \label{eq:unostar}
+	\dot{{x} } = f(x),\quad f({x} _{0}) = {0}, \quad {x} \in \mathbb{R}^{n}, \quad f \in \mathcal{C}^{1}. \numberthis \label{eq:unostar}
 \end{align*}
 And its linearization at the fixed point ${x} _0$ 
 \begin{align*}
@@ -357,25 +357,25 @@ And its linearization at the fixed point ${x} _0$
 \end{align*}
 We would like to conclude that the linearized dynamics are qualitatively similar to the nonlinear dynamics. In order to study if this is the case, we have to formalize \emph{similar} mathematically.
 
-\begin{definition}[$C^k$ equivalence of dynamical systems]
+\begin{definition}[$\mathcal{C}^k$ equivalence of dynamical systems]
 Consider two autonomous dynamical systems:
 \begin{enumerate}
 	\item
 		\begin{align*}
-			\dot{{x} }=f({x}),\quad {x} \in \mathbb{R}^{n}, \quad f \in C^{1};\quad F^{t}: {x_0} \mapsto {x} (t;{x} _0). \numberthis \label{eq:uno}
+			\dot{{x} }=f({x}),\quad {x} \in \mathbb{R}^{n}, \quad f \in \mathcal{C}^{1};\quad F^{t}: {x_0} \mapsto {x} (t;{x} _0). \numberthis \label{eq:uno}
 		\end{align*} 
 	\item	
 		\begin{align}
-			\dot{{x} }=g({x}),\quad {x} \in \mathbb{R}^{n}, \quad g \in C^{1};\quad G^{t}: {x_0} \mapsto {x} (t;{x} _0).
+			\dot{{x} }=g({x}),\quad {x} \in \mathbb{R}^{n}, \quad g \in \mathcal{C}^{1};\quad G^{t}: {x_0} \mapsto {x} (t;{x} _0).
 		\end{align}
 \end{enumerate}
-The two dynamical systems are \emph{$C^k$ equivalent}, for $k \in \mathbb{N}$, on an open set $U \subset \mathbb{R}^{n}$, if there exists a $C^k$ diffeomorphism $h: U \to U$ that maps orbits of (i) into orbits of (ii), while preserving the orientation but not necessarily the exact parameterization of the orbit by time. Specifically for all $x\in U$, any $t _1 \in \mathbb{R}$  there exists a $t_2 \in \mathbb{R}$ such that
+The two dynamical systems are \emph{$\mathcal{C}^k$ equivalent}, for $k \in \mathbb{N}$, on an open set $U \subset \mathbb{R}^{n}$, if there exists a $\mathcal{C}^k$ diffeomorphism $h: U \to U$ that maps orbits of (i) into orbits of (ii), while preserving the orientation but not necessarily the exact parameterization of the orbit by time. Specifically for all $x\in U$, any $t _1 \in \mathbb{R}$  there exists a $t_2 \in \mathbb{R}$ such that
 \begin{align}
 	\boxed{
 		h(F^{t_1}({x})) = G^{t_2}(h(x)).
 	}
 \end{align}
-$h:U\to U$ does this for all $x\in U$ in a $C^{k}$ fashion. This equivalence through a function $h$ is demonstrated in Fig \ref{fig:ck_equiv}.
+$h:U\to U$ does this for all $x\in U$ in a $\mathcal{C}^{k}$ fashion. This equivalence through a function $h$ is demonstrated in Fig \ref{fig:ck_equiv}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\textwidth]{figures/ch2/12ck_equiv.png}
@@ -383,10 +383,43 @@ $h:U\to U$ does this for all $x\in U$ in a $C^{k}$ fashion. This equivalence thr
 	\label{fig:ck_equiv}
 \end{figure}
 \end{definition}
+\begin{proposition}[Restrictiveness of smooth equivalence]
+	Consider two $\mathcal{C}^{k}$-equivalent dynamical systems for $k>0$ with the right hand sides $f$ and $g$, as in the definitions above. Let $x_0$ be a root of $f$ and $y_0$ a root of $g$ such that these correspond to each other under the $\mathcal{C}^k$ equivalence, i.e. $y_0 = h(x_0)$. The eigenvalues of $Df(x_0)$ must be constant, positive multiples of the eigenvalues of $Dg(y_0)=Dg(h(x_0))$. 	
+\end{proposition}
+\begin{proof}
+	By the $\mathcal{C}^k$ equivalence we have that there exists a $\tau (x,t)$ with $\frac{d \tau}{d t}>0$ such that $h(F^{t}(x)) = G^{\tau(x,t)}(h(x))$. Further assume that $\tau$ is at least continuously differentiable in its arguments. Differentiating the previous equality with respect to  $x$ yields
+	\begin{align}
+		Dh DF^{t} = \dot{G}^{\tau }\frac{d \tau }{dx} + D G^{\tau} Dh.
+	\end{align}
+	At a fixed point $x_0$ we have that $\dot{G}^{\tau}(x_0)=g(G^{\tau}(x_0))=0$. This implies that the first term on the right hand side of the differentiated equality is equal to 0. Now denote the linearizations of the dynamical systems underlying the flow maps $F$ and $G$ by $A$ and $B$ respectively. Then the matrices $e^{A t} $ and $e^{B\tau} $ must be similar matrices, in turn implying that $ A $ and $B$ must have the same spectrum, i.e.
+	\begin{align}
+		\frac{\lambda_i(A)}{\lambda_i(B)} = \frac{t}{\tau} = C >0. 
+	\end{align}
+Therefore the eigenvalues of the linearizations are constant, positive multiples	of each other.
+\end{proof}
+
+
+\begin{definition}[$\mathcal{C}^k$ conjugacy]
+	Consider the same two dynamical systems as before. The two dynamical systems are $\mathcal{C}^k$ \emph{conjugate} if there exists a $\mathcal{C}^k$ diffeomorphism $h:U \to U$ that maps orbits of (i) into (ii), while preserving orientation and the parameterization of the orbit by time. Specifically for all $x \in U$ and $t \in \mathbb{R}$ we have
+	\begin{align}
+		\boxed{
+			h(F^{t}(x)) = G^{t}(h(x)).
+		}
+	\end{align}
+\end{definition}
+
+\begin{proposition}[Restrictiveness of smooth conjugacy]
+	Consider two $\mathcal{C}^{k}$ conjugate systems, as in the definition above. In addition to the previous proposition, now the linearizations of the two systems will have the same spectra at each fixed point.
+\end{proposition}
+\begin{proof}
+	This is just a specification of the previous proof.
+\end{proof}
+
 
 \begin{definition}[Topological equivalence]
-	For $k=0$, $C^{k}$ equivalence is also called \emph{topological equivalence}. In this case, a continuous, invertible deformation takes orbits of one system into the orbits of the other. Under these conditions,  $h:U\to U$ is called a \emph{homeomorhpism}.
+	For $k=0$, $\mathcal{C}^{k}$ equivalence is also called \emph{topological equivalence}. In this case, a continuous, invertible deformation takes orbits of one system into the orbits of the other. Under these conditions,  $h:U\to U$ is called a \emph{homeomorhpism}.
 \end{definition}
+
 \begin{ex}[Topologically equivalent linear systems for $n=2$]
 	To illustrate the meaning of topological equivalence, Fig. \ref{fig:topo_equiv} shows three linear systems ($\dot{{x} } = {Ax}  $ for $x\in \mathbb{R}^2$) which are topologically equivalent.
 	\begin{figure}[h!]
@@ -396,8 +429,13 @@ $h:U\to U$ does this for all $x\in U$ in a $C^{k}$ fashion. This equivalence thr
 		\label{fig:topo_equiv}
 	\end{figure}
 
-The stable spiral has the eigenvalues $\lambda _{1,2}= \alpha \pm i \beta $ for $\alpha <0$ and $\beta \neq 0$. The sink has the eigenvalues $\lambda_1=\lambda_2<0$. and The stable node has the eigenvalues $\lambda_1 < \lambda_2 < 0$. Note here that the number of eigenvalues $\lambda_i$ with $ \textrm{Re} \lambda_i <0$, $ \textrm{Re} \lambda _i=0$, and $ \textrm{Re} \lambda _i>0$ is the same is all three of these cases, namely for each system the real part of both eigenvalues are less than 0.	
+The stable spiral has the eigenvalues $\lambda _{1,2}= \alpha \pm i \beta $ for $\alpha <0$ and $\beta \neq 0$. The sink has the eigenvalues $\lambda_1=\lambda_2<0$. and The stable node has the eigenvalues $\lambda_1 < \lambda_2 < 0$. Note here that the number of eigenvalues $\lambda_i$ with $ \textrm{Re} \lambda_i <0$, $ \textrm{Re} \lambda _i=0$, and $ \textrm{Re} \lambda _i>0$ is the same in all three of these cases, namely for each system the real part of both eigenvalues are less than 0.	
 \end{ex}
+
+\begin{remark}[]
+	The above systems are not $\mathcal{C}^k$ equivalent or conjugate, as the spectra differ by more than a multiplicative constant.
+\end{remark}
+
 
 \begin{ex}[Topologically inequivalent linear systems for $n=2$]
 	As a counter example, we now present three linear systems which are not topologically equivalent. The stable spiral (from before), the unstable spiral, and the saddle. The unstable spiral has the eigenvalues $\lambda _{1,2}= \alpha \pm i \beta $ for $\alpha > 0$ and $\beta \neq 0$ (note the different sign for $\alpha)$. The saddle has the eigenvalues $\lambda _1 < 0 < \lambda_2$. These systems are depicted in Fig \ref{fig:topo_inequiv}.
@@ -431,7 +469,7 @@ Building on the role of the eigenvalue configuration we noted in the previous ex
 Before proving this result, recall the Implicit Function Theorem (without proof).
 
 \begin{theorem}[Implicit Function Theorem ($n+1$ dimensional case)]
-	For a function $F:\mathbb{R}^{n+1} \to \mathbb{R}^{n}$ which is $C^1$, if  $F( {x_0} , y_0 ) = 0$ and the Jacobian $D_{{x} }F({x_0} , y_0 )$ is nonsingular (invertible), then there exists a nearby solution to $F({x} , y )=0 $, for ${x_y} = {x_0}  + \mathcal{O}(|y-y_0|)$. Further ${x_y} $ is as smooth in $y$ as $F({x} ,y)$.
+	For a function $F:\mathbb{R}^{n+1} \to \mathbb{R}^{n}$ which is $\mathcal{C}^1$, if  $F( {x_0} , y_0 ) = 0$ and the Jacobian $D_{{x} }F({x_0} , y_0 )$ is nonsingular (invertible), then there exists a nearby solution to $F({x} , y )=0 $, for ${x_y} = {x_0}  + \mathcal{O}(|y-y_0|)$. Further ${x_y} $ is as smooth in $y$ as $F({x} ,y)$.
 \end{theorem}
 
 \begin{proof}[Proof (Proposition)]
@@ -540,7 +578,7 @@ and the \emph{unstable manifold} of ${p} $
 	W^{U}=\{{x_0} :\ F^{t}({x_0} ) \xrightarrow{t \to - \infty}{p}\}.
 }
 \end{align}
-Both of these are $C^{0}$ curves through ${p}$ and their existence follows from the Hartman-Grobman theorem. These manifolds are shown in the nonlinear phase portrait around ${p} $ in Fig. \ref{fig:nonlin_pend_phase_p}. 
+Both of these are $\mathcal{C}^{0}$ curves through ${p}$ and their existence follows from the Hartman-Grobman theorem. These manifolds are shown in the nonlinear phase portrait around ${p} $ in Fig. \ref{fig:nonlin_pend_phase_p}. 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\textwidth]{figures/ch2/18nonlin_pend_phase_p.png}
@@ -637,6 +675,19 @@ For a given $i$ we construct the matrix used for calculating $D_i$ as follows: w
 	\end{align}
 	forms a sufficient and necessary condition for asymptotic stability ($a_i >0$ follows from here) for $n=3$.
 \end{ex}
+
+A more refined linearization result comes from Sternberg's Theorem \cite{Chicone}.
+\begin{theorem}[Sternberg]
+Assume the following
+\begin{enumerate}
+	\item The fixed point is asymptotically stable, i.e. $ \textrm{Re} \lambda _j<0$ for all $j=1,\ldots,n$ (this also implies hyperbolicity);
+	\item $f\in \mathcal{C}^{r}$ for $r\in \mathbb{N}\cup \{\infty \}$ and $r>\frac{\max_{j}| \textrm{Re} \lambda _j|}{\min_{j}| \textrm{Im} \lambda _j|}$;
+	\item The system is nonresonant, i.e. $\sum_{j\neq k}^{}m_j \lambda _j \neq \lambda_k $ for any sequence $m_j \in \mathbb{N}$ with $\sum_{j=1}^{n} m_j \geq 2$.
+	
+\end{enumerate}
+Then the following holds: $\dot{x}=f(x)$ with $f(0)=0$ is locally $\mathcal{C}^{r}$ conjugate to its linear part $\dot{y}=Ay$ for $A= Df(0)$.
+\end{theorem}
+
 
 \begin{ex}[Watt's centrifugal governor for steam engines]
 	Now we put together everything built until now in the example of Watt's centrifugal governor for steam engines. Originally this system was used in mills in the 1700's, then it was adapted by Watt to the steam engine in 1788. This adaptation has been credited as a major factor in the industrial revolution, and is a first example of feedback control. The system is outlined in Fig. \ref{fig:governor}.
@@ -756,9 +807,9 @@ Stability analysis via linearization is not perfect. For nonhyperbolic fixed poi
 \begin{theorem}[] \label{thm:direct}
 	Consider
 	\begin{align}
-		\dot{x} = f(x), \quad f\in C^1,\quad x \in \mathbb{R}^{n};\quad f(x_0) = 0.
+		\dot{x} = f(x), \quad f\in \mathcal{C}^1,\quad x \in \mathbb{R}^{n};\quad f(x_0) = 0.
 	\end{align}
-	Assume that there exists a function $V:U \to \mathbb{R}$ with $V\in C^1(U)$ for an open set $U \subset \mathbb{R}^{n}$ and $x_0 \in U$ which fulfills the following
+	Assume that there exists a function $V:U \to \mathbb{R}$ with $V\in \mathcal{C}^1(U)$ for an open set $U \subset \mathbb{R}^{n}$ and $x_0 \in U$ which fulfills the following
 	\begin{enumerate}
 		\item $V$ is positive definite in a neighborhood of $x_0$, i.e.
 			\begin{align}
@@ -787,7 +838,7 @@ Stability analysis via linearization is not perfect. For nonhyperbolic fixed poi
 	\end{remark}
 \begin{proof}
 	
-	First choose $\varepsilon > 0$ and define $\alpha(\varepsilon)= \min_{x\in \partial B_\varepsilon(x_0)} V(x) > 0$. Note that $\alpha(\varepsilon)$ is well defined as $V\in C^{0}(U)$ and $\partial B_{\varepsilon}(x)$ is compact and spherical for small enough $\varepsilon$. There exists an $x^{*} \in \partial B_{\varepsilon}(x)$ with $V(x^{*}) = \alpha(\varepsilon) \leq V(x)$ for all $x\in \partial B_{\varepsilon}(x_0)$. Next, define $U_{\varepsilon}= \{ x\in B_{\varepsilon}(x_0):\ V(x) < \alpha(\varepsilon)  \ $. Notice that $x_0 \in U_{\varepsilon}$ because $V(x_0) =0$ and $V(x)\geq 0$ on $U$. Further $U_{\varepsilon}$ is open due to the continuity of $V$. We have that  $U_{\varepsilon} \cap \partial B_{\varepsilon}(x_ 0) $ is empty by definintion, noting that for all $x\in \partial B_{\varepsilon}(x_0)$ we have $V(x) \geq \alpha(\varepsilon) $. Therefore there exists a ball $B_{\delta(\varepsilon)} \subset U_{\varepsilon} $ which contains $x_0$. This can be seen in Fig. \ref{fig:lyap_pf_1}.
+	First choose $\varepsilon > 0$ and define $\alpha(\varepsilon)= \min_{x\in \partial B_\varepsilon(x_0)} V(x) > 0$. Note that $\alpha(\varepsilon)$ is well defined as $V\in \mathcal{C}^{0}(U)$ and $\partial B_{\varepsilon}(x)$ is compact and spherical for small enough $\varepsilon$. There exists an $x^{*} \in \partial B_{\varepsilon}(x)$ with $V(x^{*}) = \alpha(\varepsilon) \leq V(x)$ for all $x\in \partial B_{\varepsilon}(x_0)$. Next, define $U_{\varepsilon}= \{ x\in B_{\varepsilon}(x_0):\ V(x) < \alpha(\varepsilon)  \ $. Notice that $x_0 \in U_{\varepsilon}$ because $V(x_0) =0$ and $V(x)\geq 0$ on $U$. Further $U_{\varepsilon}$ is open due to the continuity of $V$. We have that  $U_{\varepsilon} \cap \partial B_{\varepsilon}(x_ 0) $ is empty by definintion, noting that for all $x\in \partial B_{\varepsilon}(x_0)$ we have $V(x) \geq \alpha(\varepsilon) $. Therefore there exists a ball $B_{\delta(\varepsilon)} \subset U_{\varepsilon} $ which contains $x_0$. This can be seen in Fig. \ref{fig:lyap_pf_1}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.45\textwidth]{figures/ch2/22lyap_pf_1.png}
