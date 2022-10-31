@@ -554,7 +554,7 @@ In fact there also exists a countable infinity of non-periodic (not even asympto
 	\end{align}
 	is uncountable. This suffices as we can injectively embed $\tilde{\Sigma}$ into $\Sigma$ via the map $\bm{.} s_1s_2\ldots \mapsto \overline{1}\bm{.} (s_1+1)(s_2+1)\ldots$.
 
-	Every binary expansion for all real number in the interval $[0,1]$ is contained within $\tilde{\Sigma}$, therefore the cardinality of $\tilde{\Sigma}$ is at least as large as that of $[0,1]$ which is uncountable. In fact, the binary expansion is a bijection, and these two sets have the exact same cardinality. 
+	Every binary expansion for all real numbers in the interval $[0,1]$ is contained within $\tilde{\Sigma}$, therefore the cardinality of $\tilde{\Sigma}$ is at least as large as that of $[0,1]$ which is uncountable. In fact, the binary expansion is a bijection, and these two sets have the exact same cardinality. 
 \end{proof}
 
 \begin{definition}
@@ -588,6 +588,13 @@ In fact there also exists a countable infinity of non-periodic (not even asympto
 	
 \end{ex}
 
+\begin{remark}[]
+	Recall that for a metric space $(X,d)$ when we write $\mathcal{B}\left(x, r\right) $ we refer to the open ball of radius $r $ around $x $, i.e.
+	\begin{align}
+		\mathcal{B}\left(x,r\right) = \left\{ y\in X:\ d(x,y) < r \right\}.
+	\end{align}
+\end{remark}
+
 \begin{proposition}[]
 	The map $\sigma$ has a dense orbit in $\Sigma$, i.e. an orbit which approaches any point in $\Sigma$ arbitrarily closely.
 \end{proposition}
@@ -597,13 +604,13 @@ Without loss of generality, assume that $\delta<1$. Next, note that the maximal 
 \begin{align}
 	\sum_{i=-\infty }^{\infty } \frac{1}{2^{|i|}} = 2.
 \end{align}
-Therefore, the entire space is included in the ball $B\left( \overline{1}\bm{.} \overline{1}, 2\right)$. Now to show that for any given distance $\delta $, we want to find an element $s^{*}$ such that its orbit gets $\delta$ close to every element of $\Sigma$. Let 
+Therefore, the entire space is included in the ball $\mathcal{B}\left( \overline{1}\bm{.} \overline{1}, 2\right)$. Now to show that for any given distance $\delta $, we want to find an element $s^{*}$ such that its orbit gets $\delta$ close to every element of $\Sigma$. Let 
 \begin{align}
 k = \min \left\{ j \in \mathbb{N}:\ 2^{-j}\leq \delta\right\},
 \end{align}
-i.e. the first index in the binary expansion of $\delta$ which is not $0$. Now we would like to find a finite $2^{-(k+1)}$-covering of $\Sigma$, i.e. a set of elements $s_i^{k}$ such that $\bigcup_{i}B\left(s_i^{k}, 2^{-(k+1)}\right)$. We start out with the covering $\bigcup_{j=1}^{\infty }B\left(q_j, 2^{-(k+1)}\right)$, with the $q_j$ being an enumeration of the periodic orbits. As we previously noted, $\Sigma$ is bounded as it can be contained in a finite ball, furthermore $\Sigma$ is also closed (the intersection of two closed sets is always closed due to the de Morgan identity), thus $\Sigma$ is compact and a finite subcovering exists. Hence we can deduce that only finitely many $q_i$ are needed, call these $\left(s_i^{k}\right)_{i=1}^{N}$, and let the string representation of each $s_{i}^{k}$ be given by $\overline{S_{i}^{k}}\bm{.} \overline{S_{i}^{k}}$. 
+i.e. the first index in the binary expansion of $\delta$ which is not $0$. Now we would like to find a finite $2^{-(k+1)}$-covering of $\Sigma$, i.e. a set of elements $s_i^{k}$ such that $\bigcup_{i}\mathcal{B}\left(s_i^{k}, 2^{-(k+1)}\right)$. We start out with the covering $\bigcup_{j=1}^{\infty }\mathcal{B}\left(q_j, 2^{-(k+1)}\right)$, with the $q_j$ being an enumeration of the periodic orbits. As we previously noted, $\Sigma$ is bounded as it can be contained in a finite ball, furthermore $\Sigma$ is also closed (the intersection of two closed sets is always closed due to the de Morgan identity), thus $\Sigma$ is compact and a finite subcovering exists. Hence we can deduce that only finitely many $q_i$ are needed, call these $\left(s_i^{k}\right)_{i=1}^{N}$, and let the string representation of each $s_{i}^{k}$ be given by $\overline{S_{i}^{k}}\bm{.} \overline{S_{i}^{k}}$. 
 
-If we can construct $s_{k}^{*}$ such that its orbit passes through each of the $B\left(s_i^{k}, 2^{-(k+1)}\right)$, then we know that the orbit of $s_{k}^{*}$ gets within distance $2^{-k}$ of every element in $\Sigma$, by the triangle inequality. 
+If we can construct $s_{k}^{*}$ such that its orbit passes through each of the $\mathcal{B}\left(s_i^{k}, 2^{-(k+1)}\right)$, then we know that the orbit of $s_{k}^{*}$ gets within distance $2^{-k}$ of every element in $\Sigma$, by the triangle inequality. 
 
 For any given $s_{i}^{k}$ the element
 \begin{align}
@@ -639,7 +646,7 @@ is within distance $2^{-(k+1)}$ of $s_{i}^{k}$, for $L$ and $R$ arbirary. This i
 \end{proof}
 
 \begin{proposition}[Sensitive dependece on initial conditions]
-	Regardless of how close two distinct initial conditions $s$ and $s'$ are chosen, they will not remain close. There exists a $\Delta>0$ such that for every $s\in\Sigma$ and any $\delta>0$, there exists an $s' \in B\left(s, \delta\right)$ such that for an $N$ large enough the following holds
+	Regardless of how close two distinct initial conditions $s$ and $s'$ are chosen, they will not remain close. There exists a $\Delta>0$ such that for every $s\in\Sigma$ and any $\delta>0$, there exists an $s' \in \mathcal{B}\left(s, \delta\right)$ such that for an $N$ large enough the following holds
 	\begin{align}
 		d(\sigma^{N}(s), \sigma^{N}(s') ) > \Delta.
 	\end{align}
@@ -665,7 +672,7 @@ also has this property.
 \end{remark}
 
 \begin{remark}[]
-	In the case of this map, every $s'\in B\left(s \delta \right)$ has an $N$ large enough such that the inequality holds.
+	In the case of this map, every $s'\in \mathcal{B}\left(s \delta \right)$ has an $N$ large enough such that the inequality holds.
 	{\color{blue} This is my addition.}
 \end{remark}
 

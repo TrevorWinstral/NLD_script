@@ -1,0 +1,17 @@
+\chapter{Generalization of chaotic dynamics}
+We begin by defining a general symbol space.
+\begin{definition}
+	Denote by $\Sigma^{N}$ the symbol space defined as the space of doubly infinite sequences of $N$ symbols (for $N \in \mathbb{N}$), i.e.
+\begin{align}
+	\boxed{
+		\Sigma^{N} = \left\{ s=\ldots s_{-2} s_{-1} \bm{.} s_0s_1s_2 \ldots:\ s_i \in \{0, 1, \ldots, N-1\} \right\}.
+	}
+\end{align}
+\end{definition}
+
+We may constrain this symbol space by constraining which sequences are admissible. This can be done by using a transition matrix $A \in \mathbb{R}^{N \times N}$ with entries $A_{ij}\in \{0,1\}$. Then the constrained symbol space is given by
+\begin{align}
+	\Sigma_{A}^{N} = \left\{ s \in \Sigma^{N}:\ A_{s_i s_{i+1}} \neq 0,\forall i \right\}.
+\end{align}
+In the constrained space, consecutive symbols $s_i$ and $s_{i+1}$ must correspond to a 1 in the transition matrix $A$. In other words if the symbol $s_i=k$ then the symbol $s_{i+1}$ must be equal to $j$ such that $A_{kj}=1$.
+
