@@ -5,8 +5,8 @@ Arnold, V. (1992).
 \newblock {\em Ordinary Differential Equations}.
 \newblock Springer.
 
-\bibitem[Breuuning and Haller, 2019]{BreunningHaller}
-Breuuning, T. and Haller, G. (2019).
+\bibitem[Breunung and Haller, 2019]{BreunningHaller}
+Breunung, T. and Haller, G. (2019).
 \newblock When does a periodic response exist in a periodic forced
   multi-degree-of-freedom mechanical system?
 \newblock {\em Nonlinear Dynamics}, 98:1761--1780.
@@ -22,6 +22,16 @@ Guckenheimer, J. and Holmes, P. (1990).
   Vector Fields}.
 \newblock Springer, New York, 3. print., rev. and corr. edition.
 
+\bibitem[Haller, 2001]{Haller2001}
+Haller, G. (2001).
+\newblock Distinguished material surfaces and coherent structures in
+  three-dimensional fluid flows.
+\newblock {\em Physica D: Nonlinear Phenomena}, 149(4):248--277.
+
+\bibitem[Kutz et~al., 2015]{Kutz2016}
+Kutz, J.~N., Fu, X., and Brunton, S.~L. (2015).
+\newblock Multi-resolution dynamic mode decomposition.
+
 \bibitem[Palis, 1967]{PalisPhd}
 Palis, J. (1967).
 \newblock {\em On Morse-Smale Diffeomorphisms}.
@@ -32,15 +42,32 @@ Palis, J. (1969).
 \newblock On morse-smale dynamical systems.
 \newblock {\em Topology}, 8:385--404.
 
+\bibitem[Schmid, 2010]{Schmid2010}
+Schmid, P. (2010).
+\newblock Dynamic mode decomposition of numerical and experimental data.
+\newblock {\em Journal of Fluid Mechanics}, 656:5 -- 28.
+
 \bibitem[Strogatz, 2000]{Strogatz}
 Strogatz, S. (2000).
 \newblock {\em Nonlinear Dynamics and Chaos: With Applications to Physics,
   Biology, Chemistry and Engineering}.
 \newblock Studies in nonlinearity. Westview.
 
+\bibitem[Sun et~al., 2016]{Sun2016}
+Sun, P., Colagrossi, A., Marrone, S., and Zhang, A. (2016).
+\newblock Detection of lagrangian coherent structures in the sph framework.
+\newblock {\em Computer Methods in Applied Mechanics and Engineering},
+  305:849--868.
+
 \bibitem[Verhulst, 1989]{Verhulst}
 Verhulst, F. (1989).
 \newblock {\em Nonlinear Differential Equations and Dynamical Systems}.
 \newblock Springer.
+
+\bibitem[Williams et~al., 2015]{Williams2015}
+Williams, M., Kevrekidis, I., and Rowley, C. (2015).
+\newblock A data-driven approximation of the koopman operator: Extending
+  dynamic mode decomposition.
+\newblock {\em Journal of Nonlinear Science}, pages 1307--1346.
 
 \end{thebibliography}

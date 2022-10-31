@@ -391,9 +391,9 @@ $h:U\to U$ does this for all $x\in U$ in a $\mathcal{C}^{k}$ fashion. This equiv
 	\begin{align}
 		Dh DF^{t} = \dot{G}^{\tau }\frac{d \tau }{dx} + D G^{\tau} Dh.
 	\end{align}
-	At a fixed point $x_0$ we have that $\dot{G}^{\tau}(x_0)=g(G^{\tau}(x_0))=0$. This implies that the first term on the right hand side of the differentiated equality is equal to 0. Now denote the linearizations of the dynamical systems underlying the flow maps $F$ and $G$ by $A$ and $B$ respectively. Then the matrices $e^{A t} $ and $e^{B\tau} $ must be similar matrices, in turn implying that $ A $ and $B$ must have the same spectrum, i.e.
+	At a fixed point $x_0$ we have that $\dot{G}^{\tau}(x_0)=g(G^{\tau}(x_0))=0$. This implies that the first term on the right hand side of the differentiated equality is equal to 0. Now denote the linearizations of the dynamical systems underlying the flow maps $F$ and $G$ at the fixed point by $A=Df(x_0)$ and $B=Dg(h(x_0))$ respectively. Then the matrices $e^{A t} $ and $e^{B\tau} $ must be similar matrices, in turn implying that $ A $ and $B$ must have the same spectrum, i.e.
 	\begin{align}
-		\frac{\lambda_i(A)}{\lambda_i(B)} = \frac{t}{\tau} = C >0. 
+		\frac{\lambda_i(A)}{\lambda_i(B)} = \frac{t}{\tau(x_0,t)} = C =  \textrm{const.}  >0. 
 	\end{align}
 Therefore the eigenvalues of the linearizations are constant, positive multiples	of each other.
 \end{proof}
@@ -682,7 +682,11 @@ Assume the following
 \begin{enumerate}
 	\item The fixed point is asymptotically stable, i.e. $ \textrm{Re} \lambda _j<0$ for all $j=1,\ldots,n$ (this also implies hyperbolicity);
 	\item $f\in \mathcal{C}^{r}$ for $r\in \mathbb{N}\cup \{\infty \}$ and $r>\frac{\max_{j}| \textrm{Re} \lambda _j|}{\min_{j}| \textrm{Im} \lambda _j|}$;
-	\item The system is nonresonant, i.e. $\sum_{j\neq k}^{}m_j \lambda _j \neq \lambda_k $ for any sequence $m_j \in \mathbb{N}$ with $\sum_{j=1}^{n} m_j \geq 2$.
+	\item The system is nonresonant, i.e. 
+		\begin{align}
+			\sum_{j=1}^{n}m_j \lambda _j \neq \lambda_k,\ \forall k
+		\end{align}
+	for any sequence $m_j \in \mathbb{N}$ with $\sum_{j=1}^{n} m_j \geq 2$.
 	
 \end{enumerate}
 Then the following holds: $\dot{x}=f(x)$ with $f(0)=0$ is locally $\mathcal{C}^{r}$ conjugate to its linear part $\dot{y}=Ay$ for $A= Df(0)$.
@@ -1045,3 +1049,58 @@ D^2V(x_0) &=
 The Hessian is positive definite as long as $\overline{x}_1 \in \left(-\frac{\pi }{2}, \frac{\pi }{2}\right)$, and all fixed points in this region are stable by Theorem \ref{thm:direct}. The Hessian is indefinite if $\overline{x}_1 \not \in \left[-\frac{\pi }{2}, \frac{\pi }{2}\right]$, but in this case Theorem 4 is not applicable as $\dot{V}$ is not definite.
  \end{ex}
  
+ \section{Data-driven linear modeling of dynamical systems}
+ Given are $m+1$ vectors of $n$-dimensional observables $x_0,\ldots,x_m \in \mathbb{R}^{n}$ observed at $\Delta t$ intervals. An example of such data would be many different trajectories or snapshots of a single trajectory. Typically $m \gg 1$, i.e. there are a high number of observations.
+
+ Our objective is to find the best fitting linear dynamic system
+ \begin{align}
+ 	\dot{x}=Ax;\quad x \in \mathbb{R}^{n};\quad A \in \mathbb{R}^{n\times n}.
+ \end{align}
+Therefore we are looking for the best $B=e^{A\delta t}$ such that $x_{k+1} =Bx_k$ for $k=1,\ldots, m_1$. To solve this we synthesize the data into matrices
+\begin{align}
+	X = 
+	\begin{bmatrix}
+		x_0 \ldots x_{m_1}
+	\end{bmatrix}
+	\in \mathbb{R}^{n\times m}
+;\quad
+	Y = 
+	\begin{bmatrix}
+		x_1 \ldots x_{m}
+	\end{bmatrix}
+	\in \mathbb{R}^{n\times m}.
+\end{align}
+Next, we solve for 
+\begin{align}
+	B_{*} =  \textrm{argmin} _{B \in \mathbb{R}^{n\times n}} g(B);\quad g(B) = \| Y - BX \|^{2} \numberthis \label{eq3:star}.
+\end{align}
+Note that
+\begin{align}
+	\frac{\partial g}{\partial b_{ij}} &= \frac{\partial}{\partial b_{ij}} \sum_{l,m}^{} \left(y_{lm} - b_{lp}x_{pm}\right)^{2} 
+	= -2 \sum_{l,m}^{} \left( y_{lm}-b_{lp}x_{pm}\right) \delta_{il}\delta_{jp}x_{pm} \\
+					   &= -2\sum_{m}^{} \left(y_{im}-b_{ij}x_{jm}\right) x_{jm} 
+					   = 2\left(YX^{T} - BX X^{T}\right).
+\end{align}
+Therefore we must have that $D_{B}g = -2\left(YX^{T} - BXX^{T}\right)=0$, so we must solve the linear system of equations
+\begin{align}
+	BXX^{T} = YX^{T}\in \mathbb{R}^{n \times n}.
+\end{align}
+In the case $n>m$, the matrix $X^{T}$ has more columns than rows, thus $X^{T}$ is singular. Hence $XX^{T}$ has a nonempty kernel and is therefore not invertible. For $n<m$ this is not necessarily the case. For a solution, we can use the pseudo inverse $(XX^{T})^{\dagger}$, the superscript here is called \emph{dagger}.
+
+Recall that if $A \in \mathbb{R}^{n\times n}$ is invertible then $A^{-1} = A^{\dagger}$. If $A$ is not invertible, then calculate the singular value decomposition of $A = U \Sigma V^{T}$ for $U,V \in  \textrm{SO} (n)$ and $\Sigma$ a diagonal matrix. The entries of $\Sigma$ are the strictly positive singular values. The columns of $U$ and $V$ are the left and right singular vectors. We then define the pseudo inverse as
+\begin{align}
+	A^{\dagger} = V \Sigma^{\dagger} U^{T};\quad \Sigma_{ij}^{\dagger} = 
+	\begin{cases}
+		\frac{1}{\Sigma_{ij}} & \Sigma_{ij} \neq 0\\
+		0 & \Sigma_{ij}=0.
+	\end{cases}
+\end{align}
+
+This means that for $Ax=b$, the best solution in a least squares sense is given by $x= A^{\dagger}b$. In our case, the solution to \ref{eq3:star} is 
+\begin{align}
+	B = \left(Y X^{T}\right) \left( XX^{T}\right)^{T}.
+\end{align}
+This procedure is called \emph{dynamic mode decomposition} (DMD) \cite{Schmid2010, Kutz2016}. The eigenvalues of $B$ are called \emph{DMD modes} and the normalized exponents of those eigenvalues are called \emph{DMD eigenvalues}.
+
+The procedure has been extended in \emph{extended DMD}, where DMD was performed on functions of the observables (typically polynomials) \cite{Williams2015}. This effectively tries to construct the linearization from data. Note here that none of these procedures can describe intrinsically nonlinear phenomena (i.e. those with coexisting isolated compact invariant sets). 
+
