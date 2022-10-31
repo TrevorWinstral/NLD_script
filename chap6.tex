@@ -700,6 +700,56 @@ Note here that this symbolic encoding is not well defined for every point in $I$
 \begin{align}
 	\Psi: \bm{.} s_0s_1s_2 \mapsto x = I_{s_0} \cap f^{-1}(I_{s_1}) \cap f^{-2}(I_{s_2}) \cap \ldots.
 \end{align}
-We now have to ask if this is well definied, i.e. if it yields a unique $x$ value.
+We now have to ask if this is well definied, i.e. if it yields a unique $x$ value. Note here that for any subset $J\subset I$ which is closed and connected, we have that $I_{s_i}\cap f^{-1}(J)$ is closed, nonempty, and connected. This is due to the symmetry around $x=\frac{1}{2}$ and is shown visually in Fig. \ref{fig:J_preimage}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch6/24J_preimage.png}
+	\caption{The preimage of a subset $J\subset I$, with its closed, nonempty, and connected intersections with $I_1$ and $I_2$.}
+	\label{fig:J_preimage}
+\end{figure}
+
+\begin{remark}[]
+	For any two sets $A$ and $B$ we have that 
+	\begin{align}
+		f^{-1}(A \cap B) = f^{-1}(A) \cap f^{-1}(B).
+	\end{align}
+\end{remark}
+
+Further observe that for $I_{s_1s_1}=I_{s_0}\cap f^{-1}(I_{s_1})$ is closed, nonempty, and connected for all $s_0$ and $s_1$ by the previous note. Continuing this we find that
+\begin{align}
+	I_{s_0s_1s_2} = I_{s_0} \cap f^{-1}(I_{s_1}) \cap f^{-2}(I_{s_2}) = I_{s_0} \cap f^{-1} \left( I_{s_1} \cap f^{-1}(I_{s_2})\right) 
+\end{align}
+is closed, nonempty, connected, and contained in $I _{s_0s_1}$. This line of argument can be continued to show for any $n \in \mathbb{N}$ the set $I_{s_0\ldots s_n}$ is closed, nonempty, connected, and contained in $I_{s_0 \ldots s_{n-1}}$. Thus we have a nested sequence of closed, nonempty, and connected sets. By Cantor's theorem a nonempty limit exists, which in this case is also connected. It is also possible to show that $\lim_{n\to \infty }|I_{s_0 \ldots s_n}| = 0$, where $|\cdot|$ denotes the length of a set. Now we can can conclude that the limit set contains a single point $x$, therefore as $n\to \infty $ the function $\Psi(s)=x$ is well-defined.
+
+ Additionally with the metric
+ \begin{align}
+	 d(s,s') = \sum_{i=0}^{\infty } \frac{|s_i - s'_i|}{2^{i}}	
+ \end{align}
+the function $\Psi$ is continuous. 
+
+By definition, a single iteration of the map $f$ is equivalent to a shift to the left on the corresponding symbols in $\Sigma$, i.e.
+\begin{align}
+	f: x= \bm{.} s_0 s_1 s_2 \ldots \mapsto \bm{.} s_1 s_2 \ldots = f(x).
+\end{align}
+Therefore we have the following commuting diagram
+\begin{equation}
+\begin{tikzcd}
+	\Sigma \arrow[r, "\sigma"] \arrow[d,"\Psi"] 
+& \Sigma \arrow[d, "\Psi"] \\
+I \arrow[r, "{f}"]
+& I 
+\end{tikzcd}.
+\end{equation}
+In comparison to the previous example, $\Psi$ is not invertible (although it is well-defined and continuous). The invertibility of $\Psi $ only fails on a countable set of points $\left \{ f^{-n}\left(\frac{1}{2}\right) \right \}$. Therefore we have that the logistic map is chaotic on $\tilde{I}$.
  \end{ex}
+
+ The previous example leads us to the definition for maps such as the logistic map
+\begin{definition}[Topological semi-conjugacy]
+	A map $f$ is \emph{topologically semi-conjugate} to $\sigma$ if there exists a surjection $\Psi$ such that
+	\begin{align}
+		\boxed{
+			f \circ \Psi = \Psi \circ \sigma.
+		}
+	\end{align}
+\end{definition}
  
