@@ -11,7 +11,7 @@ Consider
 Does this initial value problem have a unique solution? We have the following theorems to help us answer that question.
 \begin{theorem}[Peano]
 	\label{thm:Peano}
-	If $f\in C^0$ near $( {x}_0, t_0)$, then there exists a local solution $\varphi(t)$, i.e., 
+	If $f\in \mathcal{C}^0$ near $( {x}_0, t_0)$, then there exists a local solution $\varphi(t)$, i.e., 
 \begin{align}
 	\dot{\varphi}(t) = f(\varphi(t), t), \varphi(t_0) = x_0;\ \forall  t\in (t_0 - \varepsilon, t_0 + \varepsilon);\ 0<  \varepsilon \ll 1.
 \end{align}
@@ -28,7 +28,7 @@ This implies that
 		x(0) = x_0
 	\end{dcases}
 \end{align}
-on the set $P = \{ x \in \mathbb{R}:\ x \geq x_0\}$. Therefore we have that $f\in C^0$ in phase space, so by Peano's theorem (cf. Theorem \ref{thm:Peano}), there exists a local solution. A schematic diagram is shown in Fig. \ref{fig:point_mass}. 
+on the set $P = \{ x \in \mathbb{R}:\ x \geq x_0\}$. Therefore we have that $f\in \mathcal{C}^0$ in phase space, so by Peano's theorem (cf. Theorem \ref{thm:Peano}), there exists a local solution. A schematic diagram is shown in Fig. \ref{fig:point_mass}. 
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.4\textwidth]{figures/ch1/1freefall.png}
@@ -57,12 +57,12 @@ A function $f$ is called locally Lipschitz around $ {x}_0$ if there exists an op
 \begin{theorem}[Picard]
 	Assume 
 	\begin{enumerate}
-		\item  $f \in C^0$ in $t$ near $(t_0,  {x}_0)$,
+		\item  $f \in \mathcal{C}^0$ in $t$ near $(t_0,  {x}_0)$,
 		\item $f$ is locally Lipschitz in $ {x}$ near $(t_0,  {x}_0)$.
 	\end{enumerate}
-	Then there exists a unique local solution to the IVP. The proof can be found in Arnold's book on ODEs. 	
+	Then there exists a unique local solution to the IVP. The proof can be found in \cite{Arnold}. 	
 \end{theorem}
-\textbf{Note} the following relations. If $f$ is $C^1$ $\implies$ $f $ is Lipschitz $\implies $ $f$ is $C^0$.
+\textbf{Note} the following relations. If $f$ is $\mathcal{C}^1$ $\implies$ $f $ is Lipschitz $\implies $ $f$ is $\mathcal{C}^0$.
 \begin{ex}[Free falling mass revisted]
 	We check if $f$ is Lipschitz.
 	\begin{align}
@@ -134,7 +134,7 @@ To address this problem of local solutions not being able to be continued into g
 	\begin{align}
 		\boxed{\lim_{t\to T}  \| {x}(t) \|= \infty.}
 	\end{align}
-The proof can be found in Arnold's book on ODEs.	
+	The proof can be found in \cite{Arnold}.	
 \end{theorem}
 
 \begin{ex}[Coupled Pendulum System]
@@ -163,7 +163,7 @@ Where $S^1$ is the 1 dimensional sphere (i.e. a circle). With this space we know
 Hence $ \|x_2 \|$ and $ \|x_4 \|$ are also bounded, therefore all solutions exist globally.
 \end{ex}
 \begin{definition}
-	A linear system is one such that for $ {x}\in \mathbb{R}^{n},\ {A}(t) \in \mathbb{R}^{n\times n}$ and ${A}\in C^0$ 
+	A linear system is one such that for $ {x}\in \mathbb{R}^{n},\ {A}(t) \in \mathbb{R}^{n\times n}$ and ${A}\in \mathcal{C}^0$ 
 	\begin{align}
 		\boxed{\dot{ {x}} = {A}(t)  {x}.}
 	\end{align}
@@ -199,11 +199,11 @@ Given the IVP
 	\dot{ {x}} = f( {x},t) \\  {x}(t_0) =  {x}_0.
 	\end{dcases}
 \end{align}
-With $ {x} \in \mathbb{R}^{n}$ and $f\in C^r$ for some $r\geq 1$, we have the solution $ {x}(t; t_0,  {x}_0)$.
+With $ {x} \in \mathbb{R}^{n}$ and $f\in \mathcal{C}^r$ for some $r\geq 1$, we have the solution $ {x}(t; t_0,  {x}_0)$.
 
 The dependence of the solution on initial data is of interest to us. This is due to us wanting the solution to be robust with respect to errors and uncertainties in the initial data. To address this, we have Theorem \ref{thm:robust_initial_conditions}.
 \begin{theorem}[]
-	If $f \in C^r$ for $r\geq 1$ then $ {x}(t; t_0,  {x}_0)$ is $C^r$ in $(t_0,  {x}_0)$. Proof in Arnold's book on ODEs.
+	If $f \in \mathcal{C}^r$ for $r\geq 1$ then $ {x}(t; t_0,  {x}_0)$ is $\mathcal{C}^r$ in $(t_0,  {x}_0)$. Proof in \cite{Arnold}.
 	\label{thm:robust_initial_conditions}
 \end{theorem}
 
@@ -214,7 +214,7 @@ The geometric meaning of this is that for $U \subset P \subset \mathbb{R}^{n}$ w
 	\caption{The smooth transformation of $U$. The red point on the right it $F _{t_0}^t( {x}_0)$, i.e. the image of $ {x}_0$ under the evolution operator.}
 	\label{fig:deformation}
 \end{figure}
-It turns out $\left(F_{t_0}^{t}\right)^{-1} = F_{t}^{t_0}$ is also $C^r$, hence we have that $F_{t_0}^{t}$ is a diffeomorphism. 
+It turns out $\left(F_{t_0}^{t}\right)^{-1} = F_{t}^{t_0}$ is also $\mathcal{C}^r$, hence we have that $F_{t_0}^{t}$ is a diffeomorphism. 
 
 \begin{remark}[The total differential]
 	We denote the total differential of a function $f:\mathbb{R}^{n}\to \mathbb{R}^{m}$ as $Df$. The total differential is a function which takes a location $x$ as the argument and returns the derivative of $f$ at the point $x$, i.e. the Jacobian. This implies evaluating the Jacobian at the point $x$. For a function  $f(x,y)= f(x_1, \ldots, x_n, y_1, \ldots, y_m):\mathbb{R}^{n+m} \to \mathbb{R}^{k}$ the total differential $Df$ means with respect to all of the variables and the total differential with respect to $x$, written $D_xf$ is the total differential only taken with respect to the $x$ variables. Thus for $f(x,y): \mathbb{R}^{n+m} \to \mathbb{R}^{k}$ we have the total differential
@@ -384,7 +384,7 @@ This is an exact solution to Euler's equations.  We have an autonomous velocity 
 	\includegraphics[width=0.4\textwidth]{figures/ch1/14fluid1.png}
 	\hspace{0.03\textwidth}
 	\includegraphics[width=0.55\textwidth]{figures/ch1/15vortex_shedding.png}
-	\caption{Left: numerically calculated FTLE field of the ABC flow. Darker colors signify higher FTLE values (Guckenheimer-Holmes Physica D, 2001). Right: Again the FTLE is plotted, for vortex shedding behind a cylinder under a free surface (Sun et. al, 2016).}
+	\caption{Left: numerically calculated FTLE field of the ABC flow. Darker colors signify higher FTLE values \cite{Haller2001}. Right: Again the FTLE is plotted, for vortex shedding behind a cylinder under a free surface \cite{Sun2016}.}
 	\label{fig:FTLE_flows}
 \end{figure}
 \end{ex}
@@ -396,7 +396,7 @@ We now have the IVP
 		\dot{ {x}} = f( {x},t, {\mu} ) \\  {x}(t_0) =  {x}_0.
 	\end{dcases}
 \end{align}
-With $ {x} \in \mathbb{R}^{n},\ f\in C^r,\ r\geq 1$, therefore we have a solution $ {x}(t; t_0,  {x}_0,  {\mu} ) \in C^r_{ {x}_0}$.
+With $ {x} \in \mathbb{R}^{n},\ f\in \mathcal{C}^r,\ r\geq 1$, therefore we have a solution $ {x}(t; t_0,  {x}_0,  {\mu} ) \in \mathcal{C}^r_{ {x}_0}$.
 
 We now examine how solutions depend $ {\mu } $. This is critical as solutions should be robust to changes or uncertainties in the model.
 \begin{ex}[Perturbation Theory]
@@ -408,7 +408,7 @@ The usual approach is to seek solutions by expanding from the known solution of 
 \begin{align}
 	x_{\varepsilon}(t) = \varphi_0(t) + \varepsilon \varphi_1(t) + \varepsilon^2 \varphi_2(t) + \ldots + \mathcal{O}(\varepsilon^r).
 \end{align}
-If $x_{\varepsilon}(t)$ is in $C^{r}_{\varepsilon}$, we have $\varphi_1(t) = \left.\frac{\partial x_\varepsilon(t)}{\partial \varepsilon}\right |_{\varepsilon =0}$ and $\varphi_2(t) = \left.\frac{\partial^2 x_\varepsilon(t)}{\partial \varepsilon^2}\right |_{\varepsilon =0}$
+If $x_{\varepsilon}(t)$ is in $\mathcal{C}^{r}_{\varepsilon}$, we have $\varphi_1(t) = \left.\frac{\partial x_\varepsilon(t)}{\partial \varepsilon}\right |_{\varepsilon =0}$ and $\varphi_2(t) = \left.\frac{\partial^2 x_\varepsilon(t)}{\partial \varepsilon^2}\right |_{\varepsilon =0}$
 \end{ex}
 
 Regularity with respect to the parameter $ {\mu} $ actually follows from regularity with respect to the initial condition $ {x}_0$. We can use the following trick to extend the IVP with a dummy variable $ {\mu} $ 
@@ -434,7 +434,7 @@ $. We have the extended IVP
 		\dot{ {X}} = F( {X}) \\  {X}(t_0) =  {X}_0.
 	\end{dcases} \numberthis \label{eq:ivp_param}
 \end{align*}
-Applying the previous result on regularity with respect to $ {x}_0$ to \eqref{eq:ivp_param}, we have that $f\in C^{r}_{ {x}, {\mu} }$ implies that $ {X}(t) \in C^{r}_{ {X}_0}$ in turn implying that $ {x}(t; t_0,  {x}_0, \cdot) \in C^{r}_{ {\mu} }$. The solution is as smooth in parameters as the RHS of the dynamical system.
+Applying the previous result on regularity with respect to $ {x}_0$ to \eqref{eq:ivp_param}, we have that $f\in \mathcal{C}^{r}_{ {x}, {\mu} }$ implies that $ {X}(t) \in \mathcal{C}^{r}_{ {X}_0}$ in turn implying that $ {x}(t; t_0,  {x}_0, \cdot) \in \mathcal{C}^{r}_{ {\mu} }$. The solution is as smooth in parameters as the RHS of the dynamical system.
 
 \begin{ex}[Periodic Oscillations of a nonlinear springboard]
 \begin{figure}[h!]
@@ -452,7 +452,7 @@ Given an elastic beam extending from a solid guide, we measure the deflection of
 		x(0) = a_0;\quad \dot{x}(0)=0.
 	\end{dcases}
 \end{align}
-So we have weak nonlinearity with no known explicit solution. Although weak, this nonlinearity is still significant, as can be seen in Fig. \ref{fig:effect_nonlin_springboard}. Rewriting this as a first order ODE ($x_1=x;\ x_2=\dot{x}$ ), and note that the RHS is $C^{r}_{ {x}, {\mu} }$, therefore there exists a unique local solution that is also $C^{r}_{ {\mu} }$. Thus the expansion is justified
+So we have weak nonlinearity with no known explicit solution. Although weak, this nonlinearity is still significant, as can be seen in Fig. \ref{fig:effect_nonlin_springboard}. Rewriting this as a first order ODE ($x_1=x;\ x_2=\dot{x}$ ), and note that the RHS is $\mathcal{C}^{r}_{ {x}, {\mu} }$, therefore there exists a unique local solution that is also $\mathcal{C}^{r}_{ {\mu} }$. Thus the expansion is justified
 \begin{align*}
 	x_{\varepsilon}(t) = \varphi_0(t) + \varepsilon \varphi_1(t) + \ldots + \mathcal{O}(\varepsilon ^{r}) \numberthis \label{eq:starstar}.	
 \end{align*}
