@@ -808,15 +808,15 @@ These have the effect of pushing the eigenvalues to the right in the complex pla
  \section{Data-driven linear modeling of dynamical systems}
  Given are $m+1$ vectors of $n$-dimensional observables $x_0,\ldots,x_m \in \mathbb{R}^{n}$ observed at $\Delta t$ intervals. An example of such data would be many different trajectories or snapshots of a single trajectory. Typically $m \gg 1$, i.e. there are a high number of observations.
 
- Our objective is to find the best fitting linear dynamic system
+ Our objective is to find the best fitting linear dynamical system
  \begin{align}
  	\dot{x}=Ax;\quad x \in \mathbb{R}^{n};\quad A \in \mathbb{R}^{n\times n}.
  \end{align}
-Therefore we are looking for the best $B=e^{A\delta t}$ such that $x_{k+1} =Bx_k$ for $k=1,\ldots, m_1$. To solve this we synthesize the data into matrices
+Since the data is given as discrete observations, this is equivalent to seeking the best $B=e^{A\Delta t}$ such that $x_{k+1} =Bx_k$ for $k=1,\ldots, m-1$. To solve this we synthesize the data into matrices
 \begin{align}
 	X = 
 	\begin{bmatrix}
-		x_0 \ldots x_{m_1}
+		x_0 \ldots x_{m-1}
 	\end{bmatrix}
 	\in \mathbb{R}^{n\times m}
 ;\quad
@@ -826,18 +826,18 @@ Therefore we are looking for the best $B=e^{A\delta t}$ such that $x_{k+1} =Bx_k
 	\end{bmatrix}
 	\in \mathbb{R}^{n\times m}.
 \end{align}
-Next, we solve for 
+Notice that the matrix $Y$ is shifted forward compared to the matrix $X$ by $\Delta t$. Next, we solve for  a matrix $B$ that minimizes the distance between $Y $ and $BX$. That is, we find
 \begin{align}
-	B_{*} =  \textrm{argmin} _{B \in \mathbb{R}^{n\times n}} g(B);\quad g(B) = \| Y - BX \|^{2} \numberthis \label{eq3:star}.
+	B_{*} =  \underset{B \in \mathbb{R}^{n\times n}}{\textrm{argmin }} g(B);\quad g(B) = \| Y - BX \|^{2} \numberthis \label{eq3:star},
 \end{align}
-Note that
+where the matrix norm is the Frobenius norm. We denote the components of $B$ by $b_{ij}$, the components of $Y$ by $y_{ij}$, and the components of $X$ by $x_{ij}$. Note that
 \begin{align}
-	\frac{\partial g}{\partial b_{ij}} &= \frac{\partial}{\partial b_{ij}} \sum_{l,m}^{} \left(y_{lm} - b_{lp}x_{pm}\right)^{2} 
-	= -2 \sum_{l,m}^{} \left( y_{lm}-b_{lp}x_{pm}\right) \delta_{il}\delta_{jp}x_{pm} \\
-					   &= -2\sum_{m}^{} \left(y_{im}-b_{ij}x_{jm}\right) x_{jm} 
+	\frac{\partial g}{\partial b_{ij}} &= \frac{\partial}{\partial b_{ij}} \sum_{l,m,p}^{} \left(y_{lm} - b_{lp}x_{pm}\right)^{2} 
+	= -2 \sum_{l,m,p}^{} \left( y_{lm}-b_{lp}x_{pm}\right) \delta_{il}\delta_{jp}x_{pm} \\
+					   &= -2\sum_{m,p}^{} \left(y_{im}-b_{ip}x_{pm}\right) x_{jm} 
 					   = 2\left(YX^{T} - BX X^{T}\right).
 \end{align}
-Therefore we must have that $D_{B}g = -2\left(YX^{T} - BXX^{T}\right)=0$, so we must solve the linear system of equations
+In the third equality we have used the properties of the Kronecker-delta $\delta_{ij}$. Therefore we must have that $D_{B}g = -2\left(YX^{T} - BXX^{T}\right)=0$, so we must solve the linear system of equations
 \begin{align}
 	BXX^{T} = YX^{T}\in \mathbb{R}^{n \times n}.
 \end{align}
@@ -856,7 +856,7 @@ This means that for $Ax=b$, the best solution in a least squares sense is given 
 \begin{align}
 	B = \left(Y X^{T}\right) \left( XX^{T}\right)^{\dagger}.
 \end{align}
-This procedure is called \emph{dynamic mode decomposition} (DMD) \cite{Schmid2010, Kutz2016}. The eigenvalues of $B$ are called \emph{DMD modes} and the normalized exponents of those eigenvalues are called \emph{DMD eigenvalues}.
+This procedure is called \emph{dynamic mode decomposition} (DMD) \cite{Schmid2010, Kutz2016}. The eigenvectors of $B$ are called \emph{DMD modes} and the normalized exponents of those corresponding eigenvalues are called \emph{DMD eigenvalues}.
 
 The procedure has been extended in \emph{extended DMD}, where DMD was performed on functions of the observables (typically polynomials) \cite{Williams2015}. This effectively tries to construct the linearization from data. Note here that none of these procedures can describe intrinsically nonlinear phenomena (i.e. those with coexisting isolated compact invariant sets). 
 
