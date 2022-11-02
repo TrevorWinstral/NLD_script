@@ -272,7 +272,6 @@ We now continue and examine the dynamics near the homoclinic tangle. Consider th
 \begin{align}
 	\dot{x} = f(x) + \varepsilon g(x,t);\quad x \in \mathbb{R}^{2};\quad f,g \in  \mathcal{C}^{1};\quad g(x,t) = g(x,t+T).
 \end{align}
-{\color{blue} Here I used mathcal\{C\} instead of C, I like this, think we should do it everywhere}
 After an appropriate change of coordinates we find the geometry called \emph{Smale's construction}, which is as shown as in Fig. \ref{fig:smales_construction}.
 \begin{figure}[h!]
 	\centering
@@ -629,7 +628,7 @@ is within distance $2^{-(k+1)}$ of $s_{i}^{k}$, for $L$ and $R$ arbirary. This i
 		L' \underbrace{S_{i}^{k} \ldots S_{i}^{k}}_{(k+3) \textrm{ times} } \bm{.} 
 		\underbrace{S_{i}^{k} \ldots S_{i}^{k}}_{(k+4) \textrm{ times} } R',
 	\end{align}
-	is contained within the orbit of $s_{k}^{*}$ for $L'$ and $R'$ chosen accordingly. Therefore we have now constructed the the desired $s_{k}^{*}$. Note here that this construction is well defined as each $S_{i}^{k}$ is of finite length. This construction can be done for each $k$, start from the infinite cover using periodic orbits, then construct a finite subcover using the compactness of $\Sigma$, finallly construct the element $s_{k}^{*}$ by concatenating the $2^{-(k+1)}$ approximations of the elements which consitute the finite subcover. 
+	is contained within the orbit of $s_{k}^{*}$ for $L'$ and $R'$ chosen accordingly. Therefore we have now constructed the the desired $s_{k}^{*}$. Note here that this construction is well defined as each $S_{i}^{k}$ is of finite length. This construction can be done for each $k$: start from the infinite cover using periodic orbits, then construct a finite subcover using the compactness of $\Sigma$, finally construct the element $s_{k}^{*}$ by concatenating the $2^{-(k+1)}$ approximations of the elements which consitute the finite subcover. 
 
 	To construct $s^{*}$, concatenate each of the strictly defined blocks (the block the the right of $\bm{.} $ and left $R$) of $s_{k}^{*}$ for each $k \in \mathbb{N}$. For any $n$, we know that we can get within distance $2^{-n}$ distance of each element in $\Sigma$, therefore we have constructed a dense orbit. This construction is well definied as the strictly defined block of any given $s_{k}^{*}$ is always of finite length. Thus we have constructed the element, whose orbit is dense in $\Sigma$.
 \end{proof}
@@ -672,7 +671,7 @@ also has this property.
 \end{remark}
 
 \begin{remark}[]
-	In the case of this map, every $s'\in \mathcal{B}\left(s \delta \right)$ has an $N$ large enough such that the inequality holds.
+	In the case of this map, every $s'\in \mathcal{B}\left(s, \delta \right)$ has an $N$ large enough such that the inequality holds.
 	{\color{blue} This is my addition.}
 \end{remark}
 
@@ -703,7 +702,7 @@ Therefore $\sigma$ is a chaotic map.
 
 To better understand the dynamics we can encode the itinerary of a point $x\in I=[0,1]$ by if $x$ is in $I_{1}$ or $I_{2}$. We get a one-sided itinerary, because $f$ is not invertible. For example if $x\in I_{s_0}$, $f(x)\in I_{s_1}$, $f^{2}(x)\in I_{s_2}$ then we would encode $x$ as $\bm{.} s_0s_1s_2\ldots$ for $s_i \in \{ 1,2\}$.
 
-Note here that this symbolic encoding is not well defined for every point in $I$, as all preimages of $x=\frac{1}{2}$ have multiple encodings, since their iterates eventually reach $I_{1}\cap I_{2} =\frac{1}{2}$. to address this define $\Psi:\Sigma \to I$ for $\Sigma$ the set of semi-infinite binary symbols, by
+Note here that this symbolic encoding is not well defined for every point in $I$, as all preimages of $x=\frac{1}{2}$ have multiple encodings, since their iterates eventually reach $I_{1}\cap I_{2} =\frac{1}{2}$. To address this define $\Psi:\Sigma \to I$ for $\Sigma$ the set of semi-infinite binary symbols, by
 \begin{align}
 	\Psi: \bm{.} s_0s_1s_2 \mapsto x = I_{s_0} \cap f^{-1}(I_{s_1}) \cap f^{-2}(I_{s_2}) \cap \ldots.
 \end{align}
