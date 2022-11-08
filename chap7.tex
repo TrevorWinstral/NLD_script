@@ -92,6 +92,90 @@ Despite the fast convergence, erratic iterations may result if the initial point
 \begin{align}
 	f(x) = (x-x_0)(x-x_1)(x-x_2)(x-x_3);\quad x_0<x_1<x_2<x_3.
 \end{align}
-This can be oberserved to lead to chaotic Newton-Raphson iterations.
-\end{ex}
+This can be observed to lead to chaotic Newton-Raphson iterations. The proof will be sketched for this chaotic behaviour.
 
+Retain the 4th order polynomial $f$ from above. We then have $N(x_i)=x_i$ for $i=0,1,2,3$ as these are fixed points of $f$. Note then that we already know what the shapes of $f$ and $f'$ are, and these are illustrated in Fig. \ref{fig:NR_pf1}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.35\textwidth]{figures/ch7/2NR_pf1.png}
+	\caption{The shape of $f$ (above) and $f'$ (below). The points $a_i$ are roots of $f'$ and the points $b_{i}$ are roots of $f''$.}
+	\label{fig:NR_pf1}
+\end{figure}
+
+As $f'(a_i)=0$ we also have that $|N(a_i)|=\infty $, also $f''(b_i)=0$ implies that $N'(b_i)=0$. Thus via our knowledge of the shape of $f$, we have been able to derive information about $N$. If we assume that $b_1\in (a_0, x_1)$ and $b_2\in (x_2, a_2)$, then we get the graph of $N$ as shown in Fig. \ref{fig:NR_graph1}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch7/3NR_graph1.png}
+	\caption{The graph of $N$, the points $z_{i}^{\pm}$ are lower bounds on the domain of attraction as they surely converge to the fixed points. The are chosen by starting at a local extrema and working backwards.}
+	\label{fig:NR_graph1}
+\end{figure}
+
+Next, we seek non-convergent iterations in $[a_0, a_1] \cup [a_1, a_2]$. We begin by finding the preimages of $a_0$ (called $y_{0,i}$) and $a_2 $ (called $y_{2,i}$) this can be done geometrically by starting from the point $a_k$, going down to the diagonal, and then searching horizontally for where the graph of $N$ crosses the level $a_k$, going down from this point to the $x$-axis yields a preimage. This is shown in Fig. \ref{fig:NR_preimages}. Using these points define the following sets
+\begin{align}
+	I_{1} = [y_{2,1}, z_{1}^{+}];\quad
+	I_{2} = [z_{1}^{-}, y_{0,1}];\quad
+	I_{3} = [y_{2,2}, z_{2}^{+}];\quad
+	I_{4} = [z_{2}^{-}, y_{0,2}].
+\end{align}
+These sets are illustrated in Fig. \ref{fig:NR_preimages} as well.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/ch7/4NR_preimages.png}
+	\caption{The preimages of the values $a_0$ and $a_2$, along with the sets $I_{j}$ for $j=1,2,3,4$.}
+	\label{fig:NR_preimages}
+\end{figure}
+
+Noting that $b_2 > N(b_2)$ and $b_1 < N(b_1)$ observe that the following hold
+\begin{align}
+	N(I_1) = [x_1, a_2] \supset I_2 \cup I_3 \cup I_4&; \quad	
+	N(I_3) = [N(b_2), a_2] \supset [b_2, a_2] \supset I_4;\\
+	N(I_2) = [a_0, N(b_1)] \supset [a_0, b_1] \supset I_1&;\quad
+	N(I_4) = [a_0, x_2] \supset I_1 \cup I_2 \cup I_3.
+\end{align}
+\end{ex}
+Therefore we have that the possible transitions from $I_{i}$ to $I_{j}$ described by the transition matrix
+\begin{align}
+	A = 
+	\begin{pmatrix}
+		0 & 1 & 1 & 1 \\
+		1 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0 \\
+		1 & 1 & 1 & 0 \\
+	\end{pmatrix}
+.	
+\end{align}
+This transition matrix is in fact irreducible with $k=3$
+\begin{align}
+	A^2 = 
+	\begin{pmatrix}
+		2 & 1 & 1 & 1 \\
+		0 & 1 & 1 & 1 \\
+		1 & 1 & 1 & 0 \\
+		1 & 1 & 1 & 2 \\
+	\end{pmatrix}
+;\quad	
+	A^3 = 
+	\begin{pmatrix}
+		2 & 3 & 3 & 3 \\
+		2 & 1 & 1 & 1 \\
+		1 & 1 & 1 & 2 \\
+		3 & 3 & 3 & 2 \\
+	\end{pmatrix}
+	.
+\end{align}
+
+We are not done yet, as we still need to establish a unique encoding. Note that if $a^{3}_{ij}\neq 0$ then the set $I_{i}\cap f^{-1}(I_j)\neq \emptyset$ is closed for $i=1,2,3,4$. In light of this, with $f=N^3$, define
+\begin{align}
+	I_{s_0s_1 \ldots s_n} &= I_{s_0} \cap f^{-1}(I_{s_1}) \cap f^{-2}(I_{s_2}) \cap \ldots \cap f^{-n}(I_{s_n}) \\
+			      &= I_{s_0} \cap f^{-1}\left(I_{s_1} \cap f^{-1}\left( I_{s_2} \cap \ldots f^{-1}\underbrace{\left(I_{s_{n-1}}\cap f^{-1}(I_{s_n})\right) }_{\neq\emptyset \textrm{, closed} }\right) \right).
+\end{align}
+The condition $I_{s_{n-1}}\cap f^{-1}(I_{s_n})\neq \emptyset$ and is closed is true as each entry $a^{3}_{ij}\neq 0$. Therefore we have a nested sequence of nonempty, closed sets and by Cantor's Theorem their intersection yields a nonempty, closed set. By our previous result we have that $\Lambda= \bigcup_{s\in \Sigma^{N}_{A}}I_{s}$ is a Cantor set. In this case $N=4$ and $A$ is as above. We then have the encoder function $\phi:\Lambda \to \Sigma_{A}^{4}$ and the chaotic function $\sigma:\Sigma_{A}^{4}\to \Sigma_{A}^{4}$. These yield the commuting diagram
+\begin{equation}
+\begin{tikzcd}
+	\Sigma_{A}^{4} \arrow[r, "\sigma"] 
+& \Sigma_{A}^{4} \\
+\Lambda \arrow[u,"\phi"] \arrow[r, "N"]
+& \Lambda \arrow[u, "\phi"] 
+\end{tikzcd}.
+\end{equation}
+Thus we have that $N=\phi^{-1}\circ \sigma \circ \phi$, which implies that $N$ is a chaotic map. Hence, the Newton-Raphson iteration has an invariant Cantor set, on which the iteration is equivalent to a Bernoulli subshift of finite type on 4 symbols.
