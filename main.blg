@@ -9,48 +9,49 @@ A level-1 auxiliary file: chap4.aux
 A level-1 auxiliary file: chap5.aux
 A level-1 auxiliary file: chap6.aux
 A level-1 auxiliary file: chap7.aux
+A level-1 auxiliary file: chap8.aux
 The style file: apalike.bst
 Database file #1: refs.bib
 Warning--empty journal in Kutz2016
-You've used 14 entries,
+You've used 16 entries,
             1935 wiz_defined-function locations,
-            575 strings with 5631 characters,
-and the built_in function-call counts, 4871 in all, are:
-= -- 475
-> -- 154
-< -- 12
-+ -- 50
-- -- 48
-* -- 373
-:= -- 865
-add.period$ -- 42
-call.type$ -- 14
-change.case$ -- 89
-chr.to.int$ -- 14
-cite$ -- 15
-duplicate$ -- 204
-empty$ -- 365
-format.name$ -- 68
-if$ -- 965
+            591 strings with 5877 characters,
+and the built_in function-call counts, 5485 in all, are:
+= -- 534
+> -- 168
+< -- 14
++ -- 54
+- -- 52
+* -- 416
+:= -- 976
+add.period$ -- 48
+call.type$ -- 16
+change.case$ -- 100
+chr.to.int$ -- 16
+cite$ -- 17
+duplicate$ -- 232
+empty$ -- 416
+format.name$ -- 74
+if$ -- 1087
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 18
-newline$ -- 72
-num.names$ -- 42
-pop$ -- 83
+missing$ -- 21
+newline$ -- 82
+num.names$ -- 48
+pop$ -- 94
 preamble$ -- 1
-purify$ -- 94
+purify$ -- 106
 quote$ -- 0
-skip$ -- 161
+skip$ -- 182
 stack$ -- 0
-substring$ -- 330
-swap$ -- 24
+substring$ -- 372
+swap$ -- 26
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 74
+type$ -- 84
 warning$ -- 1
-while$ -- 37
+while$ -- 42
 width$ -- 0
-write$ -- 179
+write$ -- 204
 (There was 1 warning)

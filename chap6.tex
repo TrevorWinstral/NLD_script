@@ -282,7 +282,7 @@ After an appropriate change of coordinates we find the geometry called \emph{Sma
 	\label{fig:smales_construction}
 \end{figure}
 
-A model for the right panel of Fig. \ref{fig:smales_construction} is given by \emph{Smale's Horseshoe map}. This is defined by first letting the set $S$ be equal to $[0,1]^2\in \mathbb{R}^{2}$, next the map itself is given by $f:S\to\mathbb{R}^{2}$. The map $f$ will not be defined explicitly, and instead geometrically. The unit square is divided into three horizontal strips, the upper one being labelled $H_2$ and the lower $H_1$. The square is then stretched vertically, and then smoothly bent to a horseshoe such that the previously upper horizontal strip now forms a vertical strip on the right side of the box $V_2$. Similarly, the lower horizontal strip now forms a vertical strip on the left $V_1$. Now the unit square can also be divided into three vertical strips, on the left $V_1$, an area in the middle, and on the right $V_2$. What was previously part of the middle horizontal strip now forms the connecting curve between $V_1$ and $V_2$. Furthermore, these vertical strips are straight, without any curvature on their boundary. The horseshoe map is depicted in Fig. \ref{fig:smale_map}. This map models the Poincaré map as seen before.
+A model for the right panel of Fig. \ref{fig:smales_construction} is given by \emph{Smale's horseshoe map}. This is defined by first letting the set $S$ be equal to $[0,1]^2\in \mathbb{R}^{2}$, next the map itself is given by $f:S\to\mathbb{R}^{2}$. The map $f$ will not be defined explicitly, and instead geometrically. The unit square is divided into three horizontal strips, the upper one being labelled $H_2$ and the lower $H_1$. The square is then stretched vertically, and then smoothly bent to a horseshoe such that the previously upper horizontal strip now forms a vertical strip on the right side of the box $V_2$. Similarly, the lower horizontal strip now forms a vertical strip on the left $V_1$. Now the unit square can also be divided into three vertical strips, on the left $V_1$, an area in the middle, and on the right $V_2$. What was previously part of the middle horizontal strip now forms the connecting curve between $V_1$ and $V_2$. Furthermore, these vertical strips are straight, without any curvature on their boundary. The horseshoe map is depicted in Fig. \ref{fig:smale_map}. This map models the Poincaré map as seen before.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/ch6/17smale_map.png}
@@ -290,7 +290,7 @@ A model for the right panel of Fig. \ref{fig:smales_construction} is given by \e
 	\label{fig:smale_map}
 \end{figure}
 
-Using this construction, we would like to know if any initial conditions stay in $S$ for long times (after many iterations of the Horseshoe map), despite the overall instability coming from $P_{\varepsilon}$. To further study this we introduce a couple definitions.
+Using this construction, we would like to know if any initial conditions stay in $S$ for long times (after many iterations of the horseshoe map), despite the overall instability coming from $P_{\varepsilon}$. To further study this we introduce a couple definitions.
 \begin{definition}
 	The set of all points which stay in $S$ under $k$ backwards iterations is given by $V^{k}$.
 \end{definition}
@@ -358,7 +358,7 @@ By similar argumentation as before we have
 \end{align}
 
 \begin{definition}
-	The set of all points which stay in $S$ for all forward and backward iterates of the Smale Horseshoe map  is given by
+	The set of all points which stay in $S$ for all forward and backward iterates of the Smale horseshoe map  is given by
 	 \begin{align}
 		\boxed{
 \Lambda = H^{\infty } \cap V^{\infty }.
@@ -385,7 +385,7 @@ Returning to our case study of a Poincaré map with a homoclinic tangle, the poi
 	\label{fig:returning_points}
 \end{figure}
 
-\section{Dynamics of Smale's Horseshoe map on the invariant set $\Lambda$}
+\section{Dynamics of Smale's horseshoe map on the invariant set $\Lambda$}
 We label any point $p\in \Lambda$ with an infinitely long binary sequence, which reflects the itinerary of $p$ in $\Lambda$ under iterations of $f$. For a given $p$, if we have 
 \begin{align}
 	\ldots,\
@@ -433,7 +433,7 @@ So the encoding of $f(p)$ in the symbolic space is just a shift to the left on t
 	\end{align}
 	This map is a homeomorphism (i.e. it is continuous and has a continuous inverse).
 
-\item The \emph{Smale Horseshoe map restricted to $\Lambda$}
+\item The \emph{Smale horseshoe map restricted to $\Lambda$}
 	\begin{align}
 		\boxed{
 			\tilde{f}:\Lambda \to \Lambda;\quad p \mapsto f(p);
