@@ -384,16 +384,16 @@ $h:U\to U$ does this for all $x\in U$ in a $\mathcal{C}^{k}$ fashion. This equiv
 \end{figure}
 \end{definition}
 \begin{proposition}[Restrictiveness of smooth equivalence]
-	Consider two $\mathcal{C}^{k}$-equivalent dynamical systems for $k>0$ with the right hand sides $f$ and $g$, as in the definitions above. Let $x_0$ be a root of $f$ and $y_0$ a root of $g$ such that these correspond to each other under the $\mathcal{C}^k$ equivalence, i.e. $y_0 = h(x_0)$. The eigenvalues of $Df(x_0)$ must be constant, positive multiples of the eigenvalues of $Dg(y_0)=Dg(h(x_0))$. 	
+	Consider two $\mathcal{C}^{k}$-equivalent dynamical systems for $k>0$ with the right hand sides $f$ and $g$, as in the definitions above. Let $x_0$ be a fixed point of $F$ and $y_0$ a fixed point of $G$ such that these correspond to each other under the $\mathcal{C}^k$ equivalence, i.e. $y_0 = h(x_0)$. The eigenvalues of $Df(x_0)$ must be constant, positive multiples of the eigenvalues of $Dg(y_0)=Dg(h(x_0))$. 	
 \end{proposition}
 \begin{proof}
 	By the $\mathcal{C}^k$ equivalence we have that there exists a $\tau (x,t)$ with $\frac{d \tau}{d t}>0$ such that $h(F^{t}(x)) = G^{\tau(x,t)}(h(x))$. Further assume that $\tau$ is at least continuously differentiable in its arguments. Differentiating the previous equality with respect to  $x$ yields
 	\begin{align}
 		Dh DF^{t} = \dot{G}^{\tau }\frac{d \tau }{dx} + D G^{\tau} Dh.
 	\end{align}
-	At a fixed point $x_0$ we have that $\dot{G}^{\tau}(x_0)=g(G^{\tau}(x_0))=0$. This implies that the first term on the right hand side of the differentiated equality is equal to 0. Now denote the linearizations of the dynamical systems of $f$ and $g$ at the fixed point by $A=Df(x_0)$ and $B=Dg(h(x_0))$ respectively. Then the matrices $e^{A t} $ and $e^{B\tau} $ must be similar matrices, in turn implying that $ At$ and $B\tau(x_0,t)$ must have the same spectrum, i.e.
+	At a fixed point $x_0$ we have that $\dot{G}^{\tau}(x_0)=g(G^{\tau}(x_0))=0$. This implies that the first term on the right hand side of the differentiated equality is equal to 0. Now denote the linearizations of $f$ and $g$ at the fixed point by $A=Df(x_0)$ and $B=Dg(h(x_0))$ respectively. Then the matrices $e^{A t} $ and $e^{B\tau} $ must be similar matrices, in turn implying that $ At$ and $B\tau(x_0,t)$ must have the same spectrum, i.e.
 	\begin{align}
-		\frac{\lambda_i(A)}{\lambda_i(B)} = \frac{t}{\tau(x_0,t)} = C =  \textrm{const.}  >0. 
+		\frac{\lambda_i(B)}{\lambda_i(A)} = \frac{t}{\tau(x_0,t)} = C =  \textrm{const.}  >0. 
 	\end{align}
 Therefore the eigenvalues of the linearizations are constant, positive multiples	of each other.
 \end{proof}
@@ -860,6 +860,26 @@ This procedure is called \emph{dynamic mode decomposition} (DMD) \cite{Schmid201
 
 The procedure has been extended in \emph{extended DMD}, where DMD was performed on functions of the observables (typically polynomials) \cite{Williams2015}. This effectively tries to construct the linearization from data. Note here that none of these procedures can describe intrinsically nonlinear phenomena (i.e. those with coexisting isolated compact invariant sets). 
 
+\begin{remark}[]
+The numerical cost of (pseudo)inverting the $n \times n$ matrix, $XX^T$, can be reduced when $n\gg m$.
+\begin{enumerate}
+\item We can calculate the singular value decomposition of the data matrix $X$ instead. 
+\item By keeping only the leading $r$ singular values in this decomposition, we obtain a reduced (rank-$r$) approximation of the matrix $B\in \mathbb{R}^{n \times n}$ as follows. Denote the singular value decomposition by $X = U\Sigma V^T$.  This also means that $(XX^T) = U\Sigma^2 U^T$, i. e. we get the same $U$ as before, but from an SVD of an $n\times m$ matrix, which is much less demanding numerically.
+
+ With the leading $r$ singular vectors and singular values $\sigma$, $X$ can be written as
+\begin{equation}
+X \approx U_r \Sigma_r V_r^T = \sum_{i=1}^r \sigma_i u_i v_i^T, \qquad U = [u_1, ..., u_n]\quad V = [v_1, ..., v_m].
+\end{equation}
+\item The matrix $B$ can be approximately written as 
+\begin{align}
+B &= YX^T(XX^T)^\dagger \\
+& \approx YV_r\Sigma_rU_r^TU_r(\Sigma_r^2)^\dagger U_r^T \\
+&= YV_r\Sigma_r^\dagger U_r^T = Y(X_r)^\dagger.
+\end{align}We denote the truncated approximation of $B$ as $B_r = Y (X_r)^\dagger.$
+\end{enumerate}
+\end{remark}
+	
+	
 \section{Lyapunov's direct (second) method for stability}
 Stability analysis via linearization is not perfect. For nonhyperbolic fixed points, the results obtained are inconclusive, and this case turns out to be somewhat common for conservative systems. Furthermore, linearization does not give any insight into the size of the domain of stability. Hence, a method for determining stability type without relying on linearization would be desirable. This is given to us by Lyapunov's direct method.
 
