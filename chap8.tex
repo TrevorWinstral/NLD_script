@@ -254,3 +254,30 @@ Therefore, we have a canonical Hamiltonian system. In fact, all planar, autonomo
 Now that we have seen multiple examples of Hamiltonian systems, we would like to better understand what properties they all share.
 
 \section{Properties of Hamiltonian systems}
+The setup going forward will be as follows for $n\geq 1$
+\begin{align}
+	\dot{x} = JDH(x,t);\quad x=
+	\begin{pmatrix}
+		q \\ p
+	\end{pmatrix}
+	\in \mathbb{R}^{2n};\quad 
+	J=
+	\begin{pmatrix}
+		0 & I_n\\
+		-I_n & 0 
+	\end{pmatrix}.\numberthis \label{eq8:hamiltonian}	
+\end{align}
+\begin{proposition}[Conservation of the Hamiltonian (energy)]
+	If $\frac{\partial H}{\partial t}=0$ (i.e. $H$ is only a function of $q$ and $p$) then $H(x(t))$ is constant on all trajectories. Therefore $H(x)$ is a first integral.	
+\end{proposition}
+\begin{proof}
+	Use $J = -J^{T}$ to calculate
+	\begin{align}
+		\frac{dH(x(t))}{dt} = DH(x(t)) \cdot JDH(x(t)) = \left.\langle DH, JDH \rangle \right|_{x= x(t)} = 0.
+	\end{align}
+\end{proof}
+The \emph{energy surface} for some constant $H_0$ $E_{0}=\left\{ x \in \mathbb{R}^{2n}:\ H(x)= H_0 \right\} $ is an invariant surface for the system. By nature of this $JDH$ must be tangent to $E_0$. Assuming that $E_0$ contains no fixed points of \eqref{eq8:hamiltonian} is equivalent to $DH(x_0)\neq 0$ for all $x_0$ in $E_0$. Hence, by the Implicit Function Theorem, the solution of $H(x)-H_0=0$ can be smoothly continued from $x_0$. Indeed, we have
+\begin{align}
+	DH(x_0)\neq 0\in \mathbb{R}^{2n} \implies \exists i:\ \left.\frac{\partial H}{\partial x^{i}}\right|_{x=x_0} \neq 0.
+\end{align}
+Then we have $x^{i}=F\left(x^{1},\ldots,x^{i-1},x^{i+1},\ldots,x^{2n}\right)$ for $F\in \mathcal{C}^{1}$, because $H$ is smooth. This implies that $E_{0}$ is a smooth $2n-1$-dimensional graph (i.e. a smooth hypersurface or codimension-one surface).
