@@ -970,7 +970,7 @@ Consider the same dynamical system. Assume
 \begin{theorem}[Theorem 4]
 	Consider the same dynamical system. Assume
 	\begin{enumerate}
-		\item $V(x)$ is indefinite, i.e. arbitrarily close to $x_0$ there exists $a,b \in U$ such that $V(x_1)\cdot V(x_2) <0$ (they have opposite signs and are not equal to 0) and $V(x_0)=0$.
+		\item $V(x)$ is indefinite, i.e. arbitrarily close to $x_0$ there exists $a,b \in U$ such that $V(x_1)\cdot V(x_2) <0$ (they have opposite signs and are not equal to 0) and $V(x_0)=0$. Furthermore, this is a critical point, i.e. $DV(x_0)=0$.
 		\item $\dot{V}(x)$ is definite near $x_0$ (either positive or negative).
 	\end{enumerate}
 	Then $x=x_0$ is unstable. The geometry of the hypotheses are  illustrated in Fig. \ref{fig:lyap_thm4_hypos}.
@@ -1052,6 +1052,41 @@ At the fixed point $x = (\pi, 0)$. We check again using the energy. First we rea
 	.
 \end{align}
 Hence, $E$ is indefinite at $(\pi, 0)$. From the previous calcuation we alread know that $\dot{E}(\pi, 0) = 0$, i.e. $\dot{E}$ is semidefinite. We cannot apply Theorem 4, but linearization already concluded that $(\pi,0)$ was unstable.
+
+If we add damping the dynamics becomes
+\begin{align}
+	m\ell^2 \ddot{\varphi} + c \dot{\varphi} mg\ell \sin(\varphi) =0.
+\end{align}
+Again we transform the system by introducing the coordinates $x_1 =\varphi$ and $x_2=\dot{\varphi}$. Thus we have a first order ODE
+\begin{align}
+	\begin{dcases}
+		\dot{x_1} = x_2 \\
+		\dot{x_2} = - \frac{c}{m\ell^2}x_2 - \frac{g}{\ell}\sin(x_1).
+	\end{dcases}
+\end{align}
+We still have the fixed points $(0,0)$ and $(0, \pi)$ and the energy $E = \frac{1}{2}m \ell^2 \dot{\varphi}^2 + mg \ell(1 - \cos(\varphi))$. Again we find
+\begin{align}
+	DE =
+	\begin{pmatrix}
+		mg\ell \sin(x_1) \\ m \ell^2 x_2
+	\end{pmatrix}
+	\implies DE(0) = 0;\quad
+	D^2E =
+	\begin{pmatrix}
+		mg\ell \cos(x_1) & 0 \\
+		0 & m \ell^2
+	\end{pmatrix}
+	.
+\end{align}
+Thus $E$ is positive definite at $(0,0)$ and indefinite at $(0, \pi )$. We have
+\begin{align}
+	\dot{E} = DE \cdot f = mgl \sin(x_1)x_2 + m\ell^2 x_2 \left(-\frac{c}{m\ell^2}x^2 - \frac{g}{\ell}\sin(x_1)\right) = - cx_2^2.
+\end{align}
+Note here that $\dot{E}= -cx_2^2$ is only negative semi-definite. Therefore the asymptotic stability of $x=(0,0)$ and the instability of $x=(0,\pi )$ do not follow from theorems 1 or 4. However, the set $S=\left\{x:\ \dot{E}(x)=0\right\} - \left\{(0,0),\ (0,\pi )\right\}$ does \underline{not} contain full trajectories. Indeed
+\begin{align}
+	\left.\frac{d}{dt}x_2(t)\right|_{x=0} = -\frac{g}{\ell}\sin(x_1) \neq 0,\ x\in S.
+\end{align}
+Hence, the asymptotic stability of $(0,0)$ and instability of $(0,\pi )$ follows by Krasovsky's condition.
 \end{ex}
  \begin{ex}[Stability analysis of the friction pendulum]
 	 We have a shaft which is constantly rotating with angular speed $\Omega $, around this shaft is a sleeve which rubs against the shaft creating friction. To this sleeve is a mass $m$ attached at distance $l$, the deflection of this mass from its standard position (directly below the shaft) is measured by $\varphi$. The gravity constant is given by $g$. This setup is depicted in Fig. \ref{fig:friction_pend}.

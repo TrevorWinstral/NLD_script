@@ -12,46 +12,44 @@ A level-1 auxiliary file: chap7.aux
 A level-1 auxiliary file: chap8.aux
 The style file: apalike.bst
 Database file #1: refs.bib
-Warning--empty journal in Kutz2016
 You've used 16 entries,
             1935 wiz_defined-function locations,
-            591 strings with 5877 characters,
-and the built_in function-call counts, 5485 in all, are:
-= -- 534
+            591 strings with 5913 characters,
+and the built_in function-call counts, 5491 in all, are:
+= -- 536
 > -- 168
 < -- 14
 + -- 54
 - -- 52
-* -- 416
-:= -- 976
-add.period$ -- 48
+* -- 415
+:= -- 978
+add.period$ -- 49
 call.type$ -- 16
 change.case$ -- 100
 chr.to.int$ -- 16
-cite$ -- 17
+cite$ -- 16
 duplicate$ -- 232
 empty$ -- 416
 format.name$ -- 74
-if$ -- 1087
+if$ -- 1089
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 21
-newline$ -- 82
+newline$ -- 83
 num.names$ -- 48
-pop$ -- 94
+pop$ -- 92
 preamble$ -- 1
 purify$ -- 106
 quote$ -- 0
 skip$ -- 182
 stack$ -- 0
 substring$ -- 372
-swap$ -- 26
+swap$ -- 27
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 84
-warning$ -- 1
+warning$ -- 0
 while$ -- 42
 width$ -- 0
-write$ -- 204
-(There was 1 warning)
+write$ -- 206

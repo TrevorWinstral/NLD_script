@@ -166,7 +166,7 @@ Therefore we have that for each iterate of the Poincaré map there is a unique p
 	\caption{The infinite intersections of the stable and unstable manifolds for a transverse zero. Left: The homoclinic case, this is aptly called a \emph{homoclinic tangle}. Right: The heteroclinic case.}
 	\label{fig:inf_intersections}
 \end{figure}
-In the homoclinic tangle, we can see the accumulation of trajectories that are caused by the accumulation of the iterates of the Poincaré map. For more see the \emph{$\Lambda$-lemma} \cite{PalisPhd, Palis}.
+In the homoclinic tangle, we can see the accumulation of trajectories that are caused by the accumulation of the iterates of the Poincaré map. The accumulation can be formally seen as a consequence of the $\Lambda${\emph-lemma} \cite{PalisPhd, Palis}.
 
 \begin{remark}[]
 	It is impossible for stable and unstable manifolds to intersect themselves. This is usually argued by stating that $q$ cannot have two distinctive preimages under a diffeomorphism. However, this is not sufficient as a self intersection does not imply that two distinct preimages exist, for instance a looping manifold structure and suitable Poincaré map as in Fig. \ref{fig:loopdeloop}.
@@ -190,7 +190,7 @@ A priori, this is possible to occur. In this case the existence of one loop actu
 
 The orientation preserving nature of $P_{\varepsilon}$ can be seen by using Liouville's Theorem 
 	\begin{align}
-		\det(DF_{t_0}^{t}(p)) = \exp \left( \int_{t_0}^{t}  \textrm{div}  ( f(x(s;t_0,p),s))ds\right),
+		\det(DF_{t_0}^{t}(p)) = \exp \left( \int_{t_0}^{t_0+T}  \textrm{div}  ( f(x(s;t_0,p),s))ds\right),
 	\end{align}
 	for the flow map $F_{t_0}^{t}:x_0 \mapsto x(t;t_0,x_0)$	of the dynamical system $\dot{x} = f(x,t)$. In our case we find
 	\begin{align}
@@ -220,51 +220,51 @@ Here the forcing amplitude is given by $\gamma $ and the linear damping coeffici
 	\end{pmatrix}
 	. \numberthis \label{eq7:juan}
 \end{align}
-A Hamiltonian for this system is given by 
+The Hamiltonian for the unperturbed system is given by
 \begin{align}
-	H = \frac{1}{2}y^2 - \frac{1}{2} x^2  + \frac{1}{4}x^4 = E_{0} =  \textrm{const} .
+	H = \frac{1}{2}y^2 - \frac{1}{2} x^2  + \frac{1}{4}x^4. %= E_{0} =  \textrm{const} .
 \end{align}
-Further the phase portrait for $\varepsilon=0$ is known and shown in Fig. \ref{fig:duffing_phase}.
+Since the Hamiltonian is conserved, the trajectories of the unperturbed system are contained in the level sets of $H$. This allows us to draw the phase portrait that is shown in Fig. \ref{fig:duffing_phase}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.5\textwidth]{figures/ch6/14duffing_phase.png}
 	\caption{The phase portrait for the forced-damped Duffing oscillator for $\varepsilon=0.$}
 	\label{fig:duffing_phase}
 \end{figure}
-We have that locally $\dot{x}=F(x)$, thus we have a separable equation. Colloquially this can be seen as follows (the implication is not rigorous and should not be interpreted as usual)
+The homoclinic orbit $\Gamma_0$ is contained in the $H=0$ level set of the Hamiltonian, which means that along this orbit we have
+\begin{align}
+\frac{1}{2}y^2 -\frac{1}{2}x^2+\frac{1}{4}x^4 &=0. \\
+\frac{dx}{dt}= y = \pm \sqrt{x^2-\frac{1}{2}x^2} &= F(x).
+\end{align}
+
+Locally we can obtain a parametrization of the heteroclinic orbit by solving this separable differential equation as
 \begin{align}
 	\frac{dx}{dt} = F(x) \implies \int_{0}^{x}  \frac{d \tilde{x}}{F(\tilde{x})} = \int_{0}^{t} d \tilde{t}.
 \end{align}
 Hence, on $\Gamma_{0}^{+}$, we have 
 \begin{align}
-	x_0(t) = 
+	x^0(t) = 
 	\begin{pmatrix}
 		\sqrt{2}  \textrm{sech}(t) \\  -\sqrt{2}  \textrm{sech} (t) \tanh(t)
 	\end{pmatrix}
 .	
 \end{align}
-Now for $\varepsilon>0$ we calculate the Melnikov function
+As discussed above, for $\varepsilon > 0$, the homoclinic orbit splits into a stable and an unstable manifold. We can now calculate the Melnikov function to study whether these manifolds intersect.
 \begin{align}
 	M^{+}(t_0) &= \int_{-\infty }^{\infty }\langle f^{\perp}(x^{0}(t-t_0), g(x^{0}(t-t_0), t) \rangle dt \\
 		   &= - \frac{4 \delta }{3} + \sqrt{2} \gamma \pi \omega  \textrm{sech} \left( \frac{\pi \omega }{2}\right)\sin(\omega t_0). 
 \end{align}
-Next, we ask if this is equal to zero and look for a transverse zero. To this end we define $R^{0}(\omega) = \frac{4 \cosh \left( \frac{\pi \omega }{2}\right)}{3 \sqrt{2} \pi \omega }$. Thus the zeros of the Melnikov function are given by
+Next, we ask if the Melnikov function is equal to zero. For an accumulation of intersection points, a homoclinic tangle, we also need a transverse zero. To this end we define $R^{0}(\omega) = \frac{4 \cosh \left( \frac{\pi \omega }{2}\right)}{3 \sqrt{2} \pi \omega }$. Thus the zeros of the Melnikov function are given by
  \begin{align}
 	 R^{0}(\omega) = \frac{\gamma }{\delta} \sin(\omega t_0).
 \end{align}
-{\color{blue} I wasn't sure how he got the graph and what the marks meant, so I thought it wouldn't be clear to students, so I tried to do this part myself. I get the inverse result of him}.
-A solution is then a transverse zero if the partial derivative with respect to $t_0$ is nontrivial
-\begin{align}
-	\sqrt{2} \gamma \pi  \omega ^2  \textrm{sech} \left( \frac{\pi \omega }{2}\right) \cos(\omega t_0) \neq 0
-\end{align}
-The $ \textrm{sech} $ function is nonzero, thus we only need to know when $\cos(\omega t_0)=0$, which occurs for $\omega t_0 = (2k+1)\pi $, or as a function of $t_0$ when $\frac{\omega }{\pi } = \frac{2k+1}{t_0}$. Thus at the odd integers scaled by $\frac{1}{t_0}$, we have nontransverse zeros, and all other roots of the Melnikov function are transverse. This is depicted in Fig. \ref{fig:beam_tangle}.
+For a zero to exist, $R^{0}(\omega)$ cannot exceed the value $\frac{\gamma }{\delta}$, as $\sin $ is bounded by $1$. Therefore when we have $R^{0}(\omega) \leq \frac{\gamma }{\delta }$, a root of the Melnikov function exists. This root is nontransient only when it is quadratic, i.e. when only a peak of the $\sin $ function intersects with $R^{0}(\omega) $. This occurs exactly when $R ^{0}(\omega)=\frac{\gamma }{\delta}$. In all other cases, the $\sin $ wave intersects the curve of $R^{0}(\omega) $ transiently, i.e. the zero is transient. Thiis is illustrated in Fig. \ref{fig:beam_tangle}, where equality  occurs along the graph of $R^{0}$ shows the set on which nontransient zeros exist, the area above this curve contains all of the point for which the zero is transient.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\textwidth]{figures/ch6/15beam_tangle.png}
-	\caption{The yellow line showing that a homoclinic tangle exists for the forced-damped Duffing oscillator.}
+	\caption{The yellow line designating the area above the curve where homoclinic tnagles exist for the forced-damped Duffing oscillator.}
 	\label{fig:beam_tangle}
 \end{figure}
-{\color{blue} We need to go over this part I think.}
 \end{ex}
 
 \section{Dynamics near the homoclinic tangle \& Smale's horseshoe map}
@@ -272,7 +272,7 @@ We now continue and examine the dynamics near the homoclinic tangle. Consider th
 \begin{align}
 	\dot{x} = f(x) + \varepsilon g(x,t);\quad x \in \mathbb{R}^{2};\quad f,g \in  \mathcal{C}^{1};\quad g(x,t) = g(x,t+T).
 \end{align}
-After an appropriate change of coordinates we find the geometry called \emph{Smale's construction}, which is as shown as in Fig. \ref{fig:smales_construction}.
+With a linear change of coordinates we can  align our coordinate axes with the stable and unstable subspaces of the fixed point. Near the fixed point this leads to \emph{Smale's construction}, which is as shown as in Fig. \ref{fig:smales_construction}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\textwidth]{figures/ch6/16smales_construction1.png}
@@ -282,7 +282,7 @@ After an appropriate change of coordinates we find the geometry called \emph{Sma
 	\label{fig:smales_construction}
 \end{figure}
 
-A model for the right panel of Fig. \ref{fig:smales_construction} is given by \emph{Smale's horseshoe map}. This is defined by first letting the set $S$ be equal to $[0,1]^2\in \mathbb{R}^{2}$, next the map itself is given by $f:S\to\mathbb{R}^{2}$. The map $f$ will not be defined explicitly, and instead geometrically. The unit square is divided into three horizontal strips, the upper one being labelled $H_2$ and the lower $H_1$. The square is then stretched vertically, and then smoothly bent to a horseshoe such that the previously upper horizontal strip now forms a vertical strip on the right side of the box $V_2$. Similarly, the lower horizontal strip now forms a vertical strip on the left $V_1$. Now the unit square can also be divided into three vertical strips, on the left $V_1$, an area in the middle, and on the right $V_2$. What was previously part of the middle horizontal strip now forms the connecting curve between $V_1$ and $V_2$. Furthermore, these vertical strips are straight, without any curvature on their boundary. The horseshoe map is depicted in Fig. \ref{fig:smale_map}. This map models the Poincaré map as seen before.
+A model for the right panel of Fig. \ref{fig:smales_construction} is given by \emph{Smale's horseshoe map}. This is defined by first considering the unit square $S=[0,1]^2\subset \mathbb{R}^{2}$, next the map itself is given by $f:S\to\mathbb{R}^{2}$. The map $f$ will not be defined explicitly, and instead geometrically. The unit square is divided into three horizontal strips, the upper one being labelled as $H_2$ and the lower $H_1$. The square is then squeezed horizontally and stretched vertically, and then smoothly bent to a horseshoe such that the previously upper horizontal strip now forms a vertical strip on the right side of the box $V_2$. Similarly, the lower horizontal strip now forms a vertical strip on the left $V_1$. Now the unit square can also be divided into three vertical strips, on the left $V_1$, an area in the middle, and on the right $V_2$. What was previously part of the middle horizontal strip is now mapped outside the unit square. Because the map is continuous, these points connect $V_1$ and $V_2$, but note that precisely defining what happens to these points is not essential in Smale's construction. The horseshoe map is depicted in Fig. \ref{fig:smale_map}. This is a good model for the dynamics near the homoclinic tangle, if we consider the horseshoe map $f$ to be many iterations of the Poincaré map $P^N_\varepsilon$ (for $N\gg 1$).
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/ch6/17smale_map.png}
@@ -290,9 +290,9 @@ A model for the right panel of Fig. \ref{fig:smales_construction} is given by \e
 	\label{fig:smale_map}
 \end{figure}
 
-Using this construction, we would like to know if any initial conditions stay in $S$ for long times (after many iterations of the horseshoe map), despite the overall instability coming from $P_{\varepsilon}$. To further study this we introduce a couple definitions.
+Using this construction, we would like to know if any initial conditions stay in $S$ for long times (after many iterations of the horseshoe map), despite the overall instability coming from $P_{\varepsilon}$. To further study this we introduce a couple of definitions.
 \begin{definition}
-	The set of all points which stay in $S$ under $k$ backwards iterations is given by $V^{k}$.
+	The set of all points that stay in $S$ under $k$ backwards iterations is given by $V^{k}$.
 \end{definition}
 \begin{definition}[]
 	For a map $f:X \to Y$, we denote the \emph{preimage} of a set $U\subset Y$ (or point $p\in Y$) as
@@ -303,15 +303,15 @@ Using this construction, we would like to know if any initial conditions stay in
 	\end{align}
 \end{definition}
 
- Under 1 backward iteration the set $V^{1}$ is given by the closed and nonempty set
-	\begin{align}
-		V^{1} = f \left( S \cap f^{-1}(S) \right) = f(S) \cap S = V_1 \cup V_2.
-	\end{align}
-For 2 backward iterations we have
+The set of points that will be mapped into $S$ in one iteration is given by $S\cap f^{-1}(S)$. This means, that the set of points that stay in $S$ for one backward iteration, $V^1$, is
+\begin{align}
+V^1=f(S\cap f^{-1}(S)) = f(S)\cap f(f^{-1}(S)) = f(S)\cap S.
+\end{align}
+However, from the definition of the horseshoe map, $V^1 = f(S)\cap S$ is $V_1\cup V_2$, which is a closed, nonempty set. Similarly, for 2 backward iterations we have
 \begin{align}
 	V^{2} = f^{2}\left(S \cap f^{-1}(S) \cap f^{-2}(S) \right) = f^{2}(S) \cap f(S) \cap S  = V_{11} \cup V_{12} \cup V_{22} \cup V_{21} = \bigcup_{i_k \in \{1,2\}} V_{i_1i_2}.
 \end{align}
-The sets $V_{ij}$ are defined in Fig. \ref{fig:V_subsets}, the indices for each component are given by their orbit, those which after one iteration are in $V_i$ ($i\in\{1,2\}$) have the first index $i$, those which after two iterations are in $V_{j}$ have the second index $j$. Also the set $V^{2}$ is closed, nonempty, contained in $V^{1}$, and has $2^2$ components.
+The sets $V_{ij}$ are defined in Fig. \ref{fig:V_subsets}, the indices for each component are given by their orbit: The first index denotes which vertical strip $V_i\ (i\in \{1,2\})$ the preimage of a point is in. The second index denotes which vertical strip is it mapped into. That is, $V_{11}$ is the set of points that are mapped from $V_1$ to $V_1$ under one iteration, $V_{12}$ is the set of points mapped from $V_1$ to $V_2$ and so on. Also the set $V^{2}$ is closed, nonempty, contained in $V^{1}$, and has $2^2$ components.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.35\textwidth]{figures/ch6/18V_subsets.png}
@@ -331,7 +331,7 @@ This set has $2^k$ disjoint components (vertical strips) and is closed, nonempty
 \end{align}
 
 \begin{remark}[]
-	Cantor's theorem comes from the famous Cantor Dust which arises by first removing the open middle third of the unit interval in $\mathbb{R}$, and then iteratively removing the open middle third of each remaining interval. The Cantor Dust is a nonempty (in fact uncountably infinite) and disconnected set of points. For more on Cantor's theorem and Cantor's Dust, see any book on measure theory.
+	Cantor's theorem comes from the famous Cantor dust which arises by first removing the open middle third of the unit interval in $\mathbb{R}$, and then iteratively removing the open middle third of each remaining interval. The Cantor dust is a nonempty (in fact uncountably infinite) and disconnected set of points. For more on Cantor's theorem and Cantor's dust, see any book on measure theory.
 \end{remark}
 
 \begin{definition}
@@ -348,9 +348,9 @@ In our case $V^{\infty }$ is in fact a Cantor set, i.e. it is a closed, nonempty
 	\end{pmatrix}:\ \lambda \in [0,1] \right\}$ in order for each line to be a single element. I think this statement should apply to $\Lambda$, we should make that change and move this and the definition of perfect to after the definition of $\Lambda$.}
 
 \begin{definition}
-	Analogous to before we define the set of all points which stay in $S$ under $k$ forwards iterations is given by $H^{k}$. For each $k$ the set $H ^{k}$ is a nonempty set of $2^k$ closed, disjoint, horizontal strips, forming a nested sequence.
+	Analogous to before we define the set of all points that stay in $S$ under $k$ forwards iterations as $H^{k}$. For each $k$ the set $H ^{k}$ is a nonempty set of $2^k$ closed, disjoint, horizontal strips, forming a nested sequence.
 \end{definition}
-By similar argumentation as before we have 
+By similar reasoning as before we have 
 \begin{align}
 	\boxed{
 		H^{\infty } = \bigcap_{k=1}^{\infty} H^{k} \neq \emptyset.
@@ -358,7 +358,7 @@ By similar argumentation as before we have
 \end{align}
 
 \begin{definition}
-	The set of all points which stay in $S$ for all forward and backward iterates of the Smale horseshoe map  is given by
+	The set of all points that stay in $S$ for all forward and backward iterates of the Smale horseshoe map  is given by
 	 \begin{align}
 		\boxed{
 \Lambda = H^{\infty } \cap V^{\infty }.
@@ -377,7 +377,7 @@ By similar argumentation as before we have
 The set $\Lambda$ is a Cantor set of points.
 \end{remark}
 
-Returning to our case study of a Poincaré map with a homoclinic tangle, the points in $\Lambda$ keep coming back forever to the unstable periodic orbit as shown in Fig. \ref{fig:returning_points}. 
+We have then identified the invariant set $\Lambda$ for the horseshoe map. Returning to our case study of a Poincaré map with a homoclinic tangle, the points in $\Lambda$ keep coming back forever to the unstable periodic orbit as shown in Fig. \ref{fig:returning_points}. 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.3\textwidth]{figures/ch6/20returning_points.png}
