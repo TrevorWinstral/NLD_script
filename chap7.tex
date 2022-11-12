@@ -57,16 +57,16 @@ Before more examination of chaos on such constrained spaces, we need to recall a
 
 Note that in the previous example with $A=I_{2}$, the transition is not irreducible, which is why chaos is not garunteed.
 
-The role of irreducibility is critical for the theorem to work. Say for instance that the required $k$ such that each entry of $A^{k}$ is nonzero is $k=3$. Then we know that $\left(A^{3}\right)_{ij} = \sum_{l,m=1}^{3} a_{il}a_{lm}a_{mj} \neq 0$ for any pair $i,j$. Therefore there exist $l,m$ such that $a_{il}$, $a_{lm}$, and $a_{mj}$ which are not equal to 0. Hence there exists an admissible ultimate transition from state $i$ to state $j$ for all pairs $i,j$, if the symbol sequence is viewed as an itinerary. Furthermore, different irreducible transition matrices generate different types of chaos. 
+The role of irreducibility is critical for the theorem to work. Say for instance that the required $k$ such that each entry of $A^{k}$ is nonzero is $k=3$. Then we know that $\left(A^{3}\right)_{ij} = \sum_{l,m=1}^{N} a_{il}a_{lm}a_{mj} \neq 0$ for any pair $i,j$. Therefore there exist $l,m$ such that $a_{il}$, $a_{lm}$, and $a_{mj}$ which are not equal to 0. Hence there exists an admissible ultimate transition from state $i$ to state $j$ for all pairs $i,j$, if the symbol sequence is viewed as an itinerary. Furthermore, different irreducible transition matrices generate different types of chaos. 
 
 \begin{ex}[Chaos in the Newton-Raphson iteration]
 	Newton-Raphson iteration is a process to find the roots (zeros) of a nonlinear function $f$. The iteration is as follows
 	\begin{enumerate}
 		\item Start with the seed point $x_0$;
 		\item Define $x_1 = x_0 - \frac{f(x_0)}{f'(x_0)}= N(x_0)$;
-		\item Repeat (ii) until $x_{n+1} = N(x_{n})$.
+		\item Repeat (ii) as $x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$, until convergence, i. e. until $x_{n+1}=x_n$.
 	\end{enumerate}
-	In practice this approach is often truncated when $x_{n+1}\approx N(x_{n})$. The roots of $f$ coincide with the fixed points of the 1-dimensional dynamical system $x \mapsto N(x)$. If such a fixed point ($x^{*})$ is stable \underline{and} $x_0 $ is in its domain of attraction, then $\lim_{i\to \infty }N^{i}(x_0)= x^{*}$. The iteration process is sketched in Fig. \ref{fig:NR_iteration}.
+	In practice this approach is often truncated when $x_{n+1}\approx x_{n}$. The roots of $f$ coincide with the fixed points of the 1-dimensional dynamical system $x_{n+1}= N(x_n)$. If such a fixed point $\overline{x}$ is stable \underline{and} $x_0 $ is in its domain of attraction, then $\lim_{i\to \infty }N^{i}(x_0)= \overline{x}$. The iteration process is sketched in Fig. \ref{fig:NR_iteration}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.4\textwidth]{figures/ch7/1NR_iteration.png}
@@ -74,19 +74,19 @@ The role of irreducibility is critical for the theorem to work. Say for instance
 	\label{fig:NR_iteration}
 \end{figure}
 
-Note that if $N(x^{*}) = x^{*}$ then we have
+Note that if $N(\overline{x}) = \overline{x}$ then we have
 \begin{align}
-	N'(x^{*}) = 1 - \frac{f'(x^{*})^{2} - f(x^{*})f''(x_0)}{f'(x^{*})^{2}}=0.
+	N'(\overline{x}) = 1 - \frac{f'(\overline{x})^{2} - f(\overline{x})f''(x_0)}{f'(\overline{x})^{2}}=0.
 \end{align}
-The latter equality is due to $f(x^{*}) = 0$. This implies that $|N'(x^{*})|<1$, i.e. the fixed point is stable, and additionally $N'(x^{*})=0$, i.e. $x^{*}$ is in fact super stable.
+The latter equality is due to $f(\overline{x}) = 0$. Stability of $\overline{x_0}$ clearly follows, because $|N'(\overline{x_0})|<1$. Additionally, since $N'(\overline{x_0})=0$, we call the fixed point \emph{super-stable}.
 
-Specifically, once we are near the optimum $x^{*}$, we have
+Specifically, once we are near the optimum $\overline{x}$, we have
 \begin{align}
-N(x_n) = \underbrace{N(x^{*})}_{=x^{*}} + \underbrace{N'(x^{*})}_{=0}(x_n - x^{*}) + \frac{1}{2} N''(x^{*})(x_n - x^{*})^{2} + \mathcal{O}\left( | x_n - x^{*}|^{3}\right).
+	N(x_n) = \underbrace{N(\overline{x})}_{=\overline{x}} + \underbrace{N'(\overline{x})}_{=0}(x_n - \overline{x}) + \frac{1}{2} N''(\overline{x})(x_n - \overline{x})^{2} + \mathcal{O}\left( | x_n - \overline{x}|^{3}\right).
 \end{align}
 This implies we have fast quadratic convergence, as
 \begin{align}
-	\left| N(x_n) - N(x^{*}) \right| \approx \frac{1}{2} | N''(x^{*})| |x_{n} - x^{*}|^{2}.
+	\left| N(x_n) - N(\overline{x}) \right| \approx \frac{1}{2} | N''(\overline{x})| |x_{n} - \overline{x}|^{2}.
 \end{align}
 Despite the fast convergence, erratic iterations may result if the initial point is not close enough to the root \cite{SaariUrenko}. In particular, consider a 4th order polynomial 
 \begin{align}
@@ -94,7 +94,7 @@ Despite the fast convergence, erratic iterations may result if the initial point
 \end{align}
 This can be observed to lead to chaotic Newton-Raphson iterations. The proof will be sketched for this chaotic behaviour.
 
-Retain the 4th order polynomial $f$ from above. We then have $N(x_i)=x_i$ for $i=0,1,2,3$ as these are fixed points of $f$. Note then that we already know what the shapes of $f$ and $f'$ are, and these are illustrated in Fig. \ref{fig:NR_pf1}.
+Retain the 4th order polynomial $f$ from above. We then have $N(x_i)=x_i$ for $i=0,1,2,3$ as these are roots of $f$. Note then that we already know what the shapes of $f$ and $f'$ are, and these are illustrated in Fig. \ref{fig:NR_pf1}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.35\textwidth]{figures/ch7/2NR_pf1.png}
@@ -102,7 +102,7 @@ Retain the 4th order polynomial $f$ from above. We then have $N(x_i)=x_i$ for $i
 	\label{fig:NR_pf1}
 \end{figure}
 
-As $f'(a_i)=0$ we also have that $|N(a_i)|=\infty $, also $f''(b_i)=0$ implies that $N'(b_i)=0$. Thus via our knowledge of the shape of $f$, we have been able to derive information about $N$. If we assume that $b_1\in (a_0, x_1)$ and $b_2\in (x_2, a_2)$, then we get the graph of $N$ as shown in Fig. \ref{fig:NR_graph1}.
+The points $a_i$ denote the minima and maxima of $f(x)$ and $b_i$ denote the minima and maxima of $f'(x)$ (See Fig. \ref{fig:NR_pf1}). As $f'(a_i)=0$ we also have that $|N(a_i)|=\infty $, also $f''(b_i)=0$ implies that $N'(b_i)=0$. Thus via our knowledge of the shape of $f$, we have been able to derive information about $N$. If we assume that $b_1\in (a_0, x_1)$ and $b_2\in (x_2, a_2)$, then we get the graph of $N$ as shown in Fig. \ref{fig:NR_graph1}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.4\textwidth]{figures/ch7/3NR_graph1.png}
