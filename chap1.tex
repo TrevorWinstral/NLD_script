@@ -156,10 +156,10 @@ The phase space is given by
 	P = \{ {x}:\ x_1 \in S^1,\ x_2 \in \mathbb{R},\ x_3 \in S^1,\ x_4 \in \mathbb{R} \} = S^1 \times \mathbb{R}\times S^1 \times \mathbb{R}.
 \end{align}
 Where $S^1$ is the 1 dimensional sphere (i.e. a circle). With this space we know that $ \|x_1 \|$ and $ \|x_3 \|$ are bounded. Due to energy being conserved we have
-\begin{align}
+\begin{subequations}\begin{align}
 	E &= T+V = \frac{1}{2}m_1 l_1 x_2^2 + \frac{1}{2}m_2 l_2 x_4^2 + \underbrace{V(x_1, x_3)}_{\geq 0}\\
 	E &= E_0 =  \textrm{constant} \geq 0.
-\end{align}
+\end{align}\end{subequations}
 Hence $ \|x_2 \|$ and $ \|x_4 \|$ are also bounded, therefore all solutions exist globally.
 \end{ex}
 \begin{definition}
@@ -174,12 +174,12 @@ Hence $ \|x_2 \|$ and $ \|x_4 \|$ are also bounded, therefore all solutions exis
 \end{remark}
 
 \begin{ex}[Global existence in linear systems]
-\begin{align}
+	\begin{subequations}\begin{align}
 	\langle  {x}, \dot{ {x}} \rangle &= \frac{1}{2} \frac{d}{dt}  \| {x}(t) \|^2 = \langle  {x}, {A}(t)  {x}\rangle = \langle  {x}, ({S}(t) + {\Omega}(t) )  {x} \rangle \\
 				   &= \langle  {x}, S(t)  {x} \rangle + \underbrace{\langle  {x}, {\Omega}(t)  {x} \rangle}_{=0} \stackrel{(*)}{=} 
 				   \sum_{i=1}^{n} \lambda_i(t) x_i^2 \\
 				   &\leq \lambda_{ \textrm{max} }(t) \sum_{i=1}^{n} x_i^2 = \lambda _{ \textrm{max} }(t)  \|  {x}(t) \|^2.
-\end{align}
+\end{align}\end{subequations}
 Where in $(*)$ we used that $ {x} = \sum_{i=1}^{n} x_i  {e}_i $ with $ \| {e}_i \|=1$ and $ {e}_i \perp  {e}_j$ for all $i \neq j$. Thus we get
 \begin{align}
 	\frac{\frac{1}{2}\frac{d}{dt} \| {x}(t) \|^2}{ \| {x}(t) \|^2} \leq \lambda_{ \textrm{max} }(t) 
@@ -254,10 +254,10 @@ Now, how can we compute the Jacobian of the flow map $\frac{\partial  {x}(t; t_0
 \end{align}
 
 This means, that the flow map gradient satisfies the IVP
-\begin{align}
+\begin{subequations}\begin{align}
 	\frac{d}{dt}\left[ DF_{t_0}^{t}( {x}_0)\right] &= D_{ {x}}f(F_{t_0}^{t}( {x}_0), t) DF_{t_0}^{t}( {x}_0) \\
 	DF_{t_0}^{t_0}( {x}_0) &= I.
-\end{align}
+\end{align}\end{subequations}
 This is called the equation of variations, which is a linear, non-autonomous ODE for the matrix $M = DF_{t_0}^{t}(x_0)$
 \begin{align}
 	\begin{dcases}
@@ -267,21 +267,21 @@ This is called the equation of variations, which is a linear, non-autonomous ODE
 
 \begin{ex}[Locations of extreme deformation in phase space]
 	We define 
-	\begin{align}
+	\begin{subequations}	\begin{align}
 		 {\xi}(t) &:= \tilde{ {x}}(t) -  {x}(t) =  {x}(t; t_0, \tilde{ {x}}_0) -  {x}(t; t_0,  {x}_0)\\
 		       &=  {x}(t; t_0,  {x}_0) + \frac{\partial  {x}}{\partial  {x}_0}(t; t_0,  {x}_0) {\xi}_0 + \mathcal{O}( \| {\xi}_0 \|^2) -  {x}(t; t_0,  {x}_0) \\
 		       &= DF_{t_0}^{t}( {x}_0) {\xi}_0 + \mathcal{O}( \| {\xi}_0 \|^2).
-	\end{align}
+	\end{align}\end{subequations}
 	Where we used the Taylor expansion and assume the perturbation to $ {x}_0$ is small, i.e. $ \| {\xi}_0 \| \ll 1$.
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.5\textwidth]{figures/ch1/8dispersion.png}
 	\end{figure}
 	Therefore we have
-	\begin{align}
+	\begin{subequations}	\begin{align}
 		 \| {\xi}(t) \|^2 &= \langle DF_{t_0}^{t}( {x}_0)  {\xi}_0, DF_{t_0}^{t}( {x}_0) {\xi}_0 \rangle + \mathcal{O}( \| {\xi}_0 \|^3) \\
 			   &= \langle  {\xi}_0, \underbrace{\left[ DF_{t_0}^{t}( {x}_0) \right]^T DF_{t_0}^{t}( {x}_0)}_{=: C_{t_0}^{t}( {x}_0)}  {\xi}_0 \rangle + \mathcal{O}( \| {\xi}_0 \|^3).
-	\end{align}
+	\end{align}\end{subequations}
 	$C_{t_0}^{t}( {x}_0)$ is known as the Cauchy-Green strain tensor. It is positive definite and symmetric and due to its dependence on the initial condition, $C_{t_0}^{t}(x_0)$ actually defines a \emph{tensor field}.
 	Therefore the largest possible deformation is
 	\begin{align}
@@ -463,20 +463,22 @@ Now we look specifically for $T$-periodic solutions, as we would expect such a s
 	\varphi_i(t) = \varphi_i(t+T).
 \end{align}
 The period $T$ still has to be determined. Plugging this power series into \eqref{eq:starstar} into the IVP to get
-\begin{align*}
+\begin{subequations}
+\begin{align}
 	&\mathcal{O}(1):\quad \ddot{\varphi}_0 + \varphi_0 &&= 0 \\
 	&\mathcal{O}(\varepsilon):\quad \ddot{\varphi}_1 + \underbrace{\varphi_1}_{\omega = 1} &&= -\varphi_0^{3} = -a_0^{3}\cos ^{3}(t) = -a_0^{3}\left[ \frac{1}{4} \cos (3t) + \frac{3}{4} \underbrace{ \cos(t)}_{ \textrm{resonance} }\right] \numberthis \label{eq:3star}.
-\end{align*}
+\end{align}
+\end{subequations}
 We can see that \eqref{eq:3star} is a linear oscillator with a forcing coming from the zeroth order solution. Since the zeroth order solution $\varphi_0= a_0 \cos(t)$ already solves the IVP we have the following initial conditions 
 \begin{align}
 	\varphi_1(0) = 0;\quad \dot{\varphi_1}(t) = 0.
 \end{align}
 This holds as $\varphi_0 = a_0 \cos(t)$ already solves the IVP. The general solution to this equation is the sum of two terms. We add the general solution of the homogeneous part and a particular solution to the inhomogeneous part. We can write this solution to \eqref{eq:3star} as
-\begin{align}
+\begin{subequations}\begin{align}
 	\varphi_1(t) &= \varphi_1^{ \textrm{hom} }(t) + \varphi_{1}^{ \textrm{part} }(t) \\
 		     &= \underbrace{A \cos(t) + B \sin (t)}_{ \textrm{TBD from initial conditions} } + 
 		     \underbrace{ C \cos(3t) + D t \cos(t) + Et\sin(t) }_{\textrm{TBD from \eqref{eq:3star}}}.
-\end{align}
+\end{align}\end{subequations}
 Observe that due to a resonance between the natural frequency of the oscillator and the forcing secular terms, $t \cos(t)$ and $t \sin(t)$ appear. Thus it cannot be periodic, so our Ansatz already fails for $i=1$. We conclude that no solution of this type exists. Our Ansatz was too restrictive and $T$ should depend on $\varepsilon$.
 \begin{figure}[h!]
 	\centering
@@ -508,12 +510,12 @@ Where we have taken $x'$ to represent $\frac{dx}{d\tau}$. Plugging our expressio
 	\left( 1 + 2 \varepsilon \omega_1 + \mathcal{O}(\varepsilon^2) \right) \left[ \varphi_0'' + \varepsilon \varphi'' + \mathcal{O}(\varepsilon^2) \right] + \left[ \varphi_0 + \varepsilon \varphi_1 + \mathcal{O}(\varepsilon^2) \right] + \varepsilon \left[\varphi_0^{3} + \mathcal{O}(\varepsilon) \right] = 0.
 \end{align}
 Matching equal powers of $\varepsilon$ yields
-\begin{align}
+\begin{subequations}\begin{align}
 	\mathcal{O}(1)&:\ \varphi_0'' + \varphi_0 = 0 \implies \varphi_0(\tau) = a_0 \cos(\tau);\quad \varphi_0(0)=a_0;\quad \dot{\varphi_0}(0) = 0 \\
 	\mathcal{O}(\varepsilon)&:\ \varphi_1'' + \varphi_1 = - \phi_0^{3} - 2\omega_1 \varphi_{0}'' = 
 	\left(2 \omega_1 a_0 - \frac{3}{4}a_0^{3}\right) \underbrace{\cos (\tau)}_{ \textrm{resonance} } - \frac{a_0^{3}}{4} \cos(3 \tau); \\
 			     &\phantom{:}\ \varphi_1(0)=0; \quad \dot{\varphi_1}(0) = 0. 
-\end{align}
+\end{align}\end{subequations}
 From the first line, we can see the initial conditions are fulfilled. In this step we used that $\dot{\varphi}(t=0) = 0$ if and only if $\omega(\varepsilon)\varphi '(0) = 0$. We get the solution
 \begin{align}
 	\varphi_1(t) = A \cos(\tau) + B \sin(\tau) + C \cos(3\tau) + D\tau \cos(\tau) + E \tau \sin(\tau).

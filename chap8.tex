@@ -76,12 +76,14 @@ As $L$ is convex, if we define the generalized momenta $p=\frac{\partial L}{\par
 the Hamiltonian associated with $L$ (or the Legendre transform of $L$).
 
 At this point note that
+\begin{subequations}
 \begin{align}
 	dH &= \frac{\partial H}{\partial q}dq + \frac{\partial H}{\partial p}dp + \frac{\partial H}{\partial t}dt \\
 	   &= d(pF) - \underbrace{\frac{\partial L}{\partial q}}_{=\dot{p}} dq - \underbrace{\frac{\partial L}{\partial \dot{q}}}_{=p} - \frac{\partial L}{\partial t}dt \\
 	   &= \underbrace{F}_{=\dot{q}}dp + pdF - \dot{p}dq - pdF - \frac{\partial L}{\partial t}dt \\
 	   &= \dot{q}dp - \dot{p}dq - \frac{\partial L}{\partial t}dt.
 \end{align}
+\end{subequations}
 Comparing coefficients in the first and last equations then yields
 \begin{align}
 	\begin{dcases}
@@ -281,3 +283,261 @@ The \emph{energy surface} for some constant $H_0$ $E_{0}=\left\{ x \in \mathbb{R
 	DH(x_0)\neq 0\in \mathbb{R}^{2n} \implies \exists i:\ \left.\frac{\partial H}{\partial x^{i}}\right|_{x=x_0} \neq 0.
 \end{align}
 Then we have $x^{i}=F\left(x^{1},\ldots,x^{i-1},x^{i+1},\ldots,x^{2n}\right)$ for $F\in \mathcal{C}^{1}$, because $H$ is smooth. This implies that $E_{0}$ is a smooth $2n-1$-dimensional graph (i.e. a smooth hypersurface or codimension-one surface).
+
+\begin{ex}[Two degree of freedom nonlinear oscillator]
+	Between two fixed sides, three nonlinear springs hold two masses. Each spring has a potential given by $V_{i}$ for $i=1,2,3$ and the masses are given by $m_1$ and $m_2$. The displacement of each mass is given by $q_1$ and $q_2$ respectively. The potentials have global minima at $x=(q_1, q_2)^T=0$, and are otherwise strictly monotone. The system and example potential are illustrated in Fig. \ref{fig:2dof_oscillator_hamiltonian}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.5\textwidth]{figures/ch8/4_2dof_oscillator_hamiltonian.png}
+		\caption{The two degree of freedom nonlinear oscillator and an example of a potential $V_i$.}
+		\label{fig:2dof_oscillator_hamiltonian}
+	\end{figure}
+	
+	For this system the specific conditions on the potentials are
+	\begin{align}
+		V_{i}(0) =0;\quad V_{i}'(0)=0;\quad V_{i}''(0)>0;\quad \forall x\neq 0:\ V_{i}''(x)\neq 0 . \label{eq8:2dof_conditions}
+	\end{align}
+
+	The Lagrangian is then
+	\begin{align}
+		L=T-V = \frac{1}{2} m_1 \dot{q}_{1}^{2} + \frac{1}{2}m_2 \dot{q}_{2}^{2} - \left[V_1(q_1) + V_2(q_2 - q_1) + V_3(-q_2) \right].
+	\end{align}
+From the Lagrangian the generalized momenta can be derived
+\begin{align}
+	p_i = -\frac{\partial L}{\partial \dot{q}_{i}} = m_{i} \dot{q}_{i} \implies \dot{q}_{i} = \frac{p_i}{m_i}\quad i=1,2.
+\end{align}
+And with this the Hamiltonian can be calculated
+\begin{align}
+	H = T+V = \frac{1}{2}\frac{p_1^{2}}{m_1} + \frac{1}{2}\frac{p_{2}^{2}}{m_{2}} + V_1(q_1) + V_2(q_2 - q_1) +V_{3}(-q_2).
+\end{align}
+Now recall that $\dot{x}=JDH(x)$, therefore the fixed point $x_0=(q^{0}, p^{0})^{T}$ can be found by identifying the roots of $DH$ 
+\begin{align}
+	DH(x_0)=0 \Leftrightarrow
+	\begin{pmatrix}
+		V_{1}'(q_{1}^{0}) - V_{2}'(q_{2}^{0} - q_{1}^{0}) \\
+		V_{2}'(q_{2}^{0} - q_{1}^{0}) - V_{3}'(-q_{2}^{0}) \\
+		\frac{p_{1}^0}{m_1} \\
+		\frac{p_{2}^{0}}{m_2}
+	\end{pmatrix}
+= 0 \Leftrightarrow x_0 = 
+\begin{pmatrix}
+	q^{0} \\ p^{0}
+\end{pmatrix}
+= 0 \in \mathbb{R}^{4}.	
+\end{align}
+Hence we have
+\begin{align}
+	p_{1}^{0} = p_{2}^{0}= 0;\quad V_{1}'(q_{1}^{0}) = V_{2}^{1}(q_2^{0}-q_{1}^{0});\quad V_{2}'(q_{2}^{0}-q_{1}^{0})=V_{3}'(-q_{2}^{0}) \label{eq8:2dof_star}.
+\end{align}
+Assume that $q_{1}^{0}>0$ solves \eqref{eq8:2dof_star}. Then we would have the following
+\begin{align}
+	V_{1}'(q_{1}^{0}) = V_{2}'(q_{2}^{0} - q_{1}^{0}) > 0 \implies q_{2}^{0}>q_{1}^{0} >0,
+\end{align}
+due to the conditions set out in \eqref{eq8:2dof_conditions}. However we also have that
+\begin{align}
+	V_{3}'(-q_{2}^{0}) = V_{2}'(q_{2}^{0}-q_{1}^{0})>0 \implies -q_{2}^{0}>0.
+\end{align}
+These two inequalities are clearly a contradiction. A similar argument show that $q_{1}^{0} < 0$ also leads to a contradiction. Therefore we find that at all equilibria $q_{1}^{0}=0$ and by symmetry $q_{2}^{0}=0$ as well. Thus the only fixed point is given by $q_{1}^{0}=q_{2}^{0}=0$ and $p_{1}^{0}=p_{2}^{0}=0$. We can conclude that all nonzero energy surfaces are codimension-one (3-dimensional) invariant manifolds (i.e. smooth surfaces).
+
+Now it is possible to analyze the stability of this fixed point. We have that $H(0)=0$, $DH(0) = 0 \in \mathbb{R}^{4}$, and $\frac{dH(x(t))}{dt}=0$. We still need to find out if $H$ is cup shaped, first calculate the Hessian
+\begin{align}
+	D^2H = 
+	\begin{pmatrix}
+		D^2V & 0 \\
+		0 &
+		\begin{matrix}
+			\frac{1}{m_1} & 0 \\
+			0 & \frac{1}{m_2}
+		\end{matrix}
+	\end{pmatrix}
+= 
+	\left(
+	\begin{array}{c|c}
+		D^2V & 0_{2\times 2} \\
+		\hline
+		0_{2\times 2} &
+		\begin{array}{c c}
+			\frac{1}{m_1} & 0 \\
+			0 & \frac{1}{m_2}
+		\end{array}
+	\end{array}
+\right)
+.
+\end{align}
+{\color{blue} left matrix was using amsmath, right using array. we can choose which we want}
+Next, we evaluate if each of the diagonal matrices are positive definite. The lower right matrix is clearly positive definite as it is a diagonal matrix with strictly positive entries. For the upper left, a calculation is required
+\begin{align}
+\left.D^2V\right|_{0} = 
+	\left.\begin{pmatrix}
+		V_{1}'' + V_{2}'' & -V_{2}'' \\
+		-V_{2}'' & V_{2}'' + V_{3}''
+	\end{pmatrix} \right|_{x = 0 \in \mathbb{R}^{4}}.
+\end{align}
+Due to the fact that $\left. V_{1}'' + V_{2}''\right|_{0}>0$ and $\det\left(\left.D^2V\right|_{0}\right) >0$ we have that $\left.D^2V\right|_{0}$ is positive definite by Sylvester's theorem. Hence $D^2H$ is positive definite, i.e. cup shaped. Now we have shown that $H(x)$ is a Lyapunov function, and therefore guarantees that the origin is nonlinearly stable irrespective of the actual form of the potentials. 
+
+From this we wonder what else can be said about the global phase space geometry, which leads us to the Morse lemma.
+\begin{lemma}[Morse]
+Let $x_0$ be a nondegenerate critical point for $f:\mathbb{R}^{n}\to \mathbb{R}$, i.e 
+\begin{align}
+	Df(x_0) =0,\quad \det\left(D^{2}f(x_0)\right)\neq 0.
+\end{align}
+Let $k$ be the number of negative eigenvalues of $D^2f(x_0)$. Then there exists a local change of coordinates (diffeomorphism) $x\mapsto y$ near $x_0 $ such that in the new coordinates
+\begin{align}
+	f(y) = f(x_0) - y_1^{2} - \ldots - y_{k}^{2} + y_{k+1}^{2} + \ldots +y_{n}^{2}.
+\end{align}
+\end{lemma}
+
+By the Morse lemma, there exists a change of coordinates $x\mapsto y$ such that $H(y) = y_{1}^{2} + y_{2}^{2} + y_{3}^{2}+y_{4}^{2}$ that is suitable near the origin. Therefore the energy surface $E_{h_0} = \left\{ y \in \mathbb{R}^{4}:\ H(y) = h_0\right\}$ is equal to $\mathcal{S}^3 \subset \mathbb{R}^{4}$, where $\mathcal{S}^{3}$ is the 3-dimensional hyper-sphere. This means in the original $x$-coordinates, all low-energy level sets of $H(x)$ are diffeomorphic to $3$-dimensional spheres.
+\end{ex}
+
+It is possible to draw on other results from differential geometry, namely the foliation theorem \cite{Milnor1965}. This tells us that level surfaces of a scalar function can only change their topology (i.e. become no longer diffeomorphic to each other) through level surfaces that contain a critical point of the function ($Df$ must vanish somewhere on the level set). 
+
+We can see this in the example of the pendulum equation, whose Hamiltonian we previously derived. The stable fixed point is a nondegenerate critical point of the Hamiltonian (as all other points around it have more energy) and via a change of coordinates looks like the direct sum of quadratics. The loops representing periodic oscillation are also the level sets for the respective energy level and are all diffeomorphic to each other (they are all diffeomorphic to $\mathcal{S}^{1}$) until the level set which intersects the unstable fixed points, at which point the set is diffeomorphic to the infinite chain $\wedge _{-\infty }^{\infty }S^{1}$. Continuing to higher level energy sets, each is diffeomorphic to two lines $\{0,1\}\times (0,1)$. This transition is depicted in Fig. \ref{fig:morse_foliation}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch8/5morse_foliation.png}
+	\caption{The effect of the foliation theorem. Around the stable fixed point where the Morse lemma applies is shaded orange, and the level sets containing critical points of $H$.}
+	\label{fig:morse_foliation}
+\end{figure}
+
+Regarding the two degree of freedom oscillator example previously handled, all surfaces are diffeomorphic to $\mathcal{S}^{3}$ as $x=0$ is the only critical point of $H$.
+
+We would like to understand what happens with a volume of the phase space under the flow map of a Hamiltonian system. When we talk about the transformation of a volume $V(t_0)$ under the flow map, we mean to study the set $V(t)$ which results from applying the flow map to $V(t_0)$, i.e. $V(t) = F_{t_0}^{t}(V(t_0))$. The evolution of such a volume in shown in Fig. \ref{fig:vol_change}. However, before continuing to study this, we must prove Liouville's theorem.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/ch8/6vol_change.png}
+	\caption{A transformed volume of the phase space under the flow map.}
+	\label{fig:vol_change}
+\end{figure}
+
+\begin{theorem}[Liouville]
+	For a dynamical system
+	\begin{align}
+		\dot{x} = f(x,t);\quad x \in \mathbb{R}^{n};\quad f\in\mathcal{C}^{1},
+	\end{align}
+	we have that
+	\begin{align}
+		\boxed{
+			\frac{d}{dt} \textrm{vol} (V(t)) = \int_{V(t)}^{} \nabla \cdot f(x,t) dV.
+		}
+	\end{align}
+\end{theorem}
+\begin{proof}
+	Calculate the equation of variations for this system with $x(t) = x(t;t_0, x_0)$
+	\begin{align}
+		\frac{\partial \dot{x}}{\partial x_0} = Df(x(t),t) \frac{\partial x}{\partial x_0} \implies \frac{d}{dt}\left[ \frac{\partial x}{\partial x_0}\right] = \underbrace{Df(x(t),t)}_{A(t)}\frac{\partial x}{\partial x_0}.
+	\end{align}
+	This measures how sensitive the resulting $x(t)$ is on the initial condition $x_0$. We can generalize this to 
+	\begin{align}
+		\dot{X} = A(t) X;\quad A(t) = Df(x(t),t);\quad X,A \in \mathbb{R}^{n\times n}.
+	\end{align}
+	The only consistent initial condition for this is $\left.\frac{\partial x}{\partial x_0}\right|_{t=t_0}=X(t_0) = I_{n} \in \mathbb{R}^{n\times n}$. Recalling Abel's theorem, which applies to \underline{any} linear system of ODE's we have
+		\begin{align}
+			\det(\underbrace{X(t)}_{DF_{t_0}^{t}}) = \det(\underbrace{X(t_0)}_{I_{n}})\cdot \exp\left(\int_{t_0}^{t} \ \textrm{Tr} [A(s)]ds\right).
+		\end{align}
+	Note that in present case $\frac{\partial x}{\partial x_0}=DF_{t_0}^{t}$. Finally, for a general dynamical system we have
+	\begin{align}
+		\det\left(DF_{t_0}^{t}\right) = \exp \left( \int_{t_0}^{t} \nabla \cdot f(x(s), s) ds \right).
+	\end{align}
+	Using this we calculate
+\begin{subequations}
+	\begin{align}
+		\frac{d}{dt}  \textrm{vol}\left[V(t)\right] 
+		&= \frac{d}{dt}\int_{V(t)}^{} dV 
+		= \frac{d}{dt} \int_{V(t_0)}^{} \det\left(DF_{t_0}^{t}(x_0) \right) dV_0 \\
+		&= \int_{V(t_0)}^{} \frac{d}{dt}\det\left(DF_{t_0}^{t}(x_0) \right) dV_0
+		= \int_{V(t_0)}^{} \nabla \cdot f(x(t),t) \underbrace{\det\left(DF_{t_0}^{t}\right) dV_0}_{=dV}\\
+		&= \int_{V(t)}^{} \nabla \cdot f(x(t),t) dV.
+	\end{align}
+\end{subequations}
+Where on the last equation of the first line we used the change of coordinates $y = F_{t_0}^{t}(x_0)$, then on the last equation of the second line we used our previous result, and then finally switched back to the original coordinates for the final equality.	
+\end{proof}
+
+
+\begin{proposition}[Conservation of phase space volume]
+	For any Hamiltonian system, the flow map $F_{t_0}^{t}:x_0 \mapsto x(t;t_0,x_0)$ is volume preserving for any $t_0, t \in \mathbb{R}$. 
+\end{proposition}
+\begin{proof}
+	For Hamiltonian systems we have that
+	\begin{subequations}
+	\begin{align}
+		\nabla \cdot (\underbrace{JDH(x,t)}_{f(x,t)}) &=  \textrm{Tr} \left[ JD^2H(x,t) \right] =  \textrm{Tr} \left[
+			\begin{pmatrix}
+				0 & I_{n} \\
+				-I_{n} & 0 
+			\end{pmatrix}
+			\begin{pmatrix}
+				D^{2}_{qq}H & D^{2}_{qp}H \\
+				D^{2}_{qp}H & D^{2}_{pp}H
+			\end{pmatrix}
+		\right]
+	\\
+	&= \textrm{Tr} \left[
+			\begin{pmatrix}
+				D^{2}_{qp}H& *\\
+					 * & - D^{2}_{qp}H
+		\end{pmatrix} \right]
+			=0.
+	\end{align}
+	\end{subequations}
+	Therefore by Liouville's theorem we have that $ \textrm{vol} [V(t)]$ is constant if and only if $\det\left(DF_{t_0}^{t}(x_0)\right)=1$. This is called this \emph{infitesimal (local) form}.
+\end{proof}
+
+\section{Consequences of area preservation for 2D time-periodic Hamiltonians}
+We now constrain ourselves to two dimensional, time-periodic Hamiltonian systems
+\begin{align}
+	\dot{x}= JDH(x,t);\quad x \in \mathbb{R}^{2};\quad H(x,t)= H(x,t+T);\quad T>0.
+\end{align}
+The Poincaré map is 
+\begin{align}
+	P_{t_0}:x_0 \mapsto x(t_0+T; t_0, x_0) = F_{t_0}^{t_0+T}(x_0).
+\end{align}
+An example of such a system is the periodically forced pendulum with the Hamiltonian  {\color{blue} I am not sure what his $x_2$ is here, it looks like $P\varphi$ }
+\begin{align}
+	H(x,t) = H(x_0) + \varepsilon H_{1}(x,t);\quad x = 
+	\begin{pmatrix}
+		\varphi \\ P\varphi
+	\end{pmatrix};\quad
+	\dot{x} = JDH(x,t),
+\end{align}
+where $H_1$ and $H$ are $T$-periodic in $t$.
+
+It is possible to classify the different types of fixed points for $P_{t_0}$. Let $x_0$ be a fixed point of $P_{t_0}$, i.e. $P_{t_0}(x_0) = x_0$, then we have by area preservation that
+\begin{align}
+	\det\left( \left.DP_{t_0}\right|_{x_0}\right) = \det\left( DF_{t_0}^{t_0 + T}(x_0) \right) = 1.
+\end{align}
+Hence, the eigenvalues $\lambda_1, \lambda_2\in \mathbb{C}$ of the linearized Poincaré map have the property 
+\begin{align}
+	1 = \det\left(DP_{t_0}(x_0)\right) = \lambda_1 \lambda^2.
+\end{align}
+This implies that there are only a few restricted eigenvalue configurations which are possible.
+\begin{enumerate}
+	\item \textbf{Robust (structurally stable) configurations} Saddles with $\lambda_1 \neq \lambda_2$ and $\lambda_1, \lambda_2 \in \mathbb{R}$ and centers with $\lambda_1 \neq \lambda_2$ with $\lambda_1 = e^{i \alpha } = \overline{\lambda }_2$ are the only robust eigenvalue configurations which are possible.
+	\item \textbf{Non-robust configurations} The only other possibilities are $\lambda _1=\lambda _2 = 1$ or $\lambda _1 = \lambda _2 = -1$. 
+\end{enumerate}
+{\color{blue} what about $\lambda_1 = re^{i\alpha}$ and $\lambda_2 = r'e^{-i\alpha }$ for $r>1$ and $r r'=1$? This should be a possible configuration which also has product equal to 1.}
+The different eigenvalue configurations are shown in Fig. \ref{fig:poinc_eigv_config}. As we can see the only robust fixed points of 2-dimensional Poincaré maps in Hamiltonian systems are saddles or centers (under linearization). The same conclusion holds, as a consequence, for any planar, autonomous Hamiltonian system (flow) $\dot{x} = JDH(x)$.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch8/7poinc_eigv_config.png}
+	\caption{All possible eigenvalue configurations of the linearized Poincaré map.}
+	\label{fig:poinc_eigv_config}
+\end{figure}
+
+Next we examine what happens when we perturb homoclinic orbits. Recall the setting for homoclinic chaos with $H_1$ being $T$-periodic in $t$
+\begin{align}
+	\dot{x} = JD[H(x) + \varepsilon H_{1}(x,t)].
+\end{align}
+Where we had the unperturbed system then asked if the unstable and stable manifolds intersected using the Melnikov method, as sketched in Fig. \ref{fig:ham_melnikov_method}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch8/8ham_melnikov_method.png}
+	\caption{The unperturbed $\varepsilon=0$ system with a homoclinic orbit in black and the perturbed $\varepsilon>0$ system in yellow, the Melnikov method analyzes if the unstable and stable manifold intersect.}
+	\label{fig:ham_melnikov_method}
+\end{figure}
+
+\begin{proposition}[]
+	The unstable manifold $W^{U}(x_{\varepsilon})$ and stable manifold $W^{S}(x_{\varepsilon})$ must intersect for $\varepsilon>0$.
+\end{proposition}
+

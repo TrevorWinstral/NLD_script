@@ -181,12 +181,14 @@ Here only the leading order terms with respect to $\varepsilon$ in the integrand
 	x=y+\varepsilon w(y,t);\quad w(y,t) = w(y, t+T).
 \end{align}
 Plugging this transformation into our differential equation, we find
+\begin{subequations}
 \begin{align}
 	\dot{x} &= \left[ I + \varepsilon D_{y}w\right]\dot{y} + \varepsilon \frac{\partial w}{\partial t} \\
 	\dot{y} & = \underbrace{\left[ I + \varepsilon D_{y}w \right] ^{-1}}_{I - \varepsilon D_yw + \mathcal{O}(\varepsilon^2)}
 	\left[\varepsilon  \underbrace{f(y+\varepsilon w(y,t),t,\varepsilon)}_{=\dot{x}} -\varepsilon \frac{\partial w}{\partial t} \right]\\ 
 		&=\varepsilon \left[f(y,t,0) - \frac{\partial w}{\partial t}\right]_{t} + \mathcal{O}(\varepsilon)^2.
 \end{align}
+\end{subequations}
 In the last equation we used the Taylor expansion. We cannot set $w(y,t) = \int_{0}^{t} f(y,s,0)ds$ as that would make $\omega $ aperiodic. Instead we separate $f$ into two parts, the average and the deviation, $f(y,t,0) = \overline{f}_0 (y) + \tilde{f}(y,t)$. Note that the deviation has mean 0, therefore we set $w(y,t) = \int_{0}^{t} \tilde{f}(y,s)ds$ which is periodic. Therefore we find $\dot{y} = \varepsilon \overline{f}_0(y) + \mathcal{O}(\varepsilon^2)$, noting here that the order 2 term is still $T$ periodic. 
 
 This has given us that the original system is a $T$-periodic, $\mathcal{O}(\varepsilon^2)$ perturbation of the averaged system in the $y$ coordinates. 
@@ -224,18 +226,22 @@ This only holds if $n \leq \frac{1}{\varepsilon}$. The time $T$ map of the avera
 \end{ex}
 \begin{remark}[]
 	We can show that fixed points persist for $P_\varepsilon$ as follows. First we take the flow map for the system $F_{t_0}^{t}(y_0;\varepsilon)$, then we use the Taylor expansion to find
+	\begin{subequations}
 	\begin{align}
 		F_{t_0}^{t_0+T}(y_0; \varepsilon) &= F_{t_0}^{t_0+T}(y_0;0) + \varepsilon \frac{\partial}{\partial \varepsilon}F_{t_0}^{t_0 + T}(y_0;0)+ \mathcal{O}(\varepsilon^2) \\
 						  &= y_0 + \varepsilon  \left.\frac{\partial y(t_0+T;t_0;\varepsilon)}{\partial \varepsilon} \right|_{\varepsilon=0} + \mathcal{O}(\varepsilon^2) \\
 						  &= y_0 + \varepsilon \int_{t_0}^{t_0 +T} \overline{f}(y_0)dt + \mathcal{O}(\varepsilon^2) .
 	\end{align}
+\end{subequations}
 	In the last equality we used that
+	\begin{subequations}
 	\begin{align}
 		\left.\frac{ \partial y(t_0 + T; t_0, \varepsilon)}{\partial \varepsilon}\right|_{\varepsilon = 0} &=
-			\left. \frac{\partial}{\partial \varepsilon} \int_{t_0}^{t_0+T} \dot{y}(s;t_0,\varepsilon)ds \right|_{\varepsilon=0} =
-				\int_{t_0}^{t_0 +T} \left.\frac{\partial}{\partial \varepsilon } \left( \varepsilon \overline{f}(y(s)) + \mathcal{O}(\varepsilon^2)\right) \right|_{\varepsilon=0} ds \\
-														   &= \int_{t_0}^{t_0 + T} \overline{f}(y_0) ds.
+			\left. \frac{\partial}{\partial \varepsilon} \int_{t_0}^{t_0+T} \dot{y}(s;t_0,\varepsilon)ds \right|_{\varepsilon=0} \\
+		 &=\int_{t_0}^{t_0 +T} \left.\frac{\partial}{\partial \varepsilon } \left( \varepsilon \overline{f}(y(s)) + \mathcal{O}(\varepsilon^2)\right) \right|_{\varepsilon=0} ds \\
+		 &= \int_{t_0}^{t_0 + T} \overline{f}(y_0) ds.
 	\end{align}
+\end{subequations}
 	
 From this we have
 \begin{align}
@@ -403,6 +409,7 @@ Now we seek a $T$-periodic response via the Fourier series.
 		x_p(t) = \sum_{k \in \mathbb{Z}}^{} \hat{x}_{k}e^{ik\omega t} = x_0 + \sum_{j \in \mathbb{N}}^{} c_j \cos(j \omega t) + s_j \sin(j \omega t).
 	\end{align}
 	Substituting this into \eqref{eq6:one} and using that $f$ is $T$-periodic (in both variables) and therefore admits a convergent Fourier series we find
+	\begin{subequations}
 	\begin{align}
 		\frac{d}{dt}x_p(t)  &= 	f(x_p(t), t)\\
 		\frac{d}{dt}\sum_{k \in \mathbb{Z}}^{} \hat{x}_k e^{ik \omega t}
@@ -410,6 +417,7 @@ Now we seek a $T$-periodic response via the Fourier series.
 		\sum_{k \in \mathbb{Z}}^{}  i k \omega \hat{x}_{k}e^{ik \omega t}	
 				    &= \sum_{k \in \mathbb{Z}}^{} \hat{f}_{k} (x_p(t), t) e^{ik \omega t}.
 	\end{align}
+\end{subequations}
 	Now we can compare coefficients at different harmonics to find
 	\begin{align}
 		ik \omega \hat{x}_{k} = \hat{f}_{k}(x_{p}(t), t) = \hat{f}_{k}\left( \sum_{j \in \mathbb{Z}}^{} \hat{x}_{j}e^{ij \omega t}, t \right) \quad \forall k.
@@ -438,10 +446,12 @@ We will now apply this method in a few examples.
 		\ddot{x} + 2 \zeta \omega _0 \dot{x} + \omega _0^2 x = F(t) = F_0 \cos (\omega t). 
 	\end{align}
 	As only a single harmonic is sufficient to describe $F$, the harmonic coefficients are decoupled. By taking the Fourier series of $x$ and $F=\frac{1}{2}\left( F_0 e^{i \omega t} + F_0 e^{-i \omega t}\right)$ we compare coefficients
+	\begin{subequations}
 	\begin{align}
 		k=1&: \quad - \omega ^2 \hat{x}_1 e^{i \omega t} + i 2 \zeta \omega_0 \omega \hat{x}_1 e^{i \omega t} + \omega_0^2 \hat{x}_1 e^{i \omega t} = F_0 e^{i \omega t};\\
 		k=-1&: \quad  - \omega^2 \hat{x}_{-1}e^{-i\omega t} - i 2 \zeta \omega_0 \omega \hat{x}_{-1} e^{-i \omega t} + \omega_0^2 \hat{x}_{-1}e^{i \omega t} = F_0 e^{-i \omega  t}.
 	\end{align}
+\end{subequations}
 We therefore calculate 
 \begin{align}
 	\hat{x}_1 = \frac{1}{2} \left( \frac{F_0}{\omega_0^2 - \omega ^2 + i 2 \zeta \omega_0 \omega }\right);
@@ -466,23 +476,29 @@ We consider the Ansatz
 	\ddot{q}_1 + 2 \zeta \omega_0 \dot{q}_1 + \omega_0^2 q_{1} + \alpha q_{1}^{3} = F_0 \cos(\omega t). 
 \end{align}
 Now calculate $q_1^3$ using multi-angle trigonometric identities
+\begin{subequations}
  \begin{align}
 	 q_1^{3} &= \left( c_1 \cos (\omega t) + s_1 \sin(\omega t)\right)^{3} \\
 		 &= c_{1}^{3} \cos^{3}(\omega t) + 3 c_1^2 s_1 \cos^{2}(\omega t)\sin(\omega t) + 3 c_1 s_{1}^{2}\cos(\omega t) \sin^2(\omega t) +s_1^{3}\sin^{3}(\omega t) \\
 		 &= \frac{1}{4} \left(3 c_1^3 + 3 c_1 s_1^2\right) \cos(\omega t) + \frac{1}{4} \left(c_1^3 - 3 c_1 s_1^2\right) \cos(3 \omega t) + \frac{1}{4} \left(3 c_1^2 s_1 + 3 s_1^3\right) \sin(\omega t) \\
 		 &\quad + \frac{1}{4} \left(3 c_1^2 s_1 - s_1^3\right) \sin(3 \omega t). 
 \end{align}
+\end{subequations}
 \end{ex}
 Now we neglect the harmonics higher than 1 and balance the remaining
+\begin{subequations}
 \begin{align}
 	0&=	\left[\left(\omega _0^2 - \omega^2\right) c_1 + 2 \zeta \omega_0 \omega s_1 + \frac{3}{4} \alpha \left(c_1^3 + c_1 s_1^2\right) - F_0 \right] \cos(\omega t)  \\
 	 &\quad + \left[ \left( \omega_0^2 - \omega^2 \right) s_1 - 2 \zeta \omega_0 \omega c_1 + \frac{3}{4} \alpha \left(s_1^3 + c_1^2 s_1\right) \right] \sin(\omega t) +  \textrm{higher order harmonics}.  
 \end{align}
+\end{subequations}
 Therefore we have two algebraic equations in $c_1$ and $s_1$. Using the polar coordinates $c_1 = A \cos(\phi)$ and $s_1 = A \sin(\phi)$ we find
+\begin{subequations}
 \begin{align}
 	\left( \omega _0^2 - \omega ^2\right) A \cos(\phi) + 2 \zeta \omega_0 \omega A \sin (\phi) + \frac{3}{4} \alpha \left( A^3 \cos^3(\phi) + A^3 \cos(\phi) \sin^2(\phi) \right) &= F_0\\
 	\left( \omega _0^2 - \omega ^2\right) A \sin(\phi) + 2 \zeta \omega_0 \omega A \cos (\phi) + \frac{3}{4} \alpha \left( A^3 \sin^3(\phi) + A^3 \sin(\phi) \cos^2(\phi) \right) &= 0.
 \end{align}
+\end{subequations}
 Adding $\cos(\phi)$ times the first equation to $\sin(\phi)$ times the second we obtain
 \begin{align}
 	\left( \omega _0^2 - \omega^2 \right) A + \frac{3}{4} \alpha A^3 = F_0 \cos (\phi).

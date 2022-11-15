@@ -100,10 +100,12 @@ The fixed point $p_0$ along with the stable and unstable manifolds ($W^{S}(p_0)$
 \section{Consequences of hyperbolicity}
 Hyperbolicity has a few important consequences in our setting. Foremost, the perturbed hyperbolic fixed point $p_{\varepsilon}^{t_0}$ translates to a hyperbolic periodic orbit for the ODE. Furthermore, the solutions of the ODE are smooth in $\varepsilon$, thus the solutions within $W^{U}(p_{\varepsilon}^{t_0})$ and $W^{S}(p_{\varepsilon}^{t_0})$ remain $\mathcal{O}(\varepsilon)$ close to $\Gamma_0$, i.e.
 
+\begin{subequations}
 \begin{align}
 	x_{\varepsilon}^{S}(t;t_0) &= x^{0}(t-t_0) + \varepsilon a^{S}(t) + \mathcal{O}(\varepsilon^{2} );\quad t\in [t_0,\infty ) \\
 	x_{\varepsilon}^{U}(t;t_0) &= x^{0}(t-t_0) + \varepsilon a^{U}(t) + \mathcal{O}(\varepsilon^{2} );\quad t\in (-\infty, t_0].
 \end{align}
+\end{subequations}
 
 Now we examine what the global shape of these manifolds are for $\varepsilon>0$ and if they interact. To do this we will follow an idea from Poincaré, Arnold, and Melnikov. To this end we define the perpendicular vector to $f$ 
 \begin{align}
@@ -232,10 +234,12 @@ Since the Hamiltonian is conserved, the trajectories of the unperturbed system a
 	\label{fig:duffing_phase}
 \end{figure}
 The homoclinic orbit $\Gamma_0$ is contained in the $H=0$ level set of the Hamiltonian, which means that along this orbit we have
+\begin{subequations}
 \begin{align}
 \frac{1}{2}y^2 -\frac{1}{2}x^2+\frac{1}{4}x^4 &=0. \\
 \frac{dx}{dt}= y = \pm \sqrt{x^2-\frac{1}{2}x^2} &= F(x).
 \end{align}
+\end{subequations}
 
 Locally we can obtain a parametrization of the heteroclinic orbit by solving this separable differential equation as
 \begin{align}
@@ -250,10 +254,12 @@ Hence, on $\Gamma_{0}^{+}$, we have
 .	
 \end{align}
 As discussed above, for $\varepsilon > 0$, the homoclinic orbit splits into a stable and an unstable manifold. We can now calculate the Melnikov function to study whether these manifolds intersect.
+\begin{subequations}
 \begin{align}
 	M^{+}(t_0) &= \int_{-\infty }^{\infty }\langle f^{\perp}(x^{0}(t-t_0), g(x^{0}(t-t_0), t) \rangle dt \\
 		   &= - \frac{4 \delta }{3} + \sqrt{2} \gamma \pi \omega  \textrm{sech} \left( \frac{\pi \omega }{2}\right)\sin(\omega t_0). 
 \end{align}
+\end{subequations}
 Next, we ask if the Melnikov function is equal to zero. For an accumulation of intersection points, a homoclinic tangle, we also need a transverse zero. To this end we define $R^{0}(\omega) = \frac{4 \cosh \left( \frac{\pi \omega }{2}\right)}{3 \sqrt{2} \pi \omega }$. Thus the zeros of the Melnikov function are given by
  \begin{align}
 	 R^{0}(\omega) = \frac{\gamma }{\delta} \sin(\omega t_0).
@@ -581,6 +587,7 @@ In fact there also exists a countable infinity of non-periodic (not even asympto
 
 \begin{ex}[Binary expansion]
 	Let $x=\frac{1}{5}$, we find the iterates of $g$ 
+	\begin{subequations}
 	\begin{align}
 		x &= \frac{1}{5} & 2\cdot \frac{1}{5}<1 & \implies x_1 = 0\\
 		g\left(\frac{1}{5}\right) &= \frac{2}{5} & 2 \cdot \frac{2}{5}<1 &\implies x_2 = 0 \\
@@ -588,6 +595,7 @@ In fact there also exists a countable infinity of non-periodic (not even asympto
 		g^{3}\left(\frac{1}{5}\right) &= g\left(\frac{4}{5}\right) = \frac{8}{5} \mod 1 = \frac{3}{5}& 2\cdot \frac{3}{5} > 1	  &\implies x_4 = 1 \\
 		g^{4}\left(\frac{1}{5}\right) &= g\left(\frac{3}{5}\right) = \frac{6}{5} \mod 1 = \frac{1}{5}& 2\cdot \frac{1}{5} < 1	  &\implies x_5 = 0. 
 	\end{align}
+\end{subequations}
 	Since $g^{4}\left(\frac{1}{5}\right) = \frac{1}{5}$, we have reached a repeating loop (since our seed value was $\frac{1}{5}$), therefore we have that
 	\begin{align}
 		\frac{1}{5} = 0\cdot \frac{1}{2} + 0\cdot \frac{1}{4} + 1\cdot \frac{1}{8} + 1\cdot \frac{1}{16} + \ldots = \bm{.} \overline{0011}. 

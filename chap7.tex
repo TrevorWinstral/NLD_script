@@ -26,12 +26,12 @@ In the constrained space, consecutive symbols $s_i$ and $s_{i+1}$ must correspon
 		.
 	\end{align}
 	Be examining the entries of the transition matrix $A$ we find which strings are admissible
-	\begin{align}
+	\begin{align*}
 		A_{11}=1 \implies& \ldots 00\ldots \quad \textrm{admissible} \\
 		A_{12}=0 \implies& \ldots 01\ldots \quad \textrm{inadmissible} \\
 		A_{21}=0 \implies& \ldots 10\ldots \quad \textrm{inadmissible} \\
 		A_{22}=1 \implies& \ldots 00\ldots \quad \textrm{admissible}. 
-	\end{align}	
+	\end{align*}	
 	Therefore the set $\Sigma_{A}^{2}$ is comprised only of two elements $\{\overline{0}\bm{.} \overline{0}, \overline{1}\bm{.} \overline{1}\}$. As this space is very simple and only contains fixed points of $\sigma$, no chaos can occur.
 \end{ex}
 
@@ -126,12 +126,14 @@ These sets are illustrated in Fig. \ref{fig:NR_preimages} as well.
 \end{figure}
 
 Noting that $b_2 > N(b_2)$ and $b_1 < N(b_1)$ observe that the following hold
+\begin{subequations}
 \begin{align}
 	N(I_1) = [x_1, a_2] \supset I_2 \cup I_3 \cup I_4&; \quad	
 	N(I_3) = [N(b_2), a_2] \supset [b_2, a_2] \supset I_4;\\
 	N(I_2) = [a_0, N(b_1)] \supset [a_0, b_1] \supset I_1&;\quad
 	N(I_4) = [a_0, x_2] \supset I_1 \cup I_2 \cup I_3.
 \end{align}
+\end{subequations}
 \end{ex}
 Therefore we have that the possible transitions from $I_{i}$ to $I_{j}$ are described by the transition matrix
 \begin{align}
@@ -165,10 +167,12 @@ This transition matrix is in fact irreducible with $k=3$
 \end{align}
 
 We are not done yet, as we still need to establish a unique encoding. Note that if $a^{3}_{ij}\neq 0$ then the set $I_{i}\cap f^{-1}(I_j)\neq \emptyset$ is closed for $i=1,2,3,4$. In light of this, with $f=N^3$, define
+\begin{subequations}
 \begin{align}
 	I_{s_0s_1 \ldots s_n} &= I_{s_0} \cap f^{-1}(I_{s_1}) \cap f^{-2}(I_{s_2}) \cap \ldots \cap f^{-n}(I_{s_n}) \\
 			      &= I_{s_0} \cap f^{-1}\left(I_{s_1} \cap f^{-1}\left( I_{s_2} \cap \ldots f^{-1}\underbrace{\left(I_{s_{n-1}}\cap f^{-1}(I_{s_n})\right) }_{\neq\emptyset \textrm{, closed} }\right) \right).
 \end{align}
+\end{subequations}
 The condition $I_{s_{n-1}}\cap f^{-1}(I_{s_n})\neq \emptyset$ and is closed is true as each entry $a^{3}_{ij}\neq 0$. Therefore we have a nested sequence of nonempty, closed sets and by Cantor's Theorem their intersection yields a nonempty, closed set. By our previous result we have that $\Lambda= \bigcup_{s\in \Sigma^{N}_{A}}I_{s}$ is a Cantor set. In this case $N=4$ and $A$ is as above. We then have the encoder function $\phi:\Lambda \to \Sigma_{A}^{4}$ and the chaotic function $\sigma:\Sigma_{A}^{4}\to \Sigma_{A}^{4}$. These yield the commuting diagram
 \begin{equation}
 \begin{tikzcd}

@@ -232,11 +232,12 @@ In addition to \eqref{eq4:1star} being nonlinear, the boundary conditions are al
 		\dot{y}=-h(x) + \alpha x^2 =(\alpha - a) x^2 -bx^3 - cx^4 + \mathcal{O}(x^5). \numberthis \label{eq4:two}
 	\end{align}
 	Equations \eqref{eq4:one} and \eqref{eq4:two} must hold for all $x$ small enough, therefore the coefficients of equal powers of $x$ in these two equations must match.
+	\begin{subequations}
 	\begin{align}
 		\mathcal{O}(x^2)&:\ \alpha = a\\
 		\mathcal{O}(x^3)&:\ b=0 \\
 		\mathcal{O}(x^4)&:\ 2a^2 = -c.
-	\end{align}
+	\end{align}\end{subequations}
 	Therefore we find 
 	\begin{align}
 		\boxed{
@@ -286,6 +287,7 @@ Now the center manifold disappears as the center subspace $E^{C}$ disappears for
 
 \section{Center manifolds depending on parameters}
 We begin with the setup
+\begin{subequations}
 \begin{align}
 	\begin{dcases}
 		\dot{x} = Ax + f(x,y,\varepsilon) \\
@@ -293,7 +295,7 @@ We begin with the setup
 	\end{dcases}
 ;\quad x \in \mathbb{R}^{c},\ y \in \mathbb{R}^{d},\ 0\leq \varepsilon \ll 1;\\
 f,g \in \mathcal{C}^{r},\ f,g=\mathcal{O}(\|x\|^2, \|y\|^2, \|x\|\|x\|, {\varepsilon \|x\|, \varepsilon \|y\|} ).
-\end{align}
+\end{align}\end{subequations}
 The order $\varepsilon \|x\|$ and $\varepsilon \|y\|$ terms are due to the perturbation of the linear part. Now assume $ \textrm{Re} (\lambda _j(A))= $ for $j=1,\ldots,c$ (the center directions) and $ \textrm{Re} (\lambda _j(B)) \neq  $ for $j=1,\ldots,d $ (the hyperbolic directions). Next, rewrite $\tilde{x}=
 \begin{pmatrix}
 	x \\ \varepsilon
@@ -375,6 +377,7 @@ This can then be applied to the perturbed example from above.
 		= -ax^2 -bx\varepsilon - c\varepsilon^2 - dx^3 - e x^2 \varepsilon - j x \varepsilon^2 -k \varepsilon^3 - \mathcal{O}(4) + \alpha x^2.
 	\end{align}
 	Comparing equal powers in these two equations we find
+	\begin{subequations}
 	\begin{align}
 		\mathcal{O}(x^2)&:\ 0 = \alpha -a; \quad
 		&\mathcal{O}(\varepsilon^2)&:\ 0=-c;\quad
@@ -383,7 +386,7 @@ This can then be applied to the perturbed example from above.
 		&\mathcal{O}(x^3)&:\ 0=-d;\quad
 		&\mathcal{O}(x^2\varepsilon)&:\ 2a=-e;\\
 		\mathcal{O}(x\varepsilon^2)&:\ b=-j.
-	\end{align}
+	\end{align}\end{subequations}
 	Thus the shape of $W^{C}_{\varepsilon}(0)$ is given by 
 	\begin{align}
 		y = \tilde{h}(x,\varepsilon) = \alpha(1-2\varepsilon)x^2+ \mathcal{O}(4).
@@ -627,17 +630,20 @@ Such constellations are common in oscillatory systems at the loss of stability. 
 	 . \numberthis \label{eq4:loss_stab_cent_mfd}
 \end{align}
 The coordinates $(u,v)$ correspond to the basis given by $\left[  \textrm{Re} (e_n),  \textrm{Im} (e_n)\right]$. The normal form on $W^{C}_{\mu }(0)$ is
+\begin{subequations}
 \begin{align}
 	\dot{r}&= r\left(d(\mu )+a(\mu )r^2\right) + \mathcal{O}(r^5); &&d(\mu )=  \textrm{Re} (\lambda _n(\mu )) \\
 	\dot{\theta } &= \omega(\mu ) + e( \mu )r^2 + \mathcal{O}(r^4);&&\omega(\mu )=  \textrm{Im} (\lambda _n(\mu )).
-\end{align}
+\end{align}\end{subequations}
 The functions $a$ and $e$ depend on the given $\tilde{f}$ and $\tilde{g}$ (thereby also on $f$). We then define
+\begin{subequations}
 \begin{align}
 	d_0 &= \frac{d}{d\mu } \textrm{Re} \left.\left[ \lambda _n(\mu ) \right] \right|_{\mu =0}; 
 		\quad \omega_0= \textrm{Im} (\lambda_n(0 ))\\
 		a_0 &= a(0) = \frac{1}{16}\left. \left[\tilde{f}_{uuu} + \tilde{f}_{uvv} + \tilde{g}_{uuv} + \tilde{g}_{vvv}\right] \right|_{(u,v)=0} \\
 		    &\quad +\frac{1}{16\omega } \left. \left[\tilde{f}_{uv}(\tilde{f}_{uu}+ \tilde{f}_{vv}) - \tilde{g}_{uv}(\tilde{g}_{uu}+\tilde{g}_{vv}) - \tilde{f}_{uu} \tilde{g}_{uu} + \tilde{f}_{vv}\tilde{g}_{vv}\right]\right|_{(u,v)=0}.
 \end{align}
+\end{subequations}
 Note that we must start from the standard form \eqref{eq4:loss_stab_cent_mfd}. 
 \end{enumerate}
 Building on this last case, we explore the extended center manifold in the next theorem.
