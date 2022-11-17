@@ -192,11 +192,11 @@ A priori, this is possible to occur. In this case the existence of one loop actu
 
 The orientation preserving nature of $P_{\varepsilon}$ can be seen by using Liouville's Theorem. It states that for a general dynamical system $\dot{x}=f(x,t)$, the linearization of its flow-map $F_{t_0}^t:x_0 \mapsto x(t;t_0, x_0)$ satisfies 
 	\begin{align}
-		\det(DF_{t_0}^{t}(p)) = \exp \left( \int_{t_0}^{t}  \textrm{div}  ( f(x(s;t_0,p),s))ds\right).
+		\det(DF_{t_0}^{t}(p)) = \exp \left( \int_{t_0}^{t}  \nabla \cdot ( f(x(s;t_0,p),s))ds\right).
 	\end{align}
 In our case we find
 	\begin{align}
-		\det (DP_{\varepsilon}(q)) = \exp\left(\int_{t_0}^{t_0+T}  \textrm{div} \left. (f + \varepsilon g) \right|_{x_{\varepsilon}(t);\ x_{\varepsilon}(t_0)=q}) ds \right) > 0
+		\det (DP_{\varepsilon}(q)) = \exp\left(\int_{t_0}^{t_0+T} \nabla \cdot \left. (f + \varepsilon g) \right|_{x_{\varepsilon}(t);\ x_{\varepsilon}(t_0)=q}) ds \right) > 0
 	\end{align}
 	Therefore $DP_{\varepsilon}(q)$ is orientation preserving, in fact Poincaré maps in general are orientation preserving.	
 \end{remark}
@@ -264,7 +264,7 @@ Next, we ask if the Melnikov function is equal to zero. For an accumulation of i
  \begin{align}
 	 R^{0}(\omega) = \frac{\gamma }{\delta} \sin(\omega t_0).
 \end{align}
-For a zero to exist, $R^{0}(\omega)$ cannot exceed the value $\frac{\gamma }{\delta}$, as $\sin(\omega t_0)$ is bounded by $1$. Therefore when we have $R^{0}(\omega) \leq \frac{\gamma }{\delta }$, a root of the Melnikov function exists. This root is non-transverse only when it is quadratic, i.e. when only a peak of the sine function intersects with $R^{0}(\omega) $. This occurs exactly when $R ^{0}(\omega)=\frac{\gamma }{\delta}$. In all other cases, the sine wave intersects the curve of $R^{0}(\omega) $ transversely, i.e. the zero is transient. This is illustrated in Fig. \ref{fig:beam_tangle}, where equality occurs along the graph of $R^{0}$, that is the set on which non-transverse zeros exist. The area above this curve contains all of the point for which the zero is transverse.
+For a zero to exist, $R^{0}(\omega)$ cannot exceed the value $\frac{\gamma }{\delta}$, as $\sin(\omega t_0)$ is bounded by $1$. Therefore when we have $R^{0}(\omega) \leq \frac{\gamma }{\delta }$, a root of the Melnikov function exists. This root is non-transverse only when it is quadratic, i.e. when only a peak of the sine function intersects with $R^{0}(\omega) $. This occurs exactly when $R ^{0}(\omega)=\frac{\gamma }{\delta}$. In all other cases, the sine wave intersects the curve of $R^{0}(\omega) $ transversely, i.e. the zero is transverse. This is illustrated in Fig. \ref{fig:beam_tangle}, where equality occurs along the graph of $R^{0}$, that is the set on which non-transverse zeros exist. The area above this curve contains all of the point for which the zero is transverse.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\textwidth]{figures/ch6/15beam_tangle.png}

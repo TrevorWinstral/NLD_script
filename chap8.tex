@@ -36,7 +36,7 @@ Then the shorthand notation for the system is
 \end{align}
 
 \begin{ex}[Holonommic mechanical systems are Hamiltonian]
-	Assume that all external forces are derived from a potential, i.e. $F(q,t)= -\frac{\partial V(q,t)}{\partial q}$ where $q$ denotes the position. Further assume that all constraints are geometric, i.e. $f(q,t)=0$. We have $n$ degrees of freedom as $q \in \mathbb{R}^{n}$ and $\dot{q} \in \mathbb{R}^{n}$. The kinetic energy is given by $T(q,\dot{q})$ and the potential energy by $V(q,t)$. We then use Newton's second law which is equivalent to the principle of least action (Maupertius's principle). This principle states that for the \emph{Lagrangian} $L = T-V$ we have that the variational derivative of the action is 0
+	Assume that all external forces are derived from a potential, i.e. $F(q,t)= -\frac{\partial V(q,t)}{\partial q}$ where $q$ denotes the position. Further assume that all constraints are geometric, i.e. $f(q,t)=0$. We have $n$ degrees of freedom as $q \in \mathbb{R}^{n}$ and $\dot{q} \in \mathbb{R}^{n}$. The kinetic energy is given by $T(q,\dot{q})$ and the potential energy by $V(q,t)$. We then use Newton's second law which is equivalent to the principle of least action (Maupertius's principle). This principle states that for the \emph{Lagrangian} $L = T-V$ we have that the variational functional of the action is 0
 	\begin{align}
 		\boxed{
 			\delta \int_{t_0}^{t_1} L(q(s), \dot{q}(s), s)ds = 0. \numberthis \label{eq8:ELE} 
@@ -49,7 +49,7 @@ Then the shorthand notation for the system is
 Thus we have $n$, second-order ODEs. 
 
 \begin{remark}[]
-	In \eqref{eq8:ELE} the variational derivative $\delta$ being equal to 0 stems from the principle of least action, as the action $\int_{}^{} L(q(s), \dot{q}(s), s)ds$ is then a minimum. The variational derivative $\delta$ of a functional $F$ (here $F[\gamma]=\int_{}^{} \gamma ds)$ of a path (in our case $\gamma = (q(s), \dot{q}(s), s)$) corresponds to seeing how infinitesimal changes to the path change the output of the functional. These different paths are depicted in Fig. \ref{fig:variational_deriv}.
+	In \eqref{eq8:ELE} the variational functional $\delta$ being equal to 0 stems from the principle of least action, as the action $\int_{}^{} L(q(s), \dot{q}(s), s)ds$ is then a minimum. The variational functional $\delta$ of a functional $F$ (here $F[\gamma]=\int_{}^{} \gamma ds)$ of a path (in our case $\gamma = (q(s), \dot{q}(s), s)$) corresponds to seeing how infinitesimal changes to the path change the output of the functional. These different admissible paths are depicted in Fig. \ref{fig:variational_deriv}.
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.35\textwidth]{figures/ch8/1variational_deriv.png}
@@ -342,15 +342,6 @@ These two inequalities are clearly a contradiction. A similar argument show that
 Now it is possible to analyze the stability of this fixed point. We have that $H(0)=0$, $DH(0) = 0 \in \mathbb{R}^{4}$, and $\frac{dH(x(t))}{dt}=0$. We still need to find out if $H$ is cup shaped, first calculate the Hessian
 \begin{align}
 	D^2H = 
-	\begin{pmatrix}
-		D^2V & 0 \\
-		0 &
-		\begin{matrix}
-			\frac{1}{m_1} & 0 \\
-			0 & \frac{1}{m_2}
-		\end{matrix}
-	\end{pmatrix}
-= 
 	\left(
 	\begin{array}{c|c}
 		D^2V & 0_{2\times 2} \\
@@ -364,7 +355,6 @@ Now it is possible to analyze the stability of this fixed point. We have that $H
 \right)
 .
 \end{align}
-{\color{blue} left matrix was using amsmath, right using array. we can choose which we want}
 Next, we evaluate if each of the diagonal matrices are positive definite. The lower right matrix is clearly positive definite as it is a diagonal matrix with strictly positive entries. For the upper left, a calculation is required
 \begin{align}
 \left.D^2V\right|_{0} = 
@@ -392,7 +382,7 @@ By the Morse lemma, there exists a change of coordinates $x\mapsto y$ such that 
 
 It is possible to draw on other results from differential geometry, namely the foliation theorem \cite{Milnor1965}. This tells us that level surfaces of a scalar function can only change their topology (i.e. become no longer diffeomorphic to each other) through level surfaces that contain a critical point of the function ($Df$ must vanish somewhere on the level set). 
 
-We can see this in the example of the pendulum equation, whose Hamiltonian we previously derived. The stable fixed point is a nondegenerate critical point of the Hamiltonian (as all other points around it have more energy) and via a change of coordinates looks like the direct sum of quadratics. The loops representing periodic oscillation are also the level sets for the respective energy level and are all diffeomorphic to each other (they are all diffeomorphic to $\mathcal{S}^{1}$) until the level set which intersects the unstable fixed points, at which point the set is diffeomorphic to the infinite chain $\wedge _{-\infty }^{\infty }S^{1}$. Continuing to higher level energy sets, each is diffeomorphic to two lines $\{0,1\}\times (0,1)$. This transition is depicted in Fig. \ref{fig:morse_foliation}.
+We can see this in the example of the pendulum equation, whose Hamiltonian we previously derived. The stable fixed point is a nondegenerate critical point of the Hamiltonian (as all other points around it have more energy) and via a change of coordinates looks like the direct sum of quadratics. The loops representing periodic oscillation are also the level sets for the respective energy level and are all diffeomorphic to each other (they are all diffeomorphic to $\mathcal{S}^{1}$) until the level set which intersects the unstable fixed points. This transition is depicted in Fig. \ref{fig:morse_foliation}.
 
 \begin{figure}[h!]
 	\centering
@@ -484,7 +474,7 @@ Where on the last equation of the first line we used the change of coordinates $
 	Therefore by Liouville's theorem we have that $ \textrm{vol} [V(t)]$ is constant if and only if $\det\left(DF_{t_0}^{t}(x_0)\right)=1$. This is called this \emph{infitesimal (local) form}.
 \end{proof}
 
-\section{Consequences of area preservation for 2D time-periodic Hamiltonians}
+\section{Consequences of area preservation}
 We now constrain ourselves to two dimensional, time-periodic Hamiltonian systems
 \begin{align}
 	\dot{x}= JDH(x,t);\quad x \in \mathbb{R}^{2};\quad H(x,t)= H(x,t+T);\quad T>0.
@@ -493,11 +483,10 @@ The Poincaré map is
 \begin{align}
 	P_{t_0}:x_0 \mapsto x(t_0+T; t_0, x_0) = F_{t_0}^{t_0+T}(x_0).
 \end{align}
-An example of such a system is the periodically forced pendulum with the Hamiltonian  {\color{blue} I am not sure what his $x_2$ is here, it looks like $P\varphi$ }
 \begin{align}
 	H(x,t) = H(x_0) + \varepsilon H_{1}(x,t);\quad x = 
 	\begin{pmatrix}
-		\varphi \\ P\varphi
+		\varphi \\ p_\varphi
 	\end{pmatrix};\quad
 	\dot{x} = JDH(x,t),
 \end{align}
@@ -509,14 +498,14 @@ It is possible to classify the different types of fixed points for $P_{t_0}$. Le
 \end{align}
 Hence, the eigenvalues $\lambda_1, \lambda_2\in \mathbb{C}$ of the linearized Poincaré map have the property 
 \begin{align}
-	1 = \det\left(DP_{t_0}(x_0)\right) = \lambda_1 \lambda^2.
+	1 = \det\left(DP_{t_0}(x_0)\right) = \lambda_1 \lambda_2.
 \end{align}
+Furthermore, as the matrix $D P_{t_0}(x_0)$ is real and has even dimensions, the eigenvalues must occur in complex conjugate pairs.
 This implies that there are only a few restricted eigenvalue configurations which are possible.
 \begin{enumerate}
 	\item \textbf{Robust (structurally stable) configurations} Saddles with $\lambda_1 \neq \lambda_2$ and $\lambda_1, \lambda_2 \in \mathbb{R}$ and centers with $\lambda_1 \neq \lambda_2$ with $\lambda_1 = e^{i \alpha } = \overline{\lambda }_2$ are the only robust eigenvalue configurations which are possible.
 	\item \textbf{Non-robust configurations} The only other possibilities are $\lambda _1=\lambda _2 = 1$ or $\lambda _1 = \lambda _2 = -1$. 
 \end{enumerate}
-{\color{blue} what about $\lambda_1 = re^{i\alpha}$ and $\lambda_2 = r'e^{-i\alpha }$ for $r>1$ and $r r'=1$? This should be a possible configuration which also has product equal to 1.}
 The different eigenvalue configurations are shown in Fig. \ref{fig:poinc_eigv_config}. As we can see the only robust fixed points of 2-dimensional Poincaré maps in Hamiltonian systems are saddles or centers (under linearization). The same conclusion holds, as a consequence, for any planar, autonomous Hamiltonian system (flow) $\dot{x} = JDH(x)$.
 \begin{figure}[h!]
 	\centering
@@ -540,4 +529,95 @@ Where we had the unperturbed system then asked if the unstable and stable manifo
 \begin{proposition}[]
 	The unstable manifold $W^{U}(x_{\varepsilon})$ and stable manifold $W^{S}(x_{\varepsilon})$ must intersect for $\varepsilon>0$.
 \end{proposition}
+\begin{proof}
+	Assume contrarilty that for $\varepsilon>0$ the manifolds do not intersect. This leaves us with the image shown in Fig. \ref{fig:contradiction_assumption}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.4\textwidth]{figures/ch8/9contradiction_assumption.png}
+		\caption{The image which we are left with if the two manifolds do not intersect.}
+		\label{fig:contradiction_assumption}
+	\end{figure}
+
+	As in Fig. \ref{fig:contradiction_assumption}, denote by $A$ a poin in $ W^{S}(x_\varepsilon)$ and by $B$ a poin in $W^{U}(x_{\varepsilon})$. Then call the region $S$ the area enclosed by the curves of each manifold and the line $AB$. The region $S$ under the  Poincaré map now has a larger area than $S$, as can be seen by calculating:
+\begin{align}
+	\textrm{vol}[P_{t_0}(S) - S] =  \textrm{vol} [\overline{ABP_{t_0}(A)P_{t_0}(B)}] \neq 0.
+\end{align}
+This violates the area preservation property of the Poincaré map, and therefore leads to a contradiction.
+\end{proof}
+
+There are four possible types of intersection geometries: transverse (chaotic), topologically transverse (chaotic), tangency, and equality (no chaos). These are all illustrated in Fig. \ref{fig:intersection_types}. The tangency intersection lacks area preservation, and is also not possible.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.45\textwidth]{figures/ch8/10intersection_geometry_A.png}
+	\includegraphics[width=0.4\textwidth]{figures/ch8/10intersection_geometry_B.png}
+	\includegraphics[width=0.45\textwidth]{figures/ch8/10intersection_geometry_C.png}
+	\includegraphics[width=0.4\textwidth]{figures/ch8/10intersection_geometry_D.png}
+	\caption{The four types of intersection geometries, clockwise from the top-left: transverse, topologically transverse, tangent, and equal. The lack of area preservation for tangent intersection is visible by the existense of the intrusions which appear.}
+	\label{fig:intersection_types}
+\end{figure}
+
+An equality intersection can occor when the Hamiltonian is conserved even after perturbation. This implies that all trajectories continue to remain confined to the level sets of $H$. 
+
+As tangent intersections are not possible within the area preserving context, if $M(t_0) \neq 0$ then we must have homoclinic chaos. Thus in periodically forced Hamiltonian systems, chaos is generic!
+
+\begin{proposition}[Recurrence]
+	For an autonomous Hamiltonian system
+	\begin{align}
+		\dot{x}= JDH(x);\quad x \in \mathbb{R}^{2n},
+	\end{align}
+	if there exists a subset $S_0$ of $\mathbb{R}^{2n}$ which is compact, invariant, and has nonzero volume. Then for \underline{any} open set $U\subset S_0$ and \underline{any} time $T>0$, there exists an $x_0 \in U$ and $t>T$ such that $x(t;t_0, x_0)\in U$.	
+\end{proposition}
+This property is illustrated in Fig. \ref{fig:hamiltonian_recurrence}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/ch8/11hamiltonian_recurrence.png}
+	\caption{A depiction of the recurrence property of autonoumous, area-preserving, Hamiltonian systems.}
+	\label{fig:hamiltonian_recurrence}
+\end{figure}
+\begin{proof}
+	The recurrence propery follows from the more general Poincaré Reccurence Theorem, which can be applied here as the flow map $F_{t_0}^{t}:x_0 \mapsto x(t;t_0, x_0)$ is volume preserving and invertible and $S_0$ is compact, invariant, and has nonzero volume.
+\end{proof}
+\begin{proposition}[Poincaré Recurrence theorem]
+	For a compact domain $B$ with nonzero volume equipped with an invertible, volume preserving map $P:B\to B$, for any open subset $U\subset B$ there exists a $N \in \mathbb{N}^{+}$ such that
+	\begin{align}
+		\boxed{P^{N}(U) \cap U \neq \emptyset.}
+	\end{align}
+\end{proposition}
+\begin{proof}
+	Consider the sequence $U, P(U), P^{2}(U),\ldots$, we claim that at least two of these sets intersect. Towards a contradiction, assume that each set is disjoint, therefore we have
+	\begin{align}
+		\textrm{vol} [B] \geq  \textrm{vol} \left[ \bigcup_{i=0}^{\infty }P^{i}(U) \right] = \sum_{i=0}^{\infty }  \textrm{vol} \left[ P^{i}(U) \right] = \sum_{i=1}^{\infty } \ \textrm{vol} [U]= \infty .
+	\end{align}
+	The first inequality stems from the invariance of $B$, the second equality from the disjointness assumption, and the third from the volume preservation. This is clearly a contradiction as $B$ is compact and must have finite volume. Therefore there exist $m,n$ such that the intersection $P^{m}(U)\cap P^{n}(U)$ is non-empty. Call this intersection $A$ and assume without loss of generality that $n>m$. 
+
+	For an $x \in A $ we know that $x\in P^{m}(U) $, thus $P^{-m}(x) \in U $, similarly we know $x\in P^{n}(u) $ so $P^{-m}(x)\in P^{n-m}(U) $. Putting these two facts together tells us that $P^{-m}(x) $ is an element of $U $ and $P^{n-m}(U)$, hence the intersection $U\cap P^{n-m}(U)$ cannot be empty. By calling $N=n-m$, we have shown the proposition.
+\end{proof}
+\begin{remark}[]
+	There is a stronger version of Poincaré's Recurrence theorem, which states that almost all initial conditions return arbitrarily close to themselves. Here almost all is with respect to the assumed volume.
+\end{remark}
+
+\begin{ex}[Recurrence of the pendulum]
+	For the pendulum, the area enclosed by an energy level set can be used as $S_0$. For large enough energy levels, this set may not be compact. This can be resolved by transforming the phase space $\mathbb{R}^{2}\to \mathcal{S}^{1}\times \mathbb{R}$ by taking advantage of the periodicity. This is shown in Fig. \ref{fig:pendulum_recurrence} where the importance of compactness and invariability are demonstrated as well.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.75\textwidth]{figures/ch8/12pendulum_recurrence.png}
+		\caption{The recurrence of the pendulum is depicited along with the phase space transformation. The recurrence in the standard phase space holds for all point in the set $U$ (blue), each element returns arbitrarily often. For the set $\tilde{U}$ (red), these points do not return infinitely often, and in fact never return in the base space. This is due to the fact that in the base space $S_0$ is not compact, if instead we identify the two dotted blue lines to transform the base space based on periodicity, we find that recurrence does hold.}
+		\label{fig:pendulum_recurrence}
+	\end{figure}
+\end{ex}
+
+\begin{ex}[Recurrence in non-smooth conservative systems]
+	For a linear spring with a mass attached, which can bound off an elastic wall as the spring is expanded, we can also observe recurrence. Denoting the deviation of the mass by $q$ and the momentum by $m\dot{q}$ we still have recurrence under the map $P:x_0 \mapsto x(T;0, x_0)$, which is volume preserving. The dynamical system and phase space are illustrated in Fig. \ref{fig:bouncy_wall_spring}.
+	 \begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.45\textwidth]{figures/ch8/13bouncy_wall_spring_A.png}
+		\includegraphics[width=0.4\textwidth]{figures/ch8/13bouncy_wall_spring_B.png}
+		\caption{Left: A sketch of the dynamical system, with the elastic wall in blue. Right: The phase space of the dynamical system, with the red arrow designating that when the mass hits the wall (positive $x_2$) it immediately moves to the negative lower half (at the same absolute height) due to the elasticity. Furthermore, the volume preserving nature is shown by the two equal volume orange areas.}
+		\label{fig:bouncy_wall_spring}
+	\end{figure}
+	
+\end{ex}
+
+
 
