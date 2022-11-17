@@ -293,10 +293,10 @@ We begin with the setup
 		\dot{x} = Ax + f(x,y,\varepsilon) \\
 		\dot{y} = By + g(x,y,\varepsilon)
 	\end{dcases}
-;\quad x \in \mathbb{R}^{c},\ y \in \mathbb{R}^{d},\ 0\leq \varepsilon \ll 1;\\
-f,g \in \mathcal{C}^{r},\ f,g=\mathcal{O}(\|x\|^2, \|y\|^2, \|x\|\|x\|, {\varepsilon \|x\|, \varepsilon \|y\|} ).
+;\quad x \in \mathbb{R}^{c},\ y \in \mathbb{R}^{d},\ 0\leq \|\varepsilon\| \ll 1;\ \varepsilon\in \mathbb{R}^{p};\\
+f,g \in \mathcal{C}^{r},\ f,g=\mathcal{O}(\|x\|^2, \|y\|^2, \|x\|\|x\|, {\|\varepsilon\| \|x\|, \|\varepsilon\| \|y\|} ).
 \end{align}\end{subequations}
-The order $\varepsilon \|x\|$ and $\varepsilon \|y\|$ terms are due to the perturbation of the linear part. Now assume $ \textrm{Re} (\lambda _j(A))= $ for $j=1,\ldots,c$ (the center directions) and $ \textrm{Re} (\lambda _j(B)) \neq  $ for $j=1,\ldots,d $ (the hyperbolic directions). Next, rewrite $\tilde{x}=
+The order $\|\varepsilon\| \|x\|$ and $\|\varepsilon\| \|y\|$ terms are due to the perturbation of the linear part. Now assume $ \textrm{Re} (\lambda _j(A))= $ for $j=1,\ldots,c$ (the center directions) and $ \textrm{Re} (\lambda _j(B)) \neq  $ for $j=1,\ldots,d $ (the hyperbolic directions). Next, rewrite $\tilde{x}=
 \begin{pmatrix}
 	x \\ \varepsilon
 \end{pmatrix}
@@ -310,7 +310,7 @@ $ and $\tilde{y}=y$ to obtain the system
 	\begin{pmatrix}
 		A & 0 \\ 0 & 0	
 	\end{pmatrix}
-	\in \mathbb{R}^{(c+1)\times (c+1)}; \quad \tilde{f} =
+	\in \mathbb{R}^{(c+p)\times (c+p)}; \quad \tilde{f} =
 	\begin{pmatrix}
 		f \\ 0
 	\end{pmatrix}. \numberthis \label{eq4:unostar}
@@ -319,7 +319,7 @@ Here, $\tilde{g}=g$ and $\tilde{B}=B$. Further, note that $ \textrm{span} \left\
 	\begin{pmatrix}
 		x \\0
 	\end{pmatrix}
-\right\}$ is an invariant subspace for $\tilde{A}$. The eigenvalues of $\tilde{A}$ are the same as those of $A$ and an additional $0$, thus there are $c+1$ center directions and $d$ hyperbolic directions. Applying the center manifold theorem to the fixed point $0 \in \mathbb{R}^{c+1+d}$ of \eqref{eq4:unostar} we obtain that there exists a $\tilde{W}^{C}(0)$ $\mathcal{C}^{r-1}$ manifold tangent to $E^{C}$ at $
+\right\}$ is an invariant subspace for $\tilde{A}$. The eigenvalues of $\tilde{A}$ are the same as those of $A$ and an additional $0$, thus there are $c+p$ center directions and $d$ hyperbolic directions. Applying the center manifold theorem to the fixed point $0 \in \mathbb{R}^{c+p+d}$ of \eqref{eq4:unostar} we obtain that there exists a $\mathcal{C}^{r-1}$ manifold $\tilde{W}^{C}(0)$ tangent to $E^{C}$ at $
 \begin{pmatrix}
 	\tilde{x} \\ \tilde{y}
 \end{pmatrix}
@@ -327,7 +327,7 @@ Here, $\tilde{g}=g$ and $\tilde{B}=B$. Further, note that $ \textrm{span} \left\
 \begin{pmatrix}
 	0 \\ 0
 \end{pmatrix}
-$ which is invariant and is of dimension $c+1$. The geometry of this manifold is illustrated in Fig. \ref{fig:pert_cent_mfd}. Note in the figure that there is no dynamics in the $\varepsilon$ direction, as $\dot{\varepsilon}=0$ and that $(x,y)=(0,0)\in \mathbb{R}^{c+d}$ remains a fixed point for $\varepsilon\neq 0$.
+$ which is invariant and is of dimension $c+p$. The geometry of this manifold is illustrated in Fig. \ref{fig:pert_cent_mfd}. Note in the figure that there is no dynamics in the $\varepsilon$ direction, as $\dot{\varepsilon}=0$ and that $(x,y)=(0,0)\in \mathbb{R}^{c+d}$ remains a fixed point for $\varepsilon\neq 0$.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.7\textwidth]{figures/ch3/6pert_cent_mfd.png}
@@ -337,9 +337,9 @@ $ which is invariant and is of dimension $c+1$. The geometry of this manifold is
 
 Computing $\tilde{W}^{C}(0)$ is done in a similar fashion as before. We use the center manifold theorem to get	
 \begin{align}
-	\tilde{y} = y= \tilde{h}(\tilde{x}) = \tilde{h}(x,\varepsilon) = \mathcal{O}(\|x\|^2, \varepsilon \|x\|, \varepsilon^2) = \mathcal{O}(\|x\|^2, \varepsilon \|x\|).
+	\tilde{y} = y= \tilde{h}(\tilde{x}) = \tilde{h}(x,\varepsilon) = \mathcal{O}(\|x\|^2, \|\varepsilon \|\|x\|, \|\varepsilon\|^2) = \mathcal{O}(\|x\|^2, \|\varepsilon \|\|x\|).
 \end{align}
-The order $\varepsilon^2$ term was dropped as $x=0$ must remain a fixed point. The function $h$ describes the graph of $W^{C}_{\varepsilon}(0)$. Then the reduced dynamics on $W^{C}_{\varepsilon}(0)$ is
+The order $\|\varepsilon\|^2$ term was dropped as $x=0$ must remain a fixed point. The function $h$ describes the graph of $W^{C}_{\varepsilon}(0)$. Then the reduced dynamics on $W^{C}_{\varepsilon}(0)$ is
 \begin{align}
 	\boxed{
 		\dot{x} = Ax + f(x, \tilde{h}(x, \varepsilon), \varepsilon).
