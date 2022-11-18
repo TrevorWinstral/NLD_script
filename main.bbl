@@ -31,6 +31,17 @@ Haller, G. (2001).
 \bibitem[Kutz et~al., 2015]{Kutz2016}
 Kutz, J.~N., Fu, X., and Brunton, S.~L. (2015).
 \newblock Multi-resolution dynamic mode decomposition.
+\newblock {\em SIAM Journal on Applied Dynamical Systems}.
+
+\bibitem[Lotka, 1925]{Lotka1925}
+Lotka, A. (1925).
+\newblock {\em Elements of Physical Biology}.
+\newblock Williams and Wilkins Company.
+
+\bibitem[Milnor, 1965]{Milnor1965}
+Milnor, J. (1965).
+\newblock {\em Topology from the differentiable viewpoint}.
+\newblock University Press of Virginia.
 
 \bibitem[Palis, 1967]{PalisPhd}
 Palis, J. (1967).
@@ -68,6 +79,12 @@ Sun, P., Colagrossi, A., Marrone, S., and Zhang, A. (2016).
 Verhulst, F. (1989).
 \newblock {\em Nonlinear Differential Equations and Dynamical Systems}.
 \newblock Springer.
+
+\bibitem[Volterra, 1926]{Volterra1926}
+Volterra, V. (1926).
+\newblock Variazioni e fluttuazioni del numero d'individui in specie animali
+  conviventi.
+\newblock {\em Memor. Accad. Lincei.}, 6:31--113.
 
 \bibitem[Williams et~al., 2015]{Williams2015}
 Williams, M., Kevrekidis, I., and Rowley, C. (2015).

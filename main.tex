@@ -24,7 +24,7 @@
 \usetikzlibrary{cd} % for function diagrams
 
 \usepackage{mathtools}
-\mathtoolsset{showonlyrefs}
+%\mathtoolsset{showonlyrefs}
 
 \usepackage{xcolor}
 \definecolor{linkcolour}{rgb}{0,0.2,0.6}
@@ -51,8 +51,25 @@
 \usepackage{enumitem}
 \setenumerate[1]{label=(\roman*)}
 
-\title{Nonlinear Dynamics and Chaos}
-\author{Prof. George Haller\\ Transcription: Trevor Winstral}
+\usepackage[affil-it]{authblk}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\addtocounter{footnote}{-1}
+\title{Nonlinear Dynamics and Chaos%
+\thanks{\texttt{\href{http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=139546&semkez=2020W&ansicht=KATALOGDATEN&lang=de}{151-0532-00L},
+\href{http://vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=139546&semkez=2020W&ansicht=KATALOGDATEN&lang=de}{151-0530-00L}, 
+\href{https://github.com/TrevorWinstral/NLD_script}{Github Repository}
+}}}
+\author{Prof. George Haller%
+\thanks{ \texttt{\href{https://georgehaller.com/}{Website}, \href{mailto:georgehaller@ethz.ch}{Email}}}}
+	\affil{Chair in Nonlinear Dynamics, Institute for Mechanical Systems, ETH Zürich}
+
+\author{Trevor Winstral}
+	\affil{Department of Mathematics, ETH Zürich}
+
+\author{Bálint Kaszás%
+}
+	\affil{Institute for Mechanical Systems, ETH Zürich}
+
 \date{2022}
 \setcounter{chapter}{0}
 
@@ -82,9 +99,11 @@
 
 \part{Nonlinear Dynamics and Chaos 2}
 \include{chap6.tex}
+
+\include{chap7.tex} % This was mistakenly made into a chapter, it should just be a section as it is now
 \newpage
 
-\include{chap7.tex}
+\include{chap8.tex}
 \newpage
 
 \bibliographystyle{apalike}

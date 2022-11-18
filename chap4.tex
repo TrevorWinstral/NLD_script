@@ -51,11 +51,13 @@ This leads to multiple consequences for these systems
 	\label{fig:mech_loc_extrem}
 \end{figure}
 \item At local maxima of the potential saddle type fixed points arise. The maximum $x^{*}$ is a fixed point if $x^{*}_2=0 $ (which occurs if $V(x^*_1)=E_0$) as $V'(x^{*}_2)=0$. The velocity can be approximated as follows
+	\begin{subequations}
 	 \begin{align}
 		 x_2 &= \pm \sqrt{\frac{2}{m}(E_0 -V(x_1))} \\
 		     &= \pm \sqrt{\frac{2}{m}} \sqrt{\underbrace{(E_0 - V(x^{*}_1))}_{=0} - \underbrace{V'(x^{*}_{1})}_{=0}(x_1 - x^{*}_1) - \frac{1}{2}\underbrace{V''(x^{*}_1)}_{<0}(x_1 - x^{*}_{1})^2 + \mathcal{O}((x_1 - x^{*}_1)^3)} \\
 		     &=\pm \sqrt{\frac{2}{m}}\sqrt{-\frac{V''(x^{*}_1)}{2}}\left|x_1 - x^{*}_1\right| +  \textrm{higher order terms} .
 	\end{align}
+\end{subequations}
 The behavior is sketched in Fig. \ref{fig:mech_loc_extrem}
 \item A local minimum has local maxima to the left and right, unless $V$ is monotonously nondecreasing to infinity. Then we have two cases to differentiate. One where the local maxima are at the same level, and the other where one local maximum has a smaller potential than the other (or in one direction $V$ monotonously increases towards infinity). \emph{Homoclinic orbits} are special periodic orbits that are formed on a level set that contains a single saddle point. \emph{Heteroclinic orbits} are formed when the level set contains two saddle points, i.e. when the two maxima have the same potential. These two cases are illustrated in Fig. \ref{fig:mech_limit_case}. 
 	\begin{figure}[h!]
@@ -128,20 +130,26 @@ Further assume that solutions exist for all times, therefore there exists a uniq
 		\label{fig:limset_ex}
 	\end{figure}
 	For the leftmost dynamical system we have $\omega(p)=\alpha(p)=\{p\}$ and
+	\begin{subequations}
 \begin{align}
 	\omega(x_0) &= \emptyset, \quad &\omega(\tilde{x}_0) &= \{p\}, \quad &{\omega }(\hat{x}_0)&= \emptyset, \\
 	\alpha(x_0)&=\emptyset, \quad & \alpha(\tilde{x}_0)&=\emptyset,\quad &\alpha(\hat{x}_0&=\{p\}.
 \end{align}
+\end{subequations}
 	For the middle dynamical system we have 
+	\begin{subequations}
 \begin{align}
 	\omega(x_0) &= \Gamma, \quad &\omega(\tilde{x}_0) &= \Gamma, \quad &{\omega }(\hat{x}_0)&= \Gamma, \\
 	\alpha(x_0)&= \textrm{unclear} , \quad & \alpha(\tilde{x}_0)&=\{p\},\quad &\alpha(\hat{x}_0)&=\Gamma.
 \end{align}
+\end{subequations}
 	For the rightmost dynamical system we have 
+	\begin{subequations}
 \begin{align}
 	\omega(x_0) &= \Gamma, \quad &\omega(\tilde{x}_0) &= \{q\}, \quad &{\omega }(\hat{x}_0)&=  \textrm{unclear}, \\
 	\alpha(x_0)&= \{p\} , \quad & \alpha(\tilde{x}_0)&=\{q\},\quad &\alpha(\hat{x}_0)&= \textrm{unclear} .
 \end{align}
+\end{subequations}
 \end{ex}
 
 We now introduce two theorems which give us more insight into these limit sets.
@@ -191,7 +199,7 @@ We now introduce two theorems which give us more insight into these limit sets.
 And further assume 
 % everywhere with nabla cdot use  \textrm{div } 
  \begin{align}
-	  x\in U \implies  \textrm{div }   f(x) \neq 0.
+	  x\in U \implies  \nabla \cdot  f(x) \neq 0.
 \end{align}
 This in turn implies $\nabla \cdot f(x)$ has constant sign on $U$. Then there cannot exist a limit cycle in $U$.
 \end{proposition}

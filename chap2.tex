@@ -754,6 +754,7 @@ Now check the Routh-Hurwitz criterion for asymptotic stability:
 \begin{enumerate}
 	\item The necessary condition for $ \textrm{Re} \lambda _k<0$ for all $k$: $a_j> 0$ for all $ j$ is fulfilled.
 	\item Next we check the subdeterminants
+		\begin{subequations}
 \begin{align}
 	D_0 &= a_0 = {g} \frac{2k \sin^2 (\varphi_0)}{J \omega_0}>0;\quad \\ 
 	D_1 &= a_1 = {g}\frac{\sin^2 (\varphi_0)}{\cos(\varphi_0)} >0; \\
@@ -765,15 +766,18 @@ Now check the Routh-Hurwitz criterion for asymptotic stability:
 	= a_1a_2 - a_0a_3 = g\frac{b}{m}\frac{\sin^2(\varphi_0)}{\cos(\varphi_0)} - g\frac{2k \sin^2(\varphi_0)}{J \omega_0} >0;\\
 	D_3 &> 0 \iff D_2 >0  \textrm{ and } a_3=1>0.
 \end{align}
+		\end{subequations}
 The only actual condition for $x_0$ to be asymptotically stable is $D_2 >0$ 
 \begin{align}
 	\frac{bJ}{m} > \frac{2 P_0}{\omega_0}.
 \end{align}
 From the equation for the fixed points we know 
-\begin{align*}
+\begin{subequations}
+\begin{align}
 	P_0 \omega_0^2 = \frac{gk}{n^2} =  \textrm{const.} \numberthis \label{eq:watt1}\\
 	\omega_0^2 + 2P_0 \omega_0 \frac{d \omega_0}{d P_0} = 0.
-\end{align*}
+\end{align}
+\end{subequations}
 From the first equation, we realize that we must write $\omega_0 = \omega_0(P_0)$. To obtain the second equation, we derive the first equation \eqref{eq:watt1} with respect to $P_0$. Therefore we find 
 \begin{align}
 	\frac{d \omega_0}{d P_0} = - \frac{\omega_0}{2P_0}.
@@ -831,12 +835,14 @@ Notice that the matrix $Y$ is shifted forward compared to the matrix $X$ by $\De
 	B_{*} =  \underset{B \in \mathbb{R}^{n\times n}}{\textrm{argmin }} g(B);\quad g(B) = \| Y - BX \|^{2} \numberthis \label{eq3:star},
 \end{align}
 where the matrix norm is the Frobenius norm. We denote the components of $B$ by $b_{ij}$, the components of $Y$ by $y_{ij}$, and the components of $X$ by $x_{ij}$. Note that
+\begin{subequations}
 \begin{align}
 	\frac{\partial g}{\partial b_{ij}} &= \frac{\partial}{\partial b_{ij}} \sum_{l,m,p}^{} \left(y_{lm} - b_{lp}x_{pm}\right)^{2} 
 	= -2 \sum_{l,m,p}^{} \left( y_{lm}-b_{lp}x_{pm}\right) \delta_{il}\delta_{jp}x_{pm} \\
 					   &= -2\sum_{m,p}^{} \left(y_{im}-b_{ip}x_{pm}\right) x_{jm} 
 					   = 2\left(YX^{T} - BX X^{T}\right).
 \end{align}
+\end{subequations}
 In the third equality we have used the properties of the Kronecker-delta $\delta_{ij}$. Therefore we must have that $D_{B}g = -2\left(YX^{T} - BXX^{T}\right)=0$, so we must solve the linear system of equations
 \begin{align}
 	BXX^{T} = YX^{T}\in \mathbb{R}^{n \times n}.
@@ -871,11 +877,13 @@ The numerical cost of (pseudo)inverting the $n \times n$ matrix, $XX^T$, can be 
 X \approx U_r \Sigma_r V_r^T = \sum_{i=1}^r \sigma_i u_i v_i^T, \qquad U = [u_1, ..., u_n]\quad V = [v_1, ..., v_m].
 \end{equation}
 \item The matrix $B$ can be approximately written as 
+	\begin{subequations}
 \begin{align}
 B &= YX^T(XX^T)^\dagger \\
 & \approx YV_r\Sigma_rU_r^TU_r(\Sigma_r^2)^\dagger U_r^T \\
 &= YV_r\Sigma_r^\dagger U_r^T = Y(X_r)^\dagger.
-\end{align}We denote the truncated approximation of $B$ as $B_r = Y (X_r)^\dagger.$
+\end{align}\end{subequations}
+We denote the truncated approximation of $B$ as $B_r = Y (X_r)^\dagger.$
 \end{enumerate}
 \end{remark}
 	
@@ -970,7 +978,7 @@ Consider the same dynamical system. Assume
 \begin{theorem}[Theorem 4]
 	Consider the same dynamical system. Assume
 	\begin{enumerate}
-		\item $V(x)$ is indefinite, i.e. arbitrarily close to $x_0$ there exists $a,b \in U$ such that $V(x_1)\cdot V(x_2) <0$ (they have opposite signs and are not equal to 0) and $V(x_0)=0$.
+		\item $V(x)$ is indefinite, i.e. arbitrarily close to $x_0$ there exists $a,b \in U$ such that $V(x_1)\cdot V(x_2) <0$ (they have opposite signs and are not equal to 0) and $V(x_0)=0$. Furthermore, this is a critical point, i.e. $DV(x_0)=0$.
 		\item $\dot{V}(x)$ is definite near $x_0$ (either positive or negative).
 	\end{enumerate}
 	Then $x=x_0$ is unstable. The geometry of the hypotheses are  illustrated in Fig. \ref{fig:lyap_thm4_hypos}.
@@ -1052,6 +1060,41 @@ At the fixed point $x = (\pi, 0)$. We check again using the energy. First we rea
 	.
 \end{align}
 Hence, $E$ is indefinite at $(\pi, 0)$. From the previous calcuation we alread know that $\dot{E}(\pi, 0) = 0$, i.e. $\dot{E}$ is semidefinite. We cannot apply Theorem 4, but linearization already concluded that $(\pi,0)$ was unstable.
+
+If we add damping the dynamics becomes
+\begin{align}
+	m\ell^2 \ddot{\varphi} + c \dot{\varphi} mg\ell \sin(\varphi) =0.
+\end{align}
+Again we transform the system by introducing the coordinates $x_1 =\varphi$ and $x_2=\dot{\varphi}$. Thus we have a first order ODE
+\begin{align}
+	\begin{dcases}
+		\dot{x_1} = x_2 \\
+		\dot{x_2} = - \frac{c}{m\ell^2}x_2 - \frac{g}{\ell}\sin(x_1).
+	\end{dcases}
+\end{align}
+We still have the fixed points $(0,0)$ and $(0, \pi)$ and the energy $E = \frac{1}{2}m \ell^2 \dot{\varphi}^2 + mg \ell(1 - \cos(\varphi))$. Again we find
+\begin{align}
+	DE =
+	\begin{pmatrix}
+		mg\ell \sin(x_1) \\ m \ell^2 x_2
+	\end{pmatrix}
+	\implies DE(0) = 0;\quad
+	D^2E =
+	\begin{pmatrix}
+		mg\ell \cos(x_1) & 0 \\
+		0 & m \ell^2
+	\end{pmatrix}
+	.
+\end{align}
+Thus $E$ is positive definite at $(0,0)$ and indefinite at $(0, \pi )$. We have
+\begin{align}
+	\dot{E} = DE \cdot f = mgl \sin(x_1)x_2 + m\ell^2 x_2 \left(-\frac{c}{m\ell^2}x^2 - \frac{g}{\ell}\sin(x_1)\right) = - cx_2^2.
+\end{align}
+Note here that $\dot{E}= -cx_2^2$ is only negative semi-definite. Therefore the asymptotic stability of $x=(0,0)$ and the instability of $x=(0,\pi )$ do not follow from theorems 1 or 4. However, the set $S=\left\{x:\ \dot{E}(x)=0\right\} - \left\{(0,0),\ (0,\pi )\right\}$ does \underline{not} contain full trajectories. Indeed
+\begin{align}
+	\left.\frac{d}{dt}x_2(t)\right|_{x=0} = -\frac{g}{\ell}\sin(x_1) \neq 0,\ x\in S.
+\end{align}
+Hence, the asymptotic stability of $(0,0)$ and instability of $(0,\pi )$ follows by Krasovsky's condition.
 \end{ex}
  \begin{ex}[Stability analysis of the friction pendulum]
 	 We have a shaft which is constantly rotating with angular speed $\Omega $, around this shaft is a sleeve which rubs against the shaft creating friction. To this sleeve is a mass $m$ attached at distance $l$, the deflection of this mass from its standard position (directly below the shaft) is measured by $\varphi$. The gravity constant is given by $g$. This setup is depicted in Fig. \ref{fig:friction_pend}.
@@ -1105,6 +1148,7 @@ We can drop the constant term $T_0 x_1(0)$. Now verify that $V$ is indeed consta
 	\dot{V}(x) = \frac{\partial V}{\partial x_1} \dot{x}_1 + \frac{\partial V}{\partial x_2} \dot{x}_2 = \left( mgl \sin(x_1) - T_0\right) x_2 + ml^2x_2 \left( - \frac{g}{l}\sin(x_1) + \frac{T_0}{ml^2} \right) = 0.
 \end{align}
 Hence $\dot{V}(x)$ is semidefinite, and may be used to conclude stability or instability. We must check the Lyapunov conditions for $V(x)$ 
+\begin{subequations}
 \begin{align}
 	DV(x_0) &= 
 \begin{pmatrix}
@@ -1120,7 +1164,7 @@ D^2V(x_0) &=
 	mgl \cos(\overline{x}_1) & 0 \\
 	0 & ml^2
 \end{pmatrix}.
-\end{align}
+\end{align}\end{subequations}
 The Hessian is positive definite as long as $\overline{x}_1 \in \left(-\frac{\pi }{2}, \frac{\pi }{2}\right)$, and all fixed points in this region are stable by Theorem \ref{thm:direct}. The Hessian is indefinite if $\overline{x}_1 \not \in \left[-\frac{\pi }{2}, \frac{\pi }{2}\right]$, but in this case Theorem 4 is not applicable as $\dot{V}$ is not definite.
  \end{ex}
  
