@@ -1,5 +1,5 @@
 \chapter{Introduction to Hamiltonian Systems}
-A canonical Hamiltonian system is given by two state variables $p,q \in \mathbb{R}^{n}$ (i.e. the entire system is even dimensional), a \emph{Hamiltonian} function $H(p,q,t)\in \mathcal{C}^{1}(\mathbb{R}^{2n}\times \mathbb{\mathbb{R}})$ which maps $\mathbb{R}^{n}\times\mathbb{R}^{n}\times\mathbb{R}\to \mathbb{R}$. In general $q$ denotes the generalized coordinates (position) and $p$ the generalized velocities (momentum). The dynamics on the system are given by
+A canonical Hamiltonian system is given by two state variables $p,q \in \mathbb{R}^{n}$ (i.e. the entire system is even dimensional), a \emph{Hamiltonian} function $H(p,q,t)\in \mathcal{C}^{1}(\mathbb{R}^{2n}\times \mathbb{\mathbb{R}})$ which maps $\mathbb{R}^{n}\times\mathbb{R}^{n}\times\mathbb{R}\to \mathbb{R}$. In general $q$ denotes the generalized coordinates (position) and $p$ the generalized momenta. The dynamics on the system is given by
 \begin{align}
 	\begin{dcases}
 		\dot{q} = \frac{\partial H(q,p,t)}{\partial p}\\
@@ -35,11 +35,11 @@ Then the shorthand notation for the system is
 }
 \end{align}
 
-\begin{ex}[Holonommic mechanical systems are Hamiltonian]
-	Assume that all external forces are derived from a potential, i.e. $F(q,t)= -\frac{\partial V(q,t)}{\partial q}$ where $q$ denotes the position. Further assume that all constraints are geometric, i.e. $f(q,t)=0$. We have $n$ degrees of freedom as $q \in \mathbb{R}^{n}$ and $\dot{q} \in \mathbb{R}^{n}$. The kinetic energy is given by $T(q,\dot{q})$ and the potential energy by $V(q,t)$. We then use Newton's second law which is equivalent to the principle of least action (Maupertius's principle). This principle states that for the \emph{Lagrangian} $L = T-V$ we have that the variational functional of the action is 0
+\begin{ex}[Holonomic mechanical systems are Hamiltonian]
+	Assume that all external forces are derived from a potential, i.e. $F(q,t)= -\frac{\partial V(q,t)}{\partial q}$ where $q$ denotes the position. Further assume that all constraints are geometric, i.e. $f(q,t)=0$. We have $n$ degrees of freedom as $q \in \mathbb{R}^{n}$ and $\dot{q} \in \mathbb{R}^{n}$. The kinetic energy is given by $T(q,\dot{q})$ and the potential energy by $V(q,t)$. We then use the principle of least action (also referred to as Hamilton's principle) to derive the equations of motion. This can be shown to be equivalent to Newton's second law. This principle states that for the \emph{Lagrangian} $L(q, \dot{q}, t) = T(q,\dot{q})-V(q,t)$ we have that the variation of the action $S$ is 0
 	\begin{align}
 		\boxed{
-			\delta \int_{t_0}^{t_1} L(q(s), \dot{q}(s), s)ds = 0. \numberthis \label{eq8:ELE} 
+		\delta S = \delta \int_{t_0}^{t_1} L(q(s), \dot{q}(s), s)ds = 0. \numberthis \label{eq8:ELE} 
 	}
 	\end{align}
 	This implies the \emph{Euler-Lagrange equations}
@@ -49,7 +49,7 @@ Then the shorthand notation for the system is
 Thus we have $n$, second-order ODEs. 
 
 \begin{remark}[]
-	In \eqref{eq8:ELE} the variational functional $\delta$ being equal to 0 stems from the principle of least action, as the action $\int_{}^{} L(q(s), \dot{q}(s), s)ds$ is then a minimum. The variational functional $\delta$ of a functional $F$ (here $F[\gamma]=\int_{}^{} \gamma ds)$ of a path (in our case $\gamma = (q(s), \dot{q}(s), s)$) corresponds to seeing how infinitesimal changes to the path change the output of the functional. These different admissible paths are depicted in Fig. \ref{fig:variational_deriv}.
+	In \eqref{eq8:ELE} the variation $\delta S$ being equal to 0 stems from the principle of least action, as the action $\int_{}^{} L(q(s), \dot{q}(s), s)ds$ is then a minimum. The variational of a function $\delta F$ (here $F[\gamma]=\int_{}^{} \gamma ds)$ of a path (in our case $\gamma = (q(s), \dot{q}(s), s)$) corresponds to seeing how infinitesimal changes to the path change the output of the functional. These different, admissible paths are depicted in Fig. \ref{fig:variational_deriv}. Hamilton's principle states that among these different paths the one that will physically take place is the one along which the action $S$ is minimal.
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.35\textwidth]{figures/ch8/1variational_deriv.png}
@@ -59,7 +59,7 @@ Thus we have $n$, second-order ODEs.
 \end{remark}
 Now assume that $L$ is a convex function of $\dot{q}$. Using this the \emph{Legendre transfomation} of $L$ can be performed, which is essentially just a different way to look at the graph of $L(q, \cdot, t)$. This transformation gives us
 \begin{align}
-	H\left(q, \frac{\partial L}{\partial \dot{q}}, t\right) = \frac{\partial L}{\partial \dot{q}}\dot{q} - L(q, \dot{q}, t).
+	\boxed{H\left(q, \frac{\partial L}{\partial \dot{q}}, t\right) = \frac{\partial L}{\partial \dot{q}}\dot{q} - L(q, \dot{q}, t).} \label{eq8:hamiltonian_def}
 \end{align}
 Th geometric interpretation of this is shown in Fig. \ref{fig:legendre_trafo}. At each velocity $\dot{q}$ the tangent line of $L(q, \cdot, t)$ is taken and shifted such that the $y$-intercept is at $0$. Then $H$ is equal to the difference between this shifted line and the function $L(q, \dot{q}, t)$.
 \begin{figure}[h!]
@@ -69,13 +69,13 @@ Th geometric interpretation of this is shown in Fig. \ref{fig:legendre_trafo}. A
 	\label{fig:legendre_trafo}
 \end{figure}
 
-As $L$ is convex, if we define the generalized momenta $p=\frac{\partial L}{\partial \dot{q}}$. There then exists a unique $\dot{q}$ such that $\dot{q} = F(q,p,t)$, in fact the relationship between $\dot{q}$ and $p$ here is 1:1 (bijective). We then have
+As $L$ is convex, if we define the generalized momenta $p=\frac{\partial L}{\partial \dot{q}}$. There then exists a unique $\dot{q}$ such that $\dot{q} = F(q,p,t)$, in fact the relationship between $\dot{q}$ and $p$ here is bijective. We then have
 \begin{align}
 	H(q,p,t) = p F(q,p,t) - L (q, F(q,p,t), t)
 \end{align}
 the Hamiltonian associated with $L$ (or the Legendre transform of $L$).
 
-At this point note that
+At this point note that the total differential of $H(q,p,t)$ is
 \begin{subequations}
 \begin{align}
 	dH &= \frac{\partial H}{\partial q}dq + \frac{\partial H}{\partial p}dp + \frac{\partial H}{\partial t}dt \\
@@ -92,7 +92,19 @@ Comparing coefficients in the first and last equations then yields
 	\end{dcases}
 .	
 \end{align}
-This first-order ODE is called the \emph{Hamiltonian equations of motion}. The meaning of the Hamiltonian is $H= 2T - (T-V) = T+V = T(q,p,t) + V(q,t)$, the full mechanical energy. Also note that we have $\frac{\partial H}{\partial t} = - \frac{\partial L}{\partial t}$.
+This first-order ODE is called the \emph{Hamiltonian equations of motion}. The physical meaning of the Hamiltonian can be seen by substituting $L = T(q,\dot{q}) - V(q, t)$ into the definition \ref{eq8:hamiltonian_def}. The kinetic energy only depends on $\dot q$ through the kinetic energy, 
+\begin{align}
+\dot{q}\frac{\partial L}{\partial \dot{q}} = \dot{q} \frac{\partial T}{\partial \dot{q}}.
+\end{align}
+Since the kinetic energy is quadratic in the velocity, this simplifies to 
+\begin{align}
+\dot{q} \frac{\partial T}{\partial \dot{q}} = 2T(q,\dot{q}).
+\end{align}
+We then have 
+\begin{align}
+H = 2T - (T - V) = T(q, p) + V(q,t),
+\end{align}
+which is the full mechanical energy. Also note that we have $\frac{\partial H}{\partial t} = - \frac{\partial L}{\partial t}$.
 \end{ex}
 
 We will now apply this result to a well known system.
@@ -100,7 +112,7 @@ We will now apply this result to a well known system.
 \begin{ex}[The Hamiltonian of the pendulum]
 	Recall that for the pendulum the position is given by $q=\varphi\in S^{1}$, with a string of length $\ell$ the vertical deflection of the pendulum is $\ell(1- \cos(\varphi)$. The string is assumed massless and the mass at the end of the string is given by $m$. 
 	
-	We have the kinetic and potential energy 
+	We have the kinetic and potential energies
 	\begin{align}
 		T = T(\dot{q}) = \frac{1}{2} m (\ell \dot{\varphi})^{2} = \frac{1}{2} m\ell^2 \dot{\varphi}^{2};\quad V = V(q) = mg\ell(1-\cos(\varphi)).
 	\end{align}
@@ -147,9 +159,9 @@ Hence for this Hamiltonian system we have the Hamiltonian equations of motion
 	\end{align}
 The incompressibility condition is given by 
 \begin{align}
-	\nabla \cdot V = \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y}= 0\quad \forall x\in \mathcal{D}\subset \mathbb{R}^{2}.
+	\nabla \cdot V = \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y}= 0\quad \forall x\in \mathcal{D}\subset \mathbb{R}^{2}. \label{eq8:incompressibility}
 \end{align}
-Now rewrite this as a 3-dimensional equation
+Now rewrite \eqref{eq8:incompressibility} in terms of a three dimensional vector field as
 \begin{align}
 	\nabla \times 
 	\begin{pmatrix}
@@ -158,7 +170,7 @@ Now rewrite this as a 3-dimensional equation
 	=0 \Leftrightarrow
 	\nabla \cdot V = 0.
 \end{align}
-The third component here $\frac{\partial u}{\partial x} =  \frac{\partial -v}{\partial y}= \frac{\partial u}{\partial x} - \frac{\partial v}{\partial y}=0$. On $\mathcal{D}\times \mathbb{R}$ (which is simply connected in $\mathbb{R}^{3}$) the vector field $
+The third component is calculated as $\frac{\partial u}{\partial x} - \frac{\partial (-v)}{\partial y} = \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0$. On $\mathcal{D}\times \mathbb{R}$ (which is simply connected in $\mathbb{R}^{3}$) the vector field $
 \begin{pmatrix}
 	-v \\ u \\ 0
 \end{pmatrix}
@@ -170,10 +182,9 @@ $ has zero curl. Therefore there exists a potential of this vector field $\Psi:\
  = \nabla \Psi =
  \begin{pmatrix}
  	\partial_x \Psi \\ \partial_y \Psi \\ \partial_z \Psi
- \end{pmatrix}
- \implies \Psi = \Psi(x,y,t).
+ \end{pmatrix}.
 \end{align}
-Therefore we find
+Because of the third equation $\Psi$ has no z dependence and we can write our potential as $\Psi = \Psi(x, y, t)$. Therefore we find
 \begin{align}
 	\begin{dcases}
 		-\dot{y} = \frac{\partial \Psi}{\partial x} \\
@@ -188,7 +199,7 @@ Therefore we find
 Thus we have shown that particle motion is Hamiltonian.
 \end{ex}
 
-\begin{ex}[Planar, Autonomous dynamical systems with a conserved quantity are Hamiltonian]
+\begin{ex}[Planar, autonomous dynamical systems with a conserved quantity are Hamiltonian]
 	We begin with the dynamical system which has a first integral $U$ (which is not constant), i.e.
 	\begin{align}
 		\dot{x} = f(x);\quad x \in \mathbb{R}^{2};\quad \exists U:\mathbb{R}^{2}\to \mathbb{R}:\ \frac{dU(x(t))}{dt}=0.
@@ -215,7 +226,7 @@ Such a system is called a \emph{generalized Hamiltonian system} with the scalar 
 	\end{pmatrix}
 	.
 \end{align}
-If we assume $p(x)\neq0$ for all $x\in \mathcal{D} \subset \mathbb{R}^{2}$ then we may defined the trajectory-dependent rescaling of time
+If we assume $p(x)\neq0$ for all $x\in \mathcal{D} \subset \mathbb{R}^{2}$ then we may define the trajectory-dependent rescaling of time
 \begin{align}
 	\tau = \int_{0}^{t} p(x(s))ds.
 \end{align}
@@ -246,7 +257,7 @@ Therefore, we have a canonical Hamiltonian system. In fact, all planar, autonomo
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.3\textwidth]{figures/ch8/3lotka_volterra.png}
-		\caption{The phase portrait of the Lotka-Volterra dynamics, such a dynamics has been used to explain the observed cycles in fish populations.}
+		\caption{The phase portrait of the Lotka-Volterra dynamics, which has been used to explain the observed cycles in fish populations.}
 		\label{fig:lotka_volterra}
 	\end{figure}
 
@@ -278,7 +289,7 @@ The setup going forward will be as follows for $n\geq 1$
 		\frac{dH(x(t))}{dt} = DH(x(t)) \cdot JDH(x(t)) = \left.\langle DH, JDH \rangle \right|_{x= x(t)} = 0.
 	\end{align}
 \end{proof}
-The \emph{energy surface} for some constant $H_0$ $E_{0}=\left\{ x \in \mathbb{R}^{2n}:\ H(x)= H_0 \right\} $ is an invariant surface for the system. By nature of this $JDH$ must be tangent to $E_0$. Assuming that $E_0$ contains no fixed points of \eqref{eq8:hamiltonian} is equivalent to $DH(x_0)\neq 0$ for all $x_0$ in $E_0$. Hence, by the Implicit Function Theorem, the solution of $H(x)-H_0=0$ can be smoothly continued from $x_0$. Indeed, we have
+The \emph{energy surface} for some constant $E_{0}=\left\{ x \in \mathbb{R}^{2n}:\ H(x)= H_0 \right\} $, for some constant $H_0$, is an invariant surface for the system. By nature of this $JDH$ must be tangent to $E_0$. Assuming that $E_0$ contains no fixed points of \eqref{eq8:hamiltonian} is equivalent to $DH(x_0)\neq 0$ for all $x_0$ in $E_0$. Hence, by the Implicit Function Theorem, the solution of $H(x)-H_0=0$ can be smoothly continued from $x_0$. Indeed, we have
 \begin{align}
 	DH(x_0)\neq 0\in \mathbb{R}^{2n} \implies \exists i:\ \left.\frac{\partial H}{\partial x^{i}}\right|_{x=x_0} \neq 0.
 \end{align}
@@ -304,9 +315,9 @@ Then we have $x^{i}=F\left(x^{1},\ldots,x^{i-1},x^{i+1},\ldots,x^{2n}\right)$ fo
 	\end{align}
 From the Lagrangian the generalized momenta can be derived
 \begin{align}
-	p_i = -\frac{\partial L}{\partial \dot{q}_{i}} = m_{i} \dot{q}_{i} \implies \dot{q}_{i} = \frac{p_i}{m_i}\quad i=1,2.
+	p_i = \frac{\partial L}{\partial \dot{q}_{i}} = m_{i} \dot{q}_{i} \implies \dot{q}_{i} = \frac{p_i}{m_i}\quad i=1,2.
 \end{align}
-And with this the Hamiltonian can be calculated
+And with this the Hamiltonian can be calculated as
 \begin{align}
 	H = T+V = \frac{1}{2}\frac{p_1^{2}}{m_1} + \frac{1}{2}\frac{p_{2}^{2}}{m_{2}} + V_1(q_1) + V_2(q_2 - q_1) +V_{3}(-q_2).
 \end{align}
@@ -318,12 +329,15 @@ Now recall that $\dot{x}=JDH(x)$, therefore the fixed point $x_0=(q^{0}, p^{0})^
 		V_{2}'(q_{2}^{0} - q_{1}^{0}) - V_{3}'(-q_{2}^{0}) \\
 		\frac{p_{1}^0}{m_1} \\
 		\frac{p_{2}^{0}}{m_2}
+	\end{pmatrix}.
+\end{align}
+For instance the origin is a fixed point, i.e.
+\begin{align}
+	x_0 = 
+	\begin{pmatrix}
+		q^{0} \\ p^{0}
 	\end{pmatrix}
-= 0 \Leftrightarrow x_0 = 
-\begin{pmatrix}
-	q^{0} \\ p^{0}
-\end{pmatrix}
-= 0 \in \mathbb{R}^{4}.	
+	=0\in \mathbb{R}^{4}.
 \end{align}
 Hence we have
 \begin{align}
@@ -337,9 +351,9 @@ due to the conditions set out in \eqref{eq8:2dof_conditions}. However we also ha
 \begin{align}
 	V_{3}'(-q_{2}^{0}) = V_{2}'(q_{2}^{0}-q_{1}^{0})>0 \implies -q_{2}^{0}>0.
 \end{align}
-These two inequalities are clearly a contradiction. A similar argument show that $q_{1}^{0} < 0$ also leads to a contradiction. Therefore we find that at all equilibria $q_{1}^{0}=0$ and by symmetry $q_{2}^{0}=0$ as well. Thus the only fixed point is given by $q_{1}^{0}=q_{2}^{0}=0$ and $p_{1}^{0}=p_{2}^{0}=0$. We can conclude that all nonzero energy surfaces are codimension-one (3-dimensional) invariant manifolds (i.e. smooth surfaces).
+These two inequalities are clearly in contradiction. A similar argument shows that $q_{1}^{0} < 0$ also leads to a contradiction. Therefore we find that at all equilibria $q_{1}^{0}=0$ and by symmetry $q_{2}^{0}=0$ as well. Thus the only fixed point is given by $q_{1}^{0}=q_{2}^{0}=0$ and $p_{1}^{0}=p_{2}^{0}=0$. We can conclude that all nonzero energy surfaces are codimension-one (3-dimensional) invariant manifolds (i.e. smooth surfaces).
 
-Now it is possible to analyze the stability of this fixed point. We have that $H(0)=0$, $DH(0) = 0 \in \mathbb{R}^{4}$, and $\frac{dH(x(t))}{dt}=0$. We still need to find out if $H$ is cup shaped, first calculate the Hessian
+Now it is possible to analyze the stability of this fixed point. To use Lyapunov's direct method, the Hamiltonian is a good candidate for a Lyapunov function, because $H(0)=0$, $DH(0) = 0 \in \mathbb{R}^{4}$, and $\frac{dH(x(t))}{dt}=0$. We still need to find out if $H$ is cup shaped. First calculate the Hessian
 \begin{align}
 	D^2H = 
 	\left(
@@ -382,7 +396,7 @@ By the Morse lemma, there exists a change of coordinates $x\mapsto y$ such that 
 
 It is possible to draw on other results from differential geometry, namely the foliation theorem \cite{Milnor1965}. This tells us that level surfaces of a scalar function can only change their topology (i.e. become no longer diffeomorphic to each other) through level surfaces that contain a critical point of the function ($Df$ must vanish somewhere on the level set). 
 
-We can see this in the example of the pendulum equation, whose Hamiltonian we previously derived. The stable fixed point is a nondegenerate critical point of the Hamiltonian (as all other points around it have more energy) and via a change of coordinates looks like the direct sum of quadratics. The loops representing periodic oscillation are also the level sets for the respective energy level and are all diffeomorphic to each other (they are all diffeomorphic to $\mathcal{S}^{1}$) until the level set which intersects the unstable fixed points. This transition is depicted in Fig. \ref{fig:morse_foliation}.
+We can see this in the example of the pendulum equation, whose Hamiltonian we previously derived. The stable fixed point is a nondegenerate critical point of the Hamiltonian (as all other points around it have more energy) and by the Morse lemma, after a change of coordinates, level surfaces can be parametrized as a sum of quadratic terms. The loops representing periodic oscillation are also the level sets for the respective energy level and are all diffeomorphic to each other (they are all diffeomorphic to $\mathcal{S}^{1}$) until the level set which intersects the unstable fixed points. This transition is depicted in Fig. \ref{fig:morse_foliation}.
 
 \begin{figure}[h!]
 	\centering
@@ -393,6 +407,7 @@ We can see this in the example of the pendulum equation, whose Hamiltonian we pr
 
 Regarding the two degree of freedom oscillator example previously handled, all surfaces are diffeomorphic to $\mathcal{S}^{3}$ as $x=0$ is the only critical point of $H$.
 
+\section{Volumes under Hamiltonian flow maps}
 We would like to understand what happens with a volume of the phase space under the flow map of a Hamiltonian system. When we talk about the transformation of a volume $V(t_0)$ under the flow map, we mean to study the set $V(t)$ which results from applying the flow map to $V(t_0)$, i.e. $V(t) = F_{t_0}^{t}(V(t_0))$. The evolution of such a volume in shown in Fig. \ref{fig:vol_change}. However, before continuing to study this, we must prove Liouville's theorem.
 \begin{figure}[h!]
 	\centering
@@ -416,7 +431,7 @@ We would like to understand what happens with a volume of the phase space under 
 \begin{proof}
 	Calculate the equation of variations for this system with $x(t) = x(t;t_0, x_0)$
 	\begin{align}
-		\frac{\partial \dot{x}}{\partial x_0} = Df(x(t),t) \frac{\partial x}{\partial x_0} \implies \frac{d}{dt}\left[ \frac{\partial x}{\partial x_0}\right] = \underbrace{Df(x(t),t)}_{A(t)}\frac{\partial x}{\partial x_0}.
+		\frac{d}{dt}\frac{\partial {x}}{\partial x_0} = Df(x(t),t) \frac{\partial x}{\partial x_0} \implies \frac{d}{dt}\left[ \frac{\partial x}{\partial x_0}\right] = \underbrace{Df(x(t),t)}_{A(t)}\frac{\partial x}{\partial x_0}.
 	\end{align}
 	This measures how sensitive the resulting $x(t)$ is on the initial condition $x_0$. We can generalize this to 
 	\begin{align}
@@ -471,7 +486,7 @@ Where on the last equation of the first line we used the change of coordinates $
 			=0.
 	\end{align}
 	\end{subequations}
-	Therefore by Liouville's theorem we have that $ \textrm{vol} [V(t)]$ is constant if and only if $\det\left(DF_{t_0}^{t}(x_0)\right)=1$. This is called this \emph{infitesimal (local) form}.
+	Therefore by Liouville's theorem we have that $ \textrm{vol} [V(t)]$ is constant which is equivalent to $\det\left(DF_{t_0}^{t}(x_0)\right)=1$. This is called this \emph{infitesimal (local) form}.
 \end{proof}
 
 \section{Consequences of area preservation}
@@ -514,11 +529,11 @@ The different eigenvalue configurations are shown in Fig. \ref{fig:poinc_eigv_co
 	\label{fig:poinc_eigv_config}
 \end{figure}
 
-Next we examine what happens when we perturb homoclinic orbits. Recall the setting for homoclinic chaos with $H_1$ being $T$-periodic in $t$
+Next we examine what happens when we perturb homoclinic orbits. We recall the setting for homoclinic chaos in the Hamiltonian case with $H_1$ being $T$-periodic in $t$
 \begin{align}
 	\dot{x} = JD[H(x) + \varepsilon H_{1}(x,t)].
 \end{align}
-Where we had the unperturbed system then asked if the unstable and stable manifolds intersected using the Melnikov method, as sketched in Fig. \ref{fig:ham_melnikov_method}.
+We assumed that the unperturbed system had a homoclinic obrbit and then asked if the unstable and stable manifolds of the perturbed system intersected then asked if the unstable and stable manifolds intersected using the Melnikov method, as sketched in Fig. \ref{fig:ham_melnikov_method}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.4\textwidth]{figures/ch8/8ham_melnikov_method.png}

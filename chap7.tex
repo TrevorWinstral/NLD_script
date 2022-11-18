@@ -166,14 +166,14 @@ This transition matrix is in fact irreducible with $k=3$
 	.
 \end{align}
 
-We are not done yet, as we still need to establish a unique encoding. Note that if $a^{3}_{ij}\neq 0$ then the set $I_{i}\cap f^{-1}(I_j)\neq \emptyset$ is closed for $i=1,2,3,4$. In light of this, with $f=N^3$, define
+We are not done yet, as we still need to establish a unique encoding. Note that if $a^{3}_{ij}\neq 0$ then the set $I_{i}\cap f^{-1}(I_j)\neq \emptyset$ is closed for $i=1,2,3,4$. In light of this, with $\tilde{N}=N^3$, define
 \begin{subequations}
 \begin{align}
-	I_{s_0s_1 \ldots s_n} &= I_{s_0} \cap f^{-1}(I_{s_1}) \cap f^{-2}(I_{s_2}) \cap \ldots \cap f^{-n}(I_{s_n}) \\
-			      &= I_{s_0} \cap f^{-1}\left(I_{s_1} \cap f^{-1}\left( I_{s_2} \cap \ldots f^{-1}\underbrace{\left(I_{s_{n-1}}\cap f^{-1}(I_{s_n})\right) }_{\neq\emptyset \textrm{, closed} }\right) \right).
+	I_{s_0s_1 \ldots s_n} &= I_{s_0} \cap \tilde{N}^{-1}(I_{s_1}) \cap \tilde{N}^{-2}(I_{s_2}) \cap \ldots \cap \tilde{N}^{-n}(I_{s_n}) \\
+			      &= I_{s_0} \cap \tilde{N}^{-1}\left(I_{s_1} \cap \tilde{N}^{-1}\left( I_{s_2} \cap \ldots \tilde{N}^{-1}\underbrace{\left(I_{s_{n-1}}\cap \tilde{N}^{-1}(I_{s_n})\right) }_{\neq\emptyset \textrm{, closed} }\right) \right).
 \end{align}
 \end{subequations}
-The condition $I_{s_{n-1}}\cap f^{-1}(I_{s_n})\neq \emptyset$ and is closed is true as each entry $a^{3}_{ij}\neq 0$. Therefore we have a nested sequence of nonempty, closed sets and by Cantor's Theorem their intersection yields a nonempty, closed set. By our previous result we have that $\Lambda= \bigcup_{s\in \Sigma^{N}_{A}}I_{s}$ is a Cantor set. In this case $N=4$ and $A$ is as above. We then have the encoder function $\phi:\Lambda \to \Sigma_{A}^{4}$ and the chaotic function $\sigma:\Sigma_{A}^{4}\to \Sigma_{A}^{4}$. These yield the commuting diagram
+The condition $I_{s_{n-1}}\cap \tilde{N}^{-1}(I_{s_n})\neq \emptyset$ and is closed is true as each entry $a^{3}_{ij}\neq 0$. Therefore we have a nested sequence of nonempty, closed sets and by Cantor's Theorem their intersection yields a nonempty, closed set. By our previous result we have that $\Lambda= \bigcup_{s\in \Sigma^{N}_{A}}I_{s}$ is a Cantor set. In this case $N=4$ and $A$ is as above. We then have the encoder function $\phi:\Lambda \to \Sigma_{A}^{4}$ and the chaotic function $\sigma:\Sigma_{A}^{4}\to \Sigma_{A}^{4}$. These yield the commuting diagram
 \begin{equation}
 \begin{tikzcd}
 	\Sigma_{A}^{4} \arrow[r, "\sigma"] 
