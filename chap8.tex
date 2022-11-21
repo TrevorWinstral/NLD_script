@@ -631,8 +631,141 @@ This property is illustrated in Fig. \ref{fig:hamiltonian_recurrence}.
 		\caption{Left: A sketch of the dynamical system, with the elastic wall in blue. Right: The phase space of the dynamical system, with the red arrow designating that when the mass hits the wall (positive $x_2$) it immediately moves to the negative lower half (at the same absolute height) due to the elasticity. Furthermore, the volume preserving nature is shown by the two equal volume orange areas.}
 		\label{fig:bouncy_wall_spring}
 	\end{figure}
+
+	\begin{remark}[]
+		These recurrent results extent to time-periodic Hamiltonian systems as well by applying them to the period-$T$ map. Furthermore, they can be extended to quasi-periodic Hamiltonians.
+	\end{remark}
 	
 \end{ex}
 
+\begin{ex}[Ideal gas in a partitioned container]
+	An ideal gas in a partitioned three dimensional container. One partition is full of $n \gg 1$ gas molecules, and the other partition is a vacuum. After removing the partition, statistical reasoning leads to the conclusion that the molecules will spread evenly. The layout of the partition is shown in Fig. \ref{fig:partitioned_gas}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch8/14partioned_container.png}
+	\caption{The gas contained in the container $B_0$ with the removable partition (blue) separating the gas and vacuum.}
+	\label{fig:partitioned_gas}
+\end{figure}
+The position of the  of the particles is described by the variable $q=(x_1, y_1, z_1, \ldots, x_n, y_n, z_n)^{T}$ with $q\in B_0^{n} \subset \mathbb{R}^{3n}$, their respective velocities are described by $\dot{q}\in \mathbb{R}^{3n}$. The Lagrangian is made up of the kinetic energy $T(\dot{q}) = \frac{1}{2}\sum_{i=1}^{n}m_i \|v_i\|^{2} $ with $v_i = (\dot{x}_i, \dot{y}_i, \dot{z}_i)^{T}$ and the potential of the elastic interactions $V(q)$. With the generalized momentum given by $p=\frac{\partial L}{\partial \dot{q}} $, in this case the linear momentum, the Hamiltonian can be calculated as $H=H(q,p)=H(x) $ for $x= (q,p)^{T}\in \mathbb{R}^{6n}$. At each collision there is a discontinuity of the velocity, however the flow map $F_{t_0}^{t}$ is still invertible and volume preserving.
 
+The initial configuration of the gas is given by $x_0\in \mathbb{R}^{6n}$. The unique solution $x(t)$ describes the complete evolution of all of the molecules (their positions and momenta). This is just a single trajectory in this (large) phase space $B_0^{n}\times \mathbb{R}^{3n} = \{q \in \mathbb{R}^{3n}:\ q_i \in [0,K]\} \times \mathbb{R}^{3n}$. An example of such a path is depicted in Fig. \ref{fig:partitioned_gas_path}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch8/15partitioned_container_path.png}
+	\caption{A single trajectory in the phase space for the partitioned container. Note that the trajectory is started from $x_0$ and remains within the energy level surface $E_0$.}
+	\label{fig:partitioned_gas_path}
+\end{figure}
+Observe that due to the conservation of energy we have that the following is conserved for all times
+\begin{align}
+	H_0 = H(x_0) = H(x(t)) = T(\dot{q}(t)) + V(q(t)).
+\end{align}
+Furthermore, the potential is always positive, i.e. $V(q) \geq 0$. This implies that $T(\dot{q}(t)) \leq H_0$, thereby bounding $\|\dot{q}_i(t)\|$ for all times $t$. Thus the momenta $\|p(t)\|$ are also bounded for all times as $p = M\dot{q}$. The positions $q_i(t)$ are bounded by construction (they must remain within the container), therefore the region $S_0 \left\{ x \in \mathbb{R}^{6n}: H(x) \leq H_0 \right\}$ is compact and invariant. By recurrence, almost all initial gas configurations return arbitrarily close to themselves over time. However, the recurrence time would be comparable to the life of the universe. 
+\begin{remark}[]
+	We cannot apply the recurrence to the energy surface as the restricted map may not be volume preserving.
+\end{remark}
+\end{ex}
+
+The next example is of some historical value as this was the first ever numerical experiment to test a theory.
+\begin{ex}[Fermi-Ulam-Pasta experiment (1955)]
+	The experiment was conducted for large systems of linear, undamped, coupled oscillators. This means that there existence of normal modes implied the lack of an equipartition of energy. According to the conclusions from statistical mechanics, a weak nonlinearity should change this completely. Initially, the experiments confirmed this hypothesis. However, after forgetting to turn off their computer for the night, they observed repeated returns in their simulation, with the energy practically localized again in the same oscillator (ca. $3\%$ error). More and more perfect returns over longer time intervals.
+
+	The reason for this is that in Hamiltonian systems energy surfaces are compact and therefore recurrence applies. 
+\end{ex}
+
+\section{Stability of fixed points in Hamiltonian systems}
+Recall the setup for autonomous Hamiltonian systems
+\begin{align}
+	\dot{x} = JDH(x),\quad x \in \mathbb{R}^{2n}.
+\end{align}
+The fixed points of such systems are critical points of the Hamiltonian, i.e. $DH(x_0) = 0$. Observe therefore that no asymptotically stable fixed points may exist in a Hamiltonian system. This is due to the volume preservation property. Assuming contrarily that the fixed point $x_0$ is asymptotically stable implies that there exists a ball $B_0$ within the open domain of attraction such that $F_{t_0}^{t}(B_0)$ is strictly contained within $B_0$ for $t $ large enough. This would require that $ \textrm{vol} [F_{t_0}^{t}(B_0)] <  \textrm{vol} [B_0]$ for such a $t$, clearly violating the volume preservation property. Thus, at best, $x_0$ can be Lyapunov stable, and the nonlinear terms are relevant. 
+
+We first explore what we can find from the linear stability, to this end let $y=x-x_0$ and calculate the linearized system at $x_0$
+\begin{align}
+	\dot{y} = JD^{2}H(x_0)y. \label{eq8:lin_hamiltonian}
+\end{align}
+
+Note that the linearized system is also Hamiltonian
+\begin{align}
+	\tilde{H}(y) = \frac{1}{2} \langle y, D^{2}H(x_0)y \implies \dot{y} = JD\tilde{H}(y).
+\end{align}
+Thus the phase space volume is also preserved for the linear system, this can be shown as we have before with
+\begin{align}
+	\nabla \cdot JD\tilde{H}(y) =  \nabla \cdot JD^2H(x_0) y =  \textrm{Tr} [JD^2H(x_0)] = 0.
+\end{align}
+This also tells us that the sum of the eigenvalues of the linearized Hamiltonian system is zero.
+
+Further, observe that if $\lambda $ is an eigenvalue of \eqref{eq8:lin_hamiltonian} (whether real or complex), then so is $- \lambda $. This leaves us with a few possible eigenvalue configurations for Hamiltonian systems, as seen in Fig. \ref{fig:new_eigv_configs}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/ch8/16new_eigv_config.png}
+	\caption{An example eigenvalue configuration with the constraints found previously.}
+	\label{fig:new_eigv_configs}
+\end{figure}
+
+Suppose $\lambda=0$ is an eigenvalue, then it is necessarily at least a double eigenvalue. Furthermore, under a variation of the parameters, purely imaginary eigenvalues can only leave the imaginary axis the imaginary axis through a collision with another eigenvalue. 
+Recalling that a linearized Hamiltonian can only be neutrally stable leads to the conclusion that linear stability analysis (as we know it), is never conclusive to establish Lyapunov stability  in Hamiltonian systems. 
+{\color{blue} He has a few examples (figures, pg 75) of how eigenvalues act under perturbation, but I feel like this is not needed here and is more for the purpose during the lecture so that he can show exactly how the movement works, i.e. seeing it drawn live is where the value is.}
+
+The previous examination leads us to focusing on the nonlinear stability of Hamiltonian fixed points. The setup is the same as before with an autonomous Hamiltonian system underlying the dynamics. Recall that for such systems we have that $\frac{dH(x(t))}{dt}=0$, i.e. the Hamiltonian is conserved under the flow map, and as before a fixed point $x_0$ corresponds directly to a critical point of the Hamiltonian, i.e. $DH(x_0)=0$.
+
+These properties of $H$ make it a candidate for a Lyapunov function. Observe that if $D^{2}H(x_0)$ is positive definite, then it is cup shaped and choosing $H$ as a Lyapunov function implies that $x_0$ is Lyapunov stable. Meanwhile, if $D^{2}H(x_0)$ is negative definite, then choosing $-H$ as a Lyapunov function also implies that $x_0$ is stable. Hence, if $D^2H(x_0)$ is \underline{definite} then $x_0$ is nonlinearly Lyapunov stable.
+
+\begin{ex}[Multiple degree of freedom nonlinear mechanical system]
+	Consider three pendulums, with masses $m_1$, $m_2$, and $m_3$ attached in order by nonlinear springs. The mass $m_3$ is attached to a mass $m_4$ which is constrained to move on a loop of radius $R$. The position of each mass is measured by its displacement from the unstretched spring position by the variable $q$, thus the springs are in their unstretched positions at the position $q=0$. The system is depicted in Fig. \ref{fig:multi_dof_mech}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/ch8/17multi_dof_mech.png}
+	\caption{A depiction of the multiple degree of freedom nonlinear dynamical system consisting of three pendulums and a loop.}
+	\label{fig:multi_dof_mech}
+\end{figure}
+
+Concatenating the position and momentum into the variable $x$ we have $x=(q,p)^{T}\in \mathbb{R}^{8}$. It is clear that $DH(0) = 0$ and due to the total mechanical energy having a strict minimum at $x=0$ we have that $D^2H(0)$ is positive definite. Thus $x=0$ is Lyapunov stable.
+\end{ex}
+
+We may wonder if all linearly stable Hamiltonian fixed points are in fact always nonlinearly stable, i.e. if $D^2H(x_0)$ is always definite. This is not the case, as we can see by taking
+ \begin{align}
+	 H = \frac{1}{2} \left(q_{1}^{2} + p_{1} ^{2}\right) - \frac{1}{2}\left( q_{2}^{2} + p_{2}^{2}\right);\quad x=
+	 \begin{pmatrix}
+	 	q_1 \\ p_1 \\ q_2 \\ p_2
+	 \end{pmatrix}
+	\in \mathbb{R}^{4}. 
+\end{align}
+This leads to the dynamics
+\begin{align}
+	\begin{dcases}
+		\dot{q}_{1} = p_1 \\
+		\dot{q}_2 = - p_2 \\
+		\dot{p}_{1} = - q_{1} \\
+		\dot{p}_{2} = q_2
+	\end{dcases}
+	\implies
+	\dot{x}=
+	\left(
+	\begin{array}{ c c | c c}
+		0 & 1 & 0 & 0\\
+		-1 & 0 & 0 & 0 \\
+		\hline
+		0 & 0 & 0 & -1 \\
+		0 & 0 & 1 & 0
+	\end{array} 
+	\right)
+	x.
+\end{align}
+The eigenvalues of this system are $\pm i$, thus linear stability analysis and use of $H$ as a Lyapunov function (see Fig. \ref{fig:inconclusive_hamiltonian} are both inconclusive.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/ch8/18inconclusive_hamiltonian.png}
+	\caption{The graph of the Hamiltonian $H$ showing the lack of definiteness which leads to an inconclusive Lyapunov stability analysis.}
+	\label{fig:inconclusive_hamiltonian}
+\end{figure}
+
+\begin{ex}[Gyroscopic systems]
+	A classic example is that of a gyroscopic system such as the tippe-top toy (a spinning top like a dreidel). When spun there is a relative equilibrium fixed point for the Hamiltonian obtained by factoring out the cyclic coordinate, which is achieved via a Routh-reduction of cyclic coordinates. Fast spinning stabilizes this Hamiltonian equilibrium, but the Hamiltonian has no minimum there (nonlinear analysis is needed to prove this). Additional dissapation will then always destabilize these equilibria in a process called \emph{dissapation-induced instability} which is shown in Fig. \ref{fig:dissapation_instability}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.4\textwidth]{figures/ch8/19dissapation_instability.png}
+		\caption{The energy is shown in red, the dissipation of energy takes the motion towards lower energy levels as shown by the yellow arrows.}
+		\label{fig:dissapation_instability}
+	\end{figure}
+\end{ex}
 
