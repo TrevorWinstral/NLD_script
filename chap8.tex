@@ -769,3 +769,117 @@ The eigenvalues of this system are $\pm i$, thus linear stability analysis and u
 	\end{figure}
 \end{ex}
 
+With these examples, it is clear that further study of nonlinear stability of Hamiltonian fixed points is necessary for the case that $D^{2}H(x_0)$ is not definite. The framework we will work in to study this is as follows
+\begin{align}
+	\dot{x} = JDH(x);\quad x \in \mathbb{R}^{2n};\quad DH(0)=0.
+\end{align}
+The final equality is always achievable by a coordinate shift. Once again we begin by linearizing to find $\dot{y}=Ay$. Assume for simplicity that $A$ is semisimple, i.e. it has $2n$ linearly independent eigenvectors (even if some eigenvalues are repeated). Through a change of coordinates $A$ can be diagonalized
+\begin{align}
+	A = 
+	\begin{pmatrix}
+		A_1 & & \\
+		    & \ddots & \\
+		    & & A_n
+	\end{pmatrix}
+	;\quad A_{j} = 
+	\begin{pmatrix}
+		0 & \omega_j \\
+		-\omega_j & 0
+	\end{pmatrix}
+	.
+\end{align}
+In the definition of $A_j$, each $\omega _j$ corresponds to the eigenvalues $\pm i \omega _j$. There is no real part to the eigenvalue, otherwise $x=0$ would be unstable, however $\omega _j<0$ is possible. This change of coordinates allows us to frame the geometry of the linearization as the product of $n$ different two dimensional dynamical systems, each with clockwise rotating cyclical orbits, i.e. $\prod_{i=1}^{n}\mathcal{S}^{1}= \Pi^{n}$ the $n$-dimensional torus. This product is shown in Fig. \ref{fig:linearization_geometry}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/ch8/20linearization_geometry.png}
+	\caption{The product of the $n$ dynamical systems of the linearization forming the $n$-dimensional torus.}
+	\label{fig:linearization_geometry}
+\end{figure}
+
+With the vector $\omega=(\omega_1, \ldots, \omega_n)$ we get three cases for the structure of the orbits
+\begin{enumerate}
+	\item \textbf{Resonance} If there exists a $k\in\mathbb{Z}^{n}_{+}$ (i.e. $k_i\neq 0$ for all $i$) with $\langle k, \omega \rangle = 0$, trajectories close up. Therefore all orbits are closed and periodic on $\Pi^{n}$.
+	\item \textbf{Non-resonance} If for each $k\in\mathbb{Z}^{n}$ with $\|k\|\neq 0$ we have that $\langle k, \omega \rangle \neq 0$, trajectories never close up. Therefore all orbits are quasi-periodic and yield a dense winding. 
+	\item \textbf{Weak resonance} If there exists a $k\in \mathbb{Z}^{n}$ with $\|k\|\neq 0$ and $\langle k, \omega \rangle =0$ we get a combination of the previous two cases. Trajectories fill lower dimensional tori densely and are not closed.
+\end{enumerate}
+
+\section{Stability of Hamiltonian fixed points: normal forms}
+The framework of the previous section remains the same as we move to introduce the idea of the normal form of $H(x)$ near $x=0$. This requires two additional assumptions
+\begin{enumerate}
+	\item For each $k\in \mathbb{Z}^{n}$ with $\|k\|_{1} = \sum_{i=1}^{n} |k_i| \leq 4$ we have $\langle k, \omega \rangle \neq 0$, i.e. there are no resonances below order 5.
+	\item The \emph{nondegeneracy condition} holds, i.e. $\det[\omega_{kl}]\neq 0$.
+\end{enumerate}
+The first assumption implies that a nonlinear, canonical change of coordinates puts $H(x)$ in the form
+\begin{align}
+	H(\varphi, r) = \sum_{i=1}^{n} \omega_i r_i + \frac{1}{2}\sum_{k,l=1}^{n} \omega_{k,l}r_{k}r_{l} + \mathcal{O}\left(|r|^{4}\right);\quad r \in \mathbb{R}^{n}_{\geq 0};\quad \varphi \in \Pi^{n}.
+\end{align}
+The $\varphi$-dependence starts in the $\mathcal{O}\left( |r|^{n}\right)$ term, also this change of coordinates we have that $(r,\varphi)$ is close to the polar coordinates introduced for the linearized Hamiltonian.
+
+\begin{definition}
+	A \emph{canonical} (also \emph{symplectic}) coordinate change is one which preserves the Hamiltonian structures
+	\begin{align}
+		\begin{dcases}
+		\dot{\varphi} = \frac{\partial H}{\partial r} \\
+		\dot{r} = -\frac{\partial H}{\partial \varphi}.
+		\end{dcases}
+	\end{align}
+\end{definition}
+
+These reductions bring us to the next theorem. In order to parse this, some terminology must be rigorously defined for this section.
+\begin{definition}
+	\emph{Persists} in this cases corresponds to surviving the transition back from the linearization to the nonlinear system through a smooth deformation by a small amount.
+\end{definition}
+\begin{definition}
+	\emph{Most} (in this case invariant tori) means 
+	\begin{align}
+		\lim_{\varepsilon \to 0} \frac{\mu ( \textrm{persisting tori in } \varepsilon  \textrm{-ball} )}{\mu (\mathcal{B}(\varepsilon))} = 0
+	\end{align}
+\end{definition}
+
+\begin{theorem}[Kolmogorov-Arnold-Moser (KAM) theorem]
+	We have three items which hold:
+	\begin{enumerate}
+		\item Under the assumptions (i) and (ii), most invariant tori of the linearized Hamiltonian persist in the nonlinear system close to $x=0$.
+		\item Surviving toi are quasi-periodic, implying that trajectories are dense on these and obey ODEs of the form
+			\begin{align}
+				\begin{dcases}
+				\dot{r} = \mathcal{O}\left( |r|^{r}\right) \\
+				\dot{\varphi} = \tilde{\omega} (r, \varphi) = \frac{\partial H}{\partial r} = \omega + [\omega_{kl}]r + \mathcal{O}\left(|r|^{3}\right).
+				\end{dcases}
+			\end{align}
+		\item Under the additional nondegeneracy condition known as the \emph{isoenergentic nondegeneracy} condition
+			\begin{align}
+				\det\left[
+					\begin{array}{c | c}
+						[\omega_{kl}] & \omega^{T} \\
+						\hline
+						\omega & 0
+					\end{array}
+				\right]
+				\neq 0,
+			\end{align}
+			most tori persist \underline{within each energy surface} close enough to the origin. This is shown in Fig. \ref{fig:persisting_tori_energy}.	
+	\end{enumerate}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/ch8/21persisiting_tori_energy.png}
+	\caption{Most tori persists with respect to the measure defined inside the energy surface $E_{H(0)}$ (red). The $\varepsilon$-ball is given in black, and its intersection with $E_{H(0)}$, which is of dimension $2n-1$.}
+	\label{fig:persisting_tori_energy}
+\end{figure}
+\end{theorem}
+
+This has different implications for the dynamics near $x=0$ depending on the degrees of freedom based on the dimension of $E_{H(x)}$ ($=2n-1$). For $x\neq 0$ close to the origin the dimension of the surviving tori is $ \textrm{dim }\Pi^{n}=n$, thus the codimension of $\Pi^{n}$ within $E_{H(x)}$ is $(2n-1)-n = n-1$.
+\begin{enumerate}
+	\item  \textbf{1 degree of freedom} (e.g. pendulum) The codimenension of $\Pi^{1}$ is 0, therefore the torus is the energy surface itself and $x=0$ is Lyapunov stable. 
+	\item \textbf{2 degrees of freedom} (e.g. two coupled pendulums) The codimension of $\Pi^{2}$ is 1, so the two-dimensional torus locally divides the three-dimensional energy surface into an interior and exterior. The interior is a compact invariant set that trajectories cannot escape from within the given energy surface. Hence $x=0$ is Lyapunov stable, \underline{even if $D^{2}H(0)$ is indefinite}.
+	\item \textbf{$\bm{\geq 3}$ degrees of freedom} (e.g. three coupled pendulums) The codimension of $\Pi^{n}$ is at least 2, thus the tori no longer form barriers and trajectories can sneak out. Generically, trajectories do sneak out along a chaotic invariant set formed near the remnants of destroyed (resonant) tori such as in \emph{Arnold diffusion}.
+\end{enumerate}
+
+The geometry of Arnold diffusion. {\color{blue} I think we should talk about this bit as I am not sure what is going on in this image}
+
+A transition chain is formed by intersecting manifolds, thus we have an $\mathcal{O}(1)$ displacement in $r$ even as $\varepsilon \to 0$. Therefore we have a mechanism for instability when $D^{2}H(0)$ is not definite, when it is definite transition chains are still there but energy surfaces are small spheres near the origin. This implies that complicated dynamics does not lead to instability.
+
+\begin{theorem}[Nekhoroshev's theorem]
+	Under further nondegeneracy conditions, the speed of diffusion is less than $C\exp \left(- \frac{1}{\varepsilon^{d}}\right)$, where $d$ depends on $H(x)$. This means the speed is exponentially small.
+\end{theorem}
+
