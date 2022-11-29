@@ -1,1 +1,250 @@
 \chapter{Normally hyperbolic invariant manifolds}
+The objective of this chapter is to extend the theory of low-dimensional stable and unstable manifolds to a general, higher-dimensional setting. The focus will lie on invariant manifolds rather than individual trajectories as invariant manifolds are more observable, more influential, and more robust. We begin with an example.
+
+\begin{ex}[Dynamics near a saddle-type fixed point]
+	The difference between the behavior of individual trajectories and of the invariant manifolds is depicted in Fig. \ref{fig:individual_trajectory}. The idea being that under a diffeomorphic transformation of the invariant manifolds of the linear system into those of the nonlinear system, a trajectory starting from a point $x_0$ may be drastically different even if the dynamics remain topologically conjugate to each other. I.e. individual trajectories are sensitive with respect to initial conditions and changes in parameters, meanwhile robust invariant manifolds persist (perturb smoothly).
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.6\textwidth]{figures/ch9/1individual_trajectory.png}
+		\caption{The dynamics near a saddle-type fixed point demonstrating the sensitive dependence of individual trajectories on initial conditions and changes in parameters, and the robust nature of invariant manifolds.}
+		\label{fig:individual_trajectory}
+	\end{figure}
+\end{ex}
+
+Thus our examination now turns to determining which invariant manifolds are persistent. In order to understand this, first an intermezzo in differentiable manifolds is necessary.
+
+\section{Intermezzo: differentiable manifolds}
+\begin{definition}
+	A set $M\subset \mathbb{R}^{n}$ is a \emph{$k$-dimensional differentiable manifold}, if it is \underline{locally} diffeomorphic to $\mathbb{R}^{k}$, i.e. for every $x\in M$ there exists an open (in $M$) neighborhood $V\subset M $, such that $V$ is diffeomorphic to an open set $U \subset \mathbb{R}^{k}$. The diffeomorphism between is called the \emph{local parameterization} as is denoted $\Phi:U \to V$. Its smooth inverse is the \emph{local coordinate system} $\Phi^{-1}:V \to U$. These are illustrated in Fig. \ref{fig:diffble_mfd}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/ch9/2diffble_mfd.png}
+		\caption{The differentiable manifold $M$ is given in blue in the left. The red sphere is an open ball in  $\mathbb{R}^{n}$, intersecting this with $M$ yields and open (in $M$) neighborhood $V$ of $ $. The smooth diffeomorphism $\Phi $ transforms $U$ into the open set $U$ of $\mathbb{R}^{k}$.}
+		\label{fig:diffble_mfd}
+	\end{figure}
+\end{definition}
+
+The intuitive meaning of a $k$-dimensional manifold is a $k$-dimensional manifold which locally looks like $\mathbb{R}^{k}$.
+
+\begin{ex}[The circle is a 1-dimensional manifold]
+	The circle $\mathcal{S}^{1}$ is a 1-dimensional differentiable manifold. To see define the four open subsets $V_i$ of $\mathcal{S}^{1}$ as open semicircles which are each shifted by $\frac{i \pi }{2} $. Then $\mathcal{S}^{1} = \bigcup_{i=1}^{4}V_i$. These are drawn in Fig. \ref{fig:s1_subsets}. Any $x\in \mathcal{S}^{1}$ belongs to at least one of the $V_i$ due to the previous equality. Furthermore each $V_i$ is diffeomorphic to $U=(-1,1)$ which is open in $\mathbb{R}^{1}$ via the diffeomorphisms
+	\begin{subequations}
+		\begin{align}
+		\Phi_1 &= (t, \sqrt{1-t^2})^{T};&&\Phi_2 = (t, -\sqrt{1-t^2})^{T}; \\
+		\Phi_3 &= (-\sqrt{1-t^2}, t)^{T};&&\Phi_4 = (\sqrt{1-t^2}, t)^{T}.
+		\end{align}
+	\end{subequations}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.3\textwidth]{figures/ch9/3s1_subsets.png}
+	\caption{The subsets $V_i$ of $\mathcal{S}^{1} $ which are used to show that the circle is a 1-dimensional manifold.}
+	\label{fig:s1_subsets}
+\end{figure}
+
+There is no global parameterization of $\mathcal{S}^{1}$, but this is not needed to be a differentiable manifold, and these local parameterizations suffice.	
+\end{ex}
+
+\begin{ex}[Not all sets are manifolds]
+	A few examples of sets which are not manifolds and the reason as to why not will be given.
+	\begin{enumerate}
+		\item The figure-eight is not a manifold, as for any point except the central intersection, there exists a local neighborhood diffeomorphic to $\mathbb{R}^{1}$, however at this central intersection, no open neighborhood exists which is diffeomorphic to $\mathbb{R}^{1}$. This is depicted in Fig. \ref{fig:figure_eight}.
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=0.5\textwidth]{figures/ch9/3b_figure_eight.png}
+				\caption{The figure-eight with the critical intersection which prevents it from being a manifold.}
+				\label{fig:figure_eight}
+			\end{figure}
+		\item A dense orbit on a 2-dimensional torus is not a manifold, as around any point infinitely many adjacent trajectories exist, but do not form a plane (there is a distance between two instances of the trajectory). Hence any neighborhood around any point cannot be hyperbolic to $\mathbb{R}^{2}$ or $\mathbb{R}^{1}$. Such a neighborhood is illustrated in Fig. \ref{fig:dense_orbit_mfd}.
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=0.5\textwidth]{figures/ch9/4dense_orbits_mfd.png}
+				\caption{A depiction of a local neighborhood of a point in a dense orbit of the torus.}
+				\label{fig:dense_orbit_mfd}
+			\end{figure}
+		\item The union of a semi-infinite spiral and semi-open (left closed, right open) interval do not form a differentiable manifold. For this set, at the intersections of the two sets, points with neighborhoods as in the figure eight appear.
+	\end{enumerate}
+\end{ex}
+
+We can construct manifolds very easily, for instance by taking any smooth function $f:X \to Y$, the graph of $f$ namely the set $ \textrm{graph} (f)=\{(x,y):\ x\in X,\ y=f(x)\}$ is a differentiable manifold. 
+
+\begin{definition}
+	For two manifolds $X$ and $Z$, each subsets of $\mathbb{R}^{n}$, with $X \subset Z$ we call $X$ a \emph{submanifold} of $Z$. 
+\end{definition}
+An example of a submanifold would be $X=\mathcal{S}^{1}\subset Z = \mathcal{S}^{2} \subset \mathbb{R}^{3}$. We say $\mathcal{S}^{1}$ is a 1-dimensional submanifold of the 2 dimension manifold $Z$.
+
+\begin{definition}
+	A manifold $M\subset \mathbb{R}^{n}$ is a \emph{$k$-dimensional manifold with boundary}, if it is locally diffeomorphic to a relatively open set in the non-negative half-space $H^{k}\subset \mathbb{R}^{k}$. The \emph{boundary of $M$}, denoted $\partial M$ is always mapped into $\partial H^{k}$ under any parameterization, and is a $k-1$-dimensional manifold. Such a manifold and its parameterization are illustrated in Fig. \ref{fig:bndry_mfd_def}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.7\textwidth]{figures/ch9/5bndry_mfd_def.png}
+		\caption{An illustration of the manifold with boundary $M$ and a parameterization mapping its boundary to $\partial H^{k}$.}
+		\label{fig:bndry_mfd_def}
+	\end{figure}
+\end{definition}
+
+Closed intervals, closed cyclinders, and closed hollow spheres are all manifolds with boundaries, however it is not always the case that simply taking the closure of a manifold yields a manifold with boundary. For instance the interior of a rectangle is a manifold (using the identity as a parameterization), however as the corners are not smooth the closure is not a manifold.
+
+\begin{definition}
+	Given a manifold $M\subset \mathbb{R}^{n}$ with the local parameterization at $x$ given by $\Phi$ (assume for simplicity that $\Phi(0)=x\in V$), the \emph{tangent space of the manifold} is then defined as
+	\begin{align}
+		\boxed{
+			T_{x}M= \textrm{im} [D\Phi(0)].
+		}
+	\end{align}
+	The intuition as to why this is called the tangent space is show in Fig. \ref{fig:tangent_space_def}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.65\textwidth]{figures/ch9/6tangent_space_def.png}
+		\caption{The tangent space of a manifold $M$. The map $D\Phi(0)$ takes us from the left to the right image, and the map $D\Phi^{-1}(x)$ takes us from right to left.}
+		\label{fig:tangent_space_def}
+	\end{figure}
+\end{definition}
+
+Note here how the differential is defined
+\begin{align}
+	D \Phi(x)h = \lim_{s \to 0} \frac{\Phi(x + sh) - \Phi(x)}{s}.
+\end{align}
+Therefore the map $D\Phi(y)$ is a map from the tangent space of $\mathbb{R}^{k}$ at $y$ to the tangent space of $M$ at $\Phi(y)$, i.e. $D\Phi(y): T_{y}\mathbb{R}^{k}\to T\Phi(y)M$. 
+
+\begin{remark}[]
+	Note a few facts about tangent spaces:
+	\begin{enumerate}
+		\item Although it appears that $T_{x}M$ depends on the parameterization $\Phi$, it actually does not;
+		\item The dimension of the tangent manifold, which is well defined as it is a linear subspace of $\mathbb{R}^{n}$, is equal to the dimension of $M$, namely $k$;
+		\item A map $f:M\to N$ between manifolds induces a linear mapping between the appropriate tangent spaces of the manifolds. Denoting by $\Phi$ and $\Psi$ the respective local parameterizations, the induced map between parameter spaces is $F= \Psi^{-1} \circ f \circ \Phi$. This is a mapping between linear spaces and $DF$ is well-defined. In turn, this implies that $Df$ is well-defined and by the chain rule is equal to $D\Psi \circ DF \circ D\Phi^{-1}$, therefore it is possible to differentiate mappings between manifolds. Then we have the sought-after mapping between tangent spaces 
+			\begin{align}
+				Df: T_{x}M \to T_{f(x)}N.
+			\end{align}
+			These maps are illustrated in Fig. \ref{fig:induced_tangent_map}.
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=0.7\textwidth]{figures/ch9/7induced_tangent_map.png}
+				\caption{The commutative diagram along with the respective spaces illustrated for the induced map between tangent spaces.}
+				\label{fig:induced_tangent_map}
+			\end{figure}
+	\end{enumerate}
+\end{remark}
+
+\begin{definition}
+	The set of all tangent spaces, labelled by their base points is called the \emph{tangent bundle}
+	\begin{align}
+		\boxed{
+			TM = \left\{ (x,v):\ x\in M,\ v\in T_{x}M \right\} = \bigcup_{x\in M}(x, T_{x}M).
+		}
+	\end{align}
+The tangent bundle is a $2k$-dimensional manifold.	
+\end{definition}
+
+By labelling tangent vectors with their respective base points, different tangent spaces are separate \emph{fibers} of the tangent bundle. In general $TM \neq M \times \mathbb{R}^{k}$, i.e. the tangent bundle is not a global direct product. In fact, locally, each tangent bundle is trivial (the direct product), this just does not extend globally. However, for $M=\mathcal{S}^{2}$ the tangent bundle is diffeomorphic to $\mathcal{S}^{2} \times \mathbb{R}^{2}$. 
+
+\begin{definition}
+	The \emph{normal space}, unlike the tangent space, depends on the ambient space. For a $k$-dimensional manifold $M$ embedded in $\mathbb{R}^{n}$, the normal space at a point $x$, $N_{x}M$, is the compliment in the direct sum forming the tangent space of the ambient, i.e.
+	\begin{align}
+		\boxed{
+			T_{x}M \oplus N_{x}M = T_{x}\mathbb{R}^{n}.
+		}
+	\end{align}
+	Therefore, the dimensional of the normal space is $n-k$. The normal space is drawn in Fig. \ref{fig:normal_space_def}.	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.45\textwidth]{figures/ch9/8normal_space_def.png}
+		\caption{The normal space of a manifold $M$ at the point $x_0$ along with the tangent space at the same point.}
+		\label{fig:normal_space_def}
+	\end{figure}
+\end{definition}
+
+\begin{definition}
+	Analog to the tangent bundle, the \emph{normal bundle} is the collection of normal spaces of the manifold $M$ labelled by their base points
+	\begin{align}
+	\boxed{
+		NM = \left\{ (x,v):\ x\in M,\ v\in N_{x}M \right\}.
+	}
+	\end{align}
+\end{definition}
+By labelling normal vectors with their base points, intersections are avoided as shown in Fig. \ref{fig:normal_vector_intersection}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.3\textwidth]{figures/ch9/9normal_vector_intersection.png}
+	\caption{Intersecting normal vectors, these are avoided by labelling vectors with their base points.}
+	\label{fig:normal_vector_intersection}
+\end{figure}
+
+\begin{definition}
+	A \emph{subbundle} of the normal bundle is any $x$-dependent family of subspaces of $N_{x}M$, which is smooth in $x$.
+\end{definition}
+An example of such a subbundle is given in Fig. \ref{fig:subbundle_ex}, where the smooth family of subspaces is given by $S(x)\subset N_{x}M$.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/ch9/10subbundle_ex.png}
+	\caption{A subbundle of the manifold $M$, each base point $x\in M$ is a base point of $S(x)$, a fiber of the normal bundle.}
+	\label{fig:subbundle_ex}
+\end{figure}
+
+\newpage
+\section{Theory of normally hyperbolic invariant manifolds}
+The framework for the following section will be of a dynamical system
+\begin{align}
+	\dot{x}=f(x);\quad x \in \mathbb{R}^{n};\quad f\in\mathcal{C}^{r}\ r\geq 1.
+\end{align}
+Furthermore, let $M_0\subset \mathbb{R}^{n}$ be a $k$-dimensional, compact, $\mathcal{C}^{1}$-manifold with boundary $\partial M_{0}$.
+
+\begin{definition}
+	The manifold $M_0$ is an \emph{overflowing invariant manifold} if $f(x)$ points strictly outwards of $\partial M_0$. A special case of this is when $\partial M_0= \emptyset$.
+\end{definition}
+
+There are three central questions for what happens to this manifold which we will address:
+\begin{enumerate}
+	\item Does it persists (survive smoothly)?
+	\item Is it stable (what happens to nearby trajectories)?
+	\item What is the interior structure of the stable/unstable manifolds of $M_0$?
+\end{enumerate}
+
+\begin{ex}[]
+	Consider the system
+	\begin{align}
+		\begin{dcases}
+			\dot{x}= -x(1-x)(1+x) \\
+			\dot{y} = \alpha y
+		\end{dcases}
+		;\quad 0 < \alpha \leq 1.
+	\end{align}
+	Now define $M_0$ to be the closed interval $[-1-\varepsilon, 1 + \varepsilon]\times \{0\}$. This manifold is of dimension 1, has nonempty boundary $\{-1-\varepsilon, 1+\varepsilon\}$, is compact, and smooth. At each point in the boundary, $f$ is pointing away from $M_0$. Therefore, $M_0$ is an overflowing invariant manifold. We also have that $W^{S}_{ \textrm{loc}}(M_0)$ is nonempty, meanwhile $W^{U}_{ \textrm{loc} }(M_0)$ is empty. Trajectories of this dynamical system along with $M_0$ and the stable local manifold are depicted in Fig. \ref{fig:overflowing_mfd_ex1}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.6\textwidth]{figures/ch9/11overflowing_mfd_ex1.png}
+		\caption{An illustration of the trajectories of the dynamical system, the overflowing invariant manifold $M_0$, its boundary, and the local stable manifold drawn in green. The fixed points $A_0$, $B_0$, and $C_0$ are also shown.}
+		\label{fig:overflowing_mfd_ex1}
+	\end{figure}
+
+	Now we may ask if $M_0$ is robust under perturbations (if it persists). For example under the perturbation
+	\begin{align}
+		\begin{dcases}
+			\dot{x} = -x(1-x)(1+x) -\varepsilon y \\
+			\dot{y} = - \alpha y + \varepsilon x
+		\end{dcases}
+		;\quad - \leq \varepsilon \ll 1.
+	\end{align}
+	The fixed points $A_0$, $B_0$, and $C_0$ are hyperbolic, therefore they persist. In fact $B_0$ does not move at all. The other fixed points move to new perturbed counterparts, i.e. $A_0,C_0 \to A_{\varepsilon}, C_{\varepsilon}$. 
+	{\color{blue} what is he getting at by defining $y_{\varepsilon} = \frac{\varepsilon}{\alpha}x_{\varepsilon}$ here, not sure how that helps here.}
+
+	At $B_0 = B_{\varepsilon}$ we can linearize to find
+	\begin{align}
+		\begin{pmatrix}
+			\dot{x} \\ \dot{y}
+		\end{pmatrix}
+		 = 
+		 \begin{pmatrix}
+			 -1 & - \varepsilon \\
+			 \varepsilon & -\alpha 
+		 \end{pmatrix}
+		 \begin{pmatrix}
+		 	x \\ y
+		 \end{pmatrix}
+		. 
+	\end{align}
+Depending on $\alpha $ we differentiate two cases.
+\begin{enumerate}
+	\item $\bm{\alpha =1} $
+\end{enumerate}
+
+\end{ex}
