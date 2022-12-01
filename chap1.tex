@@ -414,7 +414,7 @@ If $x_{\varepsilon}(t)$ is in $\mathcal{C}^{r}_{\varepsilon}$, we have $\varphi_
 Regularity with respect to the parameter $ {\mu} $ actually follows from regularity with respect to the initial condition $ {x}_0$. We can use the following trick to extend the IVP with a dummy variable $ {\mu} $ 
 \begin{align}
 	\begin{dcases}
-		\dot{ {x}} = f( {x},t,u) \\ \dot{ {\mu}} = 0 \\  {x}(t_0) =  {x}_0 \\  {\mu} (t_0) =  {\mu}_0.
+		\dot{ {x}} = f( {x},t,\mu ) \\ \dot{ {\mu}} = 0 \\  {x}(t_0) =  {x}_0 \\  {\mu} (t_0) =  {\mu}_0.
 	\end{dcases}
 \end{align}
 Thus with $ {X}=
@@ -512,7 +512,7 @@ Where we have taken $x'$ to represent $\frac{dx}{d\tau}$. Plugging our expressio
 Matching equal powers of $\varepsilon$ yields
 \begin{subequations}\begin{align}
 	\mathcal{O}(1)&:\ \varphi_0'' + \varphi_0 = 0 \implies \varphi_0(\tau) = a_0 \cos(\tau);\quad \varphi_0(0)=a_0;\quad \dot{\varphi_0}(0) = 0 \\
-	\mathcal{O}(\varepsilon)&:\ \varphi_1'' + \varphi_1 = - \phi_0^{3} - 2\omega_1 \varphi_{0}'' = 
+	\mathcal{O}(\varepsilon)&:\ \varphi_1'' + \varphi_1 = - \phi_0 - 2\omega_1 \varphi_{0}'' = 
 	\left(2 \omega_1 a_0 - \frac{3}{4}a_0^{3}\right) \underbrace{\cos (\tau)}_{ \textrm{resonance} } - \frac{a_0^{3}}{4} \cos(3 \tau); \\
 			     &\phantom{:}\ \varphi_1(0)=0; \quad \dot{\varphi_1}(0) = 0. 
 \end{align}\end{subequations}

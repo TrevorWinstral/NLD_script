@@ -95,10 +95,10 @@ This is generally only numerically computable.
 We now explore a sufficient criterion for instability of $x=0$. For this, recall Liouville's Theorem (Abel's Theorem)
 \begin{align}
 	\boxed{
-		\det (\Phi_{t_0}^{t}) = \det(\Phi_{t_0}^{t})e^{\int_{t_0}^{t}  \textrm{Tr} \left[ A(s) \right] ds}.
+		\det (\Phi_{t_0}^{t}) = \det(\Phi_{t_0}^{t_0})e^{\int_{t_0}^{t}  \textrm{Tr} \left[ A(s) \right] ds}.
 	}
 \end{align}
-This holds true for any dynamical system $\dot{x}=A(t)x$ with a periodic time-dependence.
+This holds true for any dynamical system $\dot{x}=A(t)x$ with aperiodic time-dependence.
 \begin{proposition}[Sufficient criterion for instability]
 	If we have $\int_{0}^{T}  \textrm{Tr} [A(s)]ds>0$ then $x=0$ is unstable for $\dot{x}=A(t)x$ with $A(t) = A(t+T)$
 \end{proposition}
@@ -136,7 +136,7 @@ We will now attempt to study the mean evolution of oscillatory systems
 \end{align}
 In general the averaged system
 \begin{align}
-	\dot{y} = \frac{1}{T} \int_{0}^{T} f(y,t)	
+	\dot{y} = \frac{1}{T} \int_{0}^{T} f(y,t)dt	
 \end{align}
 does not capture the overall (mean) behavior of the system. This can be demonstrated in an example.
 \begin{ex}[Averaging for a swing]
@@ -174,7 +174,7 @@ Slowly varying periodic systems are given by
 Such systems are also called \emph{adiabatic} systems.
 The averaged system in this case is
 \begin{align}
-	\dot{y} = \varepsilon \frac{1}{T} \int_{0}^{T} f(y,t,0) = \varepsilon \overline{f_0}(y).	
+	\dot{y} = \varepsilon \frac{1}{T} \int_{0}^{T} f(y,t,0)dt = \varepsilon \overline{f_0}(y).	
 \end{align}
 Here only the leading order terms with respect to $\varepsilon$ in the integrand were taken, as $\epsilon \ll 0$. Now we transform our original equation into the averaged equation via a near-identity, periodic change of variables
 \begin{align}
@@ -186,7 +186,7 @@ Plugging this transformation into our differential equation, we find
 	\dot{x} &= \left[ I + \varepsilon D_{y}w\right]\dot{y} + \varepsilon \frac{\partial w}{\partial t} \\
 	\dot{y} & = \underbrace{\left[ I + \varepsilon D_{y}w \right] ^{-1}}_{I - \varepsilon D_yw + \mathcal{O}(\varepsilon^2)}
 	\left[\varepsilon  \underbrace{f(y+\varepsilon w(y,t),t,\varepsilon)}_{=\dot{x}} -\varepsilon \frac{\partial w}{\partial t} \right]\\ 
-		&=\varepsilon \left[f(y,t,0) - \frac{\partial w}{\partial t}\right]_{t} + \mathcal{O}(\varepsilon)^2.
+		&=\varepsilon \left[f(y,t,0) - \frac{\partial w}{\partial t}\right] + \mathcal{O}(\varepsilon)^2.
 \end{align}
 \end{subequations}
 In the last equation we used the Taylor expansion. We cannot set $w(y,t) = \int_{0}^{t} f(y,s,0)ds$ as that would make $\omega $ aperiodic. Instead we separate $f$ into two parts, the average and the deviation, $f(y,t,0) = \overline{f}_0 (y) + \tilde{f}(y,t)$. Note that the deviation has mean 0, therefore we set $w(y,t) = \int_{0}^{t} \tilde{f}(y,s)ds$ which is periodic. Therefore we find $\dot{y} = \varepsilon \overline{f}_0(y) + \mathcal{O}(\varepsilon^2)$, noting here that the order 2 term is still $T$ periodic. 
@@ -262,7 +262,7 @@ And now we can use the Implicit Function Theorem to conclude.
 	
 \end{ex}
 \begin{ex}[Averaged system with a limit cycle]
-	Consider the averaged system with a limit cycle $\Gamma_0$. The non-averaged system also has a stablelimit cycle $\Gamma_\varepsilon$ with $ \textrm{dim }W^{S}(\Gamma_\varepsilon) =\mathbb{R}^{n+1} $ in extended phase space. Thus in the full system we have an attracting 2-dimensional invariant torus. The averaged and non-averaged system, along with this torus are shown in Fig. \ref{fig:avg_ex_3}.
+	Consider the averaged system with a limit cycle $\Gamma_0$. The non-averaged system also has a stable limit cycle $\Gamma_\varepsilon$ with $ \textrm{dim }W^{S}(\Gamma_\varepsilon) =\mathbb{R}^{n+1} $ in extended phase space. Thus in the full system we have an attracting 2-dimensional invariant torus. The averaged and non-averaged system, along with this torus are shown in Fig. \ref{fig:avg_ex_3}.
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.34\textwidth]{figures/ch5/8avg_ex_4a.png}
