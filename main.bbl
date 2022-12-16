@@ -22,6 +22,12 @@ Guckenheimer, J. and Holmes, P. (1990).
   Vector Fields}.
 \newblock Springer, New York, 3. print., rev. and corr. edition.
 
+\bibitem[Haken, 1977]{Haken1977}
+Haken, H. (1977).
+\newblock {\em Synergetics: an Introduction, Nonequilibrium Phase Transitions
+  and Self-organization in Physics, Chemistry, and Biology}.
+\newblock Springer Berline, Heidelberg.
+
 \bibitem[Haller, 2001]{Haller2001}
 Haller, G. (2001).
 \newblock Distinguished material surfaces and coherent structures in
@@ -52,6 +58,11 @@ Palis, J. (1967).
 Palis, J. (1969).
 \newblock On morse-smale dynamical systems.
 \newblock {\em Topology}, 8:385--404.
+
+\bibitem[Rouche et~al., 1977]{LiapunovDirect}
+Rouche, N., Habets, P., and Laloy, M. (1977).
+\newblock {\em Stability Theory by Liapunov’s Direct Method}.
+\newblock Springer New York, NY.
 
 \bibitem[Saari and Urenko, 1984]{SaariUrenko}
 Saari, D.~G. and Urenko, J.~B. (1984).
@@ -85,6 +96,11 @@ Volterra, V. (1926).
 \newblock Variazioni e fluttuazioni del numero d'individui in specie animali
   conviventi.
 \newblock {\em Memor. Accad. Lincei.}, 6:31--113.
+
+\bibitem[Wiggins, 1994]{Wiggins1994}
+Wiggins, S. (1994).
+\newblock {\em Normally Hyperbolic Invariant Manifolds in Dynamical Systems}.
+\newblock Springer New York, NY.
 
 \bibitem[Williams et~al., 2015]{Williams2015}
 Williams, M., Kevrekidis, I., and Rowley, C. (2015).

@@ -25,10 +25,7 @@ We separate \eqref{eq6:star} into two parts. The homogeneous part is
 \begin{align}
 	\dot{x} = A(t)x \numberthis \label{eq6:homo}.
 \end{align}
-For the homogeneous part we have the solution $x(t) = \Phi_{t_0}^{t}x_0$, for the fundamental matrix solution $\Phi$ with the property $\Phi_{t_0}^{t_0} = I \in \mathbb{R}^{n\times n}$. The general solution of \eqref{eq6:star} is the sum of the general solution of \eqref{eq6:homo} and a particular solution of \eqref{eq6:star}. We can find the particular solution by, for example, the variation of constants formula. We refer to \cite{Arnold} for the derivation.  
-\begin{align}
-	\dot{x} = b(t).
-\end{align}
+For the homogeneous part we have the solution $x(t) = \Phi_{t_0}^{t}x_0$, with the fundamental matrix solution $\Phi$ with the property $\Phi_{t_0}^{t_0} = I \in \mathbb{R}^{n\times n}$. The general solution of \eqref{eq6:star} is the sum of the general solution of \eqref{eq6:homo} and a particular solution of \eqref{eq6:star}. We can find the particular solution by, for example, the variation of constants formula. We refer to \cite{Arnold} for the derivation.  
 Thus we find the general solution to \eqref{eq6:star} to be
 \begin{align}
 	\boxed{
@@ -176,7 +173,7 @@ The averaged system in this case is
 \begin{align}
 	\dot{y} = \varepsilon \frac{1}{T} \int_{0}^{T} f(y,t,0)dt = \varepsilon \overline{f_0}(y).	
 \end{align}
-Here only the leading order terms with respect to $\varepsilon$ in the integrand were taken, as $\epsilon \ll 0$. Now we transform our original equation into the averaged equation via a near-identity, periodic change of variables
+Here only the leading order terms with respect to $\varepsilon$ in the integrand were taken, as $\varepsilon \ll 0$. Now we transform our original equation into the averaged equation via a near-identity, periodic change of variables
 \begin{align}
 	x=y+\varepsilon w(y,t);\quad w(y,t) = w(y, t+T).
 \end{align}

@@ -42,7 +42,7 @@ This leads to multiple consequences for these systems
 			\caption{The clockwise orientation of trajectories in 1 degree of freedom conservative mechanical systems.}
 			\label{fig:mech_clock_orient}
 		\end{figure}
-	\item Local of the potential give rise to a center fixed point surrounded by closed orbits. The minimum $x^{*} $ is a fixed point if $x^{*}_2 = 0$ (which occurs if $V(x^*_1) = E_0$) as $\dot{x}_2 \propto V'(x^{*}_1) = 0 $. The trajectories of the closed orbits can be found using $x_2 = \pm \sqrt{\frac{2}{m}(E_0 - V(x_1))}$. Such a fixed point at a local minimum of the potential surrounded by closed orbits is shown in Fig. \ref{fig:mech_loc_extrem}.
+	\item Local minima of the potential give rise to a center fixed point surrounded by closed orbits. The minimum $x^{*} $ is a fixed point if $x^{*}_2 = 0$ (which occurs if $V(x^*_1) = E_0$) as $\dot{x}_2 \propto V'(x^{*}_1) = 0 $. The trajectories of the closed orbits can be found using $x_2 = \pm \sqrt{\frac{2}{m}(E_0 - V(x_1))}$. Such a fixed point at a local minimum of the potential surrounded by closed orbits is shown in Fig. \ref{fig:mech_loc_extrem}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.47\textwidth]{figures/ch4/2mech_orbits_minima.png}
@@ -83,7 +83,7 @@ Therefore we get the first order ODE
 	\end{dcases}
 	\implies E(x) = \frac{1}{2}x_2^2+ V(x_1) = \frac{1}{2}x_2^2 + \left( - \frac{1}{2}x_1^2 + \frac{1}{4}x_1^4\right).	
 \end{align}
-The full phase portrait of two homoclinic orbits is shown in Fig. \ref{fig:duffing_phase_portrait}. 
+The full phase portrait with two homoclinic orbits is shown in Fig. \ref{fig:duffing_phase_portrait}. 
 We find two stable fixed points at the potential minima and they are separated by a potential maximum in the middle. Periodic orbits surround the stable fixed points. These orbits are separated from the rest of the phase space by the two homoclinic orbits of the saddle. Outside, we have periodic orbits that correspond to energy level-sets higher than the potential of the saddle. 
 \begin{figure}[h!]
 	\centering
@@ -154,7 +154,7 @@ Further assume that solutions exist for all times, therefore there exists a uniq
 
 We now introduce two theorems which give us more insight into these limit sets.
 \begin{theorem}[]
-	If $x(t;x_0)$ is bounded, then $\omega(x_0)$ and $\alpha(x_0)$ are nonempty, closed, and connected.
+	If $x(t;x_0)$ is bounded, then $\omega(x_0)$ and $\alpha(x_0)$ are nonempty, closed, and connected. Further, the omega and alpha limit sets are invariant sets, i.e. they consist of full trajectories.
 \end{theorem}
 \begin{theorem}[Poincaré-Bendixon]
 	If $x(t;x_0)$ is bounded, then $\omega(x_0)$ and $\alpha(x_0)$ must be one of the following 
@@ -189,7 +189,14 @@ We now introduce two theorems which give us more insight into these limit sets.
 	
 \end{remark}
 \begin{remark}[]
-	A consequence of the Poincaré-Bendixon Theorem is that a forward-invariant, bounded open set without fixed points \underline{must} contain a limit cycle. This is due to the elimination of possibilities (i) and (iii) in the theorem. 
+	A consequence of the Poincaré-Bendixon Theorem is that a forward-invariant, bounded open set without fixed points \underline{must} contain a limit cycle. This is due to the elimination of possibilities (i) and (iii) in the theorem. An example of such a set is shown in Fig. \ref{fig:PB_consequence}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.4\textwidth]{figures/ch4/11PB_consequence.png}
+		\caption{A forward-invariant, bounded open set without fixed points as in the remark. Such a set must contain a limit cycle.}
+		\label{fig:PB_consequence}
+	\end{figure}
+	
 \end{remark}
 \begin{proposition}[Bendixson criterion]
 	Consider the following

@@ -244,7 +244,188 @@ There are three central questions for what happens to this manifold which we wil
 	\end{align}
 Depending on $\alpha $ we differentiate two cases.
 \begin{enumerate}
-	\item $\bm{\alpha =1} $
+	\item $\bm{\alpha =1} $ In this case the eigenvalues split in a vertical fashion, as shown in Fig. \ref{fig:eigv_vertical_split}. {\color{blue} these two look topologically equivalent to me in the figure}.
 \end{enumerate}
 
 \end{ex}
+
+The reason for the destruction of the manifold here was the normal rate of attraction being less than or equal to the tangential rate of attraction at one point. This can be exemplified as proceeds.
+
+\begin{ex}[]
+	Consider the dynamical system
+	\begin{align}
+		\begin{dcases}
+			\dot{x} = -x(1-x)(1+x) + \varepsilon y \\
+			\dot{y} = - \frac{3}{2} y - \varepsilon x
+		\end{dcases}
+.		
+	\end{align}
+	This is the specification of the previous example to $\alpha = \frac{3}{2}$. If we linearize at the point $B_0$ for $\varepsilon = 0 $ we find
+	\begin{align}
+	\begin{dcases}
+		\dot{x} = - x \\
+		\dot{y} = -\frac{3}{2} y
+	\end{dcases}
+	.	
+	\end{align}
+	The solution to the linearized system is
+	\begin{align}
+		\begin{dcases}
+			x(t) = x_0 e^{-t} = x_0 \left(e^{-1} \right)^{t} \\
+			y(t) = y_0 e^{-\frac{3}{2}t} = y_0 \left(e^{-\frac{3}{2}}\right)^{t}
+		\end{dcases}
+		\implies y = y_0 \left(\frac{x}{x_0}\right)^{\frac{3}{2}}.
+	\end{align}
+	The eigenvalue constellation and linearized phase portrait, along with the implied nonlinear phase portrait for this system are show in Fig. \ref{fig:alpha_specification}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.27\textwidth]{figures/ch9/12alpha_specification_1.png}
+		\includegraphics[width=0.27\textwidth]{figures/ch9/12alpha_specification_2.png}
+		\includegraphics[width=0.4\textwidth]{figures/ch9/12alpha_specification_3.png}
+		\caption{Left: The eigenvalue constellation for the linearization around $B_0$ for $\varepsilon=0$. Middle: The linearized phase portrait around $B_0$. Right: The nonlinear phase portrait with the nearby overflowing invariant manifold $M_{\varepsilon}$.}
+		\label{fig:alpha_specification}
+	\end{figure}
+	One can check here that $\dot{y}= (r+\mu )y + \varepsilon x$ would give $\mathcal{C}^{r}$ differentiability for $M_{\varepsilon}$ for $0 \leq \mu \ll 1$. Formally, for $\mu=0 $ we would have $\mathcal{C}^{\infty }$ differentiability, but only for the linear part, and this would not be robust.	
+\end{ex}
+
+The general challenge is to quantify the growth/contraction rates in the normal and tangential directions, i.e. how do we determine the rates away from fixed points along trajectories.
+
+Recall our setup with the compact, overflowing invariant $\mathcal{C}^{r}$ manifold $M_0 \subset   \mathbb{R}^{n}$ of dimension $k$, for $r\geq 1$ and the dynamical system 
+\begin{align}
+	\dot{x} = f(x);\quad x \in \mathbb{R}^{n};\quad f\in \mathcal{C}^{r}.
+\end{align}
+Now consider the \emph{inverse linearized flow map} on the tangent bundle of $\mathbb{R}^{n}$ for some $t\geq 0$
+\begin{align}
+	(F^{-t}, DF^{-t}):\ T\mathbb{R}^{n} \to T\mathbb{R}^{n};\ (p,v) \mapsto \left(F^{-t}, DF^{-t}(p)v\right).
+\end{align}
+This map is depicted in Fig. \ref{fig:inv_lin_flow_map}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/ch9/13inv_lin_flow_map.png}
+	\caption{The inverse linearized flow map. We have $q=F^{-t}(p)\in M_0$ and the red arrow on the right is $v_{-t}=DF^{-t}(p)v_0 \in T_{q}M_0$ for $v_0 \in T_{p}M_0$. The map $\Pi_{q}$ is the orthogonal projection onto $N_{q}M_0$.}
+	\label{fig:inv_lin_flow_map}
+\end{figure}
+
+To quantify the rate of normal attraction we define for $w_0 \in N_{p}M_0$, as in Fig. \ref{fig:inv_lin_flow_map}, $w_{-t}\in N_{q}M_0$ to be $\Pi_{q}DF^{-t}(p)(p)w_0 $. If we have that
+\begin{align}
+	\frac{\|w_0 \|}{\| w_{-t}\|}\sim e^{-\alpha t}	= (e^{-\alpha })^{t}; \quad \alpha >0; \quad t \to \infty ,
+\end{align}
+then the best estimate for such an $e^{-\alpha }$ is 
+\begin{align}
+	\boxed{
+		\nu(p) = \inf \left\{ a \in \mathbb{R}^{+}:\ \lim_{t\to\infty }{\frac{\|w_0\|}{\|w_{-t}\|}}/{a^{t}} = 0,\ \forall w_0 \in N_{p}M_0 \right\}.
+	}
+\end{align}
+The $\inf $ then gives us the smallest upper bound.
+{\color{blue} he says largest lower bound, I think this is wrong, the only $a$ which are included in the set we take the inf over are $a$ such that $e^{-\alpha }<a$, i.e. an upper bound. The largest lower bound would be an expression like sup(lim ... = $\infty$) }
+The idea behind this, is that for large $a$, the quotient will go to zero {\color{blue} again, this is in line with an upper bound I think}, if we start to lower $a$ until this trend changes we will reach the largest lower 
+{\color{blue}smallest upper} bound.
+
+If $e^{-\alpha }=a \sim \nu(p) < 1$ then $M_0$ is exponentially attracting in backwards time. Note that the orbit from $p$ will generally not approach a fixed point. Furthermore, $-\log(\nu(p))$ will generally not be the eigenvalue of a Jacobian (the linearized flow map at a fixed point).
+
+Next, we would like to quantify the relationship between the normal and tangential rates. If we have
+\begin{align}
+{\frac{\| w_0 \|}{\|w_{-t}\|}}/{\frac{\|v_0\|}{\|v_{-t}\|}} \sim \frac{e^{-\alpha t}}{e^{-\alpha t \cdot \frac{1}{\rho}}}
+\end{align}
+for some $\rho \in \mathbb{R}$ and $\alpha >0$ as $t\to \infty $ then define the \emph{type number} to be
+\begin{align}
+	\boxed{
+		\sigma(p) = \inf \left\{ b \in \mathbb{R}:\ \lim_{t\to \infty }\left({\frac{\|w_0\|}{\|w_{-t}\|}}/{\frac{\|v_0\|}{\|v_{-t}\|}}\right)^{b} = 0,\ \forall w_0 \in N_{p}M_0,\ \forall v_0 \in T_{p}M_0 \right\}.
+	}
+\end{align}
+The type number is also known as the \emph{Lyapunov-type number} or \emph{Fenichel-type number}. If $\sigma(p) \sim \frac{1}{\rho} < \frac{1}{s}$ for some $s\in \mathbb{Z}^{+}$, then the normal decay to $M_0$ is $s$-times stronger than the tangential compression along $M_0$, at least along the trajectory through $p$.
+
+\begin{remark}[Properties of Fenichel-type numbers]
+ First, each are constant along trajectories, and dependent only on the $\alpha $-limit set of the trajectory (the set of limit points as $t \to -\infty $). Also, both $\nu(p)$ and $\nu(p) $ are upper-semicontinuous in $p$ ($\limsup_{p \to p_0} \sigma(p) \leq \sigma(p_0)$).
+\end{remark}
+
+Next, it is important to be able to compute the Fenichel-type numbers, to this end define two functions
+\begin{align}
+	A_{t}(p) &= \left. DF^{-t}(p) \right|_{T_{p}M_0}:\ T_{p}M_0 \to T_{q}M_0;\ q = F^{-t}(p); \\
+	B_{t}(p) &= \left. \Pi_{p}DF^{t}(F^{-t}(p)) \right|_{N_{F^{-t}(p)}M_0}:\ N_{F^{-t}(p)}M_0 \to N_{p}M_0.
+\end{align}
+The reason for the $F^{-t}(p)$ being the inner argument for $B_{t}$ is that we need to step back in order to safely evaluate the linearized map in forward time. With these functions in hand we can calculate the Fenichel-type numbers equipped with the next theorem.
+
+\begin{theorem}[Fenichel (1971)]
+We have that the following holds
+\begin{align}
+	\boxed{\nu(p) = \limsup_{t\to \infty }\| B_{t}(p)\|^{\frac{1}{t}}; }
+\end{align}
+and if $\nu(p)<1$, then
+\begin{align}
+	\boxed{\sigma(p) = \limsup_{t\to \infty }\frac{\log\left( \| A_{t}(p) \| \right)}{-\log \left( \| B_{t}(p) \| \right)}.}
+\end{align}
+\end{theorem}
+
+\begin{ex}[]
+	Consider the dynamical system
+	\begin{align}
+		\begin{dcases}
+			\dot{x} = -x(1-x)(1+x) \\
+			\dot{y} = -by
+		\end{dcases}
+		;\quad b>0.
+	\end{align}
+	Further, define $M_0 = \left\{ (x,y):\ x\in \left[ -\frac{3}{2}, \frac{3}{2}\right],\ y=0 \right\}$. Using the previous theorem, it is possible to show
+	\begin{align}
+		\nu (A_0) = \nu (C_0) = e^{-b}; \quad \sigma(A_0) = \sigma(C_0) = - \frac{2}{b}; \quad
+		\nu (B_0) = e^{-b}; \quad \sigma(B_0) = \frac{1}{b}.
+	\end{align}
+	The points $A_0$, $B_0$, and $C_0$ along with the manifold $M_0$ are illustrated in the phase space in Fig. \ref{fig:fenichel_ex1}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.5\textwidth]{figures/ch9/14fenichel_ex1.png}
+		\caption{$A_0$, $B_0$, and $C_0$ along with the manifold $M_0$ are illustrated in the phase space.}
+		\label{fig:fenichel_ex1}
+	\end{figure}
+\end{ex}
+
+\begin{definition}
+	The manifold $M_0$ is an \emph{$r$-normally hyperbolic invariant manifold} if
+	\begin{enumerate}
+		\item $\nu (p)<1$ for all $p\in M_0$ ;
+		\item $\sigma(p) < \frac{1}{r}$ for all $p \in M_0$.
+	\end{enumerate}	
+\end{definition}
+\begin{remark}[]
+	If there is no tangential compression, then $\sigma(p)<0$ and $(ii)$ holds automatically for all $r$.
+\end{remark}
+
+Building on the previous results, we have the next the next result.
+\begin{theorem}[Fenichel (1971)]
+Assume we have
+\begin{align}
+	\dot{x}= f_{ \textrm{pert} }(x) = f_{0}(x) + \Delta f(x);\quad f_0, \Delta f \in \mathcal{C}^{r},\ r\geq 1,
+\end{align}
+for a compact, overflowing invariant (under $f_0(x)$) manifold $M_0$ which is $\mathcal{C}^{r}$ and $r$-normally hyperbolic. Then for $\|\Delta f \|_{\mathcal{C}^{1}}$ small enough, there exists an overflowing invariant manifold $\tilde{M}_0$ for $\dot{x}=f_{ \textrm{pert} }(x)$, such that
+\begin{enumerate}
+	\item $\tilde{M}_{0}$ is $\mathcal{C}^{1}$-close to $M_0$ and $\mathcal{C}^{r}$-diffeomorphic to $M_0$ ;
+	\item All close enough trajectories converge to $\tilde{M}_{0}$ as $t \to \infty $, as long as they stay in a neighborhood of $\tilde{M}_{0}$.
+\end{enumerate}
+This result is depicted in Fig. \ref{fig:fenichel_thm2}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/ch9/15fenichel_thm2.png}
+	\caption{The manifolds $M_0$ and $\tilde{M}_{0}$ illustrated within the locally invariant manifold $W^{S}_{ \textrm{loc} }(\tilde{M}_{0})$ (green).}
+	\label{fig:fenichel_thm2}
+\end{figure}
+\end{theorem}
+
+\begin{remark}[]
+	\begin{enumerate}
+		\item If $M_0$ is compact, normally hyperbolic invariant (without boundary), then it attracts \underline{all} nearby trajectories ($M_0$ is an attractor that smoothly persists);
+		\item The integer $r$ featured in the theorem is the minimum of $f \in \mathcal{C}^{r_1}$, $M_0 \in \mathcal{C}^{r_2}$, and $\sigma(p) < \frac{1}{r_3}$ with the integers $r_i \in \mathbb{Z}^{+}$;
+		\item Similar results hold for inflowing invariant manifolds that repel nearby initial conditions ($M_0$ and $\tilde{M}_{0}$ are persistent repellers);
+		\item The theory also extends to saddle-type invariant manifolds too, e.g. the unstable manifold of an overflowing invariant manifold.
+	\end{enumerate}
+	Assume the tangent bundle $\left.T\mathbb{R}^{n}\right|_{M_0}$ has an invariant splitting, i.e. $T_{p}\mathbb{R}^{n} = T_pM_0 \oplus N_{p}^{U}M_0 \oplus N_{p}^{S}M_0$, then there exists an additional Fenichel-type number for $N^{U}M_0$ and $W^{U}_{ \textrm{loc} (M_0)}$ is robust. This is shown in Fig. \ref{fig:fenichel_thm_rmks}.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.7\textwidth]{figures/ch9/16fenichel_thm_rmks.png}
+			\caption{The effect of the tangent bundle having an invariant splitting with the addition of a Fenichel-type number for $N^{U}M_0$ and robust $W^{U}_{ \textrm{loc} }(M_0)$.}
+			\label{fig:fenichel_thm_rmks}
+		\end{figure}
+\end{remark}
+For more see \cite{Wiggins1994}.
+
+\section{Geometric singular perturbation theory}

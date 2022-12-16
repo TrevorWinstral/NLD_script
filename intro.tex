@@ -29,10 +29,10 @@ Corresponding to these there are various types of evolution rules
 	\end{align}
 	If there is no explicit dependence on $n$, i.e. $\frac{\partial F}{\partial n} = 0$, then 
 	\begin{align}
-		\boxed{  {x}_{n+1} F( {x}_n) = F(F( {x}_{n-1})) = \underbrace{F \circ \ldots \circ F}_{n+1 \textrm{ times} }( {x}_0) = F^{n+1}( {x}_0).}
+		\boxed{  {x}_{n+1}=F( {x}_n) = F(F( {x}_{n-1})) = \underbrace{F \circ \ldots \circ F}_{n+1 \textrm{ times} }( {x}_0) = F^{n+1}( {x}_0).}
 	\end{align}
-\begin{ex}[Cobweb diagram of a one-dimensional DDSs]
-	In such cases and in one-dimensional problems, a simple way to analyze the behavior of the system is the so-called \textit{cobweb} diagram. We may plot $x_{n+1}$ as a function of $x_{n}$, as demonstrated in Fig. \ref{fig:cobweb}. The image of an initial condition $x_0$ lies on the graph at $x_{n+1}=F(x_0)$. We can also compute the next iterate by horizontally projecting the point $(x_0, F(x_0))$ to the diagonal line defined by $x_{n+1}= x_n$. Following the porjection of this point to the horizontal axis $(x_n)$ we find the intersection with the graph at the point $(x_1, F(x_1))$. It follows that fixed points on the cobweb diagram correspond to the intersection of the graph of $F$ with the diagonal line $x_{n+1}= x_n$.
+\begin{ex}[Cobweb diagram of a one-dimensional DDS]
+	In such cases and in one-dimensional problems, a simple way to analyze the behavior of the system is the so-called \textit{cobweb} diagram. We may plot $x_{n+1}$ as a function of $x_{n}$, as demonstrated in Fig. \ref{fig:cobweb}. The image of an initial condition $x_0$ lies on the graph at $x_{n+1}=F(x_0)$. We can also compute the next iterate by horizontally projecting the point $(x_0, F(x_0))$ to the diagonal line defined by $x_{n+1}= x_n$. Following the projection of this point to the horizontal axis $(x_n)$ we find the intersection with the graph at the point $(x_1, F(x_1))$. It follows that fixed points on the cobweb diagram correspond to the intersection of the graph of $F$ with the diagonal line $x_{n+1}= x_n$.
 	\begin{figure}[h!]
 	\centering
 	\includegraphics[width = \textwidth]{figures/intro/1DDS.png}
@@ -72,7 +72,7 @@ Geometrically, this solution can be viewed as a trajectory in phase space (cf. F
 		\item $F_{t_0}^{t_0} = I$ and $F_{t_0}^{t_2} = F_{t_1}^{t_2} \circ F_{t_0}^{t_1}$,
 		\item $\left(F_{t_0}^{t}\right)^{-1} = F_{t}^{t_0}$ exists and is smooth.
 \end{enumerate}
-Properties (a) and (b) together are called the group property. A special case of continuous dynamical systems is the autonomous system.
+Properties (b) and (c) together are called the group property. A special case of continuous dynamical systems is the autonomous system.
 \begin{align}
 	\boxed{\dot{ {x}} = f( {x}).}	
 \end{align}

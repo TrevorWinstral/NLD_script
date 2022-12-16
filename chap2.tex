@@ -218,7 +218,7 @@ The following facts have already been established
 	\item There exists a set of $n$ linearly independent solutions: $\varphi_1(t), \ldots, \varphi_n(t) \in \mathbb{R}_{n}$.
 	\item The general solution is
 		\begin{align}
-			y(t) = \sum_{i=1}^{n} c_i \varphi(t) =
+			y(t) = \sum_{i=1}^{n} c_i \varphi_i(t) =
 			\underbrace{\begin{bmatrix}
 				\varphi_1(t) & \ldots & \varphi_n(t)
 		\end{bmatrix}}_{\Psi(t):  \textrm{ fundamental matrix solution} }
@@ -703,7 +703,7 @@ Then the following holds: $\dot{x}=f(x)$ with $f(0)=0$ is locally $\mathcal{C}^{
 \end{figure}
 The two masses (of mass $\frac{m}{2}$) rotate counter clockwise, and their position in radians is given by $\theta$, with their rotational velocity $\dot{\theta}$. The masses are attached by a rod of length $L$ and their deflection from the vertical position is measured by $\varphi$. Smaller $\dot{\theta}$ allowed for an increase in steam supply.
 
-Following changes in the design, the systems suddenly became unstable. To address this Vishnegradky studied the root cause in 1877. We first derive the equation of motion. For the governor we use the equation of motion for a rotating hoop (with viscous damping coefficient $b$).
+Following changes in the design, the systems suddenly became unstable. To address this Vyshnegradsky studied the root cause in 1877. We first derive the equation of motion. For the governor we use the equation of motion for a rotating hoop (with viscous damping coefficient $b$).
 \begin{align}
 	mL^2 \ddot{\varphi} + bL^2\left( \frac{g}{L} - \dot{\theta}^2 \cos(\varphi) \right) \sin(\varphi) = 0;\quad b>0.
 \end{align}
@@ -1165,6 +1165,6 @@ D^2V(x_0) &=
 	0 & ml^2
 \end{pmatrix}.
 \end{align}\end{subequations}
-The Hessian is positive definite as long as $\overline{x}_1 \in \left(-\frac{\pi }{2}, \frac{\pi }{2}\right)$, and all fixed points in this region are stable by Theorem \ref{thm:direct}. The Hessian is indefinite if $\overline{x}_1 \not \in \left[-\frac{\pi }{2}, \frac{\pi }{2}\right]$, but in this case Theorem 4 is not applicable as $\dot{V}$ is not definite.
+The Hessian is positive definite as long as $\overline{x}_1 \in \left(-\frac{\pi }{2}, \frac{\pi }{2}\right)$, and all fixed points in this region are stable by Theorem \ref{thm:direct}. The Hessian is indefinite if $\overline{x}_1 \not \in \left[-\frac{\pi }{2}, \frac{\pi }{2}\right]$, but in this case Theorem 4 is not applicable as $\dot{V}$ is not definite. More detailed discussion and further results on Lyapunov's direct method can be found in \cite{LiapunovDirect}.
  \end{ex}
  

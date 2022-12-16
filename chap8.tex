@@ -807,8 +807,6 @@ Defining the vector of angular velocities $\omega=(\omega_1, \ldots, \omega_n)$ 
 The setting of the previous section remains the same as we move to introduce the idea of the normal form of $H(x)$ near $x=0$. This requires two additional assumptions
 \begin{enumerate}
 	\item For each $k\in \mathbb{Z}^{n}$ with $\|k\|_{1} = \sum_{i=1}^{n} |k_i| \leq 4$ we have $\langle k, \omega \rangle \neq 0$, i.e. there are no resonances below order 5.
-	\item The \emph{nondegeneracy condition} holds, i.e. $\det[\omega_{kl}]\neq 0$.
-		{\color{blue} where does this go?}
 \end{enumerate}
 The first assumption implies that a nonlinear, near-identity canonical change of coordinates puts $H(x)$ in the form
 \begin{align}
@@ -817,7 +815,7 @@ The first assumption implies that a nonlinear, near-identity canonical change of
 The $\varphi$-dependence starts only in the higher order terms, i.e. $\mathcal{O}\left( |r|^{n}\right)$ in this case. By a near-identity change of coordinates, we mean that $(r,\varphi)$ is close to the polar coordinates introduced for the linearized Hamiltonian.
 
 \begin{definition}
-	A \emph{canonical} (also \emph{symplectic}) coordinate change is one which preserves the Hamiltonian structure. . That is, in the new coordinates, Hamilton's equations still hold
+	A \emph{canonical} (also \emph{symplectic}) coordinate change is one which preserves the Hamiltonian structure. That is, in the new coordinates, Hamilton's equations still hold
 	\begin{align}
 		\begin{dcases}
 		\dot{\varphi} = \frac{\partial H}{\partial r} \\
@@ -837,6 +835,10 @@ These reductions bring us to the next theorem. In order to state this, some term
 	\end{align}
 	where $\mu $ is the measure that is preserved, i.e. the phase space volume.
 \end{definition}
+\begin{enumerate}
+	\setcounter{enumi}{1}
+	\item The \emph{nondegeneracy condition} holds, i.e. $\det[\omega_{kl}]\neq 0$.
+\end{enumerate}
 
 \begin{theorem}[Kolmogorov-Arnold-Moser (KAM) theorem]
 	We have three items which hold:
