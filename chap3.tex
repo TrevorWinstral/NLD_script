@@ -291,7 +291,7 @@ The linearization of this system yields
 		\dot{y} = -y.
 	\end{dcases}
 \end{align}
-Now the center manifold disappears as the center subspace $E^{C}$ disappears for $\varepsilon>0$!
+Now the center manifold disappears as the center subspace $E^{C}$ disappears for $\varepsilon\neq 0$!
 \end{ex}
 
 \section{Center manifolds depending on parameters}
@@ -303,7 +303,7 @@ We begin with the setup
 		\dot{y} = By + g(x,y,\varepsilon)
 	\end{dcases}
 ;\quad x \in \mathbb{R}^{c},\ y \in \mathbb{R}^{d},\ 0\leq \|\varepsilon\| \ll 1;\ \varepsilon\in \mathbb{R}^{p};\\
-f,g \in \mathcal{C}^{r},\ f,g=\mathcal{O}(\|x\|^2, \|y\|^2, \|x\|\|x\|, {\|\varepsilon\| \|x\|, \|\varepsilon\| \|y\|} ).
+f,g \in \mathcal{C}^{r},\ f,g=\mathcal{O}(\|x\|^2, \|y\|^2, \|x\|\|y\|, {\|\varepsilon\| \|x\|, \|\varepsilon\| \|y\|} ).
 \end{align}\end{subequations}
 The order $\|\varepsilon\| \|x\|$ and $\|\varepsilon\| \|y\|$ terms are due to the perturbation of the linear part. Now assume $ \textrm{Re} (\lambda _j(A))=0$ for $j=1,\ldots,c$ (the center directions) and $ \textrm{Re} (\lambda _j(B)) \neq0  $ for $j=1,\ldots,d $ (the hyperbolic directions). Next, rewrite $\tilde{x}=
 \begin{pmatrix}
@@ -366,7 +366,7 @@ This can then be applied to the perturbed example from above.
 	\end{align}
 	We have the persisting fixed point at $(x,y)=(0,0)\in \mathbb{R}^{c+d}$	and the system is already in standard form with 
 	 \begin{align}
-		 A=0;\quad B=-1;\quad f(x,y,\varepsilon) = xy + \varepsilon x;\quad g(x,y,\varepsilon) = -\alpha x^2.
+		 A=0;\quad B=-1;\quad f(x,y,\varepsilon) = xy + \varepsilon x;\quad g(x,y,\varepsilon) = \alpha x^2.
 	\end{align}
 	We apply the center manifold theorem and get the existence of $W^{C}_{\varepsilon}(0)$ for $|\varepsilon|\ll 1$. This manifold satisfies
 	 \begin{align}

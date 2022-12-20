@@ -705,7 +705,7 @@ The two masses (of mass $\frac{m}{2}$) rotate counter clockwise, and their posit
 
 Following changes in the design, the systems suddenly became unstable. To address this Vyshnegradsky studied the root cause in 1877. We first derive the equation of motion. For the governor we use the equation of motion for a rotating hoop (with viscous damping coefficient $b$).
 \begin{align}
-	mL^2 \ddot{\varphi} + bL^2\left( \frac{g}{L} - \dot{\theta}^2 \cos(\varphi) \right) \sin(\varphi) = 0;\quad b>0.
+	mL^2 \ddot{\varphi} + +bL^2 \dot{\varphi} +mL^2\left( \frac{g}{L} - \dot{\theta}^2 \cos(\varphi) \right) \sin(\varphi) = 0;\quad b>0.
 \end{align}
 Next, let $\omega $ denote the angular velocity of the steam engine, i.e. with the gear ratio $n$ we have $\dot{\theta} = n \omega$. Then we find
 \begin{align}
@@ -774,7 +774,7 @@ The only actual condition for $x_0$ to be asymptotically stable is $D_2 >0$
 From the equation for the fixed points we know 
 \begin{subequations}
 \begin{align}
-	P_0 \omega_0^2 = \frac{gk}{n^2} =  \textrm{const.} \numberthis \label{eq:watt1}\\
+	P_0 \omega_0^2 = \frac{gk}{Ln^2} =  \textrm{const.} \numberthis \label{eq:watt1}\\
 	\omega_0^2 + 2P_0 \omega_0 \frac{d \omega_0}{d P_0} = 0.
 \end{align}
 \end{subequations}
