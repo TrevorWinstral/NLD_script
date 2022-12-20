@@ -429,3 +429,441 @@ This result is depicted in Fig. \ref{fig:fenichel_thm2}.
 For more see \cite{Wiggins1994}.
 
 \section{Geometric singular perturbation theory}
+{\color{blue} This is a section in his notes, do you think this should be a chapter?}
+Singular perturbation theory is the study of systems with two different time scales, i.e. of the form
+\begin{align}
+	\begin{dcases}
+		\dot{x} = f(x,y,\varepsilon) \\
+		\varepsilon \dot{y} = g(x,y,\varepsilon)
+	\end{dcases}
+	;\quad 0 \leq \varepsilon \ll 1; \quad f,g \in \mathcal{C}^{1}. \label{eq9:spt_1}
+\end{align}
+In such systems $x \in \mathbb{R}^{n}$ is called the \emph{slow variable} and $y \in \mathbb{R}^{m}$ is the \emph{fast variable}.
+\begin{ex}[One degree of freedom mechanical oscillator with a small mass]
+	An example of a system with two different time scales is a single degree of freedom mechanical oscillator with a small mass, the dynamical system is given by
+	\begin{align}
+		\varepsilon \ddot{x} + F(x, \dot{x}, \varepsilon) = 0 \implies
+		\begin{dcases}
+			\dot{x}  =y
+			\varepsilon \dot{y} = - F(x,y, \varepsilon)
+		\end{dcases}
+		.
+	\end{align}
+	Note that $\dot{y} = \frac{1}{ \varepsilon}F(x,y,\varepsilon)$ implies that $y$ changes very quickly. The equations for $\dot{y}$ become singular as $\varepsilon \to 0$, hence we have singular perturbation (the smooth dependence of solutions on $\varepsilon$ does not apply).
+\end{ex}
+
+The classical approach to such systems is to set $\varepsilon =0 $ in \eqref{eq9:spt_1}, obtaining
+\begin{align}
+	\begin{dcases}
+		\dot{x} = f(x,y, 0) \\
+		0 = g(x,y,0)
+	\end{dcases}
+	.
+\end{align}
+This is a mixed differential-algebraic system of equations. We solve $g (x,y,0)=0$ for $y=G_{0}(x)$, expand in $\varepsilon$, and plug this into $\dot{x}=f(x,y,\varepsilon)$. Sometimes this works, however this is not guaranteed. Instead we will follow \cite{Fenichel1979}.
+
+First, turn this into a regular perturbation problem by introducing the fast time $t = \varepsilon \tau$, i.e $\tau = \frac{t}{\varepsilon}$ for $0 < \varepsilon \ll 1$. This change of coordinates induces via the chain rule the Jacobian
+\begin{align}
+	\frac{d (\cdot) }{dt} = \frac{d( \cdot) }{d \tau }\frac{d \tau}{dt}.
+\end{align}
+The differential of a function $f$ with respect to $t$ will be denoted by $\dot{f}$, and is equal to $f' \frac{1}{\varepsilon}$, with $f'$ denoting the differential of $f$ with respect to $\tau$. Hence we obtain the rescaled system
+\begin{align}
+\begin{dcases}
+	x' = \varepsilon f(x,y, \varepsilon) \\
+	y' = g(x,y \varepsilon)
+\end{dcases}
+. \label{eq9:spt_2}	
+\end{align}
+Note that \eqref{eq9:spt_2} is a regular perturbation problem from a \underline{fictitious limit}. The systems \eqref{eq9:spt_1} and \eqref{eq9:spt_2} are not equivalent for  $\varepsilon=0$, but are equivalent for any $\varepsilon >0$. 
+
+We analyze the $\varepsilon=0$ limit next, i.e.
+\begin{align}
+	\begin{dcases}
+		x' = 0 \\
+		y' = g(x,y,0)
+	\end{dcases}
+	.\label{eq9:spt_3}
+\end{align}
+Assume that that there exists a pair $(x_0, y_0)$ such that $g(x_0, y_0,0)=0$, i.e. a fixed point of \eqref{eq9:spt_3}. Then we have $m$ equations for $m$ unknowns $y_0$, by the Implicit Function Theorem a nearby zero $y = \varphi_0(x)$ with $\varphi \in \mathcal{C}^{1}$ exists whenever we have that the following hold
+\begin{enumerate}
+	\item The matrix $D_{y}g(x_0, y_0, 0)$ is nonsingular;
+	\item The derivative $D_{x}g(x_0, y_0, 0)$ exists near $(x_0, y_0)$.
+\end{enumerate}
+In which case we can define the $n$-dimensional invariant manifold filled of fixed points 
+\begin{align}
+\boxed{
+M_0 = \left\{ (x,y):\ y= \varphi_0(x),\ x\in U,\ U  \textrm{ compact},\ \det\left[D_{y}g(x,y,0)\right]\neq 0 \right\} .
+}
+\end{align}
+This manifold is called the \emph{critical manifold} and an example is shown in Fig. \ref{fig:critical_mfd_def}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch9/17crit_mfd_def.png}
+	\caption{An example of the critical manifold $M_0$ (red) filled with fixed points, an $n$-dimensional invariant subspace passes through each fixed point.}
+	\label{fig:critical_mfd_def}
+\end{figure}
+
+Next, we linearize. Begin by defining $\eta = y - \varphi_0(x)$, then calculate the derivative of $\eta $ with respect to $\tau$ 
+\begin{align}
+	\eta' = y' - \underbrace{\varphi_0' x'}_{=0} = g(x, \varphi_0(x) + \eta, 0) = \underbrace{g(x, \varphi_0(x), 0) }_{=0} + D_{y}g(x, \varphi_0(x), 0) \eta + \mathcal{O}(\eta^2).
+\end{align}
+Thus our linearization is $\eta' = D_{y} g(x, \varphi_0(x), 0 ) \eta$, due to the nonsingularity condition before we know that $ \textrm{Re}[\lambda_i(D_{y}g(x,y,0)]\neq 0  $ for $i = 1, \ldots, m$. Hence, $M_0$ is normally hyperbolic.
+
+The most important case is when $M_0$ is normally attracting, i.e. when $ \textrm{Re} [\lambda_i(D_{y}g(x,y,0) ] < 0$ for each $i=1,\ldots, m$.  In which case $M_0$ is $r$-normally hyperbolic, where if $\varphi_0(x)$ is $\mathcal{C}^{r}$ for any $r\in \mathbb{Z}^{+}$ then $M_0$ persists for $\varepsilon$ small enough. 
+
+The classical formal approach often fails when there exist eigenvalues with positive real parts, i.e. when $M_0$ is unstable.
+
+For $\varepsilon>0$ and with eigenvalues of only strictly negative real parts (as before), we get the perturbation $M_\varepsilon$ of $M_0$. This perturbed manifold is the \emph{slow manifold}, motion on it is of $\mathcal{O}(\varepsilon)$ speed, and in this case it is attracting. We have that for the $\mathcal{C}^{1}$ function $\varphi_{\varepsilon}$ (also in $\varepsilon$ as long as $g(x,y,\varepsilon)$ is $\mathcal{C}^{1}$ in $\varepsilon$)
+\begin{align}
+	y = \varphi_{\varepsilon}= \varphi_0(x) + \varepsilon \varphi_1(x) + \mathcal{O}(\varepsilon^{2}).
+\end{align}
+Thus $y$ is a smooth graph over the domain $U$. The perturbed manifold and the representation of $y$ as a smooth graph over $U$ is shown in Fig. \ref{fig:singular_perturbed_mfd}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/ch9/18singular_pert_mfd.png}
+	\caption{The perturbed manifold $M_{\varepsilon}$ near the critical manifold $M_0$ as well as the representation of $y$ as a smooth graph over the domain $U$.}
+	\label{fig:singular_perturbed_mfd}
+\end{figure}
+
+We can reduce to the slow manifold and find the reduced flow
+\begin{align}
+	\left. x' \right|_{M_{\varepsilon}} &= \varepsilon\left. f(x,y, \varepsilon)\right|_{M_{\varepsilon }}	= \varepsilon f(x, \varphi_\varepsilon(x), \varepsilon) \\
+					    &= \varepsilon \left[ f(x, \varphi_0 (x) , 0) + \varepsilon\left( D_{\varepsilon} f(x, \varphi_0(x), 0) + D_{y}f(x, \varphi_0 (x), 0) \varphi_1(x) \right) \right] + \mathcal{O}(\varepsilon ^{3}).
+\end{align}
+In the original time $t$ we find the \emph{reduced flow}
+\begin{align}
+	\boxed{
+		\dot{x} = f(x, \varphi_0(x), 0) + \varepsilon \left[ D_{\varepsilon}f(x, \varphi_0(x), 0) + D_{y} f(x, \varphi_0(x), 0) \varphi_1(x) \right] + \mathcal{O}(\varepsilon^{2}).
+	}
+\end{align}
+The leading order is the restricted flow on the attractor $M_{\varepsilon}$. Any structurally stable feature of this leading-order reduced flow will persist on the attractor. For other features, we need higher-order terms. The dynamics near the slow manifold are attractive towards $M_{\varepsilon}$ if $ \textrm{Re} [\lambda_i ( D_{y}g(x,y,0)]<0$ for $i=1, \ldots, m$ for all $(x,y) \in M_0$ (i.e. $W^{U}_{ \textrm{loc} }(M_{\varepsilon})$ is empty. Furthermore, we get the stable fibers $f_{\varepsilon}^{S}(p)$ which are $\mathcal{C}^{1}$-close to their respective $f_{0}^{S}(p)$, and are of the same dimension ($m$). These facts are illustrated in Fig. \ref{fig:perturbed_features}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/ch9/19perturbed_features.png}
+	\caption{The dynamics near the slow manifold and the stable fibers with their relationship to $M_0$ and the stable fibers of the linearization.}
+	\label{fig:perturbed_features}
+\end{figure}
+
+Define the $m+1$-dimensional \emph{strong stable manifold} of $\gamma_{\varepsilon}$ to be
+\begin{align}
+	W_{ \textrm{loc} }^{SS}(\gamma_{\varepsilon}) = \bigcup_{p \in \gamma_{\varepsilon}}f_{\varepsilon}^{S}(p),
+\end{align}
+i.e. the collection of fastest-converging trajectories to $\gamma_\varepsilon$. By construction, the stable fibers form an invariant family along $\gamma_{\varepsilon}$, i.e. $F^{t}(f^{S}_{\varepsilon}(q)) \subset f^{S}_{\varepsilon}(p)$.
+
+\begin{ex}[Clustering of inertial particles in fluids]
+	When finite-size inertial particles are suspended in fluids they tend to form clusters, even in incompressible fluids (as opposed to fluid particles). For a specific case, consider the steady flow in the wake of a bluff body \cite{Burns1999}. This can be seen in Fig. \ref{fig:vortex_street}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/ch9/20vortex_street.png}
+	\caption{The clustering of inertial particles observed experimentally, referred to as the \emph{von Karman vortex street}.}
+	\label{fig:vortex_street}
+\end{figure}
+
+The notation here will be $x\in \mathcal{S}^{1}\times \mathbb{R}$ for the particle position in a moving frame and periodic in the first variable. The steady fluid velocity in the moving frame is given by $u(x) \in \mathbb{R}^{2}$, the nondimensionalized particle mass is given by $\varepsilon \ll 1$, and the velocity of the inertial particle at time $t$ given by $y=\dot{x}\in \mathbb{R}^{2}$. The equation of motion in its simplest form is given by \cite{Maxey1983}
+\begin{align}
+	\begin{dcases}
+		\dot{x}=y\\
+		\varepsilon \dot{y} = u(x) - y
+	\end{dcases}
+	.
+\end{align}
+Thus we have the slow variable $x$ and the fast variable $y$, performing the time transformation as before ($t = \varepsilon \tau$) we obtain
+\begin{align}
+\begin{dcases}
+	x' = \varepsilon y \\
+	y' = u(x) - y
+\end{dcases}
+.	
+\end{align}
+the $\varepsilon=0$ limit yields
+\begin{align}
+	\begin{dcases}
+		x' = 0 \\
+		y' = u(x) - y = g(x,y,0)
+	\end{dcases}
+	.
+\end{align}
+Hence, we get the critical manifold
+\begin{align}
+	M_0 = \left\{ (x,y)\in U \subset \mathcal{S}^{1}\times \mathbb{R}^{3}:\ y = u(x)\right\}.
+\end{align}
+To examine the stability of $M_0$ calculate $D_{y}g(x, u(x), 0) = - I_{2}$, hence $ \textrm{Re} [\lambda_i]= \lambda_i =-1<0$ for $i=1,2$. Hence, $M_0$ is normally hyperbolic and attracting, the unperturbed fibers $f_{0}^{S}(p)$ for $p\in M_0$ are 2-dimensional planes. The unperturbed geometry is depicted in Fig. \ref{fig:unperturbed_fluid_geometry}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/ch9/21unperturbed_fluid_geometry.png}
+	\caption{The unperturbed geometry of the dynamics given in the example of inertial particles suspended in the fluid.}
+	\label{fig:unperturbed_fluid_geometry}
+\end{figure}
+
+For $\varepsilon>0$ we get the perturbed manifold $M_{\varepsilon}$ which is $\mathcal{C}^{1}\ \mathcal{O}(\varepsilon)$-close to $M_0$. Trajectories in $W^{SS}(\gamma_{\varepsilon})$ quickly synchronize with $\gamma_{\varepsilon}$ rapidly. The perturbed geometry is shown in Fig. \ref{fig:perturbed_fluid_geometry}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/ch9/22perturbed_fluid_geometry.png}
+	\caption{The perturbed geometry of the dynamics given in the example of inertial particles suspended in the fluid.}
+	\label{fig:perturbed_fluid_geometry}
+\end{figure}
+
+To study the dynamics on the slow manifold, write the perturbed manifold $M_{\varepsilon}$ as the graph of the function $\varphi_{\varepsilon}$
+\begin{align}
+	M_{\varepsilon} = \left\{ (x,y):\ y=\varphi_{\varepsilon}(x)=\underbrace{\varphi_0(x)}_{u(x)} + \varepsilon h_{1}(x) + \mathcal{O}(\varepsilon^{2}) \right\}.
+\end{align}
+
+By the invariance of $M_{\varepsilon}$ the formula $y=\varphi_{\varepsilon}(x)$ holds along full trajectories. Plugging this in and differentiating with respect to $\tau$ we find
+\begin{align}
+	y' = (Du)x' + \varepsilon (Dh_{1})x' + \ldots = (Du) \varepsilon u(x) + \mathcal{O}(\varepsilon^{2}).
+\end{align}
+In the second equation the fact $x'=\varepsilon \varphi_{\varepsilon}(x)$ was used. Also from the equation of motion we find
+\begin{align}
+	\left. y'\right|_{M_{\varepsilon}} = \left. \left(u(x) - y\right) \right|_{M_{\varepsilon}} = u(x) - \left(u(x) + \varepsilon h_{1}(x) + \ldots\right) = - \varepsilon h_{1}(x) + \mathcal{O}(\varepsilon^{2}).
+\end{align}
+By comparing coefficients we then find
+\begin{align}
+	h_{1} = - (Du)u.
+\end{align}
+Hence, the reduced flow on the slow manifold is
+\begin{align}
+	x' = \varepsilon \varphi_{\varepsilon}(x) = \varepsilon \left( u(x) - \varepsilon (Du(x)) u(x) \right) + \mathcal{O}(\varepsilon^{2}).
+\end{align}
+Transforming this back into the original time we find
+\begin{align}
+	\dot{x} = u(x) - \varepsilon (Du(x))u(x) + \mathcal{O}(\varepsilon^{2}).
+\end{align}
+The $\mathcal{O}(1)$ term is the incompressible terms, meanwhile the $\mathcal{O}(\varepsilon)$ term is the dissipative terms (i.e. has nonzero divergence). This nonzero divergence can be calculated
+\begin{align}
+	\nabla \cdot \left[ (Du)u) \right] =  \textrm{Tr} \left[ Du Du\right] = - 2Q;\quad Q = \frac{1}{2}\left| \|\Omega\|^{2} - \| S\|^{2} \right|,
+\end{align}
+where $\| \cdot \|$ denotes the Euclidean matrix norm. The unperturbed system and $Q>0$ case are depicted in Fig. \ref{fig:clustering_Qpos}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.45\textwidth]{figures/ch9/23a_Qpos_clustering.png}
+	\includegraphics[width=0.45\textwidth]{figures/ch9/23b_Qpos_clustering.png}
+	\caption{Left: The unperturbed phase space. Right: The perturbed phase space for $Q>0$, the green arrows denotes unperturbed stable fibers, and the red line designates the limit cycle. By identifying the left and right sides, we get a periodic variable.}
+	\label{fig:clustering_Qpos}
+\end{figure}
+
+A more general approach to particle motion is given by \cite{Sapsis2008} using the Maxey-Riley equations. For neutrally buoyant particles (ones which are suspended in the fluid) we have
+\begin{align}
+	\varepsilon \dot{v} - \varepsilon \frac{Du}{Dt} = -(v-y);\quad \varepsilon = \frac{3st}{2}\ll 1. \label{eq9:maxeyriley}	
+\end{align}
+Formulating this in terms of geometric singular perturbation theory, with $x \in \mathbb{R}^{d}$ ($d=2,3$) we get
+\begin{align}
+	\begin{dcases}
+		\dot{x} = y\\
+		\varepsilon \dot{y} = u(x,t_ - y + \varepsilon \frac{Du(x,t)}{Dt}	
+	\end{dcases}
+\implies
+\begin{dcases}
+	t' = \varepsilon \\
+	x' = \varepsilon y \\
+	y' = u(x,t) - y + \varepsilon \frac{Du(x,t)}{Dt}
+\end{dcases}
+.
+\end{align}
+The time transformation used was $t = t_0 + \varepsilon \tau$. From here we have the slow variables $x$ and $t$, and the fast variable $y$. There then exists a $(d+1)$-dimensional slow manifold $M_\varepsilon$ where we have $y = u(x,t) + \varepsilon u_1(x,t) + \mathcal{O}(\varepsilon)$. The reduced particle dynamics here are
+\begin{align}
+	y' &= \nabla u x' + u_t \varepsilon + \varepsilon \nabla u_1 x' + u_{1t}\varepsilon^{2} + \mathcal{O}(\varepsilon^{2}) 
+	= \varepsilon(\nabla uy + u_{t}) + \mathcal{O}(\varepsilon^{2}) \\
+	   &= \varepsilon (\nabla u u + u_{t}) + \mathcal{O}(\varepsilon^{2}) 
+	   = \varepsilon \frac{Du}{Dt} + \mathcal{O}(\varepsilon^{2}).
+\end{align}
+Also, we have 
+\begin{align}
+	y' &= u - \left( u + \varepsilon u_{1} + \mathcal{O}(\varepsilon^{2}) \right) + \varepsilon \left( u_{t} + u_{x}u \right) \\
+	   &=-u_{1} + \varepsilon \frac{Du}{Dt} + \mathcal{O}(\varepsilon^{2}).
+\end{align}
+By  comparing terms we see that $u_{1} =0$, in fact this holds up to any order. 
+
+The reduced dynamics on the slow manifold follow $\dot{x}=v=u(x,t)$ up to \underline{any} order independent of $\varepsilon$. This suggests a fast synchronization with the fluid, yet scattering of the particles is still observed along fluid motions. The reason for this can be seen by rewriting \eqref{eq9:maxeyriley}
+\begin{align}
+	\dot{v} - u_{t} - \nabla u u = \mu (u-v);\quad \dot{v} - u_{t} - \nabla u v - \mu (u-b) + \nabla u(u-v).
+\end{align}
+This implies that
+\begin{align}
+	\begin{dcases}
+		\frac{d}{dt}\left(v - u(x,t)\right) = - \left( \nabla u + \mu I \right) \left( v - u \right) \\
+		\frac{d}{dt} x = v
+	\end{dcases}
+	.
+\end{align}
+These in turn imply that $v=u(x,y)$ is an invariant manifold for any $\varepsilon = \frac{1}{\mu }$, but we only know its stability for $\varepsilon \ll 1$. 
+{\color{blue} for any $\varepsilon = \frac{1}{\mu }$ seems like it is just one $\varepsilon$ and not an arbitrary one, maybe we need an inequality instead of an equality?}
+This means that different parts of the manifold may have different stability types. 
+
+To analyze the stability in more detail set $z= v- u(x,y)$, i.e. the distance from $ M_{\varepsilon} $ in the $y$-direction. The dynamics with this variable now are
+\begin{align}
+	\begin{dcases}
+		\dot{z} = - \left[ \nabla u(x,t) + \mu \right] z \\
+		\dot{x} = z + u(x,t)
+	\end{dcases}
+	\implies \frac{1}{2}\frac{d}{dt}\|z\|^{2} = - \langle z, \nabla u + \mu I z \rangle = - \langle z, (S + \mu I) z \rangle,
+\end{align}
+Where $S = \frac{1}{2} \left( \nabla u + \nabla u^{T} \right) = S^{T}$ is the rate of strain tensor.
+
+We can derive conditions now for guaranteed attraction or repulsion:
+\begin{enumerate}
+	\item \textbf{Exponential attraction} is guaranteed when we have
+		\begin{align}
+			\frac{1}{2} \frac{d}{dt}\| z\| ^{2} \leq \lambda_{ \textrm{max} } \left[ - S + \mu I) \right] \|z \|^{2}.
+		\end{align}
+		Rephrasing this we find
+		\begin{align}
+			\| z(t) \| \leq \| z(t_0\| \exp\left( \int_{t_0}^{t} \lambda_{ \textrm{max} }[-S + \mu I ]ds \right).
+		\end{align}
+		Thus we have that $\|z(t)\|$ decays as long as we have
+		\begin{align}
+			\lambda_{ \textrm{max} }\left[ - S(x(t), y(t), t) + \mu I \right] < 0 
+			\Leftrightarrow 
+			\lambda _{ \textrm{min } } \left[ \mu S(x,t) + I \right] >0
+			\Leftrightarrow
+			\mu  > \sqrt{|\det(S)|}.
+		\end{align}
+	\item \textbf{Exponential repulsion} is guaranteed when we have  	
+		\begin{align}
+			\frac{1}{2} \frac{d}{dt}\| z\| ^{2} \geq \lambda_{ \textrm{min} } \left[ - (\mu S + I) \right] \|z \|^{2}.
+		\end{align}
+		Thus we have that $\|z(t)\|$ grows instantaneously when
+		\begin{align}
+			\lambda_{ \textrm{max} }\left[  -(\mu S +  I) \right] < 0 \implies \lambda _{ \textrm{min} } \left[\mu S + I \right] < 0. 
+		\end{align}
+\end{enumerate}
+
+More generally, an attracting/repelling invariant manifold may have localized repulsion/attraction along it, even if all trajectories approach it asymptotically \cite{Sapsis2010}.
+\end{ex}
+
+To study the local repulsion/attraction, consider the following dynamical system
+\begin{align}
+	\dot{x}= f(x,t);\quad x \in \mathbb{R}^{n},
+\end{align}
+with the flow map $F_{t_0}^{t}: x_0 \mapsto x(t;t_0, x_0)$ and a locally invariant $k$-dimensional manifold $\mathcal{M}(t) \subset \mathbb{R}^{n}$, i.e. $F_{t_0}^{t}(\mathcal{M}(t_0)) \subset \mathcal{M}(t)$. Now define the \emph{normal infinitesimal Lyapunov exponent} $\sigma(p,t)$ (abbreviated NILE) by taking the $t\to t_0$ limit and looking at the largest growth for $w_0$, i.e.
+\begin{align}
+	\boxed{
+		\sigma(p,t) = \lim_{s\to 0} \frac{1}{s} \log \left\| \left.\Pi_{F_{t}^{t+s}(p)}^{t+s}Df_{t}^{t+s}(p) \right|_{N_{p}\mathcal{M}(t)} \right\|. 
+	}
+\end{align}
+The graphical depiction of the terms used for calculated the normal infinitesimal Lyapunov exponent are depicted in Fig. \ref{fig:NILE_def}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/ch9/24NILE_def.png}
+	\caption{The values which are used to calculate the normal infinitesimal Lyapunov exponent graphically depicted.}
+	\label{fig:NILE_def}
+\end{figure}
+
+To compute the NILE we can use the following formula
+\begin{align}
+	\boxed{\sigma(p,t) \max_{n\in N_{p}\mathcal{M}(t),\ |n|=1} \langle n, S(p,t)n\rangle;\quad S = \frac{1}{2}\left( DF + Df^{T}\right). }
+\end{align}
+When $x = (a,b)^{T}$, $f=(A,B)^{T}$ for $b= h(a)$ we have
+\begin{align}
+	\sigma(a,t) = \frac{1}{2}\lambda _{ \textrm{max} }\left[ \Gamma(a,t) + \Gamma(p,t)^{T} \right];\quad \Gamma(a,t) B_{b} (a, h(a),t) - Dh(a,t) A_{b}(a, h(a),t).
+\end{align}
+
+\begin{ex}[Neutrally buoyant particles]
+	Consider the dynamical system with $x,z\in \mathbb{R}^{2}$
+	\begin{align}
+		\begin{dcases}
+			\dot{x} = z + u(x,t) \\
+			\dot{z} = - \left( \nabla u(x,t) + \mu I \right) z
+		\end{dcases}
+		; \implies \mathcal{M}_{0}(t) \left\{ (x,z) \in \mathbb{R}^{2}\times \mathbb{R}^{2}:\ z =0\right\}.	
+	\end{align}
+Therefore we have 
+\begin{align}
+	\Gamma(a,t) = B_{b}(x,0,t) = - \left(\nabla u(x,t) + \mu I \right).
+\end{align}
+With this we can calculate the NILE
+\begin{align}
+	\sigma(p,t) = \lambda _{ \textrm{max} } \left[ - (S(x,t) + \mu I ) \right]; \quad S = \frac{\nabla u + \nabla u^{t}}{2}.
+\end{align}
+As concluded before, where $\sigma(p,t)>0$ we have a region of \underline{local} repulsion, analogously where $\sigma(p,t) <0$ we have a region of \underline{local} attraction.
+\end{ex}
+
+We now turn to the various methods to prove the existence of an invariant manifold:
+\begin{enumerate}
+	\item \textbf{Lyapunov-Perron Method} The manifold is the solution of a global integral equation, this approach requires global coordinates;
+	\item \textbf{Hadamand's Method} The manifold is sought as an invariant graph, this was the approach Fenichel used and local coordinates are sufficient for this approach;
+	\item \textbf{Topological Methods} There are multiple topological approaches, for instance the Wasewsky principle.
+		{\color{blue} not sure about the spelling of Hadamand or Wasewsky, I googled them and couldn't find anything.}
+\end{enumerate}
+
+Next, the Lyapunov-Perron method will be sketched for stable manifolds on the plane. Consider the dynamical system
+\begin{align}
+	\dot{x} = f(x);\quad x \in \mathbb{R}^{2};\quad f(0)=0;\quad  \textrm{spect} [Df(0)] = \{ - \lambda _{S}, \lambda _{U}\};\quad \lambda _S, \lambda_U > 0. \label{eq9:LP_method1}
+\end{align}
+The objective is to construct a stable manifold tangent to $E_{S}$. This will be achieved in multiple steps.
+\begin{enumerate}
+	\item First, choose a good basis
+		\begin{align}
+			x = Ty;\quad T = 
+			\begin{pmatrix}
+				e_{S} & e_{U}
+			\end{pmatrix}
+		;\quad y =
+		\begin{pmatrix}
+			y_S \\
+			y_U
+		\end{pmatrix}
+		.
+		\end{align}
+	And implement this transformation 
+	\begin{align}
+		\dot{x} = Df(0)x + \mathcal{O}(\|x\|^{2}) \implies T\dot{y} = Df(0)Ty + \mathcal{O}(\| y\|^{2}).
+	\end{align}
+	By multiplying from the left by $T^{-1}$ we find
+	\begin{align}
+		\dot{y} = \underbrace{T^{-1}DF(0)T}_{ \textrm{diag} [-\lambda_S, \lambda_U ]}y + \mathcal{O}(\|y\|^{2});\quad \lim_{y \to 0} \frac{\|g(y)\|}{\|y\|^{2}}< \infty .
+	\end{align}
+	And now we find
+	\begin{align}
+		\begin{dcases}
+			\dot{y}_{S} = - \lambda _{S}y_{S} + g_{S}(y) \\
+			\dot{y}_{U} = \lambda _{U}y_{U} + g_{U}(y)
+		\end{dcases}
+		.
+	\end{align}
+
+\item Second, define the local stable manifold. The classic definition of $W^{S}(0)$ is that it is the collection of initial coordinates $y_0$ which under the limit of the flow map $\lim_{t \to \infty }F_{t}(y_0)$ is 0. This requires detailed knowledge of asymptotics, and thus is hard to work with. For linear systems, forward-bounded trajectories are included here, but this is generally nothing special after the addition of nonlinear terms. Instead, we change the nonlinear system away from the origin to ensure that boundedness remains a distinguishing property. 
+	{\color{blue} we should talk about this, I am not exactly sure how to present this clearly, pg 127/128}
+
+\item Now pretend that $y(S)$ is known to find the \emph{equivalent integral equations}. The variation of constants formula yields
+	\begin{subequations}
+	\begin{align}
+		y_{S}(t) &= y_{S}(t_S) e^{- \lambda _{S}(t - t_S)} + \int_{t_S}^{t} e^{-\lambda _{S}(t-s)} G_{S}(y(s)) ds \\
+		y_{U}(t) &= y_{U}(t_U) e^{ \lambda _{U}(t - t_U)} + \int_{t_U}^{t} e^{\lambda _{U}(t-s)} G_{U}(y(s)) ds. 
+	\end{align}
+	\end{subequations}
+	By taking $t_{U}\to \infty $ and $t_{S}=0$ we restrict to $W^{S}_{ \textrm{loc} }(0)$, thus we find the integral equations for $W^{S}_{ \textrm{loc} }(0)$
+	\begin{align}
+		\begin{dcases}
+		y_{S}(t) = e^{- \lambda _{s}t}y_{S}(0) + \int_{0}^{t} e^{-\lambda _{S}(t-s)}G_{S}(y(s))ds \\
+		y_{U}(t) = \int_{\infty }^{t} e^{\lambda_{U}(t-s)}G_{U}(y(s))ds
+		\end{dcases}
+		.\label{eq9:LP_method5}		
+	\end{align}
+\item Finally we have a fixed point problem, the equation \eqref{eq9:LP_method5} is fulfilled when $y(t) = \mathcal{F}(y(t);y_S)$, thus we have a fixed point problem with the initial condition as a parameter. The exists a unique solution is $\mathcal{F}$ is a contractions mapping from a complete metric space into itself, i.e. when we can apply the Banach fixed point theorem
+	\begin{align}
+		d(\mathcal{F}(x), \mathcal{F}(y)) \leq q d(x,y);\quad 0 < q < 1.
+	\end{align}
+Define the set
+\begin{align}
+	\mathcal{B}_{\delta} = \left\{ y(t): [0,\infty ) \to \mathbb{R}^{2}:\ y_{S}(0) = \delta,\ \|y\| \leq K,\ y\in \mathcal{C}^{0}[0, \infty ) \right\},
+\end{align}
+where the norm $\|y\| = \sup_{t\geq 0}\|y(t)\|$. The space can be equipped with the metric 
+\begin{align}
+	d(x,y) = \sup_{t\geq 0} \| x(t) - y(t) \| = \| y - x\|,
+\end{align}
+and is complete with respect to this metric by the uniform convergence of Cauchy sequences of $\mathcal{C}^{0}$ functions to $\mathcal{C}^{0}$ functions, with limits obeying the same bound. We also have to show that $\mathcal{F}$ maps into itself, i.e. that $ \|\mathcal{F}(y) \| \leq K$ when $\|y\| \leq K$. Next, calculate
+\begin{subequations}
+\begin{align}
+	\|y(t)\| &\leq \| y_{S}(t)\| + \|y_{U}(t) \| \\
+		 &\leq e^{-\lambda _{S}(t)}\| y_{S}(0)\| + \int_{0}^{t} e^{-\lambda _{S}(t-s)}{\| G_{S}(y(s))\|} ds + \int_{t}^{\infty } e^{\lambda _{U}(t-s)}{\|G_{U}(y(s))\|}ds \\
+		 &\leq \delta + e^{-\lambda _{S}t}\int_{0}^{t} e^{\lambda _{S}s}\underbrace{\| G_{S}(y(s))\|}_{\leq C\delta^{2}} ds + e^{\lambda _{U}t}\int_{t}^{\infty } e^{-\lambda _{U}s}\underbrace{\|G_{U}(y(s))\|}_{\leq C\delta ^{2}}ds \\
+		 &\leq \delta + C\delta^{2} \frac{1}{\lambda_{S}} \left[ e^{-\lambda _{S}(t-s)}\right]_{0}^{t} - \frac{C \delta^2}{\lambda _{U}} \left[ e^{\lambda _{U}(t-s)}\right]_{t}^{\infty } \\
+		 &= \delta + C \delta^{2} \left( \frac{1}{\lambda_{S}}\left(1 - e^{-\lambda _{S}t}\right) + \frac{1}{\lambda _{U}}\left(1-0\right) \right) \\
+		 &\leq \delta + C \delta^{2} \left( \frac{1}{\lambda _S} + \frac{1}{\lambda _U}\right) \leq K.
+\end{align}
+\end{subequations}
+This shows that $y(t) \in \mathcal{B}_{\delta}$ for $\delta$ small enough. Furthermore, we have that $\mathcal{F}$ is a contraction mapping for $\delta$ small enough.
+\end{enumerate}
+
