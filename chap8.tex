@@ -879,11 +879,21 @@ This has different implications for the dynamics near $x=0$ depending on the deg
 	\item \textbf{$\bm{\geq 3}$ degrees of freedom} (e.g. three coupled pendulums) The codimension of $\mathbb{T}^{n}$ is at least 2, thus the tori no longer form barriers and trajectories can sneak out. Generically, trajectories do sneak out along a chaotic invariant set formed near the remnants of destroyed (resonant) tori such as in \emph{Arnold diffusion}.
 \end{enumerate}
 
-The geometry of Arnold diffusion. {\color{blue} I think we should talk about this bit as I am not sure what is going on in this image}
+In Fig. \ref{fig:arnold-diffusion} we show a nested family of surviving KAM-tori and the internal structure of the gaps between them. The gaps are due to resonances and are filled with lower dimensional hyperbolic and elliptic tori. 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.3\textwidth]{figures/ch8/22arnold_diffusion.png}
+	\caption{The geometry of Arnold diffusion. The red tori are two surviving KAM-tori of a large dimensional dynamical system. In the gaps between them we find hyperbolic and elliptic tori, which  are lower dimensional. }
+	\label{fig:arnold-diffusion}
+\end{figure}
+A heteroclinic tangle forms as the intersection of the stable and unstable manifolds of the hyperbolic (saddle-type tori). This tangle works as a transition chain and can produce $\mathcal{O}(1)$ displacements in $r$ for trajectories started near the surviving torus, even when $\varepsilon \to 0$. 
+%The geometry of Arnold diffusion. %{\color{blue} I think we should talk about this bit as I am not sure what is going on in this image}
 
-A transition chain is formed by intersecting manifolds, thus we have an $\mathcal{O}(1)$ displacement in $r$ even as $\varepsilon \to 0$. Therefore we have a mechanism for instability when $D^{2}H(0)$ is not definite, when it is definite transition chains are still there but energy surfaces are small spheres near the origin. This implies that complicated dynamics does not lead to instability.
+%A transition chain is formed by intersecting manifolds, thus we have an $\mathcal{O}(1)$ displacement in $r$ even as $\varepsilon \to 0$. 
+
+Therefore we have a mechanism for instability when $D^{2}H(0)$ is not definite. When it is definite, the transition chains are still there but energy surfaces are small spheres near the origin. This implies that complicated dynamics does not lead to instability.
 
 \begin{theorem}[Nekhoroshev's theorem]
-	Under further nondegeneracy conditions, the speed of diffusion is less than $C\exp \left(- \frac{1}{\varepsilon^{d}}\right)$, where $d$ depends on $H(x)$. This means the speed is exponentially small.
+	Under further nondegeneracy conditions, the speed of diffusion is less than $C\exp \left(- \frac{1}{\varepsilon^{d}}\right)$, where $d$ depends on $H(x)$. This means that the speed is exponentially small.
 \end{theorem}
 
