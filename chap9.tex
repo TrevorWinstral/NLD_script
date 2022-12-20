@@ -865,5 +865,19 @@ and is complete with respect to this metric by the uniform convergence of Cauchy
 \end{align}
 \end{subequations}
 This shows that $y(t) \in \mathcal{B}_{\delta}$ for $\delta$ small enough. Furthermore, we have that $\mathcal{F}$ is a contraction mapping for $\delta$ small enough.
+\begin{align}
+	\|\mathcal{F}(y) - \mathcal{F}(x)\| &\leq \int_{0}^{t} e^{-\lambda_{S}(t-s)}\| G_{S}(x(s)) - G_{S}(y(s))\| ds \\
+					    &\quad + \int_{t}^{\infty } e^{\lambda _{U}(t-s)} \| G_{U}(x(s)) - G_{U}(y(s)) \| ds \\
+					    &\leq \int_{0}^{t} e^{-\lambda _{S}(t-s)}C_0 \delta \| x(s) - y(s)\| ds \\
+					    &\quad + \int_{t}^{\infty } e^{\lambda _{U}(t-s)}C_0 \delta \|x(s) - y(s)\| ds \label{eq9:MVT}\\
+					    &\leq C_0 \delta \left(\frac{1}{\lambda _{S}} + \frac{1}{\lambda _{U}} \right) \| x - y\|,
+\end{align}
+where in \eqref{eq9:MVT} the mean value theorem was used. This inequality implies that
+\begin{align}
+	\|\mathcal{F}(y) - \mathcal{F}(x) \| \leq \underbrace{C_0 \delta \left( \frac{1}{\lambda_S} + \frac{1}{\lambda _{U}}\right) }_{\leq q < 1} \| x - y\|.
+\end{align}
 \end{enumerate}
+For the general, mulit-dimensional case see \cite{Chicone}. A similar argument also work for the strong stable manifold.
+
+\section{Spectral submaniflds and model reduction}
 
