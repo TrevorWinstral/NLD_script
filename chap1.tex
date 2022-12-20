@@ -183,7 +183,7 @@ Hence $ \|x_2 \|$ and $ \|x_4 \|$ are also bounded, therefore all solutions exis
 Where in $(*)$ we used that $ {x} = \sum_{i=1}^{n} x_i  {e}_i $ with $ \| {e}_i \|=1$ and $ {e}_i \perp  {e}_j$ for all $i \neq j$. Thus we get
 \begin{align}
 	\frac{\frac{1}{2}\frac{d}{dt} \| {x}(t) \|^2}{ \| {x}(t) \|^2} \leq \lambda_{ \textrm{max} }(t) 
-	\implies \int_{t_0}^{t} \log \left( \frac{ \| {x}(s) \|^2}{ \| {x}(t_0) \|^2} \right) ds \leq \lambda _{ \textrm{max} }(s) ds.
+	\implies \int_{t_0}^{t} \log \left( \frac{ \| {x}(s) \|^2}{ \| {x}(t_0) \|^2} \right) ds \leq \int_{t_0}^{t}  \lambda _{ \textrm{max} }(s) ds.
 \end{align}
 By exponentiating both sides, we obtain
 \begin{align}
@@ -217,7 +217,7 @@ The geometric meaning of this is that for $U \subset P \subset \mathbb{R}^{n}$ w
 It turns out $\left(F_{t_0}^{t}\right)^{-1} = F_{t}^{t_0}$ is also $\mathcal{C}^r$, hence we have that $F_{t_0}^{t}$ is a diffeomorphism. 
 
 \begin{remark}[The total differential]
-	We denote the total differential of a function $f:\mathbb{R}^{n}\to \mathbb{R}^{m}$ as $Df$. The total differential is a function which takes a location $x$ as the argument and returns the derivative of $f$ at the point $x$, i.e. the Jacobian. This implies evaluating the Jacobian at the point $x$. For a function  $f(x,y)= f(x_1, \ldots, x_n, y_1, \ldots, y_m):\mathbb{R}^{n+m} \to \mathbb{R}^{k}$ the total differential $Df$ means with respect to all of the variables and the total differential with respect to $x$, written $D_xf$ is the total differential only taken with respect to the $x$ variables. Thus for $f(x,y): \mathbb{R}^{n+m} \to \mathbb{R}^{k}$ we have the total differential
+	We denote the total differential of a function $f:\mathbb{R}^{n}\to \mathbb{R}^{m}$ as $Df$. The total differential is a function which takes a location $x$ as the argument and returns the derivative of $f$ at the point $x$, i.e. the Jacobian. This implies evaluating the Jacobian at the point $x$. For a function  $f(x,y)= f(x_1, \ldots, x_n, y_1, \ldots, y_m):\mathbb{R}^{n+m} \to \mathbb{R}^{k}$ the total differential $Df$ means the differential with respect to all of the variables and the total differential with respect to $x$, written $D_xf$ is the total differential only taken with respect to the $x$ variables. Thus for $f(x,y): \mathbb{R}^{n+m} \to \mathbb{R}^{k}$ we have the total differential
 	\begin{align}
 		Df &= 
 		\begin{pmatrix}
@@ -248,7 +248,7 @@ and the total differential with respect to $x$
 		\end{pmatrix}.
 \end{align}
 \end{remark}
-Now, how can we compute the Jacobian of the flow map $\frac{\partial  {x}(t; t_0,  {x}_0)}{ \partial  {x}_0} = DF _{t_0}^{t}( {x}_0)$? We start from the IVP and take the gradient (with respect to $x_0$) of both sides. On the left hand side we can exchange order of the time derivative and the gradient and on the right hand side we use the chain rule. We end up with the equation
+Now, how can we compute the Jacobian of the flow map $\frac{\partial  {x}(t; t_0,  {x}_0)}{ \partial  {x}_0} = DF _{t_0}^{t}( {x}_0)$? We start from the IVP and take the gradient (with respect to $x_0$) of both sides. On the left hand side we can exchange the order of the time derivative and the gradient and on the right hand side we use the chain rule. We end up with the equation
 \begin{align}
 	\frac{d}{dt}\frac{\partial  {x}}{\partial  {x}_0} = D_ {x} f( {x}(t; t_0,  {x}_0), t) \frac{\partial  {x}}{\partial  {x}_0}; \quad \frac{\partial x}{\partial x_0} \in \mathbb{R}^{n \times n}.
 \end{align}
@@ -414,7 +414,7 @@ If $x_{\varepsilon}(t)$ is in $\mathcal{C}^{r}_{\varepsilon}$, we have $\varphi_
 Regularity with respect to the parameter $ {\mu} $ actually follows from regularity with respect to the initial condition $ {x}_0$. We can use the following trick to extend the IVP with a dummy variable $ {\mu} $ 
 \begin{align}
 	\begin{dcases}
-		\dot{ {x}} = f( {x},t,u) \\ \dot{ {\mu}} = 0 \\  {x}(t_0) =  {x}_0 \\  {\mu} (t_0) =  {\mu}_0.
+		\dot{ {x}} = f( {x},t,\mu ) \\ \dot{ {\mu}} = 0 \\  {x}(t_0) =  {x}_0 \\  {\mu} (t_0) =  {\mu}_0.
 	\end{dcases}
 \end{align}
 Thus with $ {X}=
@@ -462,7 +462,7 @@ Now we look specifically for $T$-periodic solutions, as we would expect such a s
 \begin{align}
 	\varphi_i(t) = \varphi_i(t+T).
 \end{align}
-The period $T$ still has to be determined. Plugging this power series into \eqref{eq:starstar} into the IVP to get
+The period $T$ still has to be determined. Plugging this power series into \eqref{eq:starstar} to get
 \begin{subequations}
 \begin{align}
 	&\mathcal{O}(1):\quad \ddot{\varphi}_0 + \varphi_0 &&= 0 \\
@@ -512,7 +512,7 @@ Where we have taken $x'$ to represent $\frac{dx}{d\tau}$. Plugging our expressio
 Matching equal powers of $\varepsilon$ yields
 \begin{subequations}\begin{align}
 	\mathcal{O}(1)&:\ \varphi_0'' + \varphi_0 = 0 \implies \varphi_0(\tau) = a_0 \cos(\tau);\quad \varphi_0(0)=a_0;\quad \dot{\varphi_0}(0) = 0 \\
-	\mathcal{O}(\varepsilon)&:\ \varphi_1'' + \varphi_1 = - \phi_0^{3} - 2\omega_1 \varphi_{0}'' = 
+	\mathcal{O}(\varepsilon)&:\ \varphi_1'' + \varphi_1 = - \phi_0 - 2\omega_1 \varphi_{0}'' = 
 	\left(2 \omega_1 a_0 - \frac{3}{4}a_0^{3}\right) \underbrace{\cos (\tau)}_{ \textrm{resonance} } - \frac{a_0^{3}}{4} \cos(3 \tau); \\
 			     &\phantom{:}\ \varphi_1(0)=0; \quad \dot{\varphi_1}(0) = 0. 
 \end{align}\end{subequations}

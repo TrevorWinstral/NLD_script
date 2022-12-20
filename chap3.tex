@@ -16,19 +16,19 @@ The following subspaces are invariant for the linearized dynamical system:
 	\item The \emph{stable subspace}
 		\begin{align}
 			\boxed{
-				E^{S} =  \textrm{span} _{j}\left \{  \textrm{Re} (e_j),  \textrm{Im} (e_j):\  \textrm{Re} (e_j) < 0\right\},
+				E^{S} =  \textrm{span} _{j}\left \{  \textrm{Re} (e_j),  \textrm{Im} (e_j):\  \textrm{Re} (\lambda_j) < 0\right\},
 			}
 		\end{align}
 	\item The \emph{unstable subspace}
 		\begin{align}
 			\boxed{
-				E^{U} =  \textrm{span} _{j}\left \{  \textrm{Re} (e_j),  \textrm{Im} (e_j):\  \textrm{Re} (e_j) > 0\right\},
+				E^{U} =  \textrm{span} _{j}\left \{  \textrm{Re} (e_j),  \textrm{Im} (e_j):\  \textrm{Re} (\lambda_j) > 0\right\},
 			}
 		\end{align}
 	\item The \emph{center subspace}
 		\begin{align}
 			\boxed{
-				E^{C} =  \textrm{span} _{j}\left \{  \textrm{Re} (e_j),  \textrm{Im} (e_j):\  \textrm{Re} (e_j) = 0\right\}.
+				E^{C} =  \textrm{span} _{j}\left \{  \textrm{Re} (e_j),  \textrm{Im} (e_j):\  \textrm{Re} (\lambda_j) = 0\right\}.
 			}
 		\end{align}
 \end{enumerate}
@@ -63,7 +63,7 @@ We now discuss what happens to these subspaces in the nonlinear system \eqref{eq
 		\item $W^{U}(p)$ is a $\mathcal{C}^{r}$ manifold (surface), tangent to $E^{U}$ at $p$ with $ \textrm{dim } W^{U}(p) =  \textrm{dim } E^{U}$,
 		\item $W^{U}(p)$ is invariant for \eqref{eq:4star} and for $x\in W^{U}(p)$ we have 
 			\begin{align}
-				\| F^{t}(x) -p\| \leq K_{U} \exp\left[ t \left( \max_{ \textrm{Re} (\lambda_j) > 0}( \textrm{Re} (\lambda_j)) + \varepsilon_U \right) \right]
+				\| F^{t}(x) -p\| \leq K_{U} \exp\left[ t \left( \min_{ \textrm{Re} (\lambda_j) > 0}( \textrm{Re} (\lambda_j)) - \varepsilon_U \right) \right]
 			\end{align}
 	 for $t\leq 0$, $0 < \varepsilon_U \ll 1$, and  $\| x- p\|$ small enough.
 	\end{itemize}
@@ -217,7 +217,7 @@ In addition to \eqref{eq4:1star} being nonlinear, the boundary conditions are al
 	\begin{align}
 		\begin{dcases}
 			\dot{x}=xy \\
-			\dot{y}=-y+\alpha x.
+			\dot{y}=-y+\alpha x^2.
 		\end{dcases}	
 	\end{align}
 	First we linearize at $(0,0)$ to get 
@@ -228,7 +228,7 @@ In addition to \eqref{eq4:1star} being nonlinear, the boundary conditions are al
 			[0] & [-1]
 		\end{pmatrix}
 	\end{align}
-	which is already in block-matrix form. The dimensions of the stable, unstable, and center subspaces of the linearization are 1, 0, and 1 respectively. Hence the stability type depends on the dynamics on the center manifold $W^{C}(0)$. We now look for a parameterization of $W^{C}(0)$ in the form
+	which is already in block-diagonal form. The dimensions of the stable, unstable, and center subspaces of the linearization are 1, 0, and 1 respectively. Hence the stability type depends on the dynamics on the center manifold $W^{C}(0)$. We now look for a parameterization of $W^{C}(0)$ in the form
 	\begin{align}
 		h(x) = ax^2 + bx^3 + cx^4 + \mathcal{O}(x^5).
 	\end{align}
@@ -291,7 +291,7 @@ The linearization of this system yields
 		\dot{y} = -y.
 	\end{dcases}
 \end{align}
-Now the center manifold disappears as the center subspace $E^{C}$ disappears for $\varepsilon>0$!
+Now the center manifold disappears as the center subspace $E^{C}$ disappears for $\varepsilon\neq 0$!
 \end{ex}
 
 \section{Center manifolds depending on parameters}
@@ -303,9 +303,9 @@ We begin with the setup
 		\dot{y} = By + g(x,y,\varepsilon)
 	\end{dcases}
 ;\quad x \in \mathbb{R}^{c},\ y \in \mathbb{R}^{d},\ 0\leq \|\varepsilon\| \ll 1;\ \varepsilon\in \mathbb{R}^{p};\\
-f,g \in \mathcal{C}^{r},\ f,g=\mathcal{O}(\|x\|^2, \|y\|^2, \|x\|\|x\|, {\|\varepsilon\| \|x\|, \|\varepsilon\| \|y\|} ).
+f,g \in \mathcal{C}^{r},\ f,g=\mathcal{O}(\|x\|^2, \|y\|^2, \|x\|\|y\|, {\|\varepsilon\| \|x\|, \|\varepsilon\| \|y\|} ).
 \end{align}\end{subequations}
-The order $\|\varepsilon\| \|x\|$ and $\|\varepsilon\| \|y\|$ terms are due to the perturbation of the linear part. Now assume $ \textrm{Re} (\lambda _j(A))= $ for $j=1,\ldots,c$ (the center directions) and $ \textrm{Re} (\lambda _j(B)) \neq  $ for $j=1,\ldots,d $ (the hyperbolic directions). Next, rewrite $\tilde{x}=
+The order $\|\varepsilon\| \|x\|$ and $\|\varepsilon\| \|y\|$ terms are due to the perturbation of the linear part. Now assume $ \textrm{Re} (\lambda _j(A))=0$ for $j=1,\ldots,c$ (the center directions) and $ \textrm{Re} (\lambda _j(B)) \neq0  $ for $j=1,\ldots,d $ (the hyperbolic directions). Next, rewrite $\tilde{x}=
 \begin{pmatrix}
 	x \\ \varepsilon
 \end{pmatrix}
@@ -328,7 +328,7 @@ Here, $\tilde{g}=g$ and $\tilde{B}=B$. Further, note that $ \textrm{span} \left\
 	\begin{pmatrix}
 		x \\0
 	\end{pmatrix}
-\right\}$ is an invariant subspace for $\tilde{A}$. The eigenvalues of $\tilde{A}$ are the same as those of $A$ and an additional $0$, thus there are $c+p$ center directions and $d$ hyperbolic directions. Applying the center manifold theorem to the fixed point $0 \in \mathbb{R}^{c+p+d}$ of \eqref{eq4:unostar} we obtain that there exists a $\mathcal{C}^{r-1}$ manifold $\tilde{W}^{C}(0)$ tangent to $E^{C}$ at $
+\right\}$ is an invariant subspace for $\tilde{A}$. The eigenvalues of $\tilde{A}$ are the same as those of $A$ and an additional zero with multiplicity $p$, thus there are $c+p$ center directions and $d$ hyperbolic directions. Applying the center manifold theorem to the fixed point $0 \in \mathbb{R}^{c+p+d}$ of \eqref{eq4:unostar} we obtain that there exists a $\mathcal{C}^{r-1}$ manifold $\tilde{W}^{C}(0)$ tangent to $E^{C}$ at $
 \begin{pmatrix}
 	\tilde{x} \\ \tilde{y}
 \end{pmatrix}
@@ -366,7 +366,7 @@ This can then be applied to the perturbed example from above.
 	\end{align}
 	We have the persisting fixed point at $(x,y)=(0,0)\in \mathbb{R}^{c+d}$	and the system is already in standard form with 
 	 \begin{align}
-		 A=0;\quad B=-1;\quad f(x,y,\varepsilon) = xy + \varepsilon x;\quad g(x,y,\varepsilon) = -\alpha x^2.
+		 A=0;\quad B=-1;\quad f(x,y,\varepsilon) = xy + \varepsilon x;\quad g(x,y,\varepsilon) = \alpha x^2.
 	\end{align}
 	We apply the center manifold theorem and get the existence of $W^{C}_{\varepsilon}(0)$ for $|\varepsilon|\ll 1$. This manifold satisfies
 	 \begin{align}
@@ -590,6 +590,36 @@ We begin by considering different types of center manifolds. We start by classif
 			\caption{A transcritical bifurcation.}
 			\label{fig:transcrit_bif}
 		\end{figure}
+	\begin{ex}[A physical example of a transcritical bifurcation]
+		The laser threshold is a physical example of a transcritical bifurcation \cite{Strogatz, Haken1977}. The simplest model is of an active material held between two partially reflecting mirrors, with an energy pump into the active material, from which a laser is emitted. This is depicted in Fig. \ref{fig:laser_model}.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.4\textwidth]{figures/ch3/15laser_threshold.png}
+			\caption{The simplest model of for the laser threshold example, the arrows at the bottom designate the partially reflecting mirrors.}
+			\label{fig:laser_model}
+		\end{figure}
+	
+		The phenomenon we can observe in this system is that a cohert laser light is only generated over a certain pumping strength. Let $n(t)$ denote the number of photons emitted. Therefore $\dot{n}$ is equal to the gain minus the loss, i.e. if $N$ is the number of excited atoms and $G$ is the gain from stimulated emission, then 
+		\begin{align}
+			\dot{n} = GnN - kn.
+		\end{align}
+		The number of excited atoms $N$ decreases as an excited atom emits a photon. Therefore if $\alpha $ is the rate at which atoms drop back to the ground state and $N_0$ is the number of excited atoms (fixed without laser action)then we have 
+		\begin{align}
+			N(t) = N_0 - \alpha n.
+		\end{align}
+		Combining these two equations we find
+		\begin{align}
+			\dot{n} = Gn(N_0 - \alpha n) - kn = \underbrace{(GN_0 - k)}_{= \mu } n - \alpha Gn^2.
+		\end{align}
+		Hence, we have a transcritical bifurcation, and the laser threshold is at $\frac{k}{G}$, as shown in Fig. \ref{fig:laser_threshold_bif}.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.4\textwidth]{figures/ch3/15laser_threshold_bif.png}
+			\caption{The laser threshold bifurcation at $\frac{k}{G}$.}
+			\label{fig:laser_threshold_bif}
+		\end{figure}
+	\end{ex}
+	
 	\item \textbf{Single zero eigenvalue, origin remains a fixed point, \& RHS is an odd function} 
 		We have the same setup as previously, with the additional condition that
 		\begin{align}
@@ -599,13 +629,25 @@ We begin by considering different types of center manifolds. We start by classif
 	\begin{align}
 		\dot{x} = \tilde{\mu } x \pm x^3;\quad x \in \mathbb{R};\quad \mu \in \mathbb{R}.
 	\end{align}
-	This type of bifurcation is called a \emph{pitchfork bifurcation}. It is \emph{supercritical} for the $+x^3$ case (cf. Fig. \ref{fig:pitchfork_bif}), and subcritical for the $-x^3$ case. The actual sign is problem dependent.
+	This type of bifurcation is called a \emph{pitchfork bifurcation}. It is \emph{supercritical} for the $-x^3$ case (cf. Fig. \ref{fig:pitchfork_bif}), and subcritical for the $+x^3$ case. The actual sign is problem dependent.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.35\textwidth]{figures/ch3/16pitchfork_bif_A.png}
-	\caption{A supercritical (i.e with a $+$ sign) pitchfork bifurcation.}
+	\caption{A supercritical (i.e with a $-$ sign) pitchfork bifurcation.}
 	\label{fig:pitchfork_bif}
 \end{figure}
+
+\begin{ex}[Buckling beam bifurcation]
+	A beam fixed at the bottom with a downward force applied towards the top is an example of such a pitchfork bifurcation. As the force exceeds a critical threshhold, the middle position loses stability and two new symmetric, stable fixed points arise. This is illustrated in Fig. \ref{fig:buckling_beam}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.2\textwidth]{figures/ch3/16buckling_beam_bif.png}
+		\caption{The buckling beam pitchfork bifurcation.}
+		\label{fig:buckling_beam}
+	\end{figure}
+	
+\end{ex}
+
 \item \textbf{Purely imaginary pair of eigenvalues} 
 	Now we have the following setup, with the eigenvalue constellation shown in Fig. \ref{fig:imag_pair_eigv}. 
 	\begin{align}
@@ -662,7 +704,7 @@ Building on this last case, we explore the extended center manifold in the next 
 	\begin{enumerate}
 		\item The eigenvalues $\lambda_n$ and $\overline{\lambda}_{n} $ do cross the imaginary axis for $\mu \neq 0$, i.e. $d_0 \neq 0$.
 		\item The leading order nonlinearity in $\dot{r}$ is nonzero, i.e. $a_0 \neq 0$.
-			Then there exists a \underline{unique} extended center manifold $W^{C}_{\mu }(0)$ for $0 \leq \mu  \ll 1$, on which the dynamical system is locally topologically equivalent to the universal unfolding 
+			Then there exists a \underline{unique} extended center manifold $W^{C}_{\mu }(0)$ for $0 \leq |\mu | \ll 1$, on which the dynamical system is locally topologically equivalent to the universal unfolding 
 			\begin{align}
 			\boxed{
 			\dot{r} = r \left( d_0 \mu + a_0 r^2\right); \quad 

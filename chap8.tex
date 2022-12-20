@@ -568,13 +568,13 @@ There are four possible types of intersection geometries: transverse (chaotic), 
 	\includegraphics[width=0.4\textwidth]{figures/ch8/10intersection_geometry_B.png}
 	\includegraphics[width=0.45\textwidth]{figures/ch8/10intersection_geometry_C.png}
 	\includegraphics[width=0.4\textwidth]{figures/ch8/10intersection_geometry_D.png}
-	\caption{The four types of intersection geometries, clockwise from the top-left: transverse, topologically transverse, tangent, and equal. The lack of area preservation for tangent intersection is visible by the existense of the intrusions which appear.}
+	\caption{The four types of intersection geometries. Top row: transverse and topologically transverse, bottom row: tangent and equal.}
 	\label{fig:intersection_types}
 \end{figure}
 
 An equality intersection can occor when the Hamiltonian is conserved even after perturbation. This implies that all trajectories continue to remain confined to the level sets of $H$. 
 
-As tangent intersections are not possible within the area preserving context, if $M(t_0) \neq 0$ then we must have homoclinic chaos. Thus in periodically forced Hamiltonian systems, chaos is generic!
+As tangent intersections are not possible within the area preserving context, if $M(t_0) \neq 0$ then we must have homoclinic chaos. Thus in periodically forced Hamiltonian systems, chaos is generic! However, when only have autonomous perturbations of the form $H(x)=H_0(x)+\varepsilon H_1(x)$, the equal case, in which the homoclinic orbit persists is generic. 
 
 \begin{proposition}[Recurrence]
 	For an autonomous Hamiltonian system
@@ -613,17 +613,17 @@ This property is illustrated in Fig. \ref{fig:hamiltonian_recurrence}.
 \end{remark}
 
 \begin{ex}[Recurrence of the pendulum]
-	For the pendulum, the area enclosed by an energy level set can be used as $S_0$. For large enough energy levels, this set may not be compact. This can be resolved by transforming the phase space $\mathbb{R}^{2}\to \mathcal{S}^{1}\times \mathbb{R}$ by taking advantage of the periodicity. This is shown in Fig. \ref{fig:pendulum_recurrence} where the importance of compactness and invariability are demonstrated as well.
+	For the pendulum, the area enclosed by an energy level set can be used as $S_0$. For large enough energy levels, this set may not be compact. This can be resolved by transforming the phase space $\mathbb{R}^{2}\to \mathcal{S}^{1}\times \mathbb{R}$ by taking advantage of the periodicity. This is shown in Fig. \ref{fig:pendulum_recurrence} where the importance of compactness and invariability are demonstrated. The figure also shows that one cannot simply apply the recurrence theorem to a Hamiltonian system restricted to an energy level, because this restricted system does conserve volume any more.  
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.75\textwidth]{figures/ch8/12pendulum_recurrence.png}
-		\caption{The recurrence of the pendulum is depicited along with the phase space transformation. The recurrence in the standard phase space holds for all point in the set $U$ (blue), each element returns arbitrarily often. For the set $\tilde{U}$ (red), these points do not return infinitely often, and in fact never return in the base space. This is due to the fact that in the base space $S_0$ is not compact, if instead we identify the two dotted blue lines to transform the base space based on periodicity, we find that recurrence does hold.}
+		\caption{The recurrence of the pendulum is depicited along with the phase space transformation. The recurrence in the standard phase space does not hold for all points in the set $U$ (blue), because initial conditions below the separatrix never return. This is due to the fact that in the phase space $S_0$ is not compact. If instead we identify the two dotted blue lines to transform the phase space based on periodicity, we find that recurrence does hold. Let us now restrict the dynamics to the separatrix, resulting in a one-dimensional dynamical system. The set in the intersection of the separatrix and the set U. This is a relatively open and compact set which is also invariant for the restricted dynamics, yet these points never return. However, in this case, the dynamics is not volume preserving any more, which means we cannot apply the recurrence theorem.}
 		\label{fig:pendulum_recurrence}
 	\end{figure}
 \end{ex}
 
 \begin{ex}[Recurrence in non-smooth conservative systems]
-	For a linear spring with a mass attached, which can bound off an elastic wall as the spring is expanded, we can also observe recurrence. Denoting the deviation of the mass by $q$ and the momentum by $m\dot{q}$ we still have recurrence under the map $P:x_0 \mapsto x(T;0, x_0)$, which is volume preserving. The dynamical system and phase space are illustrated in Fig. \ref{fig:bouncy_wall_spring}.
+	For a linear spring with a mass attached, which can bounce off an elastic wall as the spring is expanded, we can also observe recurrence. Denoting the deviation of the mass by $q$ and the momentum by $m\dot{q}$ we still have recurrence under the map $P:x_0 \mapsto x(T;0, x_0)$, which is volume preserving. The dynamical system and phase space are illustrated in Fig. \ref{fig:bouncy_wall_spring}.
 	 \begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.45\textwidth]{figures/ch8/13bouncy_wall_spring_A.png}
@@ -631,8 +631,269 @@ This property is illustrated in Fig. \ref{fig:hamiltonian_recurrence}.
 		\caption{Left: A sketch of the dynamical system, with the elastic wall in blue. Right: The phase space of the dynamical system, with the red arrow designating that when the mass hits the wall (positive $x_2$) it immediately moves to the negative lower half (at the same absolute height) due to the elasticity. Furthermore, the volume preserving nature is shown by the two equal volume orange areas.}
 		\label{fig:bouncy_wall_spring}
 	\end{figure}
+
+	\begin{remark}[]
+		These recurrent results extent to time-periodic Hamiltonian systems as well by applying them to the period-$T$ map. Furthermore, they can be extended to quasi-periodic Hamiltonians.
+	\end{remark}
 	
 \end{ex}
 
+\begin{ex}[Ideal gas in a partitioned container]
+	An ideal gas in a partitioned three dimensional container, which we denote by $B_0\subset \mathbb{R}^3$. One partition is full of $n \gg 1$ gas molecules, and the other partition is a vacuum. After removing the partition, statistical reasoning leads to the conclusion that the molecules will spread evenly. The layout of the partition is shown in Fig. \ref{fig:partitioned_gas}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch8/14partioned_container.png}
+	\caption{The gas contained in the container $B_0$ with the removable partition (blue) separating the gas and vacuum.}
+	\label{fig:partitioned_gas}
+\end{figure}
+The position of the  of the particles is described by the variable $q=(x_1, y_1, z_1, \ldots, x_n, y_n, z_n)^{T}$ with $q\in B_0^{n} \subset \mathbb{R}^{3n}$, their respective velocities are described by $\dot{q}\in \mathbb{R}^{3n}$. The Lagrangian is made up of the kinetic energy $T(\dot{q}) = \frac{1}{2}\sum_{i=1}^{n}m_i \|v_i\|^{2} $ with $v_i = (\dot{x}_i, \dot{y}_i, \dot{z}_i)^{T}$ and the potential of the elastic interactions $V(q)$. With the generalized momentum given by $p=\frac{\partial L}{\partial \dot{q}} $, in this case the linear momentum, the Hamiltonian can be calculated as $H=H(q,p)=H(x) $ for $x= (q,p)^{T}\in \mathbb{R}^{6n}$. At each collision there is a discontinuity of the velocity, however the flow map $F_{t_0}^{t}$ is still invertible and volume preserving.
 
+The initial configuration of the gas is given by $x_0\in \mathbb{R}^{6n}$. The unique solution $x(t)$ describes the complete evolution of all of the molecules (their positions and momenta). This is just a single trajectory in this (large) phase space $B_0^{n}\times \mathbb{R}^{3n} = \{q \in \mathbb{R}^{3n}:\ q_i \in [0,K]\} \times \mathbb{R}^{3n}$. An example of such a path is depicted in Fig. \ref{fig:partitioned_gas_path}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch8/15partitioned_container_path.png}
+	\caption{A single trajectory in the phase space for the partitioned container. Note that the trajectory is started from $x_0$ and remains within the energy level surface $E_0$.}
+	\label{fig:partitioned_gas_path}
+\end{figure}
+Observe that due to the conservation of energy we have that the following is conserved for all times
+\begin{align}
+	H_0 = H(x_0) = H(x(t)) = T(\dot{q}(t)) + V(q(t)).
+\end{align}
+Furthermore, the potential is always positive, i.e. $V(q) \geq 0$. This implies that $T(\dot{q}(t)) \leq H_0$, thereby bounding $\|\dot{q}_i(t)\|$ for all times $t$. Thus the momenta $\|p(t)\|$ are also bounded for all times as $p = m\dot{q}$. The positions $q_i(t)$ are bounded by construction (they must remain within the container), therefore the region $S_0= \left\{ x \in \mathbb{R}^{6n}: H(x) \leq H_0 \right\}$ is compact and invariant. By recurrence, almost all initial gas configurations return arbitrarily close to themselves over time. However, the recurrence time would be comparable to the life of the universe. 
+\begin{remark}[]
+	We cannot apply the recurrence to the energy surface as the restricted map may not be volume preserving.
+\end{remark}
+\end{ex}
+
+The next example is of some historical value as this was the first ever numerical experiment to test a theory.
+\begin{ex}[Fermi-Ulam-Pasta experiment (1955)]
+	The experiment was conducted for large systems of linear, undamped, coupled oscillators. Since the system is linear, the energy content of each of the normal modes cannot change in time, and hence there is no equipartition of energy. According to the conclusions from statistical mechanics, a weak nonlinearity should change this completely and distribute the energy equally among the modes.. Initially, the experiments confirmed this hypothesis. However, after forgetting to turn off their computer for the night, they observed repeated returns close to the original energy configuration in their simulation, with the energy practically localized again in the same mode (ca. $3\%$ error). More and more close returns were observed over longer time intervals.
+
+	The reason for this is that in Hamiltonian systems energy surfaces are compact and therefore recurrence applies for the phase space volume contained inside the energy surfaces. 
+\end{ex}
+
+\section{Stability of fixed points in Hamiltonian systems}
+Recall the setup for autonomous Hamiltonian systems
+\begin{align}
+	\dot{x} = JDH(x),\quad x \in \mathbb{R}^{2n}.
+\end{align}
+The fixed points of such systems are critical points of the Hamiltonian, i.e. $DH(x_0) = 0$. Observe therefore that no asymptotically stable fixed points may exist in a Hamiltonian system. This is due to the volume preservation property. Assuming contrarily that the fixed point $x_0$ is asymptotically stable implies that there exists a ball $B_0$ within the open domain of attraction such that $F_{t_0}^{t}(B_0)$ is strictly contained within $B_0$ for $t $ large enough. This would require that $ \textrm{vol} [F_{t_0}^{t}(B_0)] <  \textrm{vol} [B_0]$ for such a $t$, clearly violating the volume preservation property. Thus, at best, $x_0$ can be Lyapunov stable, and the nonlinear terms are relevant. 
+
+We first explore what we can find from the linear stability. To this end let $y=x-x_0$ and calculate the linearized system at $x_0$
+\begin{align}
+	\dot{y} = JD^{2}H(x_0)y. \label{eq8:lin_hamiltonian}
+\end{align}
+
+Note that the linearized system is also Hamiltonian
+\begin{align}
+	\tilde{H}(y) = \frac{1}{2} \langle y, D^{2}H(x_0)y \implies \dot{y} = JD\tilde{H}(y).
+\end{align}
+Thus the phase space volume is also preserved for the linear system. This can be shown as we have before with
+\begin{align}
+	\nabla \cdot JD\tilde{H}(y) =  \nabla \cdot JD^2H(x_0) y =  \textrm{Tr} [JD^2H(x_0)] = 0.
+\end{align}
+This also tells us that the sum of the eigenvalues of the linearized Hamiltonian system is zero.
+
+Further, observe that if $\lambda $ is an eigenvalue of \eqref{eq8:lin_hamiltonian} (whether real or complex), then so is $- \lambda $. This leaves us with a few possible eigenvalue configurations for Hamiltonian systems, as seen in Fig. \ref{fig:new_eigv_configs}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/ch8/16new_eigv_config.png}
+	\caption{An example eigenvalue configuration with the constraints found previously.}
+	\label{fig:new_eigv_configs}
+\end{figure}
+
+Suppose $\lambda=0$ is an eigenvalue, then it is necessarily at least a double eigenvalue. Furthermore, under a variation of the parameters, purely imaginary eigenvalues can only leave the imaginary axis through a collision with another eigenvalue. 
+Recalling that a linearized Hamiltonian can only be neutrally stable leads to the conclusion that linear stability analysis, is never conclusive to establish Lyapunov stability  in Hamiltonian systems. 
+{\color{blue} He has a few examples (figures, pg 75) of how eigenvalues act under perturbation, but I feel like this is not needed here and is more for the purpose during the lecture so that he can show exactly how the movement works, i.e. seeing it drawn live is where the value is.}
+
+The previous examination leads us to focusing on the nonlinear stability of fixed points of Hamiltonian. The setup is the same as before with an autonomous Hamiltonian system underlying the dynamics. Recall that for such systems we have that $\frac{dH(x(t))}{dt}=0$, i.e. the Hamiltonian is conserved under the flow map, and as before a fixed point $x_0$ corresponds directly to a critical point of the Hamiltonian, i.e. $DH(x_0)=0$.
+
+These properties of $H$ make it a candidate for a Lyapunov function. Observe that if $D^{2}H(x_0)$ is positive definite, then it is cup shaped and choosing $H$ as a Lyapunov function implies that $x_0$ is Lyapunov stable. Meanwhile, if $D^{2}H(x_0)$ is negative definite, then choosing $-H$ as a Lyapunov function also implies that $x_0$ is stable. Hence, if $D^2H(x_0)$ is \underline{definite} then $x_0$ is nonlinearly Lyapunov stable.
+
+\begin{ex}[Multiple degree of freedom nonlinear mechanical system]
+	Consider three pendulums, with masses $m_1$, $m_2$, and $m_3$ attached in order by nonlinear springs. The mass $m_3$ is attached to a mass $m_4$ which is constrained to move on a loop of radius $R$. The position of each mass is measured by its displacement from the unstretched spring position by the variable $q$, thus the springs are in their unstretched positions at the position $q=0$. The system is depicted in Fig. \ref{fig:multi_dof_mech}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.9\textwidth]{figures/ch8/17multi_dof_mech.png}
+	\caption{A depiction of the multiple degree of freedom nonlinear dynamical system consisting of three pendulums and a loop.}
+	\label{fig:multi_dof_mech}
+\end{figure}
+
+Concatenating the position and momentum into the variable $x$ we have $x=(q,p)^{T}\in \mathbb{R}^{8}$. It is clear that $DH(0) = 0$ and due to the total mechanical energy having a strict minimum at $x=0$ we have that $D^2H(0)$ is positive definite. Thus $x=0$ is Lyapunov stable.
+\end{ex}
+
+We may wonder if all linearly stable Hamiltonian fixed points are in fact always nonlinearly stable, i.e. if $D^2H(x_0)$ is always definite. This is not the case, as we can see by taking
+ \begin{align}
+	 H = \frac{1}{2} \left(q_{1}^{2} + p_{1} ^{2}\right) - \frac{1}{2}\left( q_{2}^{2} + p_{2}^{2}\right);\quad x=
+	 \begin{pmatrix}
+	 	q_1 \\ p_1 \\ q_2 \\ p_2
+	 \end{pmatrix}
+	\in \mathbb{R}^{4}. 
+\end{align}
+This leads to the dynamics
+\begin{align}
+	\begin{dcases}
+		\dot{q}_{1} = p_1 \\
+		\dot{q}_2 = - p_2 \\
+		\dot{p}_{1} = - q_{1} \\
+		\dot{p}_{2} = q_2
+	\end{dcases}
+	\implies
+	\dot{x}=
+	\left(
+	\begin{array}{ c c | c c}
+		0 & 1 & 0 & 0\\
+		-1 & 0 & 0 & 0 \\
+		\hline
+		0 & 0 & 0 & -1 \\
+		0 & 0 & 1 & 0
+	\end{array} 
+	\right)
+	x.
+\end{align}
+The eigenvalues of this system are $\pm i$, thus linear stability analysis and use of $H$ as a Lyapunov function (see Fig. \ref{fig:inconclusive_hamiltonian}) are both inconclusive.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/ch8/18inconclusive_hamiltonian.png}
+	\caption{The graph of the Hamiltonian $H$ showing the lack of definiteness which leads to an inconclusive Lyapunov stability analysis.}
+	\label{fig:inconclusive_hamiltonian}
+\end{figure}
+
+\begin{ex}[Gyroscopic systems]
+	A classic example is that of a gyroscopic system such as the tippe-top toy (a spinning top like a dreidel). When spun there is a relative equilibrium fixed point for the Hamiltonian obtained by factoring out the cyclic coordinate, which is achieved via a Routh-reduction of cyclic coordinates. Fast spinning stabilizes this Hamiltonian equilibrium, but the Hamiltonian has no minimum there (nonlinear analysis is needed to prove this). Additional dissapation will then always destabilize these equilibria in a process called \emph{dissapation-induced instability} which is shown in Fig. \ref{fig:dissapation_instability}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.4\textwidth]{figures/ch8/19dissapation_instability.png}
+		\caption{The energy is shown in red, the dissipation of energy takes the motion towards lower energy levels as shown by the yellow arrows.}
+		\label{fig:dissapation_instability}
+	\end{figure}
+\end{ex}
+
+With these examples, it is clear that further study of nonlinear stability of Hamiltonian fixed points is necessary for the case that $D^{2}H(x_0)$ is not definite. The setting we will work in to study this is as follows
+\begin{align}
+	\dot{x} = JDH(x);\quad x \in \mathbb{R}^{2n};\quad DH(0)=0.
+\end{align}
+The final equality is always achievable by a coordinate shift. Once again we begin by linearizing to find $\dot{y}=Ay$. Assume for simplicity that $A$ is semisimple, i.e. it has $2n$ linearly independent eigenvectors (even if some eigenvalues are repeated). Through a change of coordinates $A$ can be block-diagonalized
+\begin{align}
+	A = 
+	\begin{pmatrix}
+		A_1 & & \\
+		    & \ddots & \\
+		    & & A_n
+	\end{pmatrix}
+	;\quad A_{j} = 
+	\begin{pmatrix}
+		0 & \omega_j \\
+		-\omega_j & 0
+	\end{pmatrix}
+	.
+\end{align}
+Each block $A_j$ corresponds to the eigenvalues $\pm i \omega _j$. There is no real part to the eigenvalue, otherwise $x=0$ would be unstable, however $\omega _j<0$ is possible. This change of coordinates allows us to frame the geometry of the linearization as the product of $n$ different two dimensional dynamical systems, each with clockwise rotating cyclical orbits, i.e. $\prod_{i=1}^{n}\mathcal{S}^{1}= \mathbb{T}^{n}$ the $n$-dimensional torus. This product is shown in Fig. \ref{fig:linearization_geometry}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/ch8/20linearization_geometry.png}
+	\caption{The product of the $n$ dynamical systems of the linearization forming the $n$-dimensional torus.}
+	\label{fig:linearization_geometry}
+\end{figure}
+
+Defining the vector of angular velocities $\omega=(\omega_1, \ldots, \omega_n)$ we get three cases for the structure of the orbits
+\begin{enumerate}
+	\item \textbf{Resonance} If there exists a $k\in\mathbb{Z}^{n}_{+}$ (i.e. $k_i\neq 0$ for all $i$) with $\langle k, \omega \rangle = 0$, trajectories close up. Therefore all orbits are closed and periodic on $\mathbb{T}^{n}$.
+	\item \textbf{Non-resonance} If for each $k\in\mathbb{Z}^{n}$ with $\|k\|\neq 0$ we have that $\langle k, \omega \rangle \neq 0$, trajectories never close up. Therefore all orbits are quasi-periodic and yield a dense winding. 
+	\item \textbf{Partial resonance} If there exists a $k\in \mathbb{Z}^{n}$ with $\|k\|\neq 0$ and $\langle k, \omega \rangle =0$ we get a combination of the previous two cases. Trajectories fill lower dimensional tori densely and are not closed.
+\end{enumerate}
+
+\section{Stability of Hamiltonian fixed points: normal forms}
+The setting of the previous section remains the same as we move to introduce the idea of the normal form of $H(x)$ near $x=0$. This requires two additional assumptions
+\begin{enumerate}
+	\item For each $k\in \mathbb{Z}^{n}$ with $\|k\|_{1} = \sum_{i=1}^{n} |k_i| \leq 4$ we have $\langle k, \omega \rangle \neq 0$, i.e. there are no resonances below order 5.
+\end{enumerate}
+The first assumption implies that a nonlinear, near-identity canonical change of coordinates puts $H(x)$ in the form
+\begin{align}
+	H(\varphi, r) = \sum_{i=1}^{n} \omega_i r_i + \frac{1}{2}\sum_{k,l=1}^{n} \omega_{k,l}r_{k}r_{l} + \mathcal{O}\left(|r|^{4}\right);\quad r \in \mathbb{R}^{n}_{\geq 0};\quad \varphi \in \mathbb{T}^{n}.
+\end{align}
+The $\varphi$-dependence starts only in the higher order terms, i.e. $\mathcal{O}\left( |r|^{n}\right)$ in this case. By a near-identity change of coordinates, we mean that $(r,\varphi)$ is close to the polar coordinates introduced for the linearized Hamiltonian.
+
+\begin{definition}
+	A \emph{canonical} (also \emph{symplectic}) coordinate change is one which preserves the Hamiltonian structure. That is, in the new coordinates, Hamilton's equations still hold
+	\begin{align}
+		\begin{dcases}
+		\dot{\varphi} = \frac{\partial H}{\partial r} \\
+		\dot{r} = -\frac{\partial H}{\partial \varphi}.
+		\end{dcases}
+	\end{align}
+\end{definition}
+
+These reductions bring us to the next theorem. In order to state this, some terminology must be rigorously defined for this section.
+\begin{definition}
+	\emph{Persists} in this cases corresponds to surviving the transition back from the linearization to the nonlinear system through a smooth deformation by a small amount.
+\end{definition}
+\begin{definition}
+	\emph{Most} (in this case invariant tori) means 
+	\begin{align}
+		\lim_{\varepsilon \to 0} \frac{\mu ( \textrm{persisting tori in } \varepsilon  \textrm{-ball} )}{\mu (\mathcal{B}(\varepsilon))} = 1,
+	\end{align}
+	where $\mu $ is the measure that is preserved, i.e. the phase space volume.
+\end{definition}
+\begin{enumerate}
+	\setcounter{enumi}{1}
+	\item The \emph{nondegeneracy condition} holds, i.e. $\det[\omega_{kl}]\neq 0$.
+\end{enumerate}
+
+\begin{theorem}[Kolmogorov-Arnold-Moser (KAM) theorem]
+	We have three items which hold:
+	\begin{enumerate}
+		\item Under the assumptions (i) and (ii), most invariant tori of the linearized Hamiltonian persist in the nonlinear system close to $x=0$.
+		\item Surviving toi are quasi-periodic, implying that trajectories are dense on these and obey ODEs of the form
+			\begin{align}
+				\begin{dcases}
+				\dot{r} = \mathcal{O}\left( |r|^{4}\right) \\
+				\dot{\varphi} = \tilde{\omega} (r, \varphi) = \frac{\partial H}{\partial r} = \omega + [\omega_{kl}]r + \mathcal{O}\left(|r|^{3}\right).
+				\end{dcases}
+			\end{align}
+		\item Under the additional nondegeneracy condition known as the \emph{isoenergentic nondegeneracy} condition
+			\begin{align}
+				\det\left[
+					\begin{array}{c | c}
+						[\omega_{kl}] & \omega^{T} \\
+						\hline
+						\omega & 0
+					\end{array}
+				\right]
+				\neq 0,
+			\end{align}
+			most tori persist \underline{within each energy surface} close enough to the origin. This is shown in Fig. \ref{fig:persisting_tori_energy}.	
+	\end{enumerate}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/ch8/21persisiting_tori_energy.png}
+	\caption{Most tori persist with respect to the measure defined inside the energy surface $E_{H(0)}$ (red). The $\varepsilon$-ball is given in black, and its intersection with $E_{H(0)}$, which is of dimension $2n-1$.}
+	\label{fig:persisting_tori_energy}
+\end{figure}
+\end{theorem}
+
+This has different implications for the dynamics near $x=0$ depending on the degrees of freedom based on the dimension of $E_{H(x)}$ ($=2n-1$). For $x\neq 0$ close to the origin the dimension of the surviving tori is $ \textrm{dim }\mathbb{T}^{n}=n$, thus the codimension of $\mathbb{T}^{n}$ within $E_{H(x)}$ is $(2n-1)-n = n-1$.
+\begin{enumerate}
+	\item  \textbf{1 degree of freedom} (e.g. pendulum) The codimenension of $\mathbb{T}^{1}$ is 0, therefore the torus is the energy surface itself and $x=0$ is Lyapunov stable. 
+	\item \textbf{2 degrees of freedom} (e.g. two coupled pendulums) The codimension of $\mathbb{T}^{2}$ is 1, so the two-dimensional torus locally divides the three-dimensional energy surface into an interior and exterior. The interior is a compact invariant set that trajectories cannot escape from within the given energy surface. Hence $x=0$ is Lyapunov stable, \underline{even if $D^{2}H(0)$ is indefinite}.
+	\item \textbf{$\bm{\geq 3}$ degrees of freedom} (e.g. three coupled pendulums) The codimension of $\mathbb{T}^{n}$ is at least 2, thus the tori no longer form barriers and trajectories can sneak out. Generically, trajectories do sneak out along a chaotic invariant set formed near the remnants of destroyed (resonant) tori such as in \emph{Arnold diffusion}.
+\end{enumerate}
+
+In Fig. \ref{fig:arnold-diffusion} we show a nested family of surviving KAM-tori and the internal structure of the gaps between them. The gaps are due to resonances and are filled with lower dimensional hyperbolic and elliptic tori. 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.3\textwidth]{figures/ch8/22arnold_diffusion.png}
+	\caption{The geometry of Arnold diffusion. The red tori are two surviving KAM-tori of a large dimensional dynamical system. In the gaps between them we find hyperbolic and elliptic tori, which  are lower dimensional. }
+	\label{fig:arnold-diffusion}
+\end{figure}
+A heteroclinic tangle forms as the intersection of the stable and unstable manifolds of the hyperbolic (saddle-type tori). This tangle works as a transition chain and can produce $\mathcal{O}(1)$ displacements in $r$ for trajectories started near the surviving torus, even when $\varepsilon \to 0$. 
+%The geometry of Arnold diffusion. %{\color{blue} I think we should talk about this bit as I am not sure what is going on in this image}
+
+%A transition chain is formed by intersecting manifolds, thus we have an $\mathcal{O}(1)$ displacement in $r$ even as $\varepsilon \to 0$. 
+
+Therefore we have a mechanism for instability when $D^{2}H(0)$ is not definite. When it is definite, the transition chains are still there but energy surfaces are small spheres near the origin. This implies that complicated dynamics does not lead to instability.
+
+\begin{theorem}[Nekhoroshev's theorem]
+	Under further nondegeneracy conditions, the speed of diffusion is less than $C\exp \left(- \frac{1}{\varepsilon^{d}}\right)$, where $d$ depends on $H(x)$. This means that the speed is exponentially small.
+\end{theorem}
 

@@ -218,7 +218,7 @@ The following facts have already been established
 	\item There exists a set of $n$ linearly independent solutions: $\varphi_1(t), \ldots, \varphi_n(t) \in \mathbb{R}_{n}$.
 	\item The general solution is
 		\begin{align}
-			y(t) = \sum_{i=1}^{n} c_i \varphi(t) =
+			y(t) = \sum_{i=1}^{n} c_i \varphi_i(t) =
 			\underbrace{\begin{bmatrix}
 				\varphi_1(t) & \ldots & \varphi_n(t)
 		\end{bmatrix}}_{\Psi(t):  \textrm{ fundamental matrix solution} }
@@ -703,9 +703,9 @@ Then the following holds: $\dot{x}=f(x)$ with $f(0)=0$ is locally $\mathcal{C}^{
 \end{figure}
 The two masses (of mass $\frac{m}{2}$) rotate counter clockwise, and their position in radians is given by $\theta$, with their rotational velocity $\dot{\theta}$. The masses are attached by a rod of length $L$ and their deflection from the vertical position is measured by $\varphi$. Smaller $\dot{\theta}$ allowed for an increase in steam supply.
 
-Following changes in the design, the systems suddenly became unstable. To address this Vishnegradky studied the root cause in 1877. We first derive the equation of motion. For the governor we use the equation of motion for a rotating hoop (with viscous damping coefficient $b$).
+Following changes in the design, the systems suddenly became unstable. To address this Vyshnegradsky studied the root cause in 1877. We first derive the equation of motion. For the governor we use the equation of motion for a rotating hoop (with viscous damping coefficient $b$).
 \begin{align}
-	mL^2 \ddot{\varphi} + bL^2\left( \frac{g}{L} - \dot{\theta}^2 \cos(\varphi) \right) \sin(\varphi) = 0;\quad b>0.
+	mL^2 \ddot{\varphi} + +bL^2 \dot{\varphi} +mL^2\left( \frac{g}{L} - \dot{\theta}^2 \cos(\varphi) \right) \sin(\varphi) = 0;\quad b>0.
 \end{align}
 Next, let $\omega $ denote the angular velocity of the steam engine, i.e. with the gear ratio $n$ we have $\dot{\theta} = n \omega$. Then we find
 \begin{align}
@@ -774,7 +774,7 @@ The only actual condition for $x_0$ to be asymptotically stable is $D_2 >0$
 From the equation for the fixed points we know 
 \begin{subequations}
 \begin{align}
-	P_0 \omega_0^2 = \frac{gk}{n^2} =  \textrm{const.} \numberthis \label{eq:watt1}\\
+	P_0 \omega_0^2 = \frac{gk}{Ln^2} =  \textrm{const.} \numberthis \label{eq:watt1}\\
 	\omega_0^2 + 2P_0 \omega_0 \frac{d \omega_0}{d P_0} = 0.
 \end{align}
 \end{subequations}
@@ -1141,7 +1141,7 @@ Since the system is forced, energy is not conserved and we cannot use it as a Ly
 \end{align}
 This is a conserved quantity in all mechanics problems, but generally cannot be calculated without already knowing the trajectories. Here we can, as
 \begin{align}
-	V(x(t)) = \frac{1}{2} ml x_0^2 + mgl(1- \cos(x_1)) - T_0(\underbrace{x_1}_{\varphi(t)} - \underbrace{x_1(0)}_{\varphi(0)}).
+	V(x(t)) = \frac{1}{2} ml x_2^2 + mgl(1- \cos(x_1)) - T_0(\underbrace{x_1}_{\varphi(t)} - \underbrace{x_1(0)}_{\varphi(0)}).
 \end{align}
 We can drop the constant term $T_0 x_1(0)$. Now verify that $V$ is indeed constant
 \begin{align}
@@ -1165,6 +1165,6 @@ D^2V(x_0) &=
 	0 & ml^2
 \end{pmatrix}.
 \end{align}\end{subequations}
-The Hessian is positive definite as long as $\overline{x}_1 \in \left(-\frac{\pi }{2}, \frac{\pi }{2}\right)$, and all fixed points in this region are stable by Theorem \ref{thm:direct}. The Hessian is indefinite if $\overline{x}_1 \not \in \left[-\frac{\pi }{2}, \frac{\pi }{2}\right]$, but in this case Theorem 4 is not applicable as $\dot{V}$ is not definite.
+The Hessian is positive definite as long as $\overline{x}_1 \in \left(-\frac{\pi }{2}, \frac{\pi }{2}\right)$, and all fixed points in this region are stable by Theorem \ref{thm:direct}. The Hessian is indefinite if $\overline{x}_1 \not \in \left[-\frac{\pi }{2}, \frac{\pi }{2}\right]$, but in this case Theorem 4 is not applicable as $\dot{V}$ is not definite. More detailed discussion and further results on Lyapunov's direct method can be found in \cite{LiapunovDirect}.
  \end{ex}
  
