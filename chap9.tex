@@ -263,8 +263,23 @@ There are three central questions for what happens to this manifold which we wil
 	\end{align}
 Depending on $\alpha $ we differentiate two cases.
 \begin{enumerate}
-	\item $\bm{\alpha =1} $ In this case the eigenvalues split in a vertical fashion, as shown in Fig. \ref{fig:eigv_vertical_split}. {\color{blue} these two look topologically equivalent to me in the figure}.
+	\item $\bm{\alpha =1} $ In this case the eigenvalues split in a vertical fashion, as shown in Fig. \ref{fig:eigv_vertical_split}. The stable node turns into a stable spiral, which, when connected to the perturbed fixed points $A_{\varepsilon}$ and $C_{\varepsilon}$ cannot be diffeomorphic to $M_0$.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.4\textwidth]{figures/ch9/11_5vertical_split.png}
+			\caption{The eigenvalues splitting in a vertical fashion for $\alpha=1$.}
+			\label{fig:eigv_vertical_split}
+		\end{figure}
+	\item $\bm{\alpha<1}$ Now change the perturbation to $\varepsilon^{2}$ such that both fixed points move upwards, the perturbed curve will have a cusp at 0, so we have again no diffeomorphism to $M_0$.	
 \end{enumerate}
+Thus in each case, no smooth transformation to $M_0$ exists and therefore there is no persistence. The perturbed geometries are shown in Fig. \ref{fig:nondiffeo_pertubation}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch9/11_75alpha_one_perturb.png}
+	\includegraphics[width=0.4\textwidth]{figures/ch9/11_75alpha_small_perturb.png}
+	\caption{Left: The geometry for $\alpha=1$. Right: The geometry for $\alpha<1$.}
+	\label{fig:nondiffeo_pertubation}
+\end{figure}
 
 \end{ex}
 
@@ -896,5 +911,137 @@ where in \eqref{eq9:MVT} the mean value theorem was used. This inequality implie
 \end{enumerate}
 For the general, mulit-dimensional case see \cite{Chicone}. A similar argument also work for the strong stable manifold.
 
-\section{Spectral submaniflds and model reduction}
+\section{Spectral submanifolds and model reduction}
+For reference, see \cite{Ponsioen2016}. A typical model reduction involves a projection onto subspaces, even for nonlinear systems.
+
+\begin{ex}[]
+	consider the dynamical system
+	\begin{align}
+		\begin{dcases}
+			\dot{x} = x y + x^{3} \\
+			\dot{y} = -y - 2x^{2}
+		\end{dcases}
+		.\label{eq9:reduction1}
+	\end{align}
+	Next, linearize at $x=y=0$ to find a stable and center manifold as shown in Fig. \ref{fig:reduction_linearization1}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.35\textwidth]{figures/ch9/25reduction_linearization1.png}
+		\caption{Linearization of the dynamical system \eqref{eq9:reduction1}}
+		\label{fig:reduction_linearization1}
+	\end{figure}
+	The usual argument is that fast-decaying modes die out. Thus we project the system onto the center subspace $E^{C}$, which is equivalent to setting $y=0$ in \eqref{eq9:reduction1} to find
+	\begin{align}
+		\dot{x} = x^3.
+	\end{align}
+	This is the \emph{reduced-order model form projection}. Here the origin is unstable, and all non-equilibrium orbits are unbounded.
+
+	The dynamical systems approach is an exact model reduction. We known that a center manifold $W^{C}(0)$ tangent to the center subspace at $0 $ exists and is $\mathcal{C}^{r} $ for any $r\geq 0 $, but is not unique in general. The best possible reduced-order model examines the dynamics on $W^{C}(0) $. Write
+	\begin{align}
+		W^{C}(0) = \{(x,y):\ y = h(x) = ax^2 + bx^3 + cx^4 + \mathcal{O}(x^5) \}.
+	\end{align}
+By invariance we know that
+ \begin{align}
+ \dot{y} = h' \dot{x} = \left[ 2 a x + \mathcal{O}(x^{2}) \right] \left( xy + x^{3}\right) = 2a(a+1)x^{4} + \mathcal{O}(x^{5}).
+\end{align}
+By restricting to $W^{C}(0)$ we also have that
+\begin{align}
+	\left.\dot{y} \right|_{W^{C}(0)} = \left.-y\right|_{W^{C}(0)} - 2x^2 = -(a+2)x^{2} - bx^3 - cx^4 + \mathcal{O}(x^{5}).
+\end{align}
+Comparing coefficients allows us to obtain $a=-2$, $b=0$, and $c=-2a(a+1)=-4$. Therefore we find the reduced dynamics on $W^{C}(0)$ 
+\begin{align}
+	\dot{x} = \left.(xy+x^3)\right|_{W^{C}(0)} = x(-2x^2 + \mathcal{O}(x^4) ) + x^3	= -x^3 + \mathcal{O}(x^5).
+\end{align}
+This is the exact reduced-order model and we find that $x$ is asymptotically stable. The reduced-order model captures the correct local dynamics. Next, we discuss if this discrepancy is the result of a vanishing eigenvalue, i.e. a degenerate linear part.
+\end{ex}
+
+\begin{ex}[]
+	A more realistic case is when all modes decay under linearization, i.e. $W^{C}(0) = W^{U}(0) = \emptyset$. Consider the dynamical system
+	\begin{align}
+		\begin{dcases}
+			\dot{x} = -\frac{1}{4}x + xy + x^{3} \\
+			\dot{y} = -y - 2x^{2}
+		\end{dcases}
+.		
+	\end{align}
+	Once again we linearize at the origin and find that $W^{S}(0) = \mathbb{R}^{2}$. The usual argument here would be to project to the slowest-decaying mode, this implies projecting onto the $x$-axis by setting $y=0$. We find the reduced order model
+	\begin{align}
+		\dot{x} = x\left( - \frac{1}{4} + x^{2}\right).
+	\end{align}
+	The origin is asymptotically stable with this reduction, whose purpose was to understand the nonlinear dynamics. The nonlinear model prediciton is to have two nontrivial unstable fixed points and a domain of attraction. We are left hoping that this is correct, because there is no way to refine this projection further, as every mode except one is already included.
+
+	The fixed points of the full system satisfy
+	\begin{align}
+		\begin{dcases}
+		0= -y - 2x^2 \\
+		0= - \frac{1}{4} x + xy + x^{3}
+		\end{dcases}
+		\implies -\frac{1}{4}x - x^3 = 0 \Leftrightarrow -x\left(\frac{1}{4} + x^2\right) = 0.
+	\end{align}
+	Hence, no fixed point exists! The projection onto subspaces can give incorrect results even if all but one mode in included in the reduced model. We ask if it is possible to do exact model reduction onto slowly decaying modes. The issues of nonuniqueness in linear systems and smoothness of weak stable manifolds present themselves. Consider
+	\begin{align}
+		\begin{dcases}
+		\dot{x} = \lambda_1 x \\
+		\dot{y} = -\lambda _2 y 
+		\end{dcases}
+		\implies 
+		\begin{dcases}
+			x(t) = e^{-\lambda _1t} x_0 \\
+			y(t) = e^{-\lambda_2 t} y_0
+		\end{dcases}
+		.
+	\end{align}
+We can then calculate the equations for the manifolds
+\begin{align}
+	\left(\frac{x}{x_0}\right)^{\lambda _1} = \left(\frac{y}{y_0}\right)^{\lambda_2} \implies y = \frac{y_0}{x_0 ^{\frac{\lambda_1}{\lambda_2}}}x^{\frac{\lambda_1}{\lambda_2}} = C_0 x^{\frac{\lambda_1}{\lambda_2}}.
+\end{align}
+See that due to $C_0$ being arbitrary we have nonuniqueness. Also, the slow manifold is only $\lfloor \frac{\lambda_1}{\lambda_2}\rfloor$-times differentiable unless a resonance arises ($\lambda_1 = k \lambda_2$). But, there is a unique $\mathcal{C}^{\infty }$, even analytic slow manifold with $C_0=0$, i.e. $y=0$. The smoothest slow manifold is unique. The question remains if this also happens in nonlinear systems.
+\end{ex}
+
+Consider the setup
+\begin{align}
+	\dot{x} = Ax + f_{0}(x);\quad x \in \mathbb{R}^{n};\quad f_0(x) = \mathcal{O}(\|x\|^{2});\quad f_0\in \mathcal{C}^{r},\ r\in \mathbb{N}^{+}\cup\{\infty, a\}.
+\end{align}
+If $r=a$, then $f_0$ is analytic. From the definition of $f_0$ we can see that $x=0$ is a fixed point. The eigenvalues of $A$ are $\lambda _1,\ldots,\lambda_N$ sorted by descending real part, i.e. $ \textrm{Re} [\lambda _N] \leq \ldots \leq  \textrm{Re} [\lambda _1]<0$. Therefore $x=0$ is asymptotically stable. The eigenspaces are given by $E_{j}$ and are the span of the real and imaginary parts of all eigenvectors and generalized eigenvectors, corresponding to $\lambda _j$. Hence we have $\mathbb{R}^{n} = \bigoplus_{j=1}^{N} E_{j}$.
+
+We call the direct sum of an arbitrary number of distinct eigenspaces the \emph{spectral subspace}, this is always an invariant subspace for $\dot{x} = Ax$. The \emph{spectral quotient of $A$} is given by
+\begin{align}
+	\sigma(E) = \left\lfloor \frac{ \textrm{smallest Re} [\lambda _k] \textrm{ outside of }E}{ \textrm{largest Re} [\lambda _i]  \textrm{ inside of } E}\right\rfloor.
+\end{align}
+An illustration of these values are given in Fig. \ref{fig:spect_quotient}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch9/26spect_quot.png}
+	\caption{The eigenvalue constellation, the left dotted green line designates the smallest real part outside of $E$ and the right dotted green line designates the largest real part inside of $E$.}
+	\label{fig:spect_quotient}
+\end{figure}
+
+We can check in a 2-dimensional linear example, this was the degree of difference of general slow manifolds. 
+
+The \emph{external nonresonance condition for $E$} for $ \textrm{dim} [E]=q$ is
+\begin{align}
+	\langle m, \lambda \rangle_{E} = m_1 \lambda _{j1} + \ldots + m_1 \lambda _{jq} \neq \lambda l,\ m_i \in \mathbb{N}	,
+\end{align} 
+where $\lambda _{j1},\ldots,\lambda _{jq}\in  \textrm{spect}[A|_{E}] $ and $\lambda _{l} \not \in  \textrm{spect} [A|_{E}]$.
+
+Now we ask if the full nonlinear system has a \emph{spectral submanifold} (SSM), i.e. a nonlinear continuation of $E$.
+\begin{theorem}[]
+Assume the low-order external nonresonance condition
+\begin{enumerate}
+	\item $\langle m, \lambda \rangle_{E} \neq \lambda _l$ for $\lambda_l \neq  \textrm{spect}[A|_{E}] $ ;
+	\item $2 \leq |m| \leq \sigma(E)$ with the norm $|m | =m_1 + \ldots + m_1$;
+\end{enumerate}
+then we have that the following hold
+\begin{enumerate}
+	\item There exists a $\mathcal{C}^{r}$ spectral submanifold $W(0)$ tangent to $E$ at $x=0$ with the same dimension as $E$;
+	\item $W(0)$ is unique among all $\mathcal{C}^{\sigma(E) + 1}$ invariant manifold satisfying {\color{blue} what is this symbol and what condition does it refer to? pg 146};
+	\item If $f_0$ is jointly $\mathcal{C}^{r}$ in $(x,\mu )$ for some parameter $\mu \in \mathbb{R}^{p}$, then so is $W(0)$, this also holds for $r=\infty $ and $r=a$. 
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+	See \cite{Ponsioen2016}
+\end{proof}
+ 
+With this theorem, we can see that high-enough-order Taylor-series expansion puts us on $W(0)$ if we look for it as an invariant graph over $E$.
+
 
