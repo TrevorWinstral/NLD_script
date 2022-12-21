@@ -542,22 +542,22 @@ Now we would like to apply this to the pendulum to systematically derive the sta
 	\begin{align}
 		\det({A} - \lambda {I} ) = \lambda^2 -1 = 0 \implies \lambda_{1,2} = \pm 1;\ {s_1} =
 		\begin{pmatrix}
-			1 \\ 1
+			-1 \\ 1
 		\end{pmatrix}
 		,\ {s_2} =
 		\begin{pmatrix}
-			-1 \\ 1
+			1 \\ 1
 		\end{pmatrix}.
 	\end{align}
 	Neither of the eigenvalues lie on the imaginary axis, so $p$ is hyperbolic. This allows us to move between the nonlinear and linearized system for the stability analysis without compromising our results. We find the linearized dynamics to be
 	\begin{align}
-		{y} (t) = C_1 e^{t} {s_1}  + C_2 e^{-t}{s_2}.
+		{y} (t) = C_1 e^{-t} {s_1}  + C_2 e^{t}{s_2}.
 	\end{align}
 	Using the initial conditions $y_0$ the trajectory can be expressed as
 	\begin{align}
 		y(t) =  F^{t}{y_0}, 
 	\end{align}
-	where $F^{t}$ is the normalized fundamental matrix solution. We can now fully describe the phase portrait of the linearization. The \emph{stable subspace} $E^{S}$ is $ \textrm{span} \{{s_2} \} = \{{y_0} :\ F^{t}{y_0} \xrightarrow{t \to \infty} 0 \} $. The unstable subspace $E^{U}$ is $ \textrm{span} \{{s_1}\} = \{{y_0} : \ F^{t}{y_0} \xrightarrow{t \to - \infty }0\} $. The phase portrait near the fixed point $p$ is illustrated in Fig. \ref{fig:pend_phase_p}
+	where $F^{t}$ is the normalized fundamental matrix solution. We can now fully describe the phase portrait of the linearization. The \emph{stable subspace} $E^{S}$ is $ \textrm{span} \{{s_1} \} = \{{y_0} :\ F^{t}{y_0} \xrightarrow{t \to \infty} 0 \} $. The unstable subspace $E^{U}$ is $ \textrm{span} \{{s_2}\} = \{{y_0} : \ F^{t}{y_0} \xrightarrow{t \to - \infty }0\} $. The phase portrait near the fixed point $p$ is illustrated in Fig. \ref{fig:pend_phase_p}
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.4\textwidth]{figures/ch2/17pend_phase_p}
