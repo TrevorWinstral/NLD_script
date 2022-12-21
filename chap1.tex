@@ -183,7 +183,7 @@ Hence $ \|x_2 \|$ and $ \|x_4 \|$ are also bounded, therefore all solutions exis
 Where in $(*)$ we used that $ {x} = \sum_{i=1}^{n} x_i  {e}_i $ with $ \| {e}_i \|=1$ and $ {e}_i \perp  {e}_j$ for all $i \neq j$. Thus we get
 \begin{align}
 	\frac{\frac{1}{2}\frac{d}{dt} \| {x}(t) \|^2}{ \| {x}(t) \|^2} \leq \lambda_{ \textrm{max} }(t) 
-	\implies \int_{t_0}^{t} \log \left( \frac{ \| {x}(s) \|^2}{ \| {x}(t_0) \|^2} \right) ds \leq \int_{t_0}^{t}  \lambda _{ \textrm{max} }(s) ds.
+	\implies \frac{1}{2}\log \left( \frac{ \| {x}(t) \|^2}{ \| {x}(t_0) \|^2} \right)  \leq \int_{t_0}^{t}  \lambda _{ \textrm{max} }(s) ds.
 \end{align}
 By exponentiating both sides, we obtain
 \begin{align}
@@ -512,7 +512,7 @@ Where we have taken $x'$ to represent $\frac{dx}{d\tau}$. Plugging our expressio
 Matching equal powers of $\varepsilon$ yields
 \begin{subequations}\begin{align}
 	\mathcal{O}(1)&:\ \varphi_0'' + \varphi_0 = 0 \implies \varphi_0(\tau) = a_0 \cos(\tau);\quad \varphi_0(0)=a_0;\quad \dot{\varphi_0}(0) = 0 \\
-	\mathcal{O}(\varepsilon)&:\ \varphi_1'' + \varphi_1 = - \phi_0 - 2\omega_1 \varphi_{0}'' = 
+	\mathcal{O}(\varepsilon)&:\ \varphi_1'' + \varphi_1 = - \varphi^3_0 - 2\omega_1 \varphi_{0}'' = 
 	\left(2 \omega_1 a_0 - \frac{3}{4}a_0^{3}\right) \underbrace{\cos (\tau)}_{ \textrm{resonance} } - \frac{a_0^{3}}{4} \cos(3 \tau); \\
 			     &\phantom{:}\ \varphi_1(0)=0; \quad \dot{\varphi_1}(0) = 0. 
 \end{align}\end{subequations}
