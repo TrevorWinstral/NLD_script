@@ -13,25 +13,45 @@ The objective of this chapter is to extend the theory of low-dimensional stable 
 
 Thus our examination now turns to determining which invariant manifolds are persistent. In order to understand this, first an intermezzo in differentiable manifolds is necessary.
 
-\section{Intermezzo: differentiable manifolds}
+\section{A crash course on differentiable manifolds}
 \begin{definition}
-	A set $M\subset \mathbb{R}^{n}$ is a \emph{$k$-dimensional differentiable manifold}, if it is \underline{locally} diffeomorphic to $\mathbb{R}^{k}$, i.e. for every $x\in M$ there exists an open (in $M$) neighborhood $V\subset M $, such that $V$ is diffeomorphic to an open set $U \subset \mathbb{R}^{k}$. The diffeomorphism between is called the \emph{local parameterization} as is denoted $\Phi:U \to V$. Its smooth inverse is the \emph{local coordinate system} $\Phi^{-1}:V \to U$. These are illustrated in Fig. \ref{fig:diffble_mfd}.
+	A set $M\subset \mathbb{R}^{n}$ is a \emph{$k$-dimensional differentiable manifold}, if it is \underline{locally} diffeomorphic to $\mathbb{R}^{k}$, i.e. for every $x\in M$ there exists an open (in $M$) neighborhood $V\subset M $, such that $V$ is diffeomorphic to an open set $U \subset \mathbb{R}^{k}$. The diffeomorphism is called the \emph{local parameterization} as is denoted $\Phi:U \to V$. Its smooth inverse is the \emph{local coordinate system} $\Phi^{-1}:V \to U$. These are illustrated in Fig. \ref{fig:diffble_mfd}.
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.7\textwidth]{figures/ch9/2diffble_mfd.png}
-		\caption{The differentiable manifold $M$ is given in blue in the left. The red sphere is an open ball in  $\mathbb{R}^{n}$, intersecting this with $M$ yields and open (in $M$) neighborhood $V$ of $ $. The smooth diffeomorphism $\Phi $ transforms $U$ into the open set $U$ of $\mathbb{R}^{k}$.}
+		\caption{The differentiable manifold $M$ is given in blue in the left. The red sphere $W$ is an open ball in  $\mathbb{R}^{n}$, intersecting this with $M$ yields and open (in $M$) neighborhood $V=W \cap M$ of $x $. The smooth diffeomorphism $\Phi $ transforms $U$ into the open set $U$ of $\mathbb{R}^{k}$.}
 		\label{fig:diffble_mfd}
 	\end{figure}
 \end{definition}
 
-The intuitive meaning of a $k$-dimensional manifold is a $k$-dimensional manifold which locally looks like $\mathbb{R}^{k}$.
+The intuitive meaning of a $k$-dimensional manifold is a set which locally looks like $\mathbb{R}^{k}$.
+
+\begin{definition}
+	For a set $M\subset \mathbb{R}^{n}$ and an open set $U\subset \mathbb{R}^{n}$, the set $M\cap U$ is called \emph{relatively open} in $M$.	
+\end{definition}
 
 \begin{ex}[The circle is a 1-dimensional manifold]
-	The circle $\mathcal{S}^{1}$ is a 1-dimensional differentiable manifold. To see define the four open subsets $V_i$ of $\mathcal{S}^{1}$ as open semicircles which are each shifted by $\frac{i \pi }{2} $. Then $\mathcal{S}^{1} = \bigcup_{i=1}^{4}V_i$. These are drawn in Fig. \ref{fig:s1_subsets}. Any $x\in \mathcal{S}^{1}$ belongs to at least one of the $V_i$ due to the previous equality. Furthermore each $V_i$ is diffeomorphic to $U=(-1,1)$ which is open in $\mathbb{R}^{1}$ via the diffeomorphisms
+	The circle $\mathcal{S}^{1}$ is a 1-dimensional differentiable manifold. To see define the four open subsets $V_i$ of $\mathcal{S}^{1}$ as open semicircles which are each shifted by $\frac{i \pi }{2} $ for $i=1,2,3,4$. Then $\mathcal{S}^{1} = \bigcup_{i=1}^{4}V_i$. These are drawn in Fig. \ref{fig:s1_subsets}. Any $x\in \mathcal{S}^{1}$ belongs to at least one of the $V_i$ due to the previous equality. Furthermore each $V_i$ is diffeomorphic to $U=(-1,1)$ which is open in $\mathbb{R}^{1}$ via the diffeomorphisms
 	\begin{subequations}
 		\begin{align}
-		\Phi_1 &= (t, \sqrt{1-t^2})^{T};&&\Phi_2 = (t, -\sqrt{1-t^2})^{T}; \\
-		\Phi_3 &= (-\sqrt{1-t^2}, t)^{T};&&\Phi_4 = (\sqrt{1-t^2}, t)^{T}.
+		\Phi_1 &= 
+		\begin{pmatrix}
+			t\\ \sqrt{1-t^2}
+		\end{pmatrix}
+		;&&\Phi_2 = 
+		\begin{pmatrix}
+			t\\ -\sqrt{1-t^2}
+		\end{pmatrix}
+		; \\
+		\Phi_3 &= 
+		\begin{pmatrix}
+			-\sqrt{1-t^2}\\ t
+		\end{pmatrix}
+		;&&\Phi_4 = 
+		\begin{pmatrix}
+			\sqrt{1-t^2}\\ t
+		\end{pmatrix}
+		.
 		\end{align}
 	\end{subequations}
 \begin{figure}[h!]
@@ -45,7 +65,7 @@ There is no global parameterization of $\mathcal{S}^{1}$, but this is not needed
 \end{ex}
 
 \begin{ex}[Not all sets are manifolds]
-	A few examples of sets which are not manifolds and the reason as to why not will be given.
+	A few examples of sets which are not manifolds.
 	\begin{enumerate}
 		\item The figure-eight is not a manifold, as for any point except the central intersection, there exists a local neighborhood diffeomorphic to $\mathbb{R}^{1}$, however at this central intersection, no open neighborhood exists which is diffeomorphic to $\mathbb{R}^{1}$. This is depicted in Fig. \ref{fig:figure_eight}.
 			\begin{figure}[h!]
@@ -70,10 +90,10 @@ We can construct manifolds very easily, for instance by taking any smooth functi
 \begin{definition}
 	For two manifolds $X$ and $Z$, each subsets of $\mathbb{R}^{n}$, with $X \subset Z$ we call $X$ a \emph{submanifold} of $Z$. 
 \end{definition}
-An example of a submanifold would be $X=\mathcal{S}^{1}\subset Z = \mathcal{S}^{2} \subset \mathbb{R}^{3}$. We say $\mathcal{S}^{1}$ is a 1-dimensional submanifold of the 2 dimension manifold $Z$.
+An example of a submanifold would be $X=\mathcal{S}^{1}\subset Z = \mathcal{S}^{2} \subset \mathbb{R}^{3}$. We say $\mathcal{S}^{1}$ is a 1-dimensional submanifold of the 2-dimension manifold $Z$.
 
 \begin{definition}
-	A manifold $M\subset \mathbb{R}^{n}$ is a \emph{$k$-dimensional manifold with boundary}, if it is locally diffeomorphic to a relatively open set in the non-negative half-space $H^{k}\subset \mathbb{R}^{k}$. The \emph{boundary of $M$}, denoted $\partial M$ is always mapped into $\partial H^{k}$ under any parameterization, and is a $k-1$-dimensional manifold. Such a manifold and its parameterization are illustrated in Fig. \ref{fig:bndry_mfd_def}.
+	A manifold $M\subset \mathbb{R}^{n}$ is a \emph{$k$-dimensional manifold with boundary}, if it is locally diffeomorphic to a relatively open set in the non-negative half-space $H^{k}=\{x\in \mathbb{R}^k: x_1 \geq 0\} \subset \mathbb{R}^{k}$. The \emph{boundary of $M$}, denoted $\partial M$ is always mapped into $\partial H^{k}$ under any parameterization, and is a $k-1$-dimensional manifold. Such a manifold and its parameterization are illustrated in Fig. \ref{fig:bndry_mfd_def}.
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.7\textwidth]{figures/ch9/5bndry_mfd_def.png}
@@ -85,17 +105,17 @@ An example of a submanifold would be $X=\mathcal{S}^{1}\subset Z = \mathcal{S}^{
 Closed intervals, closed cyclinders, and closed hollow spheres are all manifolds with boundaries, however it is not always the case that simply taking the closure of a manifold yields a manifold with boundary. For instance the interior of a rectangle is a manifold (using the identity as a parameterization), however as the corners are not smooth the closure is not a manifold.
 
 \begin{definition}
-	Given a manifold $M\subset \mathbb{R}^{n}$ with the local parameterization at $x$ given by $\Phi$ (assume for simplicity that $\Phi(0)=x\in V$), the \emph{tangent space of the manifold} is then defined as
+	Given a $k$-dimensional manifold $M\subset \mathbb{R}^{n}$ with the local parameterization at $x$ given by $\Phi:: U\subset \mathbb{R}^k \to V\subset M \subset \mathbb{R}^n$ (assume for simplicity that $\Phi(0)=x\in V$), the \emph{tangent space of the manifold} is then defined as
 	\begin{align}
 		\boxed{
-			T_{x}M= \textrm{im} [D\Phi(0)].
+			T_{x}M= \textrm{Range} [D\Phi(0)].
 		}
 	\end{align}
 	The intuition as to why this is called the tangent space is show in Fig. \ref{fig:tangent_space_def}.
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.65\textwidth]{figures/ch9/6tangent_space_def.png}
-		\caption{The tangent space of a manifold $M$. The map $D\Phi(0)$ takes us from the left to the right image, and the map $D\Phi^{-1}(x)$ takes us from right to left.}
+		\caption{The tangent space of a manifold $M$. The map $D\Phi(0)$ maps the left image to the plane indicated in the right image.}
 		\label{fig:tangent_space_def}
 	\end{figure}
 \end{definition}
@@ -104,13 +124,13 @@ Note here how the differential is defined
 \begin{align}
 	D \Phi(x)h = \lim_{s \to 0} \frac{\Phi(x + sh) - \Phi(x)}{s}.
 \end{align}
-Therefore the map $D\Phi(y)$ is a map from the tangent space of $\mathbb{R}^{k}$ at $y$ to the tangent space of $M$ at $\Phi(y)$, i.e. $D\Phi(y): T_{y}\mathbb{R}^{k}\to T\Phi(y)M$. 
+Therefore the map $D\Phi(y)$ is a map from the tangent space of $\mathbb{R}^{k}$ at $y$ to the tangent space of $M$ at $\Phi(y)$, i.e. $D\Phi(y): T_{y}\mathbb{R}^{k}\to T_{\Phi(y)}M$. 
 
 \begin{remark}[]
 	Note a few facts about tangent spaces:
 	\begin{enumerate}
 		\item Although it appears that $T_{x}M$ depends on the parameterization $\Phi$, it actually does not;
-		\item The dimension of the tangent manifold, which is well defined as it is a linear subspace of $\mathbb{R}^{n}$, is equal to the dimension of $M$, namely $k$;
+		\item The dimension of the tangent space, which is well defined as it is a linear subspace of $\mathbb{R}^{n}$, is equal to the dimension of $M$, namely $k$;
 		\item A map $f:M\to N$ between manifolds induces a linear mapping between the appropriate tangent spaces of the manifolds. Denoting by $\Phi$ and $\Psi$ the respective local parameterizations, the induced map between parameter spaces is $F= \Psi^{-1} \circ f \circ \Phi$. This is a mapping between linear spaces and $DF$ is well-defined. In turn, this implies that $Df$ is well-defined and by the chain rule is equal to $D\Psi \circ DF \circ D\Phi^{-1}$, therefore it is possible to differentiate mappings between manifolds. Then we have the sought-after mapping between tangent spaces 
 			\begin{align}
 				Df: T_{x}M \to T_{f(x)}N.
@@ -138,7 +158,7 @@ The tangent bundle is a $2k$-dimensional manifold.
 By labelling tangent vectors with their respective base points, different tangent spaces are separate \emph{fibers} of the tangent bundle. In general $TM \neq M \times \mathbb{R}^{k}$, i.e. the tangent bundle is not a global direct product. In fact, locally, each tangent bundle is trivial (the direct product), this just does not extend globally. However, for $M=\mathcal{S}^{2}$ the tangent bundle is diffeomorphic to $\mathcal{S}^{2} \times \mathbb{R}^{2}$. 
 
 \begin{definition}
-	The \emph{normal space}, unlike the tangent space, depends on the ambient space. For a $k$-dimensional manifold $M$ embedded in $\mathbb{R}^{n}$, the normal space at a point $x$, $N_{x}M$, is the compliment in the direct sum forming the tangent space of the ambient, i.e.
+	The \emph{normal space}, unlike the tangent space, depends on the ambient space. For a $k$-dimensional manifold $M$ embedded in $\mathbb{R}^{n}$, the normal space at a point $x$, $N_{x}M$, is the orthogonal complement of the tangent space. For their direct sum it holds, that 
 	\begin{align}
 		\boxed{
 			T_{x}M \oplus N_{x}M = T_{x}\mathbb{R}^{n}.
@@ -182,7 +202,7 @@ An example of such a subbundle is given in Fig. \ref{fig:subbundle_ex}, where th
 
 \newpage
 \section{Theory of normally hyperbolic invariant manifolds}
-The framework for the following section will be of a dynamical system
+The starting point for the following section will be of an autonomous dynamical system
 \begin{align}
 	\dot{x}=f(x);\quad x \in \mathbb{R}^{n};\quad f\in\mathcal{C}^{r}\ r\geq 1.
 \end{align}
@@ -222,10 +242,9 @@ There are three central questions for what happens to this manifold which we wil
 			\dot{x} = -x(1-x)(1+x) -\varepsilon y \\
 			\dot{y} = - \alpha y + \varepsilon x
 		\end{dcases}
-		;\quad - \leq \varepsilon \ll 1.
+		;\quad 0 \leq \varepsilon \ll 1.
 	\end{align}
-	The fixed points $A_0$, $B_0$, and $C_0$ are hyperbolic, therefore they persist. In fact $B_0$ does not move at all. The other fixed points move to new perturbed counterparts, i.e. $A_0,C_0 \to A_{\varepsilon}, C_{\varepsilon}$. 
-	{\color{blue} what is he getting at by defining $y_{\varepsilon} = \frac{\varepsilon}{\alpha}x_{\varepsilon}$ here, not sure how that helps here.}
+	The fixed points $A_0$, $B_0$, and $C_0$ are hyperbolic, therefore they persist. In fact $B_0$ does not move at all. The other fixed points move to new perturbed counterparts, i.e. $A_0,C_0 \to A_{\varepsilon}, C_{\varepsilon}$. From the second equation, we see that the y coordinate of the perturbed fixed point becomes $y_\varepsilon= \varepsilon/\alpha x_\varepsilon$. That is, $C_\varepsilon$ moves upwards and $A_\varepsilon$ moves downwards.
 
 	At $B_0 = B_{\varepsilon}$ we can linearize to find
 	\begin{align}
@@ -244,12 +263,27 @@ There are three central questions for what happens to this manifold which we wil
 	\end{align}
 Depending on $\alpha $ we differentiate two cases.
 \begin{enumerate}
-	\item $\bm{\alpha =1} $ In this case the eigenvalues split in a vertical fashion, as shown in Fig. \ref{fig:eigv_vertical_split}. {\color{blue} these two look topologically equivalent to me in the figure}.
+	\item $\bm{\alpha =1} $ In this case the eigenvalues split in a vertical fashion, as shown in Fig. \ref{fig:eigv_vertical_split}. The stable node turns into a stable spiral, which, when connected to the perturbed fixed points $A_{\varepsilon}$ and $C_{\varepsilon}$ cannot be diffeomorphic to $M_0$.
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.4\textwidth]{figures/ch9/11_5vertical_split.png}
+			\caption{The eigenvalues splitting in a vertical fashion for $\alpha=1$.}
+			\label{fig:eigv_vertical_split}
+		\end{figure}
+	\item $\bm{\alpha<1}$ Now change the perturbation to $\varepsilon^{2}$ such that both fixed points move upwards, the perturbed curve will have a cusp at 0, so we have again no diffeomorphism to $M_0$.	
 \end{enumerate}
+Thus in each case, no smooth transformation to $M_0$ exists and therefore there is no persistence. The perturbed geometries are shown in Fig. \ref{fig:nondiffeo_pertubation}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch9/11_75alpha_one_perturb.png}
+	\includegraphics[width=0.4\textwidth]{figures/ch9/11_75alpha_small_perturb.png}
+	\caption{Left: The geometry for $\alpha=1$. Right: The geometry for $\alpha<1$.}
+	\label{fig:nondiffeo_pertubation}
+\end{figure}
 
 \end{ex}
 
-The reason for the destruction of the manifold here was the normal rate of attraction being less than or equal to the tangential rate of attraction at one point. This can be exemplified as proceeds.
+The reason for the destruction of the manifold here was the normal rate of attraction being less than or equal to the tangential rate of attraction at one point. This can be exemplified as follows.
 
 \begin{ex}[]
 	Consider the dynamical system
@@ -274,9 +308,9 @@ The reason for the destruction of the manifold here was the normal rate of attra
 			x(t) = x_0 e^{-t} = x_0 \left(e^{-1} \right)^{t} \\
 			y(t) = y_0 e^{-\frac{3}{2}t} = y_0 \left(e^{-\frac{3}{2}}\right)^{t}
 		\end{dcases}
-		\implies y = y_0 \left(\frac{x}{x_0}\right)^{\frac{3}{2}}.
+		\implies y = y_0 \left(\frac{x}{x_0}\right)^{\frac{3}{2}}. \label{eq9:914}
 	\end{align}
-	The eigenvalue constellation and linearized phase portrait, along with the implied nonlinear phase portrait for this system are show in Fig. \ref{fig:alpha_specification}.
+	The eigenvalue constellation and linearized phase portrait, along with the implied nonlinear phase portrait for this system are show in Fig. \ref{fig:alpha_specification}. From \eqref{eq9:914} we see that the phase curves of the system are only $\mathcal{C}^1$ because of the power of $\frac{3}{2}$. In the nonlinear system, this implies that the perturbed manifold $M_\varepsilon$ exists, but is also only $\mathcal{C}^1$-smooth. Thus, the ratio between normal and tangential contraction determines the smoothness of $M_\varepsilon$.
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.27\textwidth]{figures/ch9/12alpha_specification_1.png}
@@ -285,6 +319,7 @@ The reason for the destruction of the manifold here was the normal rate of attra
 		\caption{Left: The eigenvalue constellation for the linearization around $B_0$ for $\varepsilon=0$. Middle: The linearized phase portrait around $B_0$. Right: The nonlinear phase portrait with the nearby overflowing invariant manifold $M_{\varepsilon}$.}
 		\label{fig:alpha_specification}
 	\end{figure}
+
 	One can check here that $\dot{y}= (r+\mu )y + \varepsilon x$ would give $\mathcal{C}^{r}$ differentiability for $M_{\varepsilon}$ for $0 \leq \mu \ll 1$. Formally, for $\mu=0 $ we would have $\mathcal{C}^{\infty }$ differentiability, but only for the linear part, and this would not be robust.	
 \end{ex}
 
@@ -296,7 +331,7 @@ Recall our setup with the compact, overflowing invariant $\mathcal{C}^{r}$ manif
 \end{align}
 Now consider the \emph{inverse linearized flow map} on the tangent bundle of $\mathbb{R}^{n}$ for some $t\geq 0$
 \begin{align}
-	(F^{-t}, DF^{-t}):\ T\mathbb{R}^{n} \to T\mathbb{R}^{n};\ (p,v) \mapsto \left(F^{-t}, DF^{-t}(p)v\right).
+	(F^{-t}, DF^{-t}):\ T\mathbb{R}^{n} \to T\mathbb{R}^{n};\ (p,v) \mapsto \left(F^{-t}(p), DF^{-t}(p)v\right).
 \end{align}
 This map is depicted in Fig. \ref{fig:inv_lin_flow_map}.
 \begin{figure}[h!]
@@ -306,7 +341,7 @@ This map is depicted in Fig. \ref{fig:inv_lin_flow_map}.
 	\label{fig:inv_lin_flow_map}
 \end{figure}
 
-To quantify the rate of normal attraction we define for $w_0 \in N_{p}M_0$, as in Fig. \ref{fig:inv_lin_flow_map}, $w_{-t}\in N_{q}M_0$ to be $\Pi_{q}DF^{-t}(p)(p)w_0 $. If we have that
+To quantify the rate of normal attraction we define for $w_0 \in N_{p}M_0$, as in Fig. \ref{fig:inv_lin_flow_map}, $w_{-t}\in N_{q}M_0$ to be $\Pi_{q}DF^{-t}(p)w_0 $. If we have repulsion in backward time, $\| w_{-t}\| \gg \| w_0\|$, with an exponential rate, i.e. 
 \begin{align}
 	\frac{\|w_0 \|}{\| w_{-t}\|}\sim e^{-\alpha t}	= (e^{-\alpha })^{t}; \quad \alpha >0; \quad t \to \infty ,
 \end{align}
@@ -316,30 +351,27 @@ then the best estimate for such an $e^{-\alpha }$ is
 		\nu(p) = \inf \left\{ a \in \mathbb{R}^{+}:\ \lim_{t\to\infty }{\frac{\|w_0\|}{\|w_{-t}\|}}/{a^{t}} = 0,\ \forall w_0 \in N_{p}M_0 \right\}.
 	}
 \end{align}
-The $\inf $ then gives us the smallest upper bound.
-{\color{blue} he says largest lower bound, I think this is wrong, the only $a$ which are included in the set we take the inf over are $a$ such that $e^{-\alpha }<a$, i.e. an upper bound. The largest lower bound would be an expression like sup(lim ... = $\infty$) }
-The idea behind this, is that for large $a$, the quotient will go to zero {\color{blue} again, this is in line with an upper bound I think}, if we start to lower $a$ until this trend changes we will reach the largest lower 
-{\color{blue}smallest upper} bound.
+The $\inf $ is defined as the largest lower bound. The idea behind this, is that for large $a$, the quotient will go to zero, if we start to lower $a$ until this trend changes. We then pick the larges lower bound for this change.
 
-If $e^{-\alpha }=a \sim \nu(p) < 1$ then $M_0$ is exponentially attracting in backwards time. Note that the orbit from $p$ will generally not approach a fixed point. Furthermore, $-\log(\nu(p))$ will generally not be the eigenvalue of a Jacobian (the linearized flow map at a fixed point).
+If $e^{-\alpha }=a \sim \nu(p) < 1$ then $M_0$ is exponentially attracting in backward time. Note that the orbit from $p$ will generally not approach a fixed point. Furthermore, $\log(\nu(p))$ will generally not be the eigenvalue of a Jacobian (the linearized flow map at a fixed point).
 
 Next, we would like to quantify the relationship between the normal and tangential rates. If we have
 \begin{align}
 {\frac{\| w_0 \|}{\|w_{-t}\|}}/{\frac{\|v_0\|}{\|v_{-t}\|}} \sim \frac{e^{-\alpha t}}{e^{-\alpha t \cdot \frac{1}{\rho}}}
 \end{align}
-for some $\rho \in \mathbb{R}$ and $\alpha >0$ as $t\to \infty $ then define the \emph{type number} to be
+for some $\rho \in \mathbb{R}$ and $\alpha >0$ as $t\to \infty $ then define for the best asymptotic estimate for $1/\rho$, define $\sigma(p)$ to be
 \begin{align}
 	\boxed{
 		\sigma(p) = \inf \left\{ b \in \mathbb{R}:\ \lim_{t\to \infty }\left({\frac{\|w_0\|}{\|w_{-t}\|}}/{\frac{\|v_0\|}{\|v_{-t}\|}}\right)^{b} = 0,\ \forall w_0 \in N_{p}M_0,\ \forall v_0 \in T_{p}M_0 \right\}.
 	}
 \end{align}
-The type number is also known as the \emph{Lyapunov-type number} or \emph{Fenichel-type number}. If $\sigma(p) \sim \frac{1}{\rho} < \frac{1}{s}$ for some $s\in \mathbb{Z}^{+}$, then the normal decay to $M_0$ is $s$-times stronger than the tangential compression along $M_0$, at least along the trajectory through $p$.
+The numbers $\nu(p)$ and $\sigma(p)$ are called {\emph Fenichel-type numbers}. They are sometimes also referred to as Lyapunov-type numbers or sometimes simply Type-numbers. If $\sigma(p) \sim \frac{1}{\rho} < \frac{1}{s}$ for some $s\in \mathbb{Z}^{+}$, then the normal decay to $M_0$ is $s$-times stronger than the tangential compression along $M_0$, at least along the trajectory through $p$.
 
 \begin{remark}[Properties of Fenichel-type numbers]
- First, each are constant along trajectories, and dependent only on the $\alpha $-limit set of the trajectory (the set of limit points as $t \to -\infty $). Also, both $\nu(p)$ and $\nu(p) $ are upper-semicontinuous in $p$ ($\limsup_{p \to p_0} \sigma(p) \leq \sigma(p_0)$).
+ First, each are constant along trajectories, and dependent only on the $\alpha $-limit set of the trajectory (the set of limit points as $t \to -\infty $). Also, both $\sigma(p)$ and $\nu(p) $ are upper-semicontinuous in $p$ ($\limsup_{p \to p_0} \sigma(p) \leq \sigma(p_0)$).
 \end{remark}
 
-Next, it is important to be able to compute the Fenichel-type numbers, to this end define two functions
+to discuss the computation of the Fenichel-type numbers. To this end, define two functions
 \begin{align}
 	A_{t}(p) &= \left. DF^{-t}(p) \right|_{T_{p}M_0}:\ T_{p}M_0 \to T_{q}M_0;\ q = F^{-t}(p); \\
 	B_{t}(p) &= \left. \Pi_{p}DF^{t}(F^{-t}(p)) \right|_{N_{F^{-t}(p)}M_0}:\ N_{F^{-t}(p)}M_0 \to N_{p}M_0.
@@ -381,7 +413,7 @@ and if $\nu(p)<1$, then
 \end{ex}
 
 \begin{definition}
-	The manifold $M_0$ is an \emph{$r$-normally hyperbolic invariant manifold} if
+	The manifold $M_0$ is an \emph{$r$-normally hyperbolic invariant manifold} (NHIM) if
 	\begin{enumerate}
 		\item $\nu (p)<1$ for all $p\in M_0$ ;
 		\item $\sigma(p) < \frac{1}{r}$ for all $p \in M_0$.
@@ -412,19 +444,19 @@ This result is depicted in Fig. \ref{fig:fenichel_thm2}.
 \end{theorem}
 
 \begin{remark}[]
+	The following hold:
 	\begin{enumerate}
 		\item If $M_0$ is compact, normally hyperbolic invariant (without boundary), then it attracts \underline{all} nearby trajectories ($M_0$ is an attractor that smoothly persists);
-		\item The integer $r$ featured in the theorem is the minimum of $f \in \mathcal{C}^{r_1}$, $M_0 \in \mathcal{C}^{r_2}$, and $\sigma(p) < \frac{1}{r_3}$ with the integers $r_i \in \mathbb{Z}^{+}$;
+		\item The integer $r$ featured in the theorem is the minimum of the integers $r_i\in \mathbb{Z}^{+}$, where $f \in \mathcal{C}^{r_1}$, $M_0 \in \mathcal{C}^{r_2}$, and $\sigma(p) < \frac{1}{r_3}$;
 		\item Similar results hold for inflowing invariant manifolds that repel nearby initial conditions ($M_0$ and $\tilde{M}_{0}$ are persistent repellers);
-		\item The theory also extends to saddle-type invariant manifolds too, e.g. the unstable manifold of an overflowing invariant manifold.
-	\end{enumerate}
-	Assume the tangent bundle $\left.T\mathbb{R}^{n}\right|_{M_0}$ has an invariant splitting, i.e. $T_{p}\mathbb{R}^{n} = T_pM_0 \oplus N_{p}^{U}M_0 \oplus N_{p}^{S}M_0$, then there exists an additional Fenichel-type number for $N^{U}M_0$ and $W^{U}_{ \textrm{loc} (M_0)}$ is robust. This is shown in Fig. \ref{fig:fenichel_thm_rmks}.
+		\item The theory also extends to saddle-type invariant manifolds too, e.g. the unstable manifold of an overflowing invariant manifold. In this case assume that the tangent bundle $\left.T\mathbb{R}^{n}\right|_{M_0}$ has an invariant splitting, i.e. $T_{p}\mathbb{R}^{n} = T_pM_0 \oplus N_{p}^{U}M_0 \oplus N_{p}^{S}M_0$, then there exists an additional Fenichel-type number for $N^{U}M_0$ and $W^{U}_{ \textrm{loc} (M_0)}$ is robust. This is shown in Fig. \ref{fig:fenichel_thm_rmks}.
 		\begin{figure}[h!]
 			\centering
 			\includegraphics[width=0.7\textwidth]{figures/ch9/16fenichel_thm_rmks.png}
 			\caption{The effect of the tangent bundle having an invariant splitting with the addition of a Fenichel-type number for $N^{U}M_0$ and robust $W^{U}_{ \textrm{loc} }(M_0)$.}
 			\label{fig:fenichel_thm_rmks}
 		\end{figure}
+	\end{enumerate}
 \end{remark}
 For more see \cite{Wiggins1994}.
 
@@ -841,7 +873,7 @@ The objective is to construct a stable manifold tangent to $E_{S}$. This will be
 		\end{dcases}
 		.\label{eq9:LP_method5}		
 	\end{align}
-\item Finally we have a fixed point problem, the equation \eqref{eq9:LP_method5} is fulfilled when $y(t) = \mathcal{F}(y(t);y_S)$, thus we have a fixed point problem with the initial condition as a parameter. The exists a unique solution is $\mathcal{F}$ is a contractions mapping from a complete metric space into itself, i.e. when we can apply the Banach fixed point theorem
+\item Finally we have a fixed point problem, the equation \eqref{eq9:LP_method5} is fulfilled when $y(t) = \mathcal{F}(y(t);y_S)$, thus we have a fixed point problem with the initial condition as a parameter. The exists a unique solution is $\mathcal{F}$ is a contraction mapping from a complete metric space into itself, i.e. when we can apply the Banach fixed point theorem
 	\begin{align}
 		d(\mathcal{F}(x), \mathcal{F}(y)) \leq q d(x,y);\quad 0 < q < 1.
 	\end{align}
@@ -879,5 +911,137 @@ where in \eqref{eq9:MVT} the mean value theorem was used. This inequality implie
 \end{enumerate}
 For the general, mulit-dimensional case see \cite{Chicone}. A similar argument also work for the strong stable manifold.
 
-\section{Spectral submaniflds and model reduction}
+\section{Spectral submanifolds and model reduction}
+For reference, see \cite{Ponsioen2016}. A typical model reduction involves a projection onto subspaces, even for nonlinear systems.
+
+\begin{ex}[]
+	consider the dynamical system
+	\begin{align}
+		\begin{dcases}
+			\dot{x} = x y + x^{3} \\
+			\dot{y} = -y - 2x^{2}
+		\end{dcases}
+		.\label{eq9:reduction1}
+	\end{align}
+	Next, linearize at $x=y=0$ to find a stable and center manifold as shown in Fig. \ref{fig:reduction_linearization1}.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.35\textwidth]{figures/ch9/25reduction_linearization1.png}
+		\caption{Linearization of the dynamical system \eqref{eq9:reduction1}}
+		\label{fig:reduction_linearization1}
+	\end{figure}
+	The usual argument is that fast-decaying modes die out. Thus we project the system onto the center subspace $E^{C}$, which is equivalent to setting $y=0$ in \eqref{eq9:reduction1} to find
+	\begin{align}
+		\dot{x} = x^3.
+	\end{align}
+	This is the \emph{reduced-order model form projection}. Here the origin is unstable, and all non-equilibrium orbits are unbounded.
+
+	The dynamical systems approach is an exact model reduction. We known that a center manifold $W^{C}(0)$ tangent to the center subspace at $0 $ exists and is $\mathcal{C}^{r} $ for any $r\geq 0 $, but is not unique in general. The best possible reduced-order model examines the dynamics on $W^{C}(0) $. Write
+	\begin{align}
+		W^{C}(0) = \{(x,y):\ y = h(x) = ax^2 + bx^3 + cx^4 + \mathcal{O}(x^5) \}.
+	\end{align}
+By invariance we know that
+ \begin{align}
+ \dot{y} = h' \dot{x} = \left[ 2 a x + \mathcal{O}(x^{2}) \right] \left( xy + x^{3}\right) = 2a(a+1)x^{4} + \mathcal{O}(x^{5}).
+\end{align}
+By restricting to $W^{C}(0)$ we also have that
+\begin{align}
+	\left.\dot{y} \right|_{W^{C}(0)} = \left.-y\right|_{W^{C}(0)} - 2x^2 = -(a+2)x^{2} - bx^3 - cx^4 + \mathcal{O}(x^{5}).
+\end{align}
+Comparing coefficients allows us to obtain $a=-2$, $b=0$, and $c=-2a(a+1)=-4$. Therefore we find the reduced dynamics on $W^{C}(0)$ 
+\begin{align}
+	\dot{x} = \left.(xy+x^3)\right|_{W^{C}(0)} = x(-2x^2 + \mathcal{O}(x^4) ) + x^3	= -x^3 + \mathcal{O}(x^5).
+\end{align}
+This is the exact reduced-order model and we find that $x$ is asymptotically stable. The reduced-order model captures the correct local dynamics. Next, we discuss if this discrepancy is the result of a vanishing eigenvalue, i.e. a degenerate linear part.
+\end{ex}
+
+\begin{ex}[]
+	A more realistic case is when all modes decay under linearization, i.e. $W^{C}(0) = W^{U}(0) = \emptyset$. Consider the dynamical system
+	\begin{align}
+		\begin{dcases}
+			\dot{x} = -\frac{1}{4}x + xy + x^{3} \\
+			\dot{y} = -y - 2x^{2}
+		\end{dcases}
+.		
+	\end{align}
+	Once again we linearize at the origin and find that $W^{S}(0) = \mathbb{R}^{2}$. The usual argument here would be to project to the slowest-decaying mode, this implies projecting onto the $x$-axis by setting $y=0$. We find the reduced order model
+	\begin{align}
+		\dot{x} = x\left( - \frac{1}{4} + x^{2}\right).
+	\end{align}
+	The origin is asymptotically stable with this reduction, whose purpose was to understand the nonlinear dynamics. The nonlinear model prediciton is to have two nontrivial unstable fixed points and a domain of attraction. We are left hoping that this is correct, because there is no way to refine this projection further, as every mode except one is already included.
+
+	The fixed points of the full system satisfy
+	\begin{align}
+		\begin{dcases}
+		0= -y - 2x^2 \\
+		0= - \frac{1}{4} x + xy + x^{3}
+		\end{dcases}
+		\implies -\frac{1}{4}x - x^3 = 0 \Leftrightarrow -x\left(\frac{1}{4} + x^2\right) = 0.
+	\end{align}
+	Hence, no fixed point exists! The projection onto subspaces can give incorrect results even if all but one mode in included in the reduced model. We ask if it is possible to do exact model reduction onto slowly decaying modes. The issues of nonuniqueness in linear systems and smoothness of weak stable manifolds present themselves. Consider
+	\begin{align}
+		\begin{dcases}
+		\dot{x} = \lambda_1 x \\
+		\dot{y} = -\lambda _2 y 
+		\end{dcases}
+		\implies 
+		\begin{dcases}
+			x(t) = e^{-\lambda _1t} x_0 \\
+			y(t) = e^{-\lambda_2 t} y_0
+		\end{dcases}
+		.
+	\end{align}
+We can then calculate the equations for the manifolds
+\begin{align}
+	\left(\frac{x}{x_0}\right)^{\lambda _1} = \left(\frac{y}{y_0}\right)^{\lambda_2} \implies y = \frac{y_0}{x_0 ^{\frac{\lambda_1}{\lambda_2}}}x^{\frac{\lambda_1}{\lambda_2}} = C_0 x^{\frac{\lambda_1}{\lambda_2}}.
+\end{align}
+See that due to $C_0$ being arbitrary we have nonuniqueness. Also, the slow manifold is only $\lfloor \frac{\lambda_1}{\lambda_2}\rfloor$-times differentiable unless a resonance arises ($\lambda_1 = k \lambda_2$). But, there is a unique $\mathcal{C}^{\infty }$, even analytic slow manifold with $C_0=0$, i.e. $y=0$. The smoothest slow manifold is unique. The question remains if this also happens in nonlinear systems.
+\end{ex}
+
+Consider the setup
+\begin{align}
+	\dot{x} = Ax + f_{0}(x);\quad x \in \mathbb{R}^{n};\quad f_0(x) = \mathcal{O}(\|x\|^{2});\quad f_0\in \mathcal{C}^{r},\ r\in \mathbb{N}^{+}\cup\{\infty, a\}.
+\end{align}
+If $r=a$, then $f_0$ is analytic. From the definition of $f_0$ we can see that $x=0$ is a fixed point. The eigenvalues of $A$ are $\lambda _1,\ldots,\lambda_N$ sorted by descending real part, i.e. $ \textrm{Re} [\lambda _N] \leq \ldots \leq  \textrm{Re} [\lambda _1]<0$. Therefore $x=0$ is asymptotically stable. The eigenspaces are given by $E_{j}$ and are the span of the real and imaginary parts of all eigenvectors and generalized eigenvectors, corresponding to $\lambda _j$. Hence we have $\mathbb{R}^{n} = \bigoplus_{j=1}^{N} E_{j}$.
+
+We call the direct sum of an arbitrary number of distinct eigenspaces the \emph{spectral subspace}, this is always an invariant subspace for $\dot{x} = Ax$. The \emph{spectral quotient of $A$} is given by
+\begin{align}
+	\sigma(E) = \left\lfloor \frac{ \textrm{smallest Re} [\lambda _k] \textrm{ outside of }E}{ \textrm{largest Re} [\lambda _i]  \textrm{ inside of } E}\right\rfloor.
+\end{align}
+An illustration of these values are given in Fig. \ref{fig:spect_quotient}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.4\textwidth]{figures/ch9/26spect_quot.png}
+	\caption{The eigenvalue constellation, the left dotted green line designates the smallest real part outside of $E$ and the right dotted green line designates the largest real part inside of $E$.}
+	\label{fig:spect_quotient}
+\end{figure}
+
+We can check in a 2-dimensional linear example, this was the degree of difference of general slow manifolds. 
+
+The \emph{external nonresonance condition for $E$} for $ \textrm{dim} [E]=q$ is
+\begin{align}
+	\langle m, \lambda \rangle_{E} = m_1 \lambda _{j1} + \ldots + m_1 \lambda _{jq} \neq \lambda l,\ m_i \in \mathbb{N}	,
+\end{align} 
+where $\lambda _{j1},\ldots,\lambda _{jq}\in  \textrm{spect}[A|_{E}] $ and $\lambda _{l} \not \in  \textrm{spect} [A|_{E}]$.
+
+Now we ask if the full nonlinear system has a \emph{spectral submanifold} (SSM), i.e. a nonlinear continuation of $E$.
+\begin{theorem}[]
+Assume the low-order external nonresonance condition
+\begin{enumerate}
+	\item $\langle m, \lambda \rangle_{E} \neq \lambda _l$ for $\lambda_l \neq  \textrm{spect}[A|_{E}] $ ;
+	\item $2 \leq |m| \leq \sigma(E)$ with the norm $|m | =m_1 + \ldots + m_1$;
+\end{enumerate}
+then we have that the following hold:
+\begin{enumerate}
+	\item There exists a $\mathcal{C}^{r}$ spectral submanifold $W(0)$ tangent to $E$ at $x=0$ with the same dimension as $E$;
+	\item $W(0)$ is unique among all $\mathcal{C}^{\sigma(E) + 1}$ invariant manifold satisfying {\color{blue} what is this symbol and what condition does it refer to? pg 146};
+	\item If $f_0$ is jointly $\mathcal{C}^{r}$ in $(x,\mu )$ for some parameter $\mu \in \mathbb{R}^{p}$, then so is $W(0)$, this also holds for $r=\infty $ and $r=a$. 
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+	See \cite{Ponsioen2016}
+\end{proof}
+ 
+With this theorem, we can see that high-enough-order Taylor-series expansion puts us on $W(0)$ if we look for it as an invariant graph over $E$.
+
 
