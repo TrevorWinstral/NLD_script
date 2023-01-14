@@ -697,14 +697,14 @@ This also tells us that the sum of the eigenvalues of the linearized Hamiltonian
 Further, observe that if $\lambda $ is an eigenvalue of \eqref{eq8:lin_hamiltonian} (whether real or complex), then so is $- \lambda $. This leaves us with a few possible eigenvalue configurations for Hamiltonian systems, as seen in Fig. \ref{fig:new_eigv_configs}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.5\textwidth]{figures/ch8/16new_eigv_config.png}
-	\caption{An example eigenvalue configuration with the constraints found previously.}
+	\includegraphics[width=0.45\textwidth]{figures/ch8/16new_eigv_config.png}
+	\includegraphics[width=0.45\textwidth]{figures/ch8/16_eigv_collision.png}
+	\caption{Left: An example eigenvalue configuration with the constraints found previously. Right: The possible losses of stability through eigenvalue collisions}
 	\label{fig:new_eigv_configs}
 \end{figure}
 
 Suppose $\lambda=0$ is an eigenvalue, then it is necessarily at least a double eigenvalue. Furthermore, under a variation of the parameters, purely imaginary eigenvalues can only leave the imaginary axis through a collision with another eigenvalue. 
 Recalling that a linearized Hamiltonian can only be neutrally stable leads to the conclusion that linear stability analysis, is never conclusive to establish Lyapunov stability  in Hamiltonian systems. 
-{\color{blue} He has a few examples (figures, pg 75) of how eigenvalues act under perturbation, but I feel like this is not needed here and is more for the purpose during the lecture so that he can show exactly how the movement works, i.e. seeing it drawn live is where the value is.}
 
 The previous examination leads us to focusing on the nonlinear stability of fixed points of Hamiltonian. The setup is the same as before with an autonomous Hamiltonian system underlying the dynamics. Recall that for such systems we have that $\frac{dH(x(t))}{dt}=0$, i.e. the Hamiltonian is conserved under the flow map, and as before a fixed point $x_0$ corresponds directly to a critical point of the Hamiltonian, i.e. $DH(x_0)=0$.
 

@@ -858,9 +858,36 @@ The objective is to construct a stable manifold tangent to $E_{S}$. This will be
 	\end{align}
 
 \item Second, define the local stable manifold. The classic definition of $W^{S}(0)$ is that it is the collection of initial coordinates $y_0$ which under the limit of the flow map have $\lim_{t \to \infty }F_{t}(y_0)=0$. This requires detailed knowledge of asymptotics, and thus is hard to work with. For linear systems an alternative definition is, that $W^S(0)$ is the collection of forward-bounded trajectories, but this is generally nothing special after the addition of nonlinear terms. However, we may change the nonlinear system away from the origin to ensure that boundedness remains a distinguishing property. 
-	{\color{blue} we should talk about this, I am not exactly sure how to present this clearly, pg 127/128}
 
-\item Now pretend that $y(S)$ is known to find the \emph{equivalent integral equations}. The variation of constants formula yields
+	To go about this we separate the phase space into the rectangular area (of half-width $\delta$) around the origin and the rectangular annulus of outer half-width $2\delta$. In the inner rectangle, the original nonlinear dynamics hold, outside of the annulus the dynamics are 0 (i.e. $f(x)=0$). Interpolating in between these regimes takes place on the annulus using a so-called \emph{bump function} $\Psi_{\delta}$, a smooth function which is equal to 1 on the interval $[-\delta, \delta]$ and equal to 0 on the intervals $(-\infty, -2\delta)$ and $(2\delta, \infty )$, in between these regions is the interpolation. The bump function and the interpolated new dynamical system are depicted in Fig. \ref{fig:interpolated_DS}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.95\textwidth]{figures/ch9/24_5interpolated_DS.png}
+	\caption{The interpolated dynamical system, within the green area the original nonlinear dynamics hold, on the yellow area the smoothly deformed (interpolated) system holds, and outside of these two regions, the null dynamics hold. The bump function is also depicted.}
+	\label{fig:interpolated_DS}
+\end{figure}
+
+Thus we have the modified system
+\begin{align}
+	\begin{dcases}
+		\dot{y}_{S} = - \lambda_{S}y_{S} + G_{S}(y) \\
+		\dot{y}_{U} = \lambda _{U} y_U + G_{U}(y)
+	\end{dcases}
+	.
+\end{align}
+Furthermore, we can bound this system
+	\begin{subequations}
+		\begin{align}
+			|G'_{S,U}(y) | &= \Psi'_{\delta}g_{S,U} + \Psi_{\delta} g'_{S,U} \leq |\Psi_{\delta}| | g_{S,U}| + |\Psi_{\delta}| |g'_{S,U}|\\
+				       &\leq \frac{K}{\delta} C \delta^2 + 1\cdot2\delta \leq C_0 \delta.	
+		\end{align}
+	\end{subequations}
+	Then our goal becomes to find globally bounded solutions in the modified system, i.e.
+	\begin{align}
+		W^{S}_{ \textrm{loc} }(0) = \left\{ y_0 \in B_{\delta}:\ \sup_{t \geq 0}\left|\mathcal{F}^{t}(y_0) \right| < \infty \right\}.
+	\end{align}
+
+\item Now pretend that $y(t)$ is known to find the \emph{equivalent integral equations}. The variation of constants formula yields
 	\begin{subequations}
 	\begin{align}
 		y_{S}(t) &= y_{S}(t_S) e^{- \lambda _{S}(t - t_S)} + \int_{t_S}^{t} e^{-\lambda _{S}(t-s)} G_{S}(y(s)) ds \\
