@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 140.37 44.48">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: #231f20;
+      }
+
+      .cls-1, .cls-4 {
+        stroke: #231f20;
+        stroke-miterlimit: 10;
+        stroke-width: .75px;
+      }
+
+      .cls-5 {
+        font-family: CMMI10, 'CMM I 10';
+        font-size: 10.91px;
+      }
+
+      .cls-6 {
+        letter-spacing: .03em;
+      }
+
+      .cls-7 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-8, .cls-4 {
+        fill: none;
+      }
+
+      .cls-2 {
+        font-family: CMUSerif-Roman, 'CMU Serif';
+        font-size: 10px;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-8" x="132.14" y="30.81" width="8.23" height="6.69"/>
+    </clipPath>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <rect class="cls-4" x=".38" y="24.4" width="110.47" height="5"/>
+    <rect class="cls-1" x=".38" y="11.17" width="10" height="13.22"/>
+    <rect class="cls-1" x=".38" y="29.9" width="10" height="13.22"/>
+    <text class="cls-2" transform="translate(33.72 8.41)"><tspan x="0" y="0">solid guide</tspan></text>
+    <g>
+      <line class="cls-3" x1="32.71" y1="10.62" x2="16.12" y2="14.74"/>
+      <g>
+        <line class="cls-4" x1="32.71" y1="10.62" x2="16.12" y2="14.74"/>
+        <path class="cls-3" d="m11.73,15.83c1.88-1.28,4.12-3.23,5.36-5.01l-.39,3.77,2.11,3.15c-1.93-.99-4.82-1.66-7.08-1.91Z"/>
+      </g>
+    </g>
+    <text class="cls-2" transform="translate(35.86 37.84)"><tspan x="0" y="0">elastic </tspan><tspan class="cls-6" x="30.55" y="0">b</tspan><tspan x="36.38" y="0">eam</tspan></text>
+    <line class="cls-4" x1="118.26" y1="26.48" x2="136.26" y2="26.48"/>
+    <g>
+      <line class="cls-4" x1="127.26" y1="39.95" x2="127.26" y2="26.48"/>
+      <path class="cls-3" d="m127.26,44.48c.79-2.13,2.14-4.77,3.57-6.41l-3.57,1.29-3.57-1.29c1.43,1.64,2.78,4.28,3.57,6.41Z"/>
+    </g>
+    <g id="LaTeX2AI">
+      <g class="cls-7">
+        <text class="cls-5" transform="translate(133.14 36.51)"><tspan x="0" y="0">x</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>
