@@ -31,7 +31,7 @@ This implies that
 on the set $P = \{ x \in \mathbb{R}:\ x \geq x_0\}$. Therefore we have that $f\in \mathcal{C}^0$ in phase space, so by Peano's theorem (cf. Theorem \ref{thm:Peano}), there exists a local solution. A schematic diagram is shown in Fig. \ref{fig:point_mass}. 
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.4\textwidth]{figures/ch1/1freefall.png}
+		\includegraphics[width=0.4\textwidth]{figures/ch1/1freefall.pdf}
 		\caption{Schematic diagram of the point mass in free fall.}
 		\label{fig:point_mass}
 	\end{figure}
@@ -48,7 +48,7 @@ A function $f$ is called locally Lipschitz around $ {x}_0$ if there exists an op
 	Fig. \ref{fig:Lipschitz_ex} shows an example of a Lipschitz and a non-Lipschitz function around $x_0$.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.8\textwidth]{figures/ch1/2lipschitz.png}
+		\includegraphics[width=0.8\textwidth]{figures/ch1/2lipschitz.pdf}
 		\caption{Interpretation of the Lipschitz property.}
 		\label{fig:Lipschitz_ex}
 	\end{figure}
@@ -77,7 +77,7 @@ If the solution is unique, we have a few facts that can be derived from the geom
 	\item The trajectories of autonomous systems cannot intersect. Note that fixed points do not violate this (e.g. pendulum equations). See Fig. \ref{fig:pend_phase_portrait} which shows the phase portrait of the pendulum.
 		\begin{figure}[h!]
 			\centering
-			\includegraphics[width=0.3\textwidth]{figures/ch1/3pendulum_trajectories.png}
+			\includegraphics[width=0.3\textwidth]{figures/ch1/3pendulum_trajectories.pdf}
 			\caption{The phase portrait of the pendulum. Trajectories do not intersect since each arrow is pointing at separate trajectories.}
 			\label{fig:pend_phase_portrait}
 		\end{figure}
@@ -85,9 +85,9 @@ If the solution is unique, we have a few facts that can be derived from the geom
 	\item For non-autonomous systems, intersections in phase space are possible: a trajectory may occupy the same point $x$ at a different time instants (see the left panel of Fig. \ref{fig:automization}. In this case we can extend the phase space in order to get an autonomous system where there cannot be any intersections.
 		\begin{figure}[h!]
 			\centering
-			\includegraphics[width=0.4\textwidth]{figures/ch1/4intersecting_trajectories.png}
+			\includegraphics[width=0.4\textwidth]{figures/ch1/4intersecting_trajectories.pdf}
 			\hspace{0.05\textwidth}
-			\includegraphics[width=0.3\textwidth]{figures/ch1/5extended_space.png}
+			\includegraphics[width=0.4\textwidth]{figures/ch1/5extended_space.pdf}
 			\caption{Left: Intersecting trajectories in phase space for a non-autonomous system. Right: The same trajectory in the extended phase space, without intersections.}
 			\label{fig:automization}
 		\end{figure}
@@ -147,7 +147,7 @@ To address this problem of local solutions not being able to be continued into g
 The RHS is smooth, therefore there exists a unique local solution to any IVP.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/ch1/6coupled_pendulum.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch1/6coupled_pendulum.pdf}
 	\caption{Physical setup of the coupled pendulum with a nonlinear spring.}
 	\label{fig:coupled_pendulum}
 \end{figure}
@@ -210,7 +210,8 @@ The dependence of the solution on initial data is of interest to us. This is due
 The geometric meaning of this is that for $U \subset P \subset \mathbb{R}^{n}$ we have that $F_{t_0}^{t}(U)$ is a smooth deformation of $U$ (cf. Fig. \ref{fig:deformation}).
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\textwidth]{figures/ch1/7smooth_transform.png}
+	\hspace{0.1\textwidth}
+	\includegraphics[width=0.6\textwidth]{figures/ch1/7smooth_transform.pdf}
 	\caption{The smooth transformation of $U$. The red point on the right it $F _{t_0}^t( {x}_0)$, i.e. the image of $ {x}_0$ under the evolution operator.}
 	\label{fig:deformation}
 \end{figure}
@@ -275,7 +276,8 @@ This is called the equation of variations, which is a linear, non-autonomous ODE
 	Where we used the Taylor expansion and assume the perturbation to $ {x}_0$ is small, i.e. $ \| {\xi}_0 \| \ll 1$.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.5\textwidth]{figures/ch1/8dispersion.png}
+		\includegraphics[width=0.5\textwidth]{figures/ch1/8dispersion.pdf}
+		\caption{Illustration of the quantities $\xi_0$ and $\xi(t)$.}
 	\end{figure}
 	Therefore we have
 	\begin{subequations}	\begin{align}
@@ -298,13 +300,13 @@ This is called the equation of variations, which is a linear, non-autonomous ODE
 The FTLE is a diagnostic quantity for Lagrangian Coherent Structures (LCS), i.e. influential surfaces governing the evolution in $P$.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/ch1/9deformation.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch1/9deformation.pdf}
 	\caption{On the left the red ridge represents large values of $ \textrm{FTLE} _{t_0}^{t}$, on the right the green ridge the high values of $ \textrm{FTLE} _{t}^{t_0}$.}
 	\label{fig:FTLE_ridges}
 \end{figure}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\textwidth]{figures/ch1/10ridge_projection}
+	\includegraphics[width=0.6\textwidth]{figures/ch1/10ridge_projection}
 	\caption{The projection of the FTLE ridge onto the initial value space.}
 	\label{fig:FTLE_surface}
 \end{figure}
@@ -439,9 +441,9 @@ Applying the previous result on regularity with respect to $ {x}_0$ to \eqref{eq
 \begin{ex}[Periodic Oscillations of a nonlinear springboard]
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/ch1/16springboard_setup.png}
+	\includegraphics[width=0.55\textwidth]{figures/ch1/16springboard_setup.pdf}
 	\hspace{0.05\textwidth}
-	\includegraphics[width=0.3\textwidth]{figures/ch1/17springboard_spring.png}
+	\includegraphics[width=0.35\textwidth]{figures/ch1/17springboard_spring.pdf}
 	\caption{Setup for the nonlinear springboard.}
 	\label{fig:nonlin_springboard}
 \end{figure}
