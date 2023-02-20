@@ -19,7 +19,7 @@ We would like to understand how the dynamical system behaves near its equilibriu
 	\end{align}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\textwidth]{figures/ch2/1lyapunov_stability.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch2/1lyapunov_stability.pdf}
 	\caption{An example such a $\delta$ for a given Lyapunov stable fixed point.}
 	\label{fig:lyapunov_stability_def}
 \end{figure}
@@ -39,7 +39,7 @@ We would like to understand how the dynamical system behaves near its equilibriu
 	For small $\varepsilon>0$, this geometric procedure gives a $\delta(\varepsilon)>0$ such that the definition of stability is satisfied for $ {x}=0$. We can see in Fig. \ref{fig:pend_lower_stability} that for any initial point chosen within the blue circle, it's trajectory remains within the red circle for all time (cf. Fig. \ref{fig:lyapunov_stability_def}). Therefore $ {x}=0$ is (Lyapunov) stable.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.5\textwidth]{figures/ch2/2pendulum_stability.png}
+		\includegraphics[width=0.6\textwidth]{figures/ch2/2pendulum_stability.pdf}
 		\caption{Stability of lower equilibrium for the pendulum, here $0<\varepsilon<\pi $.}
 	\label{fig:pend_lower_stability}
 	\end{figure}
@@ -56,7 +56,7 @@ We would like to understand how the dynamical system behaves near its equilibriu
 \end{enumerate}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\textwidth]{figures/ch2/3asymp_stability.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch2/3asymp_stability.pdf}
 	\caption{An example for an asymptotically stable fixed point (black trajectory).}
 \end{figure}
 \end{definition}
@@ -90,7 +90,7 @@ Further we have the rate of energy change
 \end{align}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.35\textwidth]{figures/ch2/4damped_pendulum.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch2/4damped_pendulum.pdf}
 	\caption{An example of a trajectory which loses energy, in this case due to damping.}
 	\label{fig:losing_energy_pend}
 \end{figure}
@@ -115,7 +115,7 @@ Therefore, along trajectories energy decreases monotonically as shown in Fig \re
 	Note that $r=0$ is a fixed point, the set $r=1$ is an invariant circle, and the set $\theta=0$ is an invariant set. An invariant set is a set such that if the dynamical system is started on the set, it remains in the set for all time. Examining the radial evolution reveals that the equation of motion decouples. We see that $\dot{\theta}\geq 0$, so rotation is either positive or null.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.5\textwidth]{figures/ch2/5polar_cds.png}
+		\includegraphics[width=0.6\textwidth]{figures/ch2/5polar_cds.pdf}
 		\caption{Phase portrait of the dynamical system in cartesian coordinates, with the red arrows pointing to the two unstable equilibria.}
 		\label{fig:polar_attractor}
 	\end{figure}
@@ -145,7 +145,7 @@ Meanwhile for instability
 This negation is demonstration in Fig. \ref{fig:instable_def}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.5\textwidth]{figures/ch2/6unstable_def.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch2/6unstable_def.pdf}
 	\caption{Example of an unstable fixed point, with the red trajectory representing a trajectory starting arbitraritly close to the fixed point, leaving a given $\varepsilon$-ball.}
 	\label{fig:instable_def}
 \end{figure}
@@ -159,7 +159,7 @@ This negation is demonstration in Fig. \ref{fig:instable_def}.
 	In contrast, we can have that infinitely many trajectories converge to the fixed point, yet it is still unstable, as illustrated in Fig. \ref{fig:convergent_unstable}. In fact, the converging trajectories form a measure-zero set, thus the stability near the unstable equilibrium is unobservable.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.6\textwidth]{figures/ch2/7unstable_pendulum.png}
+		\includegraphics[width=0.6\textwidth]{figures/ch2/7unstable_pendulum.pdf}
 		\caption{The phase portrait around the unstable fixed point of the pendulum, with the stable trajectories (red).}
 		\label{fig:convergent_unstable}
 	\end{figure}
@@ -317,9 +317,9 @@ In turn this implies
 \end{proof}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.3\textwidth]{figures/ch2/8eigv_setup1.png}
-	\includegraphics[width=0.3\textwidth]{figures/ch2/9eigv_setup2.png}
-	\includegraphics[width=0.3\textwidth]{figures/ch2/10eigv_setup3.png}
+	\includegraphics[width=0.32\textwidth]{figures/ch2/8eigv_setup1.pdf}
+	\includegraphics[width=0.32\textwidth]{figures/ch2/9eigv_setup2.pdf}
+	\includegraphics[width=0.32\textwidth]{figures/ch2/10eigv_setup3.pdf}
 	\caption{Eigenvalue arrangements for scenarios (i), (ii), and (iii) (from left to right) in Theorem \ref{thm:lin_stab_eigv}}
 	\label{fig:eigv_setup}
 \end{figure}
@@ -328,7 +328,7 @@ In turn this implies
 	Given a rectangular mass $m$ with a spring of stiffness coefficient $k$ attached to each side extending to fixed walls in each cardinal direction. We want to know the stability of the equilibrium where all of the springs are equally extended. This dynamical system is depicted in Fig. \ref{fig:quad_spring}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width= 0.3\textwidth]{figures/ch2/11quad_spring.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch2/11quad_spring.pdf}
 \caption{Arrangement of coupled oscillators with rectangular mass in the middle.} \label{fig:quad_spring}
 \end{figure}
 First, note that this is a conservative system, i.e. $E=$ const. Next we transform the coordinates so that the equations of motion can be brought into the form of an ODE for this dynamical system
@@ -378,7 +378,7 @@ The two dynamical systems are \emph{$\mathcal{C}^k$ equivalent}, for $k \in \mat
 $h:U\to U$ does this for all $x\in U$ in a $\mathcal{C}^{k}$ fashion. This equivalence through a function $h$ is demonstrated in Fig \ref{fig:ck_equiv}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\textwidth]{figures/ch2/12ck_equiv.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch2/12ck_equiv.pdf}
 	\caption{The function $h$ mapping the orbits of the dynamical system describing $F$ into the system describing $G$.}
 	\label{fig:ck_equiv}
 \end{figure}
@@ -424,7 +424,7 @@ Therefore the eigenvalues of the linearizations are constant, positive multiples
 	To illustrate the meaning of topological equivalence, Fig. \ref{fig:topo_equiv} shows three linear systems ($\dot{{x} } = {Ax}  $ for $x\in \mathbb{R}^2$) which are topologically equivalent.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.9\textwidth]{figures/ch2/13topo_equiv.png}
+		\includegraphics[width=0.99\textwidth]{figures/ch2/13topo_equiv.pdf}
 		\caption{Three topologically equivalent 2-dimensional linear systems. Left: The stable spiral. Middle: The sink. Left: The stable node.}
 		\label{fig:topo_equiv}
 	\end{figure}
@@ -441,7 +441,7 @@ The stable spiral has the eigenvalues $\lambda _{1,2}= \alpha \pm i \beta $ for 
 	As a counter example, we now present three linear systems which are not topologically equivalent. The stable spiral (from before), the unstable spiral, and the saddle. The unstable spiral has the eigenvalues $\lambda _{1,2}= \alpha \pm i \beta $ for $\alpha > 0$ and $\beta \neq 0$ (note the different sign for $\alpha)$. The saddle has the eigenvalues $\lambda _1 < 0 < \lambda_2$. These systems are depicted in Fig \ref{fig:topo_inequiv}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.9\textwidth]{figures/ch2/14topo_inequiv.png}
+		\includegraphics[width=0.99\textwidth]{figures/ch2/14topo_inequiv.pdf}
 		\caption{Three 2-dimensional linear systems which are not topologically equivalent. Left: The stable spiral. Middle: The unstable spiral. Right: The saddle.}
 		\label{fig:topo_inequiv}
 	\end{figure}
@@ -489,7 +489,7 @@ We check that $D_{{x} }F({x_0} ,0) $ is nonsingular exactly when $Df({x_0)} $ is
 In the last equality we used the Taylor expansion in $\varepsilon$. We have that the roots of $\det({A_{\varepsilon}}-\lambda {I} ) = 0 $ depend continuously on the parameter $\varepsilon$. These roots correspond to the eigenvalues of $A_{\varepsilon}$. Therefore, the roots stay within an $\mathcal{O}(\varepsilon)$ neighborhood of the eigenvalues of $Df({x_0} )$ (see Fig. \ref{fig:eps_ball_eigv}). Hence we have that the eigenvalue configuration is unchanged for small enough $\varepsilon$.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.5\textwidth]{figures/ch2/16eps_ball_eigv.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch2/16eps_ball_eigv.pdf}
 	\caption{The eigenvalue configuration the $\mathcal{O}(\varepsilon)$ neighborhood (red) drawn around each eigenvalue (blue).}
 	\label{fig:eps_ball_eigv}
 \end{figure}
@@ -560,7 +560,7 @@ Now we would like to apply this to the pendulum to systematically derive the sta
 	where $F^{t}$ is the normalized fundamental matrix solution. We can now fully describe the phase portrait of the linearization. The \emph{stable subspace} $E^{S}$ is $ \textrm{span} \{{s_1} \} = \{{y_0} :\ F^{t}{y_0} \xrightarrow{t \to \infty} 0 \} $. The unstable subspace $E^{U}$ is $ \textrm{span} \{{s_2}\} = \{{y_0} : \ F^{t}{y_0} \xrightarrow{t \to - \infty }0\} $. The phase portrait near the fixed point $p$ is illustrated in Fig. \ref{fig:pend_phase_p}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\textwidth]{figures/ch2/17pend_phase_p}
+	\includegraphics[width=0.6\textwidth]{figures/ch2/17pend_phase_p}
 	\caption{The phase portrait of the linearized pendulum in a neighborhood around ${p} $.}
 	\label{fig:pend_phase_p}
 \end{figure}
@@ -581,7 +581,7 @@ and the \emph{unstable manifold} of ${p} $
 Both of these are $\mathcal{C}^{0}$ curves through ${p}$ and their existence follows from the Hartman-Grobman theorem. These manifolds are shown in the nonlinear phase portrait around ${p} $ in Fig. \ref{fig:nonlin_pend_phase_p}. 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/ch2/18nonlin_pend_phase_p.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch2/18nonlin_pend_phase_p.pdf}
 	\caption{The phase portrait of the pendulum on a neighborhood around ${p} $ with the stable and unstable manifolds of the nonlinear system as well as the stable and unstable spaces of the linearization.}
 	\label{fig:nonlin_pend_phase_p}
 \end{figure}
@@ -611,7 +611,7 @@ In the last example, the importance of hyperbolicity was not accentuated, as the
 	We have a single root $\lambda_1 = 0$, hence $x=0$ is a nonhyperbolic fixed point. Disregarding this fact, we may be inclined to conclude that $x=0$ is a stable fixed point, since $y=0$ is trivially a fixed point of the linearization $\dot{y}=0$. This is not the case, as we can see by analyzing the full nonlinear dynamics for $a>0$ as in Fig. \ref{fig:hyperbol_counter_ex}, where we observe that $x=0$ is an unstable fixed point.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.5\textwidth]{figures/ch2/19hyperbol_counter_ex.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch2/19hyperbol_counter_ex.pdf}
 	\caption{Nonlinear dynamics for the dynamical system $\dot{x}= ax^3$ with $a>0$.}
 	\label{fig:hyperbol_counter_ex}
 \end{figure}
@@ -802,7 +802,7 @@ To conclude, the following have harmful effects of stability
 These have the effect of pushing the eigenvalues to the right in the complex plane (towards the imaginary axis) as is illustrated in Fig \ref{fig:watt_eigv}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\textwidth]{figures/ch2/21watt_eigv}
+	\includegraphics[width=0.6\textwidth]{figures/ch2/21watt_eigv}
 	\caption{Change in the eigenvalue configuration as small modification are made to the Watt engine governor.}
 	\label{fig:watt_eigv}
 \end{figure}
@@ -913,9 +913,9 @@ Stability analysis via linearization is not perfect. For nonhyperbolic fixed poi
 \end{theorem}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\textwidth]{figures/ch2/23lyap_thm_assumptions1.png}
+	\includegraphics[width=0.4\textwidth]{figures/ch2/23lyap_thm_assumptions1.pdf}
 	\hspace{0.05\textwidth}
-	\includegraphics[width=0.4\textwidth]{figures/ch2/23lyap_thm_assumptions2.png}
+	\includegraphics[width=0.5\textwidth]{figures/ch2/23lyap_thm_assumptions2.pdf}
 	\caption{Geometric interpretation of hypotheses of Lyapunov's direct method. Left depicts hypothesis (i) and right hypothesis (ii). The angle between $DV(x)$ and $f(x)$ is at least $\frac{\pi }{2}$. In each image the blue $V(x)=$const. is a level surface diffeomorphic to $S^{n-1}$.}
 	\label{fig:lyap_thm_assumptions}
 \end{figure}
@@ -928,7 +928,7 @@ Stability analysis via linearization is not perfect. For nonhyperbolic fixed poi
 	First choose $\varepsilon > 0$ and define $\alpha(\varepsilon)= \min_{x\in \partial B_\varepsilon(x_0)} V(x) > 0$. Note that $\alpha(\varepsilon)$ is well defined as $V\in \mathcal{C}^{0}(U)$ and $\partial B_{\varepsilon}(x)$ is compact and spherical for small enough $\varepsilon$. There exists an $x^{*} \in \partial B_{\varepsilon}(x)$ with $V(x^{*}) = \alpha(\varepsilon) \leq V(x)$ for all $x\in \partial B_{\varepsilon}(x_0)$. Next, define $U_{\varepsilon}= \{ x\in B_{\varepsilon}(x_0):\ V(x) < \alpha(\varepsilon)  \ $. Notice that $x_0 \in U_{\varepsilon}$ because $V(x_0) =0$ and $V(x)\geq 0$ on $U$. Further $U_{\varepsilon}$ is open due to the continuity of $V$. We have that  $U_{\varepsilon} \cap \partial B_{\varepsilon}(x_ 0) $ is empty by definintion, noting that for all $x\in \partial B_{\varepsilon}(x_0)$ we have $V(x) \geq \alpha(\varepsilon) $. Therefore there exists a ball $B_{\delta(\varepsilon)} \subset U_{\varepsilon} $ which contains $x_0$. This can be seen in Fig. \ref{fig:lyap_pf_1}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.45\textwidth]{figures/ch2/22lyap_pf_1.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch2/22lyap_pf_1.pdf}
 	\caption{The constellation of $U$, $U_\varepsilon$, $\partial B_{\varepsilon}(x_0)$, and $B_{\delta(\varepsilon)}(x_0)$ from the proof of Lyapunov's direct method. The red arrow points at $B_{\delta(\varepsilon)}(x_0)$ and the yellow arrow at a connected component of $U_\varepsilon$.}
 	\label{fig:lyap_pf_1}
 \end{figure}
@@ -951,7 +951,7 @@ Consider the same dynamical system. Assume
 \end{theorem}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\textwidth]{figures/ch2/24lyap_thm2_hypos.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch2/24lyap_thm2_hypos.pdf}
 	\caption{The hypotheses of Theorem 2 illustrated, the key difference being that the arrows (denoting the flow of the dynamical system) cross the level surfaces of $V$ (blue rings) toward $x_0$.}
 	\label{fig:lyap_thm2_hypos}
 \end{figure}
@@ -970,7 +970,7 @@ Consider the same dynamical system. Assume
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\textwidth]{figures/ch2/25lyap_thm3_hypos.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch2/25lyap_thm3_hypos.pdf}
 	\caption{The hypotheses of Theorem 3 illustrated, the key difference being that the arrows (denoting the flow of the dynamical system) cross the level surfaces of $V$ (blue rings) away from $x_0$.}
 	\label{fig:lyap_thm3_hypos}
 \end{figure}
@@ -986,9 +986,10 @@ Consider the same dynamical system. Assume
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\textwidth]{figures/ch2/26lyap_thm4_hypos.png}
-	\hspace{0.05\textwidth}
-	\includegraphics[width=0.4\textwidth]{figures/ch2/26lyap_thm4_hypos2.png}
+	\includegraphics[width=0.99\textwidth]{figures/ch2/26lyap_thm4.pdf}
+	%\includegraphics[width=0.4\textwidth]{figures/ch2/26lyap_thm4_hypos.pdf}
+	%\hspace{0.05\textwidth}
+	%\includegraphics[width=0.4\textwidth]{figures/ch2/26lyap_thm4_hypos2.pdf}
 	\caption{The geometry of hypotheses (i) (left) and (ii) (right) for $\dot{V}$ positive definite of Theorem 4 illustrated. On the right level surfaces are designated by lines, blue corresponds to $V=0$, red $V>0$, and green $V<0$, which can be seen as the dotted lines of the same colors on the left.}
 	\label{fig:lyap_thm4_hypos}
 \end{figure}
@@ -1100,7 +1101,7 @@ Hence, the asymptotic stability of $(0,0)$ and instability of $(0,\pi )$ follows
 	 We have a shaft which is constantly rotating with angular speed $\Omega $, around this shaft is a sleeve which rubs against the shaft creating friction. To this sleeve is a mass $m$ attached at distance $l$, the deflection of this mass from its standard position (directly below the shaft) is measured by $\varphi$. The gravity constant is given by $g$. This setup is depicted in Fig. \ref{fig:friction_pend}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\textwidth]{figures/ch2/27friction_pend.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch2/27friction_pend.pdf}
 	\caption{The setup of the friction pendulum.}
 	\label{fig:friction_pend}
 \end{figure}

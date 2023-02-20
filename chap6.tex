@@ -4,7 +4,7 @@ We begin with a few motivating examples.
 	A beam is hanging on the inside of a rectangular frame, attached to the upper edge. Two permanent magnets are attached to the lower edge. Furthermore, there is a $T=2 \pi $-periodic forcing in the horizontal direction to the frame. The deflection of the beam is measured by the variable $x$. The setup is illustrated in Fig. \ref{fig:forced_slender_beam}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.5\textwidth]{figures/ch6/1forced_slender_beam.png}
+		\includegraphics[width=0.5\textwidth]{figures/ch6/1forced_slender_beam.pdf}
 		\caption{Depiction of the periodically forced slender beam. The frame is given by the blue rectangle. The two permanent magnets are represented by the black boxes.}
 		\label{fig:forced_slender_beam}
 	\end{figure}
@@ -22,7 +22,7 @@ Therefore we have a perturbed Duffing oscillator. We transform the system into a
 For $\varepsilon =0$ driving, two homoclinic orbits arise for the three fixed points. However, for nonzero driving, we get seemingly chaotic behavior. Both of these regimes are depicted in Fig. \ref{fig:pert_duffing}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.45\textwidth]{figures/ch6/3unpert_duffing.png}
+	\includegraphics[width=0.45\textwidth]{figures/ch6/3unpert_duffing.pdf}
 	\includegraphics[width=0.45\textwidth]{figures/ch6/2pert_duffing.png}
 	\caption{Left: Duffing oscillator with $\varepsilon=0$ driving, the red arrows designate the homoclinic orbits. Right: (Clockwise from top left) The phase space of the driven Duffing oscillator; The Poincaré section of the driven Duffing oscillator, with the Poincaré map illustrated by the black arrows; The value of $x(t)$ over time, with no apparent pattern.}
 	\label{fig:pert_duffing}
@@ -34,7 +34,7 @@ For $\varepsilon =0$ driving, two homoclinic orbits arise for the three fixed po
 	A fluid is held between two plates. The upper plate is cold and the lower plate is hot. This causes convections to start as hotter fluid rises and colder fluid falls. So called convection cells then form for low Rayleigh numbers. This process is illustrated in Fig. \ref{fig:convection_cells}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.65\textwidth]{figures/ch6/4convection_plates.png}
+		\includegraphics[width=0.99\textwidth]{figures/ch6/4convection_plates.pdf}
 		\caption{Convection cells forming between two plates of different temperature. The cold plate (blue) is vertically above the hot plate (red). Each black dot represents a fixed point of the system, with heteroclinic orbits connecting them (red arrows). This is in an unperturbed setting ($\varepsilon =0 $).}
 		\label{fig:convection_cells}
 	\end{figure}
@@ -64,8 +64,7 @@ Moving forward we will have a common mathematical setting
 We have a small $T$-periodic perturbation of a planar ODE which can be studied via a Poincaré map $P_{\varepsilon}^{t_0}:x_0 \mapsto x(t_0 + T; t_0,x_0)$. Assume that for $\varepsilon=0$ the system \eqref{eq7:one} has a saddle type fixed point with a homoclinic (or heteroclinic) orbit $x^{0}(t-t_0)$. Such a system is depicted in Fig. \ref{fig:assumptions}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.45\textwidth]{figures/ch6/6assumptions_a.png}
-	\includegraphics[width=0.45\textwidth]{figures/ch6/7assumptions_b.png}
+	\includegraphics[width=0.99\textwidth]{figures/ch6/6assumptions.pdf}
 	\caption{Left: An example of a system following the assumptions. The homoclinic orbit $\Gamma_0$ is equal to the local unstable and local stable manifolds. Right: The Poincaré map for $\varepsilon=0$, with time running counterclockwise about the $x_1$ axis with period $T$.}
 	\label{fig:assumptions}
 \end{figure}
@@ -90,7 +89,7 @@ For each eigenvalue $\lambda _i$ of the linearization the corresponding eigenvec
 If all of the eigenvalues have less than unitary magnitude, $|\lambda _i|<1$ for $i=1,\ldots,n$, then $p_0$ is asymptotically stable. Otherwise if there exists an eigenvalue with modulus strictly larger than 1, $p_0$ is unstable. The relationship of the nonlinear and linearized dynamics are shown in Fig. \ref{fig:lin_nonlin_relation}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.65\textwidth]{figures/ch6/9lin_nonlin_relationship.png}
+	\includegraphics[width=0.65\textwidth]{figures/ch6/9lin_nonlin_relationship.pdf}
 	\caption{The stable ($W^{S}(p_0)$) and unstable ($W^{U}(p_0)$) manifolds drawn in relation to the stable ($E^{S}$) and unstable ($E^{U}$) subspaces. The subspaces are given as the span of the stable (resp. unstable) eigenvectors. The green arrows signify steps of the linearized (resp. original) system.}
 	\label{fig:lin_nonlin_relation}
 \end{figure}
@@ -118,7 +117,7 @@ Now we examine what the global shape of these manifolds are for $\varepsilon>0$ 
 We would like to use this to measure the distance between $x^{U}_{\varepsilon}(t_0;t_0)$ and $x^{S}_{\varepsilon}(t_0;t_0)$. The outlook for this is shown in Fig. \ref{fig:PAM_idea}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.5\textwidth]{figures/ch6/10PAM_idea.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch6/10PAM_idea.pdf}
 	\caption{The Poincaré-Arnold-Melnikov idea. The dotted black line signifies $\Gamma$, the red dot $x^{U}_{\varepsilon}(t_0;t_0)$, the blue dot $x^{S}_{\varepsilon}(t_0;t_0)$, and the arrow pointing to the right $f^{\perp}$. The plane is $\Sigma_{t_0}$.}
 	\label{fig:PAM_idea}
 \end{figure}
@@ -163,8 +162,9 @@ A transverse zero for $M(t_0)$ implies that the Melnikov distance $d_{\varepsilo
 Therefore we have that for each iterate of the Poincaré map there is a unique point in both the stable and unstable manifolds, so these must intersect each other infinitely many times. This behavior is shown in Fig. \ref{fig:inf_intersections}. 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.45\textwidth]{figures/ch6/11inf_intersection_hetero.png}
-	\includegraphics[width=0.45\textwidth]{figures/ch6/11inf_intersection_homo.png}
+	\includegraphics[width=0.99\textwidth]{figures/ch6/11inf_intersection.pdf}
+	%\includegraphics[width=0.45\textwidth]{figures/ch6/11inf_intersection_hetero.pdf}
+	%\includegraphics[width=0.45\textwidth]{figures/ch6/11inf_intersection_homo.pdf}
 	\caption{The infinite intersections of the stable and unstable manifolds for a transverse zero. Left: The homoclinic case, this is aptly called a \emph{homoclinic tangle}. Right: The heteroclinic case.}
 	\label{fig:inf_intersections}
 \end{figure}
@@ -174,7 +174,7 @@ In the homoclinic tangle, we can see the accumulation of trajectories that are c
 	It is impossible for stable and unstable manifolds to intersect themselves. This is usually argued by stating that $q$ cannot have two distinctive preimages under a diffeomorphism. However, this is not sufficient as a self intersection does not imply that two distinct preimages exist, for instance a looping manifold structure and suitable Poincaré map as in Fig. \ref{fig:loopdeloop}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.25\textwidth]{figures/ch6/12loopdeloop.png}
+		\includegraphics[width=0.6\textwidth]{figures/ch6/12loopdeloop.pdf}
 		\caption{An example for a self-intersecting manifold without $q$ having multiple preimages.}
 		\label{fig:loopdeloop}
 	\end{figure}
@@ -185,7 +185,7 @@ A priori, this is possible to occur. In this case the existence of one loop actu
 	For every pair of intersections $P_{\varepsilon}^{k}(q)$ and $P _{\varepsilon}^{k+1}(q)$, there exists at least another intersection between the stable and unstable manifolds. This is due to the fact that $P_{\varepsilon}$ is orientation preserving (i.e. $DP_{\varepsilon}(q)$ is an orientation preserving linear map). The implication here is illustrated in Fig. \ref{fig:between_intersections}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.5\textwidth]{figures/ch6/13between_intersections.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch6/13between_intersections.pdf}
 	\caption{Another intersection of the stable and unstable manifolds exists between two sequential iterates of the Poincaré map due to the preservation of orientation under this map.}
 	\label{fig:between_intersections}
 \end{figure}
@@ -229,7 +229,7 @@ The Hamiltonian for the unperturbed system is given by
 Since the Hamiltonian is conserved, the trajectories of the unperturbed system are contained in the level sets of $H$. This allows us to draw the phase portrait that is shown in Fig. \ref{fig:duffing_phase}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.5\textwidth]{figures/ch6/14duffing_phase.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch6/14duffing_phase.pdf}
 	\caption{The phase portrait for the forced-damped Duffing oscillator for $\varepsilon=0.$}
 	\label{fig:duffing_phase}
 \end{figure}
@@ -267,7 +267,7 @@ Next, we ask if the Melnikov function is equal to zero. For an accumulation of i
 For a zero to exist, $R^{0}(\omega)$ cannot exceed the value $\frac{\gamma }{\delta}$, as $\sin(\omega t_0)$ is bounded by $1$. Therefore when we have $R^{0}(\omega) \leq \frac{\gamma }{\delta }$, a root of the Melnikov function exists. This root is non-transverse only when it is quadratic, i.e. when only a peak of the sine function intersects with $R^{0}(\omega) $. This occurs exactly when $R ^{0}(\omega)=\frac{\gamma }{\delta}$. In all other cases, the sine wave intersects the curve of $R^{0}(\omega) $ transversely, i.e. the zero is transverse. This is illustrated in Fig. \ref{fig:beam_tangle}, where equality occurs along the graph of $R^{0}$, that is the set on which non-transverse zeros exist. The area above this curve contains all of the point for which the zero is transverse.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/ch6/15beam_tangle.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch6/15beam_tangle.pdf}
 	\caption{The yellow line designating the area above the curve where homoclinic tnagles exist for the forced-damped Duffing oscillator.}
 	\label{fig:beam_tangle}
 \end{figure}
@@ -281,9 +281,10 @@ We now continue and examine the dynamics near the homoclinic tangle. Consider th
 With a linear change of coordinates we can  align our coordinate axes with the stable and unstable subspaces of the fixed point. Near the fixed point this leads to \emph{Smale's construction}, which is as shown as in Fig. \ref{fig:smales_construction}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\textwidth]{figures/ch6/16smales_construction1.png}
-	\hspace{0.03\textwidth}
-	\includegraphics[width=0.25\textwidth]{figures/ch6/16smales_construction2.png}
+	\includegraphics[width=0.99\textwidth]{figures/ch6/16smales_construction.pdf}
+	%\includegraphics[width=0.7\textwidth]{figures/ch6/16smales_construction1.pdf}
+	%\hspace{0.03\textwidth}
+	%\includegraphics[width=0.25\textwidth]{figures/ch6/16smales_construction2.pdf}
 	\caption{Smale's construction is found through an appropriate change of coordinates. Left: The full construction, the $N$ circled in red is large enough such that $P^{N}_{\varepsilon}(S)\cap S = \emptyset$, where $S$ is the green rectangle around $p_{\varepsilon}$. Right: Focus on the set $S$, the red lines designate a horseshoe-like structure.}
 	\label{fig:smales_construction}
 \end{figure}
@@ -291,7 +292,7 @@ With a linear change of coordinates we can  align our coordinate axes with the s
 A model for the right panel of Fig. \ref{fig:smales_construction} is given by \emph{Smale's horseshoe map}. This is defined by first considering the unit square $S=[0,1]^2\subset \mathbb{R}^{2}$, next the map itself is given by $f:S\to\mathbb{R}^{2}$. The map $f$ will not be defined explicitly, and instead geometrically. The unit square is divided into three horizontal strips, the upper one being labelled as $H_2$ and the lower $H_1$. The square is then squeezed horizontally and stretched vertically, and then smoothly bent to a horseshoe such that the previously upper horizontal strip now forms a vertical strip on the right side of the box $V_2$. Similarly, the lower horizontal strip now forms a vertical strip on the left $V_1$. Now the unit square can also be divided into three vertical strips, on the left $V_1$, an area in the middle, and on the right $V_2$. What was previously part of the middle horizontal strip is now mapped outside the unit square. Because the map is continuous, these points connect $V_1$ and $V_2$, but note that precisely defining what happens to these points is not essential in Smale's construction. The horseshoe map is depicted in Fig. \ref{fig:smale_map}. This is a good model for the dynamics near the homoclinic tangle, if we consider the horseshoe map $f$ to be many iterations of the Poincaré map $P^N_\varepsilon$ (for $N\gg 1$).
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.8\textwidth]{figures/ch6/17smale_map.png}
+	\includegraphics[width=0.99\textwidth]{figures/ch6/17smale_map.pdf}
 	\caption{The two geometric steps of the Smale map, first a vertical stretch and then a fold into the horseshoe.}
 	\label{fig:smale_map}
 \end{figure}
@@ -320,7 +321,7 @@ However, from the definition of the horseshoe map, $V^1 = f(S)\cap S$ is $V_1\cu
 The sets $V_{ij}$ are defined in Fig. \ref{fig:V_subsets}, the indices for each component are given by their orbit: The first index denotes which vertical strip $V_i\ (i\in \{1,2\})$ the preimage of a point is in. The second index denotes which vertical strip is it mapped into. That is, $V_{11}$ is the set of points that are mapped from $V_1$ to $V_1$ under one iteration, $V_{12}$ is the set of points mapped from $V_1$ to $V_2$ and so on. Also the set $V^{2}$ is closed, nonempty, contained in $V^{1}$, and has $2^2$ components.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.35\textwidth]{figures/ch6/18V_subsets.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch6/18V_subsets.pdf}
 	\caption{The four components of $V^{2}$ with their index labels.}
 	\label{fig:V_subsets}
 \end{figure}
@@ -372,7 +373,7 @@ By similar reasoning as before we have
 	The geometry of this set is shown in Fig. \ref{fig:lambda_def}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.4\textwidth]{figures/ch6/19lambda_def.png}
+		\includegraphics[width=0.5\textwidth]{figures/ch6/19lambda_def.pdf}
 		\caption{The geometry of the set $\Lambda$, with the four regions containing points circled in orange. The red vertical lines represent the set $V^{\infty }$ and the blue horizontal lines the set $H^{\infty }$.}
 		\label{fig:lambda_def}
 	\end{figure}
@@ -385,7 +386,7 @@ The set $\Lambda$ is a Cantor set of points.
 We have then identified the invariant set $\Lambda$ for the horseshoe map. Returning to our case study of a Poincaré map with a homoclinic tangle, the points in $\Lambda$ keep coming back forever to the unstable periodic orbit as shown in Fig. \ref{fig:returning_points}. 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.3\textwidth]{figures/ch6/20returning_points.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch6/20returning_points.pdf}
 	\caption{The homoclinic tangle with the set $S$ outlined in green and the elements of $\Lambda$ being denoted by the red dots within $S$.}
 	\label{fig:returning_points}
 \end{figure}
@@ -551,7 +552,7 @@ For example, heteroclinic orbits are asymptotically periodic.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.55\textwidth]{figures/ch6/21crazy_orbits.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch6/21crazy_orbits.pdf}
 	\caption{A depiction of the (infinitely many) homo- and heteroclinic orbits which connect periodic orbits of $\sigma $.}
 	\label{fig:crazy_orbits}
 \end{figure}
@@ -665,7 +666,7 @@ In fact there also exists a countable infinity of non-periodic (not even asympto
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.8\textwidth]{figures/ch6/22unif_instab.png}
+	\includegraphics[width=0.99\textwidth]{figures/ch6/22unif_instab.pdf}
 	\caption{The uniform instability of orbits for the map $\sigma$.}
 	\label{fig:unif_instab}
 \end{figure}
@@ -704,7 +705,7 @@ The Bernoulli shift map $\sigma$ is chaotic, therefore Smale's horseshoe map on 
 	We will now continue with $a=4$. The points $x=0$ and $x=\frac{3}{4}$ are fixed points. These are each unstable as $|f'(x)|>1$ at both of these points. This is not an ODE, and we do not assume that the model is a small perturbation of a simpler system. That is, we are not assuming persistence of known structures. The cobweb diagram is illustrated in Fig. \ref{fig:logistic_cobweb}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.4\textwidth]{figures/ch6/23logisitic_cobweb.png}
+		\includegraphics[width=0.6\textwidth]{figures/ch6/23logistic_cobweb.pdf}
 		\caption{The cobweb diagram for the logisitic map with $a=4$. The sets $I_1$ and $I_2$ are defined as $[0, \frac{1}{2}]$ and $[\frac{1}{2}, 1]$.}
 		\label{fig:logistic_cobweb}
 	\end{figure}
@@ -719,7 +720,7 @@ Note here that this symbolic encoding is not well defined for every point in $I$
 We now have to ask if this is well defined, i.e. if it yields a unique $x$ value. Note here that for any subset $J\subset I$ which is closed and connected, we have that $I_{s_i}\cap f^{-1}(J)$ is closed, nonempty, and connected. This is due to the symmetry around $x=\frac{1}{2}$ and is shown visually in Fig. \ref{fig:J_preimage}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\textwidth]{figures/ch6/24J_preimage.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch6/24J_preimage.pdf}
 	\caption{The preimage of a subset $J\subset I$, with its closed, nonempty, and connected intersections with $I_1$ and $I_2$.}
 	\label{fig:J_preimage}
 \end{figure}
