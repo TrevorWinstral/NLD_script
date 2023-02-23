@@ -5,7 +5,7 @@ We begin with a few motivating examples.
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=0.5\textwidth]{figures/ch6/1forced_slender_beam.pdf}
-		\caption{Depiction of the periodically forced slender beam. The frame is given by the blue rectangle. The two permanent magnets are represented by the black boxes.}
+		\caption{Depiction of the periodically forced slender beam. The deflection is given by $x$ and the period is $2\pi$. The two permanent magnets are represented by the black boxes.}
 		\label{fig:forced_slender_beam}
 	\end{figure}
 This leads to the equation of motion
@@ -19,12 +19,12 @@ Therefore we have a perturbed Duffing oscillator. We transform the system into a
 		\dot{y} = -y +x - x^3 + \varepsilon \cos(t).
 	\end{dcases}
 \end{align}
-For $\varepsilon =0$ driving, two homoclinic orbits arise for the three fixed points. However, for nonzero driving, we get seemingly chaotic behavior. Both of these regimes are depicted in Fig. \ref{fig:pert_duffing}.
+For $\varepsilon =0$ and no damping, two homoclinic orbits arise for the three fixed points. However, for nonzero driving, we get seemingly chaotic behavior. Both of these regimes are depicted in Fig. \ref{fig:pert_duffing}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.45\textwidth]{figures/ch6/3unpert_duffing.pdf}
 	\includegraphics[width=0.45\textwidth]{figures/ch6/2pert_duffing.png}
-	\caption{Left: Duffing oscillator with $\varepsilon=0$ driving, the red arrows designate the homoclinic orbits. Right: (Clockwise from top left) The phase space of the driven Duffing oscillator; The Poincaré section of the driven Duffing oscillator, with the Poincaré map illustrated by the black arrows; The value of $x(t)$ over time, with no apparent pattern.}
+	\caption{Left: Duffing oscillator with $\varepsilon=0$ and no damping, the red arrows designate the homoclinic orbits. Right: (Clockwise from top left) The phase space of the driven Duffing oscillator; The Poincaré section of the driven Duffing oscillator, with the Poincaré map illustrated by the black arrows; The value of $x(t)$ over time, with no apparent pattern.}
 	\label{fig:pert_duffing}
 \end{figure}
 
@@ -59,7 +59,7 @@ For $\varepsilon =0$ driving, two homoclinic orbits arise for the three fixed po
 
 Moving forward we will have a common mathematical setting
 \begin{align}
-	\dot{x} = f(x) + \varepsilon g(x,t);\quad x \in \mathbb{R}^{2},\quad g(x,t) =g(x,t+T);\quad 0 \leq \varepsilon \ll 1;\quad f,t\in \mathcal{C}^{1}. \numberthis \label{eq7:one}
+	\dot{x} = f(x) + \varepsilon g(x,t);\quad x \in \mathbb{R}^{2},\quad g(x,t) =g(x,t+T);\quad 0 \leq \varepsilon \ll 1;\quad f,g\in \mathcal{C}^{1}. \numberthis \label{eq7:one}
 \end{align}
 We have a small $T$-periodic perturbation of a planar ODE which can be studied via a Poincaré map $P_{\varepsilon}^{t_0}:x_0 \mapsto x(t_0 + T; t_0,x_0)$. Assume that for $\varepsilon=0$ the system \eqref{eq7:one} has a saddle type fixed point with a homoclinic (or heteroclinic) orbit $x^{0}(t-t_0)$. Such a system is depicted in Fig. \ref{fig:assumptions}.
 \begin{figure}[h!]
@@ -106,7 +106,7 @@ Hyperbolicity has a few important consequences in our setting. Foremost, the per
 \end{align}
 \end{subequations}
 
-Now we examine what the global shape of these manifolds are for $\varepsilon>0$ and if they interact. To do this we will follow an idea from Poincaré, Arnold, and Melnikov. To this end we define the perpendicular vector to $f$ 
+Now we examine what the global shapes of these manifolds are for $\varepsilon>0$ and if they interact. To do this we will follow an idea from Poincaré, Arnold, and Melnikov. To this end we define the perpendicular vector to $f$ 
 \begin{align}
 	f^{\perp}(x^{0}(0)) = 
 	\begin{pmatrix}
@@ -135,7 +135,7 @@ In fact Melnikov proved an identity for this function.
 	\begin{align}
 		M(t_0) = \int_{-\infty }^{\infty }  \langle f^{\perp}(x^{0}(t-t_0)), g(x^{0}(t-t_0),t)\rangle dt.
 	\end{align}
-	For the proof, see \cite{GuckenheimerHolmes}.	
+	For the proof, see Theorem 4.5.3 in \cite{GuckenheimerHolmes}.	
 \end{theorem}
 \begin{remark}[]
 	The integral in Melnikov's theorem converges as $|g(x^{0}(t-t_0),t)|$ is globally bounded as $t \to \pm \infty $ and $|f^{\perp}| = |f|$ and
@@ -268,7 +268,7 @@ For a zero to exist, $R^{0}(\omega)$ cannot exceed the value $\frac{\gamma }{\de
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\textwidth]{figures/ch6/15beam_tangle.pdf}
-	\caption{The yellow line designating the area above the curve where homoclinic tnagles exist for the forced-damped Duffing oscillator.}
+	\caption{The yellow line designating the area above the curve where homoclinic tangles exist for the forced-damped Duffing oscillator.}
 	\label{fig:beam_tangle}
 \end{figure}
 \end{ex}
@@ -285,7 +285,7 @@ With a linear change of coordinates we can  align our coordinate axes with the s
 	%\includegraphics[width=0.7\textwidth]{figures/ch6/16smales_construction1.pdf}
 	%\hspace{0.03\textwidth}
 	%\includegraphics[width=0.25\textwidth]{figures/ch6/16smales_construction2.pdf}
-	\caption{Smale's construction is found through an appropriate change of coordinates. Left: The full construction, the $N$ circled in red is large enough such that $P^{N}_{\varepsilon}(S)\cap S = \emptyset$, where $S$ is the green rectangle around $p_{\varepsilon}$. Right: Focus on the set $S$, the red lines designate a horseshoe-like structure.}
+	\caption{Smale's construction is found through an appropriate change of coordinates. Left: The full construction, the $N$ is large enough such that $P^{N}_{\varepsilon}(S)\cap S = \emptyset$, where $S$ is the green rectangle around $p_{\varepsilon}$. Right: Focus on the set $S$, the red lines designate a horseshoe-like structure.}
 	\label{fig:smales_construction}
 \end{figure}
 
@@ -437,7 +437,7 @@ So the encoding of $f(p)$ in the symbolic space is just a shift to the left on t
 			\phi:\Lambda \to \Sigma;\quad p \mapsto s= \phi(p);
 		}
 	\end{align}
-This map can be shown to be a homeomorphism, i.e. it is continuous and has a continuous inverse. For a proof we refer to \cite{GuckenheimerHolmes}.
+This map can be shown to be a homeomorphism, i.e. it is continuous and has a continuous inverse. For a proof we refer to Theorem 5.1.1 in \cite{GuckenheimerHolmes}.
 
 \item The \emph{Smale horseshoe map restricted to $\Lambda$}
 	\begin{align}

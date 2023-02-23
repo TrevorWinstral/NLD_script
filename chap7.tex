@@ -69,7 +69,7 @@ The role of irreducibility is critical for the theorem to work. Say for instance
 	In practice this approach is often truncated when $x_{n+1}\approx x_{n}$. The roots of $f$ coincide with the fixed points of the 1-dimensional dynamical system $x_{n+1}= N(x_n)$. If such a fixed point $\overline{x}$ is stable \underline{and} $x_0 $ is in its domain of attraction, then $\lim_{i\to \infty }N^{i}(x_0)= \overline{x}$. The iteration process is sketched in Fig. \ref{fig:NR_iteration}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\textwidth]{figures/ch7/1NR_iteration.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch7/1NR_iteration.pdf}
 	\caption{An illustration of the iteration of the Newton-Raphson process on the function $f$ (blue). The red designates the function $g$, when given the point $x_0$ the next iterate $x_1$ fufills the property $g(x_1)=0$.}
 	\label{fig:NR_iteration}
 \end{figure}
@@ -97,7 +97,7 @@ This can be observed to lead to chaotic Newton-Raphson iterations. The proof wil
 Retain the 4th order polynomial $f$ from above. We then have $N(x_i)=x_i$ for $i=0,1,2,3$ as these are roots of $f$. Note then that we already know what the shapes of $f$ and $f'$ are, and these are illustrated in Fig. \ref{fig:NR_pf1}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.35\textwidth]{figures/ch7/2NR_pf1.png}
+	\includegraphics[width=0.9\textwidth]{figures/ch7/2NR_pf1.pdf}
 	\caption{The shape of $f$ (above) and $f'$ (below). The points $a_i$ are roots of $f'$ and the points $b_{i}$ are roots of $f''$.}
 	\label{fig:NR_pf1}
 \end{figure}
@@ -105,7 +105,7 @@ Retain the 4th order polynomial $f$ from above. We then have $N(x_i)=x_i$ for $i
 The points $a_i$ denote the minima and maxima of $f(x)$ and $b_i$ denote the minima and maxima of $f'(x)$ (See Fig. \ref{fig:NR_pf1}). As $f'(a_i)=0$ we also have that $|N(a_i)|=\infty $, also $f''(b_i)=0$ implies that $N'(b_i)=0$. Thus via our knowledge of the shape of $f$, we have been able to derive information about $N$. If we assume that $b_1\in (a_0, x_1)$ and $b_2\in (x_2, a_2)$, then we get the graph of $N$ as shown in Fig. \ref{fig:NR_graph1}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\textwidth]{figures/ch7/3NR_graph1.png}
+	\includegraphics[width=0.5\textwidth]{figures/ch7/3NR_graph1.pdf}
 	\caption{The graph of $N$, the points $z_{i}^{\pm}$ are lower bounds on the domain of attraction as they surely converge to the fixed points. The are chosen by starting at a local extrema and working backwards.}
 	\label{fig:NR_graph1}
 \end{figure}
@@ -120,7 +120,7 @@ Next, we seek non-convergent iterations in $[a_0, a_1] \cup [a_1, a_2]$. We begi
 These sets are illustrated in Fig. \ref{fig:NR_preimages} as well.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.5\textwidth]{figures/ch7/4NR_preimages.png}
+	\includegraphics[width=0.5\textwidth]{figures/ch7/4NR_preimages.pdf}
 	\caption{The preimages of the values $a_0$ and $a_2$, along with the sets $I_{j}$ for $j=1,2,3,4$.}
 	\label{fig:NR_preimages}
 \end{figure}
