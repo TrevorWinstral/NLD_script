@@ -527,7 +527,7 @@ The set of all periodic orbits is dense in $\Sigma$.
 %is a $2^{-k}$ approximation for $s$. As $s$ and $k$ were arbitrary, this completes the proof.
 %\end{proof}
 \begin{proposition}[]
-Consider a $k$-periodic point $s=\overline{a}\bm{.} \overline{a}$, where $a$ is a $k$-long binary sequence. Let $s' = \overline{a}a'\bm{.} \overline{a}$, clearly $s \neq s'$, therefore $d(s,s') \neq 0$, when we take the limit we find
+	Consider a $k$-periodic point $s=\overline{a}\bm{.} \overline{a}$, where $a$ is a $k$-long binary sequence. Let $s' = \overline{a}a'\bm{.} \overline{a}$, with $a' \neq a$, but an otherwise arbitrary finite length string. Clearly $s \neq s'$, therefore $d(s,s') \neq 0$, when we take the limit we find
 \begin{align}
 	\lim_{n\to \pm \infty }	d(\sigma^{n}(s), \sigma^{n}(s')) = 0.
 \end{align}
@@ -557,7 +557,7 @@ For example, heteroclinic orbits are asymptotically periodic.
 	\label{fig:crazy_orbits}
 \end{figure}
 
-In fact there also exists a countable infinity of non-periodic (not even asymptotically periodic) orbits in $\Sigma$. To show this, we will show that $\Sigma$ is uncountable, i.e. that it cannot be arranged into a well-defined, countable sequence.
+In fact there also exists an uncountable infinity of non-periodic (not even asymptotically periodic) orbits in $\Sigma$. To show this, we will show that $\Sigma$ is uncountable, i.e. that it cannot be arranged into a well-defined, countable sequence.
 \begin{definition}
 	The binary expansion of a number $x\in [0,1]$ is the sequence $(b_i)_{i=1}^{\infty }$ of 1s and 0s  such that 
 	\begin{align}
@@ -656,7 +656,7 @@ In fact there also exists a countable infinity of non-periodic (not even asympto
 	\end{align}
 \end{proposition}
 	This is also called the \emph{mixing property}. In the case of the Bernoulli shift map, it can be concluded from the existence of a dense orbit.
-\begin{proposition}[Sensitive dependece on initial conditions]
+\begin{proposition}[Sensitive dependence on initial conditions]
 	Regardless of how close two distinct initial conditions $s$ and $s'$ are chosen, they will not remain close. There exists a $\Delta>0$ such that for every $s\in\Sigma$ and any $\delta>0$, there exists an $s' \in \mathcal{B}\left(s, \delta\right)$ such that for an $N$ large enough the following holds
 	\begin{align}
 		d(\sigma^{N}(s), \sigma^{N}(s') ) > \Delta.
@@ -757,10 +757,6 @@ I \arrow[r, "{f}"]
 & I 
 \end{tikzcd}.
 \end{equation}
-In comparison to the previous example, $\Psi$ is not invertible (although it is well-defined and continuous). The invertibility of $\Psi $ only fails on a countable set of points $\left \{ f^{-n}\left(\frac{1}{2}\right) \right \}$. Therefore we have that the logistic map is chaotic on $\tilde{I}$.
- \end{ex}
-
- The previous example leads us to the definition for maps such as the logistic map
 \begin{definition}[Topological semi-conjugacy]
 	A map $f$ is \emph{topologically semi-conjugate} to $\sigma$ if there exists a surjection $\Psi$ such that
 	\begin{align}
@@ -769,4 +765,9 @@ In comparison to the previous example, $\Psi$ is not invertible (although it is 
 		}
 	\end{align}
 \end{definition}
+
+In comparison to the previous example, $\Psi$ is not invertible (although it is well-defined and continuous). The invertibility of $\Psi $ only fails on a countable set of points $\left \{ f^{-n}\left(\frac{1}{2}\right) \right \}_{n=1}^{\infty }$. Removing this countable set of points, a homeomorphism between $\Sigma$ and $\tilde{I}=I \setminus {f^{-n}(1/2)}_{n=1}^{\infty}$ can be constructed. Therefore we have that the logistic map is chaotic on $\tilde{I}$.
+ \end{ex}
+
+% The previous example leads us to the definition for maps such as the logistic map.
  

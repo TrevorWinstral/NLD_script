@@ -541,7 +541,7 @@ Next we examine what happens when we perturb homoclinic orbits. We recall the se
 \begin{align}
 	\dot{x} = JD[H(x) + \varepsilon H_{1}(x,t)].
 \end{align}
-We assumed that the unperturbed system had a homoclinic obrbit and then asked if the unstable and stable manifolds of the perturbed system intersected then asked if the unstable and stable manifolds intersected using the Melnikov method, as sketched in Fig. \ref{fig:ham_melnikov_method}.
+We assumed that the unperturbed system had a homoclinic obrbit and then asked if the unstable and stable manifolds of the perturbed system intersected using the Melnikov method, as sketched in Fig. \ref{fig:ham_melnikov_method}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.4\textwidth]{figures/ch8/8ham_melnikov_method.png}
@@ -580,16 +580,16 @@ There are four possible types of intersection geometries: transverse (chaotic), 
 	\label{fig:intersection_types}
 \end{figure}
 
-An equality intersection can occor when the Hamiltonian is conserved even after perturbation. This implies that all trajectories continue to remain confined to the level sets of $H$. 
+An equality intersection can occur when the Hamiltonian is conserved even after perturbation. This implies that all trajectories continue to remain confined to the level sets of $H$. 
 
-As tangent intersections are not possible within the area preserving context, if $M(t_0) \neq 0$ then we must have homoclinic chaos. Thus in periodically forced Hamiltonian systems, chaos is generic! However, when only have autonomous perturbations of the form $H(x)=H_0(x)+\varepsilon H_1(x)$, the equal case, in which the homoclinic orbit persists is generic. 
+As tangent intersections are not possible within the area preserving context, if $M(t_0) \neq 0$ then we must have homoclinic chaos. Thus in periodically forced Hamiltonian systems, chaos is generic! However, when we only have autonomous perturbations of the form $H(x)=H_0(x)+\varepsilon H_1(x)$, the equal case, in which the homoclinic orbit persists is generic. 
 
 \begin{proposition}[Recurrence]
 	For an autonomous Hamiltonian system
 	\begin{align}
 		\dot{x}= JDH(x);\quad x \in \mathbb{R}^{2n},
 	\end{align}
-	if there exists a subset $S_0$ of $\mathbb{R}^{2n}$ which is compact, invariant, and has nonzero volume. Then for \underline{any} open set $U\subset S_0$ and \underline{any} time $T>0$, there exists an $x_0 \in U$ and $t>T$ such that $x(t;t_0, x_0)\in U$.	
+	suppose there exists a subset $S_0$ of $\mathbb{R}^{2n}$ which is compact, invariant, and has nonzero volume. Then for \underline{any} open set $U\subset S_0$ and \underline{any} time $T>0$, there exists an $x_0 \in U$ and $t>T$ such that $x(t;t_0, x_0)\in U$.	
 \end{proposition}
 This property is illustrated in Fig. \ref{fig:hamiltonian_recurrence}.
 \begin{figure}[h!]
