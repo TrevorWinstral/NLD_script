@@ -19,12 +19,12 @@ Therefore we have a perturbed Duffing oscillator. We transform the system into a
 		\dot{y} = -y +x - x^3 + \varepsilon \cos(t).
 	\end{dcases}
 \end{align}
-For $\varepsilon =0$ and no damping, two homoclinic orbits arise for the three fixed points. However, for nonzero driving, we get seemingly chaotic behavior. Both of these regimes are depicted in Fig. \ref{fig:pert_duffing}.
+For $\varepsilon =0$ driving and no damping, two homoclinic orbits arise for the three fixed points. However, for nonzero driving, we get seemingly chaotic behavior. Both of these regimes are depicted in Fig. \ref{fig:pert_duffing}.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.45\textwidth]{figures/ch6/3unpert_duffing.pdf}
 	\includegraphics[width=0.45\textwidth]{figures/ch6/2pert_duffing.png}
-	\caption{Left: Duffing oscillator with $\varepsilon=0$ and no damping, the red arrows designate the homoclinic orbits. Right: (Clockwise from top left) The phase space of the driven Duffing oscillator; The Poincaré section of the driven Duffing oscillator, with the Poincaré map illustrated by the black arrows; The value of $x(t)$ over time, with no apparent pattern.}
+	\caption{Left: Duffing oscillator with $\varepsilon=0$ driving and no damping, the red arrows designate the homoclinic orbits. Right: (Clockwise from top left) The phase space of the driven Duffing oscillator; The Poincaré section of the driven Duffing oscillator, with the Poincaré map illustrated by the black arrows; The value of $x(t)$ over time, with no apparent pattern.}
 	\label{fig:pert_duffing}
 \end{figure}
 
@@ -387,7 +387,7 @@ We have then identified the invariant set $\Lambda$ for the horseshoe map. Retur
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\textwidth]{figures/ch6/20returning_points.pdf}
-	\caption{The homoclinic tangle with the set $S$ outlined in green and the elements of $\Lambda$ being denoted by the red dots within $S$.}
+	\caption{The homoclinic tangle with the elements of $\Lambda$ being denoted by the black dots within $S$, the neighborhood around $p_\varepsilon$.}
 	\label{fig:returning_points}
 \end{figure}
 
@@ -409,7 +409,7 @@ for $s_i\in \{1,2\}$ then we would have the itinerary
 s  = \ldots s_{-3}s_{-2}s_{-1} \bm{.}  s_0 s_{1}s_{2}\ldots.
 	}
 \end{align}
-This is a unique symbolic encoding for \underline{all} points in $\Lambda$. Therefore there is a one-to-one correspondence between points $p$ in the invariant set $\Lambda$ and sequences $s$ space of doubly infinite sequences of two symbols $\Sigma$. Such a space is just the space of outcomes for an infinite coin-tossing experiment. This equivalence of $\Lambda$ to the doubly infinite sequence of two symbols leads us to \emph{symbolic dynamics}: the analogue of the horseshoe map on the symbol space $\Sigma$.
+This is a unique symbolic encoding for \underline{all} points in $\Lambda$. Therefore there is a one-to-one correspondence between points $p$ in the invariant set $\Lambda$ and sequences $s$ in the space $\Sigma$ of doubly infinite sequences of two symbols $\Sigma$. Such a space is just the space of outcomes for an infinite coin-tossing experiment. This equivalence of $\Lambda$ to the doubly infinite sequence of two symbols leads us to \emph{symbolic dynamics}: the analogue of the horseshoe map on the symbol space $\Sigma$.
 
 In order to study these symbolic dynamics we need to know what the symbolic encoding of $f(p)$ is. For the analogue $\ldots s_{-2}s_{-1}\bm{.} s_0 s_1 s_2 \ldots = s\in \Sigma$ of $p\in \Lambda $, we can read off that $f(p)\in H_{s_1}$. Continuing in this fashion, we can see that $f(f(p))=f^{2}(p) \in H_{s_2}$ and so on, therefore $f(p)\in H^{\infty }$. By recalling that $f(H_{s_0}) = V_{s_0}$ we can see that $f(p) \in V_{s_0}$. Applying the definition of $f$ we find that $f^{-1}(f(p)) = p \in V_{s_{-1}}$. Therefore $f(p)\in V^{\infty }$ and thereby $f(p) \in \Lambda$. 
 
@@ -421,7 +421,7 @@ Similarly, from our examination of the backwards iterates of $f(p)$ we know that
 \begin{align}
 \ldots s_{-2} s_{-1} s_{0} \bm{.}. 
 \end{align}
-Putting these together we get the symbolic encoding for $f(p)$ is 
+Putting these together we get the symbolic encoding for $f(p)$ as 
 \begin{align}
 	\ldots s_{-2} s_{-1} s_{0} \bm{.} s_1 s_2 s_3 \ldots \in \Sigma.
 \end{align}
@@ -473,7 +473,7 @@ Therefore $\tilde{f} = \left. f\right|_{\Lambda}$ is topologically conjugate to 
 Hence, orbits of $f$ are taken to those of $\sigma$, with their orientation preserved.	
 
 \begin{remark}[]
-	To denote an infintely repeating string, the bar notation will be used i.e.
+	To denote an infinitely repeating string, the bar notation will be used i.e.
 	\begin{align}
 		\overline{1} = 111\ldots,\quad \overline{123}=123123\ldots.
 	\end{align}
@@ -490,7 +490,7 @@ It is possible to classify all of the orbits of $\sigma $ in $\Sigma$, the class
 		\end{align}
 		orbits of period exactly $k$, the notation $\langle i,k\rangle$ signifies integers $i$ which are divisors of $k$.	
 \end{enumerate}
-There exists a countable infinity (i.e. the elements can be organized uniquely into an infinite countable sequence) of periodic orbits of arbitrarily high period. The countable sequence ordering can be done by listing each orbit in the row corresponding to its minimal period. An orbit of period $k$  is made up of $k$ points along that orbit. We assign a single number to the orbit by concatenating the decimal representations of the individual points along the orbit, starting from the one with the smallest value. Within a row, we can then order the periodic orbits based on the magnitudes of the concatenated numbers representing them. Thus $\overline{112}\bm{.} \overline{112}$ would go in the third row as it has the minimal period $3$, as the fixed points have period length $0$ and occupy the first row), and in the leftmost position as $\overline{112} \prec \overline{122}$. Each row has a finite number of elements, so ordering each row is not a problem. Then the complete order is done by starting with $0$ for the first element in the first row (the fixed point $\overline{1}\bm{.} \overline{1}$), then reading from left to right before continuing to the next row. This list is well defined and countably infinite, containing all of the orbits of $\sigma$.
+There exists a countable infinity (i.e. the elements can be organized uniquely into an infinite countable sequence) of periodic orbits of arbitrarily high period. The countable sequence ordering can be done by listing each orbit in the row corresponding to its minimal period. An orbit of period $k$  is made up of $k$ points along that orbit. We assign a single number to the orbit by concatenating the decimal representations of the individual points along the orbit, starting from the one with the smallest value. Within a row, we can then order the periodic orbits based on the magnitudes of the concatenated numbers representing them. Thus $\overline{112}\bm{.} \overline{112}$ would go in the third row as it has the minimal period $3$, as the fixed points have period length $0$ and occupy the first row, and in the leftmost position as $\overline{112} \prec \overline{122}$. Each row has a finite number of elements, so ordering each row is not a problem. Then the complete order is done by starting with $0$ for the first element in the first row (the fixed point $\overline{1}\bm{.} \overline{1}$), then reading from left to right before continuing to the next row. This list is well defined and countably infinite, containing all of the orbits of $\sigma$.
 
 Before further study, it is important to introduce a notion of distance on the space $\Sigma$.
 \begin{definition}
