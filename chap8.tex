@@ -52,7 +52,7 @@ Thus we have $n$, second-order ODEs.
 	In \eqref{eq8:ELE} the variation $\delta S$ being equal to 0 stems from the principle of least action, as the action $\int_{}^{} L(q(s), \dot{q}(s), s)ds$ is then a minimum. The variational of a function $\delta F$ (here $F[\gamma]=\int_{}^{} \gamma ds)$ of a path (in our case $\gamma = (q(s), \dot{q}(s), s)$) corresponds to seeing how infinitesimal changes to the path change the output of the functional. These different, admissible paths are depicted in Fig. \ref{fig:variational_deriv}. Hamilton's principle states that among these different paths the one that will physically take place is the one along which the action $S$ is minimal.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.35\textwidth]{figures/ch8/1variational_deriv.png}
+		\includegraphics[width=0.5\textwidth]{figures/ch8/1variational_deriv.pdf}
 		\caption{An illustration of various different paths (denoted here by $q(t)$). The red demarcates the actual motion which occurs in the system, whereas the green paths are each admissible motions which are consistent with the constraints.}
 		\label{fig:variational_deriv}
 	\end{figure}
@@ -64,7 +64,7 @@ Now assume that $L$ is a convex function of $\dot{q}$. Using this the \emph{Lege
 Th geometric interpretation of this is shown in Fig. \ref{fig:legendre_trafo}. At each velocity $\dot{q}$ the tangent line of $L(q, \cdot, t)$ is taken and shifted such that the $y$-intercept is at $0$. Then $H$ is equal to the difference between this shifted line and the function $L(q, \dot{q}, t)$.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.35\textwidth]{figures/ch8/2legendre_trafo.png}
+	\includegraphics[width=0.5\textwidth]{figures/ch8/2legendre_trafo.pdf}
 	\caption{The Legendre transformation. The thin red linear function denotes the tangent of $L(q, \cdot, t)$ taken at  $\dot{q}$, the yellow linear function is then the shifted version with a 0 $y$-intercept, and the thick red vertical line is the Legendre transformation $H$ measuring the difference between this shifted line and $L(q,\cdot, t)$.}
 	\label{fig:legendre_trafo}
 \end{figure}
@@ -160,7 +160,7 @@ Hence for this Hamiltonian system we have the Hamiltonian equations of motion
 This is depicted in \ref{fig:incompressible}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/ch7/2_5simply_connected.pdf}
+	\includegraphics[width=0.5\textwidth]{figures/ch7/2_5simply_connected.pdf}
 	\caption{The simply connected domain $\mathcal{D}$ with the velocity field $V$.}
 	\label{fig:incompressible}
 \end{figure}
@@ -264,7 +264,7 @@ Therefore, we have a canonical Hamiltonian system. In fact, all planar, autonomo
 	The phase portrait of this system is depicted in Fig. \ref{fig:lotka_volterra}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.3\textwidth]{figures/ch8/3lotka_volterra.png}
+		\includegraphics[width=0.5\textwidth]{figures/ch8/3lotka_volterra.pdf}
 		\caption{The phase portrait of the Lotka-Volterra dynamics, which has been used to explain the observed cycles in fish populations.}
 		\label{fig:lotka_volterra}
 	\end{figure}
@@ -307,7 +307,7 @@ Then we have $x^{i}=F\left(x^{1},\ldots,x^{i-1},x^{i+1},\ldots,x^{2n}\right)$ fo
 	Between two fixed sides, three nonlinear springs hold two masses. Each spring has a potential given by $V_{i}$ for $i=1,2,3$ and the masses are given by $m_1$ and $m_2$. The displacement of each mass is given by $q_1$ and $q_2$ respectively. The potentials have global minima at $x=(q_1, q_2)^T=0$, and are otherwise strictly monotone. The system and example potential are illustrated in Fig. \ref{fig:2dof_oscillator_hamiltonian}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.5\textwidth]{figures/ch8/4_2dof_oscillator_hamiltonian.png}
+		\includegraphics[width=0.5\textwidth]{figures/ch8/4_2dof_oscillator_hamiltonian.pdf}
 		\caption{The two degree of freedom nonlinear oscillator and an example of a potential $V_i$.}
 		\label{fig:2dof_oscillator_hamiltonian}
 	\end{figure}
@@ -408,7 +408,7 @@ We can see this in the example of the pendulum equation, whose Hamiltonian we pr
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\textwidth]{figures/ch8/5morse_foliation.png}
+	\includegraphics[width=0.5\textwidth]{figures/ch8/5morse_foliation.pdf}
 	\caption{The effect of the foliation theorem. Around the stable fixed point where the Morse lemma applies is shaded orange, and the level sets containing critical points of $H$.}
 	\label{fig:morse_foliation}
 \end{figure}
@@ -419,7 +419,7 @@ Regarding the two degree of freedom oscillator example previously handled, all s
 We would like to understand what happens with a volume of the phase space under the flow map of a Hamiltonian system. When we talk about the transformation of a volume $V(t_0)$ under the flow map, we mean to study the set $V(t)$ which results from applying the flow map to $V(t_0)$, i.e. $V(t) = F_{t_0}^{t}(V(t_0))$. The evolution of such a volume in shown in Fig. \ref{fig:vol_change}. However, before continuing to study this, we must prove Liouville's theorem.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/ch8/6vol_change.png}
+	\includegraphics[width=0.9\textwidth]{figures/ch8/6vol_change.pdf}
 	\caption{A transformed volume of the phase space under the flow map.}
 	\label{fig:vol_change}
 \end{figure}
@@ -532,7 +532,7 @@ This implies that there are only a few restricted eigenvalue configurations whic
 The different eigenvalue configurations are shown in Fig. \ref{fig:poinc_eigv_config}. As we can see the only robust fixed points of 2-dimensional Poincaré maps in Hamiltonian systems are saddles or centers (under linearization). The same conclusion holds, as a consequence, for any planar, autonomous Hamiltonian system (flow) $\dot{x} = JDH(x)$.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\textwidth]{figures/ch8/7poinc_eigv_config.png}
+	\includegraphics[width=0.5\textwidth]{figures/ch8/7poinc_eigv_config.pdf}
 	\caption{All possible eigenvalue configurations of the linearized Poincaré map.}
 	\label{fig:poinc_eigv_config}
 \end{figure}
@@ -544,7 +544,7 @@ Next we examine what happens when we perturb homoclinic orbits. We recall the se
 We assumed that the unperturbed system had a homoclinic obrbit and then asked if the unstable and stable manifolds of the perturbed system intersected using the Melnikov method, as sketched in Fig. \ref{fig:ham_melnikov_method}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\textwidth]{figures/ch8/8ham_melnikov_method.png}
+	\includegraphics[width=0.5\textwidth]{figures/ch8/8ham_melnikov_method.pdf}
 	\caption{The unperturbed $\varepsilon=0$ system with a homoclinic orbit in black and the perturbed $\varepsilon>0$ system in yellow, the Melnikov method analyzes if the unstable and stable manifold intersect.}
 	\label{fig:ham_melnikov_method}
 \end{figure}
@@ -556,7 +556,7 @@ We assumed that the unperturbed system had a homoclinic obrbit and then asked if
 	Assume contrarilty that for $\varepsilon>0$ the manifolds do not intersect. This leaves us with the image shown in Fig. \ref{fig:contradiction_assumption}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.4\textwidth]{figures/ch8/9contradiction_assumption.png}
+		\includegraphics[width=0.5\textwidth]{figures/ch8/9contradiction_assumption.pdf}
 		\caption{The image which we are left with if the two manifolds do not intersect.}
 		\label{fig:contradiction_assumption}
 	\end{figure}
@@ -572,10 +572,11 @@ There are four possible types of intersection geometries: transverse (chaotic), 
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.45\textwidth]{figures/ch8/10intersection_geometry_A.png}
-	\includegraphics[width=0.4\textwidth]{figures/ch8/10intersection_geometry_B.png}
-	\includegraphics[width=0.45\textwidth]{figures/ch8/10intersection_geometry_C.png}
-	\includegraphics[width=0.4\textwidth]{figures/ch8/10intersection_geometry_D.png}
+	\includegraphics[width=0.9\textwidth]{figures/ch8/10intersection_geometry.pdf}
+	%\includegraphics[width=0.45\textwidth]{figures/ch8/10intersection_geometry_A.png}
+	%\includegraphics[width=0.4\textwidth]{figures/ch8/10intersection_geometry_B.png}
+	%\includegraphics[width=0.45\textwidth]{figures/ch8/10intersection_geometry_C.png}
+	%\includegraphics[width=0.4\textwidth]{figures/ch8/10intersection_geometry_D.png}
 	\caption{The four types of intersection geometries. Top row: transverse and topologically transverse, bottom row: tangent and equal.}
 	\label{fig:intersection_types}
 \end{figure}
@@ -594,12 +595,12 @@ As tangent intersections are not possible within the area preserving context, if
 This property is illustrated in Fig. \ref{fig:hamiltonian_recurrence}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\textwidth]{figures/ch8/11hamiltonian_recurrence.png}
+	\includegraphics[width=0.7\textwidth]{figures/ch8/11hamiltonian_recurrence.pdf}
 	\caption{A depiction of the recurrence property of autonoumous, area-preserving, Hamiltonian systems.}
 	\label{fig:hamiltonian_recurrence}
 \end{figure}
 \begin{proof}
-	The recurrence propery follows from the more general Poincaré Reccurence Theorem, which can be applied here as the flow map $F_{t_0}^{t}:x_0 \mapsto x(t;t_0, x_0)$ is volume preserving and invertible and $S_0$ is compact, invariant, and has nonzero volume.
+	The recurrence propery follows from the more general Poincaré Recurrence Theorem, which can be applied here as the flow map $F_{t_0}^{t}:x_0 \mapsto x(t;t_0, x_0)$ is volume preserving and invertible and $S_0$ is compact, invariant, and has nonzero volume.
 \end{proof}
 \begin{proposition}[Poincaré Recurrence theorem]
 	For a compact domain $B$ with nonzero volume equipped with an invertible, volume preserving map $P:B\to B$, for any open subset $U\subset B$ there exists a $N \in \mathbb{N}^{+}$ such that
@@ -624,7 +625,7 @@ This property is illustrated in Fig. \ref{fig:hamiltonian_recurrence}.
 	For the pendulum, the area enclosed by an energy level set can be used as $S_0$. For large enough energy levels, this set may not be compact. This can be resolved by transforming the phase space $\mathbb{R}^{2}\to \mathcal{S}^{1}\times \mathbb{R}$ by taking advantage of the periodicity. This is shown in Fig. \ref{fig:pendulum_recurrence} where the importance of compactness and invariability are demonstrated. The figure also shows that one cannot simply apply the recurrence theorem to a Hamiltonian system restricted to an energy level, because this restricted system does conserve volume any more.  
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.75\textwidth]{figures/ch8/12pendulum_recurrence.png}
+		\includegraphics[width=0.9\textwidth]{figures/ch8/12pendulum_recurrence.pdf}
 		\caption{The recurrence of the pendulum is depicited along with the phase space transformation. The recurrence in the standard phase space does not hold for all points in the set $U$ (blue), because initial conditions below the separatrix never return. This is due to the fact that in the phase space $S_0$ is not compact. If instead we identify the two dotted blue lines to transform the phase space based on periodicity, we find that recurrence does hold. Let us now restrict the dynamics to the separatrix, resulting in a one-dimensional dynamical system. The set in the intersection of the separatrix and the set U. This is a relatively open and compact set which is also invariant for the restricted dynamics, yet these points never return. However, in this case, the dynamics is not volume preserving any more, which means we cannot apply the recurrence theorem.}
 		\label{fig:pendulum_recurrence}
 	\end{figure}
@@ -634,8 +635,9 @@ This property is illustrated in Fig. \ref{fig:hamiltonian_recurrence}.
 	For a linear spring with a mass attached, which can bounce off an elastic wall as the spring is expanded, we can also observe recurrence. Denoting the deviation of the mass by $q$ and the momentum by $m\dot{q}$ we still have recurrence under the map $P:x_0 \mapsto x(T;0, x_0)$, which is volume preserving. The dynamical system and phase space are illustrated in Fig. \ref{fig:bouncy_wall_spring}.
 	 \begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.45\textwidth]{figures/ch8/13bouncy_wall_spring_A.png}
-		\includegraphics[width=0.4\textwidth]{figures/ch8/13bouncy_wall_spring_B.png}
+		\includegraphics[width=0.9\textwidth]{figures/ch8/13bouncy_wall.pdf}
+		%\includegraphics[width=0.45\textwidth]{figures/ch8/13bouncy_wall_spring_A.png}
+		%\includegraphics[width=0.4\textwidth]{figures/ch8/13bouncy_wall_spring_B.png}
 		\caption{Left: A sketch of the dynamical system, with the elastic wall in blue. Right: The phase space of the dynamical system, with the red arrow designating that when the mass hits the wall (positive $x_2$) it immediately moves to the negative lower half (at the same absolute height) due to the elasticity. Furthermore, the volume preserving nature is shown by the two equal volume orange areas.}
 		\label{fig:bouncy_wall_spring}
 	\end{figure}
@@ -650,7 +652,7 @@ This property is illustrated in Fig. \ref{fig:hamiltonian_recurrence}.
 	An ideal gas in a partitioned three dimensional container, which we denote by $B_0\subset \mathbb{R}^3$. One partition is full of $n \gg 1$ gas molecules, and the other partition is a vacuum. After removing the partition, statistical reasoning leads to the conclusion that the molecules will spread evenly. The layout of the partition is shown in Fig. \ref{fig:partitioned_gas}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\textwidth]{figures/ch8/14partioned_container.png}
+	\includegraphics[width=0.5\textwidth]{figures/ch8/14partitioned_container.pdf}
 	\caption{The gas contained in the container $B_0$ with the removable partition (blue) separating the gas and vacuum.}
 	\label{fig:partitioned_gas}
 \end{figure}
@@ -659,7 +661,7 @@ The position of the  of the particles is described by the variable $q=(x_1, y_1,
 The initial configuration of the gas is given by $x_0\in \mathbb{R}^{6n}$. The unique solution $x(t)$ describes the complete evolution of all of the molecules (their positions and momenta). This is just a single trajectory in this (large) phase space $B_0^{n}\times \mathbb{R}^{3n} = \{q \in \mathbb{R}^{3n}:\ q_i \in [0,K]\} \times \mathbb{R}^{3n}$. An example of such a path is depicted in Fig. \ref{fig:partitioned_gas_path}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\textwidth]{figures/ch8/15partitioned_container_path.png}
+	\includegraphics[width=0.5\textwidth]{figures/ch8/15partitioned_container_path.pdf}
 	\caption{A single trajectory in the phase space for the partitioned container. Note that the trajectory is started from $x_0$ and remains within the energy level surface $E_0$.}
 	\label{fig:partitioned_gas_path}
 \end{figure}
@@ -705,8 +707,9 @@ This also tells us that the sum of the eigenvalues of the linearized Hamiltonian
 Further, observe that if $\lambda $ is an eigenvalue of \eqref{eq8:lin_hamiltonian} (whether real or complex), then so is $- \lambda $. This leaves us with a few possible eigenvalue configurations for Hamiltonian systems, as seen in Fig. \ref{fig:new_eigv_configs}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.45\textwidth]{figures/ch8/16new_eigv_config.png}
-	\includegraphics[width=0.45\textwidth]{figures/ch8/16_eigv_collision.png}
+	\includegraphics[width=0.9\textwidth]{figures/ch8/16_eigv.pdf}
+	%\includegraphics[width=0.45\textwidth]{figures/ch8/16new_eigv_config.png}
+	%\includegraphics[width=0.45\textwidth]{figures/ch8/16_eigv_collision.png}
 	\caption{Left: An example eigenvalue configuration with the constraints found previously. Right: The possible losses of stability through eigenvalue collisions}
 	\label{fig:new_eigv_configs}
 \end{figure}
@@ -722,7 +725,7 @@ These properties of $H$ make it a candidate for a Lyapunov function. Observe tha
 	Consider three pendulums, with masses $m_1$, $m_2$, and $m_3$ attached in order by nonlinear springs. The mass $m_3$ is attached to a mass $m_4$ which is constrained to move on a loop of radius $R$. The position of each mass is measured by its displacement from the unstretched spring position by the variable $q$, thus the springs are in their unstretched positions at the position $q=0$. The system is depicted in Fig. \ref{fig:multi_dof_mech}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.9\textwidth]{figures/ch8/17multi_dof_mech.png}
+	\includegraphics[width=0.9\textwidth]{figures/ch8/17multi_dof_mech.pdf}
 	\caption{A depiction of the multiple degree of freedom nonlinear dynamical system consisting of three pendulums and a loop.}
 	\label{fig:multi_dof_mech}
 \end{figure}
@@ -762,7 +765,7 @@ This leads to the dynamics
 The eigenvalues of this system are $\pm i$, thus linear stability analysis and use of $H$ as a Lyapunov function (see Fig. \ref{fig:inconclusive_hamiltonian}) are both inconclusive.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/ch8/18inconclusive_hamiltonian.png}
+	\includegraphics[width=0.7\textwidth]{figures/ch8/18inconclusive_hamiltonian.pdf}
 	\caption{The graph of the Hamiltonian $H$ showing the lack of definiteness which leads to an inconclusive Lyapunov stability analysis.}
 	\label{fig:inconclusive_hamiltonian}
 \end{figure}
@@ -771,7 +774,7 @@ The eigenvalues of this system are $\pm i$, thus linear stability analysis and u
 	A classic example is that of a gyroscopic system such as the tippe-top toy (a spinning top like a dreidel). When spun there is a relative equilibrium fixed point for the Hamiltonian obtained by factoring out the cyclic coordinate, which is achieved via a Routh-reduction of cyclic coordinates. Fast spinning stabilizes this Hamiltonian equilibrium, but the Hamiltonian has no minimum there (nonlinear analysis is needed to prove this). Additional dissapation will then always destabilize these equilibria in a process called \emph{dissapation-induced instability} which is shown in Fig. \ref{fig:dissapation_instability}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.4\textwidth]{figures/ch8/19dissapation_instability.png}
+		\includegraphics[width=0.4\textwidth]{figures/ch8/19dissapation_instability.pdf}
 		\caption{The energy is shown in red, the dissipation of energy takes the motion towards lower energy levels as shown by the yellow arrows.}
 		\label{fig:dissapation_instability}
 	\end{figure}
@@ -799,7 +802,7 @@ The final equality is always achievable by a coordinate shift. Once again we beg
 Each block $A_j$ corresponds to the eigenvalues $\pm i \omega _j$. There is no real part to the eigenvalue, otherwise $x=0$ would be unstable, however $\omega _j<0$ is possible. This change of coordinates allows us to frame the geometry of the linearization as the product of $n$ different two dimensional dynamical systems, each with clockwise rotating cyclical orbits, i.e. $\prod_{i=1}^{n}\mathcal{S}^{1}= \mathbb{T}^{n}$ the $n$-dimensional torus. This product is shown in Fig. \ref{fig:linearization_geometry}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\textwidth]{figures/ch8/20linearization_geometry.png}
+	\includegraphics[width=0.9\textwidth]{figures/ch8/20linearization_geometry.pdf}
 	\caption{The product of the $n$ dynamical systems of the linearization forming the $n$-dimensional torus.}
 	\label{fig:linearization_geometry}
 \end{figure}
@@ -874,7 +877,7 @@ These reductions bring us to the next theorem. In order to state this, some term
 	\end{enumerate}
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/ch8/21persisiting_tori_energy.png}
+	\includegraphics[width=0.5\textwidth]{figures/ch8/21persisting_tori_energy.pdf}
 	\caption{Most tori persist with respect to the measure defined inside the energy surface $E_{H(0)}$ (red). The $\varepsilon$-ball is given in black, and its intersection with $E_{H(0)}$, which is of dimension $2n-1$.}
 	\label{fig:persisting_tori_energy}
 \end{figure}
@@ -890,7 +893,7 @@ This has different implications for the dynamics near $x=0$ depending on the deg
 In Fig. \ref{fig:arnold-diffusion} we show a nested family of surviving KAM-tori and the internal structure of the gaps between them. The gaps are due to resonances and are filled with lower dimensional hyperbolic and elliptic tori. 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.3\textwidth]{figures/ch8/22arnold_diffusion.png}
+	\includegraphics[width=0.5\textwidth]{figures/ch8/22arnold_diffusion.pdf}
 	\caption{The geometry of Arnold diffusion. The red tori are two surviving KAM-tori of a large dimensional dynamical system. In the gaps between them we find hyperbolic and elliptic tori, which  are lower dimensional. }
 	\label{fig:arnold-diffusion}
 \end{figure}
