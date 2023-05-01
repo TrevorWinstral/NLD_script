@@ -59,7 +59,7 @@ The $n$-th iterate of the Poincaré map is denoted by $P_{t_0}^{n}$.
 Time being a periodic variable allows us to study the geometry in the extended phase space $\mathbb{R}^{n}\times S^{1}$ as depicted in Fig. \ref{fig:poinc_geom}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.5\textwidth]{figures/ch5/1poinc_geom.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch5/1poinc_geom.pdf}
 	\caption{The map P records snapshots of the trajectory $x(t)$ taken at times $nT$. These snapshots are depicted along a single plane in the extended phase space. Due to periodicity, the extended phase space is made up as the product of the plane and the circle $S^1$. The snapshots shown are $Px_0 = x_1$ and $P^2 x_0 = x_2$.}
 	\label{fig:poinc_geom}
 \end{figure}
@@ -140,7 +140,7 @@ does not capture the overall (mean) behavior of the system. This can be demonstr
 	Mechanically, we examine the stability of a pendulum with a periodically varying length as shown in Fig. \ref{fig:swing_drawing}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.1\textwidth]{figures/ch5/2swing_drawing.png}
+		\includegraphics[width=0.2\textwidth]{figures/ch5/2swing_drawing.pdf}
 		\caption{A swing (pendulum) with varying length and a mass $m$.}
 		\label{fig:swing_drawing}
 	\end{figure}
@@ -199,7 +199,7 @@ This has given us that the original system is a $T$-periodic, $\mathcal{O}(\vare
 The averaging principle is depicted in Fig. \ref{fig:avg_principle}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\textwidth]{figures/ch5/3avg_principle.png}
+	\includegraphics[width=0.99\textwidth]{figures/ch5/3avg_principle.pdf}
 	\caption{For the starting point $x_0$ which is $\mathcal{O}(\varepsilon)$ close to $y_0$, the trajectories remain order $\varepsilon$ close, i.e. $x(t)$ is $\mathcal{O}(\varepsilon)$ close to $y(t)$, for $t \ll \frac{K}{\varepsilon}$.}
 	\label{fig:avg_principle}
 \end{figure}
@@ -214,9 +214,10 @@ This only holds if $n \leq \frac{1}{\varepsilon}$. The time $T$ map of the avera
 	Consider a system whose Poincaré map $P_0$ has a hyperbolic fixed point $p_0$. By the persistence of hyperbolic fixed points, the perturbed Poincaré map $P_\varepsilon$ also has a hyperbolic fixed point $p_\varepsilon$ which is $\mathcal{O}(\varepsilon)$ close to $p_0$. Furthermore, the $\mathcal{C}^{1}$ manifolds $W^{U}_{ \textrm{loc} }(p_\varepsilon)$ and $W^{S}_{ \textrm{loc} }(p_{\varepsilon})$ are $\mathcal{O}(\varepsilon)$ close to their unperturbed counterparts. The unperturbed system and geometry of the perturbed system are shown in Fig. \ref{fig:avg_ex_2}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.37\textwidth]{figures/ch5/4avg_ex_2a.png}
-		\includegraphics[width=0.6\textwidth]{figures/ch5/5avg_ex_2b.png}
-		\caption{Left: The averaged system with the saddle type fixed point $p_0$. The upper red arrow designates the local unstable manifold, and the lower arrow the local stable manifold. Right: The same in the extended phase space, time is represented by $S_1$ and runs clockwise. The hyperbolic limit cycle $\Gamma_\varepsilon$ is given by the yellow trajectory. Furthermore, the non-averaged local stable and unstable manifolds are drawn in red and blue respectively.}
+		\includegraphics[width=0.99\textwidth]{figures/ch5/4avg_ex_2.pdf}
+		%\includegraphics[width=0.37\textwidth]{figures/ch5/4avg_ex_2a.png}
+		%\includegraphics[width=0.6\textwidth]{figures/ch5/5avg_ex_2b.png}
+		\caption{Left: The averaged system with the saddle type fixed point $p_0$. The upper arrow designates the local unstable manifold, and the lower arrow the local stable manifold. Right: The same in the extended phase space, time is represented by $S_1$ and runs clockwise. The hyperbolic limit cycle $\Gamma_\varepsilon$ is given by the yellow trajectory. Furthermore, the non-averaged local stable and unstable manifolds are drawn in red and blue respectively.}
 		\label{fig:avg_ex_2}
 	\end{figure}
 	
@@ -251,8 +252,9 @@ And now we can use the Implicit Function Theorem to conclude.
 	Consider the averaged system with a stable focus around a fixed point $p_0 $. The transition to the perturbed system is shown in Fig. \ref{fig:avg_ex_3a}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.4\textwidth]{figures/ch5/6avg_ex_3a.png}
-		\includegraphics[width=0.4\textwidth]{figures/ch5/7avg_ex_3b.png}
+		\includegraphics[width=0.99\textwidth]{figures/ch5/7avg_ex_3.pdf}
+		%\includegraphics[width=0.4\textwidth]{figures/ch5/6avg_ex_3a.png}
+		%\includegraphics[width=0.4\textwidth]{figures/ch5/7avg_ex_3b.png}
 		\caption{The stable focus around $p_0$ in the averaged system is preserved in the non-averaged system.}
 		\label{fig:avg_ex_3a}
 	\end{figure}
@@ -262,9 +264,10 @@ And now we can use the Implicit Function Theorem to conclude.
 	Consider the averaged system with a limit cycle $\Gamma_0$. The non-averaged system also has a stable limit cycle $\Gamma_\varepsilon$ with $ \textrm{dim }W^{S}(\Gamma_\varepsilon) =\mathbb{R}^{n+1} $ in extended phase space. Thus in the full system we have an attracting 2-dimensional invariant torus. The averaged and non-averaged system, along with this torus are shown in Fig. \ref{fig:avg_ex_3}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.34\textwidth]{figures/ch5/8avg_ex_4a.png}
-		\includegraphics[width=0.34\textwidth]{figures/ch5/9avg_ex_4b.png}
-		\includegraphics[width=0.3\textwidth]{figures/ch5/10avg_ex_4c.png}
+		\includegraphics[width=0.99\textwidth]{figures/ch5/8avg_ex_4.pdf}
+		%\includegraphics[width=0.34\textwidth]{figures/ch5/8avg_ex_4a.png}
+		%\includegraphics[width=0.34\textwidth]{figures/ch5/9avg_ex_4b.png}
+		%\includegraphics[width=0.3\textwidth]{figures/ch5/10avg_ex_4c.png}
 		\caption{Left: The averaged system with the stable limit cycle $\Gamma_0$. Middle: The non-averaged system with the limit cycle $\Gamma_{\varepsilon}$. Right: The attracting 2-dimensional invariant torus (black arrow), trajectories can be seen as the thin yellow lines.}
 		\label{fig:avg_ex_3}
 	\end{figure}
@@ -384,7 +387,7 @@ This can be further simplified by using the polar coordinates $(r, \phi)$, i.e.
 Next, recall that $x(t) = u(t) \cos(\omega t) - v(t) \sin(\omega t) = r(t)\cos(\omega t - \phi(t))$, i.e. we have slowly varying amplitude $r(t)$ and phase $\phi(t)$. The hyperbolic fixed points of \eqref{eq6:2pound} correspond to steady, almost sinusoidal response of the original system. We obtain the \emph{forced response curves} by fixing $\alpha,\ \beta,$ and $\delta$ and plotting the fixed point $(\overline{r}, \overline{\phi })$ of \eqref{eq6:2pound} as a function of the frequency parameter $\Omega $ (or $\frac{\omega }{\omega _0}$) as in Fig. \ref{fig:forced_response}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\textwidth]{figures/ch5/11forced_response.png}
+	\includegraphics[width=0.5\textwidth]{figures/ch5/11forced_response.png}
 	\caption{The forced response curved for the Duffing equation.}
 	\label{fig:forced_response}
 \end{figure}
@@ -511,7 +514,7 @@ We now take the sum of the squares of these two new equations, which yields
 This equation now allows us plot the amplitude $A$ versus the frequency $\omega$ as in Fig. \ref{fig:forced_response2}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.5\textwidth]{figures/ch5/12forced_response2.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch5/12forced_responce2.pdf}
 	\caption{Forced response curves derived via harmonic balance for the Duffing oscillator.}
 	\label{fig:forced_response2}
 \end{figure}
@@ -534,8 +537,8 @@ Unfortunately, in contrast to averaging, harmonic balance by itself does not ret
 	For unforced, conservative, systems the frequency-amplitude relation gives the so-called \emph{backbone curve}, illustrated in Fig. \ref{fig:backbone}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.6\textwidth]{figures/ch5/13backbone.png}
-	\caption{The backbone curve (denoted by the orange arrow) for the unforced and undamped Duffing oscillator. Under small forcing and damping, the backbone curve has been observed to connect the forced response curves' peaks (red arrow).}
+	\includegraphics[width=0.6\textwidth]{figures/ch5/13backbone.pdf}
+	\caption{The backbone curve for the unforced and undamped Duffing oscillator. Under small forcing and damping, the backbone curve has been observed to connect the forced response curves' peaks.}
 	\label{fig:backbone}
 \end{figure}
 \end{ex}

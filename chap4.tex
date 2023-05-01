@@ -38,15 +38,16 @@ This leads to multiple consequences for these systems
 		This is shown graphically in Fig. \ref{fig:mech_clock_orient}.
 		\begin{figure}[h!]
 			\centering
-			\includegraphics[width=0.4\textwidth]{figures/ch4/1mech_clock_orient.png}
+			\includegraphics[width=0.6\textwidth]{figures/ch4/1mech_clock_orient.pdf}
 			\caption{The clockwise orientation of trajectories in 1 degree of freedom conservative mechanical systems.}
 			\label{fig:mech_clock_orient}
 		\end{figure}
 	\item Local minima of the potential give rise to a center fixed point surrounded by closed orbits. The minimum $x^{*} $ is a fixed point if $x^{*}_2 = 0$ (which occurs if $V(x^*_1) = E_0$) as $\dot{x}_2 \propto V'(x^{*}_1) = 0 $. The trajectories of the closed orbits can be found using $x_2 = \pm \sqrt{\frac{2}{m}(E_0 - V(x_1))}$. Such a fixed point at a local minimum of the potential surrounded by closed orbits is shown in Fig. \ref{fig:mech_loc_extrem}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.47\textwidth]{figures/ch4/2mech_orbits_minima.png}
-	\includegraphics[width=0.39\textwidth]{figures/ch4/3mech_orbits_maxima.png}
+	\includegraphics[width=0.99\textwidth]{figures/ch4/3mech_orbits.pdf}
+	%\includegraphics[width=0.47\textwidth]{figures/ch4/2mech_orbits_minima.png}
+	%\includegraphics[width=0.39\textwidth]{figures/ch4/3mech_orbits_maxima.png}
 	\caption{Left: Closed orbits around the fixed point at the local minimum of the potential function. Right: The saddle type fixed point at the local maxima of the potential. The clockwise orientations comes from consequence (ii).}
 	\label{fig:mech_loc_extrem}
 \end{figure}
@@ -62,7 +63,7 @@ The behavior is sketched in Fig. \ref{fig:mech_loc_extrem}
 \item A local minimum has local maxima to the left and right, unless $V$ is monotonously nondecreasing to infinity. Then we have two cases to differentiate. One where the local maxima are at the same level, and the other where one local maximum has a smaller potential than the other (or in one direction $V$ monotonously increases towards infinity). \emph{Homoclinic orbits} are special periodic orbits that are formed on a level set that contains a single saddle point. \emph{Heteroclinic orbits} are formed when the level set contains two saddle points, i.e. when the two maxima have the same potential. These two cases are illustrated in Fig. \ref{fig:mech_limit_case}. 
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.9\textwidth]{figures/ch4/4mech_limit_case.png}
+		\includegraphics[width=0.99\textwidth]{figures/ch4/4mech_limit_case.pdf}
 		\caption{Left: One maximum has a lower potential than the other (or $V$ is nondecreasing towards infinity on the right). The black arrow denotes a homoclinic orbit. Right: All maxima have the same potential. The black arrows denote heteroclinic orbits.}
 		\label{fig:mech_limit_case}
 	\end{figure}
@@ -87,7 +88,7 @@ The full phase portrait with two homoclinic orbits is shown in Fig. \ref{fig:duf
 We find two stable fixed points at the potential minima and they are separated by a potential maximum in the middle. Periodic orbits surround the stable fixed points. These orbits are separated from the rest of the phase space by the two homoclinic orbits of the saddle. Outside, we have periodic orbits that correspond to energy level-sets higher than the potential of the saddle. 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.4\textwidth]{figures/ch4/5duffing_phase_portrait.png}
+	\includegraphics[width=0.6\textwidth]{figures/ch4/5duffing_phase_portrait.pdf}
 	\caption{Phase portrait of the Duffing oscillator using the potential $V$.}
 	\label{fig:duffing_phase_portrait}
 \end{figure}
@@ -123,9 +124,10 @@ Further assume that solutions exist for all times, therefore there exists a uniq
 	Below (Fig. \ref{fig:limset_ex}) three different limit sets are depicted.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.3\textwidth]{figures/ch4/6limset_ex_1.png}
-		\includegraphics[width=0.3\textwidth]{figures/ch4/6limset_ex_2.png}
-		\includegraphics[width=0.3\textwidth]{figures/ch4/6limset_ex_3.png}
+		\includegraphics[width=0.99\textwidth]{figures/ch4/6limset_ex.pdf}
+		%\includegraphics[width=0.3\textwidth]{figures/ch4/6limset_ex_1.png}
+		%\includegraphics[width=0.3\textwidth]{figures/ch4/6limset_ex_2.png}
+		%\includegraphics[width=0.3\textwidth]{figures/ch4/6limset_ex_3.png}
 		\caption{Three example systems for which we examine the respective limit sets. The arrows labelled $\Gamma $ denote a stable limit cycle (middle) and a homoclinic orbit (right).}
 		\label{fig:limset_ex}
 	\end{figure}
@@ -166,7 +168,7 @@ We now introduce two theorems which give us more insight into these limit sets.
 	There is no complex (chaotic) liminting behavior in 2-dimensional autonomous nonlinear systems. 
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.85\textwidth]{figures/ch4/8poincare-bendixon.png}
+		\includegraphics[width=0.99\textwidth]{figures/ch4/8poincare-bendixon.pdf}
 		\caption{Examples of a set of fixed points connected by homo-/heteroclinic orbits.}
 		\label{fig:poincare-bendixon}
 	\end{figure}	
@@ -175,14 +177,14 @@ We now introduce two theorems which give us more insight into these limit sets.
 	The homo-/heteroclinic orbits are generally not robust, thus we should not expect to see them in a typical dynamical system. We can imagine that under small perturbations the continuous line of the orbit breaks up into separate unstable and stable manifolds as shown in Fig. \ref{fig:pd_robust}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.7\textwidth]{figures/ch4/9pd_robust.png}
+		\includegraphics[width=0.99\textwidth]{figures/ch4/9pd_robust.pdf}
 		\caption{The loss of the homoclinic orbit under a small perturbation. Before the perturbation $\Gamma=W^{S}(p)=W^{U}(p)$ ($p$ is the hyperbolic fixed point), meanwhile after the perturbation $W ^{S}(p) \neq W^{U} (p)$. The unstable manifold is given in red, and the stable manifold in blue.}
 		\label{fig:pd_robust}
 	\end{figure}
 	However, these orbits are robust within the class of conservative systems, and conservative pertubations do not lead to global bifurcations as seen in Fig. \ref{fig:pd_conservative}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.7\textwidth]{figures/ch4/10pd_conservative.png}
+		\includegraphics[width=0.99\textwidth]{figures/ch4/10pd_conservative.pdf}
 		\caption{Small conservative perturbation does not lead to a global bifurcation in conservative systems. The energy level containing $\Gamma_0$ is robust, and perturbs to a new $\Gamma_\varepsilon$.}
 		\label{fig:pd_conservative}
 	\end{figure}
@@ -192,7 +194,7 @@ We now introduce two theorems which give us more insight into these limit sets.
 	A consequence of the Poincaré-Bendixon Theorem is that a forward-invariant, bounded open set without fixed points \underline{must} contain a limit cycle. This is due to the elimination of possibilities (i) and (iii) in the theorem. An example of such a set is shown in Fig. \ref{fig:PB_consequence}.
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.4\textwidth]{figures/ch4/11PB_consequence.png}
+		\includegraphics[width=0.6\textwidth]{figures/ch4/11PB_consequence.pdf}
 		\caption{A forward-invariant, bounded open set without fixed points as in the remark. Such a set must contain a limit cycle.}
 		\label{fig:PB_consequence}
 	\end{figure}
