@@ -1,0 +1,117 @@
+\documentclass[twoside,10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=3cm]{geometry}
+\usepackage{fancyvrb}
+\usepackage{listings}
+\usepackage{xparse}
+\usepackage{tikz} % ajout de dessins LaTeX
+\usepackage{graphicx}
+\usepackage{float}  % alignement des figures
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{verbatim}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{cancel}
+
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\pagestyle{fancy} %fancyhdr
+	\fancyhf{} %fancyhdr
+	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+	\fancyhead[R]{Problem Set 3.5 - Questions} %INSERT TITLE HERE FOR fancyhdr
+	\fancyhead[L]{\nouppercase{\leftmark}} %fancyhdr
+	\cfoot{\thepage} %fancyhdr
+	\setlength{\headheight}{35pt}
+	\setlength{\parindent}{0pt}
+	
+	\definecolor{MyBlue}{HTML}{4A90E2}
+	\definecolor{MyRed}{HTML}{D0021B}
+
+\begin{titlepage}
+\title{\huge \textbf{Nonlinear Dynamics and Chaos I \\ \Large  Problem Set 3.5 - Questions}}	%TITLE
+\author{ }		%AUTHOR
+\date{ }	%DATE
+
+\end{titlepage}
+
+
+\begin{document}
+
+\maketitle
+
+\section*{Dynamic mode decomposition}
+A popular method of data driven modeling is the {\em dynamic mode decomposition (DMD)}. Assume that we observe a dynamical process and record $n$ observables at $m+1$ discrete time instants, i. e. $x_0, ..., x_m \in \mathbb{R}^{n}$. These measurements are separated by a time interval of $\Delta t$. The method finds a linear, discrete dynamical system that best approximates the observed trajectories as 
+$$
+x_{k+1} \approx B x_k,
+$$
+for some constant matrix $B\in \mathbb{R}^{n \times n}$. 
+To this end, the data is assembled into two matrices
+$$X = [x_0, ..., x_{m-1}] \in \mathbb{R}^{n\times m} \quad \text{ and } \quad Y = [x_1, ..., x_{m}] \in \mathbb{R}^{n\times m}. $$
+The matrix $Y$ contains the same data as $X$ but shifted forward in time by $\Delta t$. The matrix $B$ solves the equation
+$$
+Y = BX
+$$
+in the least-squared sense and is given by
+$$
+B = (YX^T)(XX^T)^\dagger,
+$$
+where $A^\dagger$ denotes the {\em pseudoinverse} of $A$. 
+\section*{Question 1}
+Analyze the following scalar dynamical system ($n=1$) with DMD that has multiple fixed points
+$$
+\dot{x} = x - x^3.
+$$
+The fixed points are located at $x=0$ and $x=1$. We disregard the fixed point at $x=-1$ by assuming $x\geq 0$.
+\begin{enumerate}
+\item[(a)] What is the stability type of the fixed points $x=0$ and $x=1$?
+\item[(b)] Generate a trajectory numerically started from the initial condition $x_0 = 0.001$ sampled at  \\ $t= 0,\  \Delta t, \ 2\Delta t \ , ..., \ m \Delta t$ with $\Delta t= 0.1$ and $m = 50$. Fit a DMD model to this data. What is the approximate linear model that you obtain? Is it accurate in reproducing the trajectory?
+\item[(c)] Consider a longer trajectory with $m = 120$. The trajectory converges to the fixed point $x=1$. Can the DMD model predict this? If not, what do we observe instead? 
+\end{enumerate}
+
+\section*{Question 2}
+Suppose that we are given velocity measurements of a two dimensional flow past a cylinder. We see that the initially steady flow slowly develops oscillations as shown in Fig. 1. Without any knowledge of the underlying equations, our goal is to obtain a DMD model for this phenomenon. 
+\vspace{10pt}
+
+{\em Note:} For larger datasets such as this one, it is convenient to use an equivalent formula for the matrix $B$. It can be shown that 
+$$
+B = YX^\dagger.
+$$
+In addition, we may also reduce the effective dimensionality of the model. With the singular value decomposition of the data matrix $X=U\Sigma V^T$, we may choose to keep only the $r$ most important singular values $X\approx U_r \Sigma_r V^T_r$. The truncated DMD matrix then can be defined as 
+$$
+B_r = YV_{r}(\Sigma_{r})^{\dagger}U_{r}^{T}.
+$$
+
+\begin{figure}[h!]
+\label{fig1}
+\includegraphics[width = 0.48\textwidth]{Graphics/fig_1.png}
+\includegraphics[width = 0.48\textwidth]{Graphics/fig_2.png}
+\caption{Velocity snapshots of a 2 dimensional flow past a cylinder.}
+\end{figure}
+
+\begin{enumerate}
+\item[(a)] Prepare the data for the analysis. Load the provided data from \begin{verbatim} Cylinderflow.mat \end{verbatim}
+
+ into memory (in either python or Matlab). It contains  measurements of the two velocity components ($u, v$) of the system at discrete spatial locations and at discrete time snapshots,
+$$
+u(x_i, y_j, t_k) \quad v(x_i, y_j, t_k) 
+$$
+ stored in a multi dimensional array of size $(N_x, N_y, 2, m)$. Flatten the first 3 dimensions to get a single matrix $X$ of size $n\times m$, where $n$ is the number of total observations $n = 2 N_x N_y $. Similarly, generate the matrix $Y$ by shifting $X$ one time step into the future. 
+\item[(b)] Fit a DMD model to the matrices $X$ and $Y$. What are the leading DMD eigenvalues that you obtain? Visualize some of the leading DMD modes by plotting the $u$ component on the original grid. Note that you will need to reshape the eigenvector to an array of size $(N_x, N_y, 2)$. 
+\item[(c)] Predict the time evolution of the second fluid flow that you find in the same datafile. Make a prediction by advancing its initial vector in time using the matrix $B$. Visualize the prediction by plotting the time evolution of the kinetic energy 
+$$
+E_k = \frac{1}{2} \sum_{i=1}^{N_x} \sum_{j=1}^{N_y} u(x_i, y_j, t_k)^2 +  v(x_i, y_j, t_k)^2.
+$$
+This can be easily computed as $\frac{1}{2}|| x_k ||^2$ if $x_k$ is the flattened data vector. Does this match the true time evolution?  
+\end{enumerate}
+
+
+\end{document}

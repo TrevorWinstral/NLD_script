@@ -71,6 +71,30 @@ A function $f$ is called locally Lipschitz around $ {x}_0$ if there exists an op
 Thus $f$ is not Lipschitz near $x_0$.	
 \end{ex}
 
+\begin{exercise}
+Many important properties of nonlinear dynamical systems follow from Gronwall's inequality. Assume that two positive, continuous scalar functions $u(t)$ and $v(t)$ satisfy the condition
+\begin{align}
+	u(t) \leq C + \int_{t_0}^t u(\tau)v(\tau) \, \text{d}\tau
+\end{align}
+for some constant $C \geq 0$ and for all $t \geq t_0$. Then Gronwall's inequality asserts that
+\begin{align}
+u(t) \leq Ce^{\int_{t_0}^t v(\tau) \, \text{d}\tau} 
+\end{align}
+for all $t \geq t_0$. The significance of this result is that it gives a $u(t)$-independent upper bound on the growth of $u(t)$. Using Gronwall's inequality, give an upper bound on how fast the solutions of a nonlinear ODE can separate from each other in time. In particular, show that for an ODE of the form
+\begin{equation*}
+	\dot{x} = f(x,t); \quad x \in \mathbb{R}^n,
+\end{equation*}
+and for two solutions starting from the initial conditions $x_0$ and $\hat{x}_0$ at time $t_0$, we have
+\begin{equation*}
+	|x(t, x_0) - x(t, \hat{x}_0)| \leq |x_0 - \hat{x}_0|e^{L(t - t_0)},
+\end{equation*}
+where $L$ is a Lipschitz constant for the function $f$ over a domain containing the trajectories of the system over the time interval $[t_0, t]$.
+
+\textit{Hint}: Substitute both solutions into the ODE, integrate the resulting two equations from $t_0$ to $t$, and estimate their normed difference.
+
+\end{exercise}
+
+
 \section{Geometric consequences of uniqueness}
 If the solution is unique, we have a few facts that can be derived from the geometric point of view.
 \begin{enumerate}
@@ -390,7 +414,25 @@ This is an exact solution to Euler's equations.  We have an autonomous velocity 
 	\label{fig:FTLE_flows}
 \end{figure}
 \end{ex}
-\vfill
+\begin{exercise}
+Consider the non-dimensionalized, force-damped pendulum equation
+\begin{align}
+	\ddot{x} + k\dot{x} + \sin(x) = a\sin(t),
+\end{align}
+where $k \geq 0$ is the damping coefficient and $a \geq 0$ is the forcing amplitude.
+
+\begin{enumerate}[label=(\alph*)]
+	\item For vanishing damping and forcing $(a=k=0)$, compute and plot numerically the FTLE field for this system over a $100 \times 100$ grid of initial conditions, covering the square $[- \pi, \pi] \times [-\pi, \pi]$ in the phase space of the pendulum. Perform the computation for long enough times so that the FTLE plot fully reveals the separatrices of the system, as we discussed in class for the undamped pendulum.
+	\item To explore the fate of these separatrices under mild damping and forcing, repeat the same FTLE computations for $a = 0.5$ and $k = 0.1$. Discuss domains of attractions and their boundaries based on the results.
+\end{enumerate}
+
+\textit{Hint}: Consider using MATLAB’s ODE45 routine for trajectory integration. To this end, you need to assemble all initial grid points into a single long vector, and pass that vector on to ODE45 as an initial condition. You will then need to define an appropriate extended ODE, whose right-hand side will be called by ODE45 to produce an advected image of the extended initial condition vector. Subsequently, you will need to convert the elements of this advected vector back into advected grid positions.
+Alternatively, you could write your own 4-point Runge-Kutta solver to track trajectories simultaneously on the full grid of initial conditions (see the algorithm discussed in class).
+
+\end{exercise}
+
+
+
 \section{Dependence on parameters}
 We now have the IVP
 \begin{align}
@@ -540,5 +582,31 @@ This procedure can be continued to higher order terms, where we select $\omega_2
 	\includegraphics[width=0.5\textwidth]{figures/ch1/19approximation_accuracy.pdf}
 	\caption{Approximation (dots) vs analytic solution (solid line) of $x$ on the time interval $[0,20]$.}
 \end{figure}
+
+
+\begin{exercise}
+Consider the nonlinear oscillator
+\begin{align}
+	\ddot{x} + \omega_0^2x = \varepsilon Mx^2,
+\end{align}
+where $\varepsilon M x^2$ represents a small nonlinear forcing term $(0 \leq \varepsilon \ll 1, M > 0)$.
+
+Using Lindstedt's method, find an $\mathcal{O}(\varepsilon)$ approximation for nonlinear motions as a function of their initial position, with zero initial velocity.
+\end{exercise}
+
+\begin{exercise}
+Consider the forced \emph{van der Pol equation}
+\begin{align}
+	\ddot{x} + \varepsilon(x^2 - 1)\dot{x} + x = F\cos(\omega t),
+\end{align} 
+which arises in models of self-excited oscillation, such as those of a valve generator with a cubic valve characteristic. Here $F, \omega > 0$ are parameters, and $0 \leq \varepsilon \ll 1$.
+
+\begin{enumerate}[label=(\roman*)]
+	\item For small values of $\varepsilon$, find an approximation for an \textbf{exactly} $2\pi/\omega$-periodic solution of the equation. The error of your approximation should be $\mathcal{O}(\varepsilon)$.
+	\item For $\varepsilon = 0.1, \; \omega = 2$, and $F = 1$, verify your prediction numerically by solving the equation numerically. Plot your numerical solution along with your analytic prediction computed in (i).
+
+		\textit{Note}: For chaotic dynamics in the forced van der Pol equation, see Section 2.1 of \newline\cite{GuckenheimerHolmes}.
+\end{enumerate}
+\end{exercise}
 
 \end{ex}

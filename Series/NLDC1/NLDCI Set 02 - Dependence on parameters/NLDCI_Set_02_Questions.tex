@@ -1,0 +1,82 @@
+\documentclass[twoside,10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=3cm]{geometry}
+\usepackage{fancyvrb}
+\usepackage{listings}
+\usepackage{xparse}
+\usepackage{tikz} % ajout de dessins LaTeX
+\usepackage{graphicx}
+\usepackage{float}  % alignement des figures
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{verbatim}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{cancel}
+
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\pagestyle{fancy} %fancyhdr
+	\fancyhf{} %fancyhdr
+	\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+	\fancyhead[R]{Exercice Set 2 - Questions} %INSERT TITLE HERE FOR fancyhdr
+	\fancyhead[L]{\nouppercase{\leftmark}} %fancyhdr
+	\cfoot{\thepage} %fancyhdr
+	\setlength{\headheight}{35pt}
+	\setlength{\parindent}{0pt}
+	
+	\definecolor{MyBlue}{HTML}{4A90E2}
+	\definecolor{MyRed}{HTML}{D0021B}
+
+\begin{titlepage}
+\title{\huge \textbf{Nonlinear Dynamics and Chaos I \\ \Large  Exercice Set 2 - Questions}}	%TITLE
+\author{ }		%AUTHOR
+\date{ }	%DATE
+
+\end{titlepage}
+
+
+\begin{document}
+
+\maketitle
+
+\section*{Question 1}
+Consider the nonlinear oscillator
+\begin{equation*}
+	\ddot{x} + \omega_0^2x = \varepsilon Mx^2,
+\end{equation*}
+where $\varepsilon M x^2$ represents a small nonlinear forcing term $(0 \leq \varepsilon \ll 1, M > 0)$.
+
+Using Lindstedt's method, find an $\mathcal{O}(\varepsilon)$ approximation for nonlinear motions as a function of their initial position, with zero initial velocity.
+
+\section*{Question 2}
+Consider the forced \textit{van der Pol equation}
+\begin{equation*}
+	\ddot{x} + \varepsilon(x^2 - 1)\dot{x} + x = F\cos(\omega t),
+\end{equation*} 
+which arises in models of self-excited oscillation, such as those of a valve generator with a cubic valve characteristic. Here $F, \omega > 0$ are parameters, and $0 \leq \varepsilon \ll 1$.
+
+\begin{enumerate}[label=(\roman*)]
+	\item For small values of $\varepsilon$, find an approximation for an \textbf{exactly} $2\pi/\omega$-periodic solution of the equation. The error of your approximation should be $\mathcal{O}(\varepsilon)$.
+	\item For $\varepsilon = 0.1, \; \omega = 2$, and $F = 1$, verify your prediction numerically by solving the equation numerically. Plot your numerical solution along with your analytic prediction computed in (i).
+
+\textit{Note}: For chaotic dynamics in the forced van der Pol equation, see Section 2.1 of \textit{Guckenheimer \& Holmes}.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+\end{document}

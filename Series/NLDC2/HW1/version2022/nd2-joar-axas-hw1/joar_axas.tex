@@ -1,0 +1,92 @@
+\documentclass[12pt,A4]{article}
+\usepackage[dvipsnames,rgb,dvips]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{psfrag}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[rflt]{floatflt}
+\usepackage{latexsym}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\addtolength{\topmargin}{-1.9cm}
+\addtolength{\textheight}{5.5cm}
+\addtolength{\evensidemargin}{-1.2cm}
+\addtolength{\oddsidemargin}{-1.2cm}
+\addtolength{\textwidth}{2cm}
+\pagestyle{myheadings}
+
+\title{Nonlinear Dynamics Homework 1 Solutions}
+\author{Joar Axås}
+
+\begin{document}
+\parindent=0cm
+\maketitle
+\thispagestyle{empty}
+\vspace{10mm}
+\begin{figure}[h]
+\centering
+    \includegraphics[width = \linewidth]{eth.png}
+\end{figure}
+
+\newpage
+\section*{Q. 1}
+A periodic orbit is characterized by a string of $k$ symbols. There is a total of $2^k$ possible permutations of the symbols $1$ and $2$ over $k$ positions. However if this string consists of $k/i$ repetitions of a string of length $i$, that periodic orbit is already an $i$-orbit, and so will have to be excluded from the set of $k$-orbits. The number of $i$-orbits is $N(i)$, and there will be $i$ occurrences of $k$-strings consisting of repetitions of some shift of each $i$-orbit. Let $<i,k>$ denote the set of $i \in \mathbb{N}$ such that $k/i$ is an integer. Then 
+\begin{equation}
+    2^k - \sum_{i \in <i,k>} i N(i)
+\end{equation}
+is the number of permutations of two symbols that are not a repetition of some string. Furthermore, since shifting a string does not change its represented periodic orbit, there will be $k$ shifted versions of each string, which we handle by dividing with $k$:
+\begin{equation}
+    N(k) = \frac{1}{k}\left(2^k - \sum_{i \in <i,k>} i N(i) \right)
+\end{equation}
+
+\clearpage
+\section*{Q. 2}
+\subsection*{a}
+The space of admissible sequences is
+\begin{equation}
+    \Sigma_A^N = \{ s\in \Sigma^N : A_{s_i, s_{i+1}} \ne 0 \quad \forall i \in \mathbb{Z} \}.
+\end{equation}
+
+For a fixed point $\bar{a}.\bar{a}$, $a \in \{1, \ldots , N\}$, we must therefore have $A_{a,a} \ne 0$. So the $a$th element on the diagonal of $A$ must be non-zero for $\bar{a}.\bar{a}$ to be in the space of admissible sequences. Furthermore since $\Sigma^N$ contains all permutations and therefore all possible fixed points, the condition $A_{a,a} \ne 0$ is both sufficient and necessary for $\bar{a}.\bar{a}$ to be an admissible fixed point. Therefore the number of fixed points is equal to the number of non-zero diagonal elements of $A$, which, since $A_{i,j} \in \{0,1\}$, is equal to $\text{tr}(A)$. 
+
+\subsection*{b}
+Apply the reasoning from a) to the map $\sigma^k$, i.e. the shift map repeated $k$ times. The matrix of admissible sequences is then $A$ repeated $k$ times, i.e. $A^k$. Again if $A^k_{a,a} = 0$, there is no admissible sequence going from $a$ back to $a$ in $k$ steps. Note that e.g. $A^3_{i,j} = \sum_{k,l} A_{i,k} A_{k,l} A_{l,j}$. Each of the terms represents an admissible sequence in 3 steps from $i$ to $j$. The sum is the total number of such admissible sequences. As in a), all possible sequences are in $\Sigma^N$, so $A^k_{a,a}$ is the number of ways to map $a$ into itself in $k$ steps. Again the total number of such admissible $k$-periodic points is the sum of $A^k_{i,i}$, i.e. $\text{tr}(A^k)$.
+
+\clearpage
+\section*{Q. 3}
+Given any two periodic orbits $\bar{s}.\bar{s}$ and $\bar{z}.\bar{z}$, any sequence $s^*$ defines a heteroclinic orbit between them by $\bar{s} s^*.\bar{z}$. To show this is a heteroclinic orbit, observe that 
+\begin{equation}
+\begin{aligned}
+    \lim_{N \to \infty} d(\sigma^N (\bar{s} s^*.\bar{z}), \bar{z}.\bar{z}) = 0 \\
+    \lim_{N \to -\infty} d(\sigma^N (\bar{s} s^*.\bar{z}), \bar{s}.\bar{s}) = 0.
+\end{aligned}
+\end{equation}
+That is, any such trajectory approaches $\bar{z}.\bar{z}$ in forward iterations and $\bar{s}.\bar{s}$ in backward iterations of the shift map. Since there are infinitely many sequences $s^*$, and the periodic orbits were arbitrary, it follows that there are infinitely many heteroclinic orbits connecting any two periodic orbits.
+
+\clearpage
+\section*{Q. 4}
+Fix "points" $a \in A$ and $b \in B$. Since $A$ and $B$ are open sets, we can choose a neighborhood $U$ around $a$ and $V$ around $b$ such that all points closer to $a$ than $\delta_U$ lie in $U$, and all points closer to $b$ than $\delta_V$ lie in $V$. Pick $\delta = \min(\delta_U, \delta_V)$. The existence of a dense orbit for $\sigma$ in $\Sigma$ implies that there are integers $N(a)$, $N(b)$, and a sequence $s^* \in \Sigma$, such that $d(\sigma^{N(a)}(s^*), a) < \delta$ and $d(\sigma^{N(b)}(s^*), b) < \delta$. Since this sequence comes closer than $\delta$ to $a$ and $b$, it passes through both $U$ and $V$. Set $N = N(b) - N(a)$ and $z = \sigma^{N(a)}(s^*)$. Then $z \in A$ and $\sigma^N(z) = \sigma^{N(b)}(s^*) \in B$. The claim follows.
+
+\clearpage
+\section*{Q. 5}
+%write as zs.zeta for some length N of s defined by delta. Write (-z)s.zeta and iterate N times. Distance is larger than 1/2 for instance.
+
+Given $\delta$ and $s \ne z$, by the definition of distance in $\Sigma$ there must be some finite integer $N \in \mathbb{Z}$ such that the $N$th elements $s_{N} \ne z_{N}$. Now iterate both sequences $N$ times and compute the distance: 
+
+\begin{equation}
+\begin{aligned}
+    d(\sigma^N(s), \sigma^N(z)) &= \sum_i \frac{|\sigma^N(s)_i - \sigma^N(z)_i|}{2^{|i|}} =\\&= \sum_i \frac{|s_{i+N} - z_{i+N}|}{2^{|i|}} \geq \frac{|s_{N} - z_{N}|}{2^{|0|}} = 1.
+\end{aligned}
+\end{equation}
+
+Thus the claim follows from setting e.g. $\Delta = \frac{1}{2}$.
+
+\end{document}

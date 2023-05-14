@@ -1,0 +1,200 @@
+\documentclass[a4paper,11pt,pdftex]{article}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[magyar]{babel} %needed in Hungarian reports
+\usepackage{fancyhdr} %for the nice header
+\usepackage{graphicx} %grapics input
+\usepackage{tikz} %tikz figures
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\newcommand{\R}{\mathbb{R}} 
+\newcommand{\W}{W^{ss}_{loc}(0)}
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm,pdftex]{geometry} %margins
+
+\usepackage{color}
+\usepackage{url}
+\usepackage{hyperref} %links
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+urlcolor=blue,
+citecolor=red
+}
+
+\rhead{NLDC II.}
+\lhead{Homework 1}
+\chead{B. Kaszas}
+
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0em}
+
+\title{Nonlinear Dynamics and Chaos II. \\ Homework 1}
+\author{Kaszás Bálint}
+\date{\today}
+
+\begin{document}
+\pagestyle{fancy}
+
+\maketitle
+
+
+\section*{Exercise 1}
+Show that the map the binary expansion map $g(x) = 2x$ mod $1$ is chaotic on $[0, 1]$.
+
+\emph{Solution}
+
+The map is given by the formula, $g : [0,1] \to [0,1]$
+$$
+g(x) = \begin{cases} 2x \text{ for } 0\leq x\leq 1/2 \\
+2x-1 \text{ for } 1/2< x \leq 1
+\end{cases}
+$$
+
+The goal is to establish a relationship between points in the interval $I=[0,1]$ and elements of the space of semi-infinite binary sequences
+$$
+\Sigma^+ = \{ [.s_1,s_2,s_3,s_4\dots ], s_i\in \{0,1\}\}.
+$$
+
+Consider the mapping from $\Sigma^+$ to $I$
+
+\begin{align*}
+    &\psi : \Sigma^+ \to I \\
+    &\psi: s = [.s_1,s_2,s_3,s_4\dots ] \mapsto \sum_{i=1}^\infty \frac{s_i}{2^i}
+\end{align*}
+The mapping takes a real number's binary representation, and maps it to the number. The infinite sum is well defined, because the series converges for all $s\in \Sigma^+$, since the sum can be bounded by the convergent series 
+$$
+\sum_{i=1}^\infty \frac{1}{2^i} = 1. 
+$$
+
+It is important to note that each $x\in I$ has a binary representation, but this is not necessarily unique, making $\psi$ surjective but not injective. 
+
+The map $\psi$ is continuous, if we equip the space $\Sigma^+$ with the metric
+$$
+d(s, \bar{s}) = \sum_{i=1}^\infty \frac{|s_i - \bar{s}_i|}{2^{i}},
+$$
+
+It can be shown that $\psi$ is continuous. To see this, consider $s, \bar{s} \in \Sigma^+$, for which $d(s, \bar{s})< \delta$. 
+
+$$
+|\psi(s) - \psi(\bar{s})| = \left\vert\sum_{i=1}^\infty \frac{s_i}{2^i} -\sum_{i=1}^\infty \frac{\bar{s}_i}{2^i}  \right \vert = \left \vert\sum_{i=1}^\infty \frac{s_i - \bar{s}_i}{2^i} \right \vert \leq \sum_{i=1}^\infty \left \vert \frac{s_i - \bar{s}_i}{2^i} \right \vert = d(s, \bar{s}) < \varepsilon 
+$$
+
+This is satisfied for any $\varepsilon$, by choosing $\delta \geq \varepsilon$. 
+
+The action of $g\circ \psi$ on a sequence $s\in \Sigma^+$ is  the following (using the explicit formula for $g$, given above).
+Assume $s_1 = 0$, then the binary expansion represents a point $x\leq 1/2.$
+$$
+g(\psi(s)) = g\left( \sum_{i=1}^\infty \frac{s_i}{2^i} \right) = 2\left( \sum_{i=1}^\infty \frac{s_i}{2^i} \right) = 2\left( \sum_{i=2}^\infty \frac{s_i}{2^i} \right) =  \sum_{i=2}^\infty \frac{s_i}{2^{i-1}}.
+$$
+
+We can shift the indices by defining $j = i-1$, then
+$$
+g(\psi(s)) = \sum_{j=1}^\infty \frac{s_{j+1}}{2^{j}}.
+$$
+That is, the action of this map is $s_i \mapsto s_{i+1}$, or,  $[.s_1,s_2,s_3 \dots]\mapsto [.s_2,s_3,s_4 \dots]$ which is a Bernoulli-shift on the space $\Sigma^+$.
+
+If $s_1 = 1$, $\psi(s)\geq 1/2$, 
+$$
+g(\psi(s)) = g\left( \sum_{i=1}^\infty \frac{s_i}{2^i} \right) = 2\left( \sum_{i=1}^\infty \frac{s_i}{2^i} -\frac{1}{2}\right) = \sum_{i=1}^\infty \frac{s_i}{2^{i-1}} - 1 = 1 + \sum_{i=2}^\infty \frac{s_i}{2^{i-1}} - 1 = \sum_{j=1}^\infty \frac{s_{j+1}}{2^{j}},
+$$
+ 
+ we have the same Bernoulli-shift. 
+ 
+Let us denote the Bernoulli-shift by $\sigma : \Sigma^+ \to \Sigma^+$. We have established that there is a continuous map $\psi: \Sigma^+ \to I$, such that
+
+$$
+g \circ \psi = \psi \circ \sigma.
+$$
+The binary expansion map $g$ is topologically semi-conjugate to $\sigma$. Since $\sigma$ is chaotic on $\Sigma^+$, we know $g$ is also chaotic on $I$. 
+\section*{Exercise 2}
+Let $A$ denote the transition matrix for a sub-shift $\sigma$ : $\Sigma^N_A \to \Sigma^N_A$ of finite type on N symbols.
+(a) Show that the number of fixed points of $\sigma$ is equal to trace($A$).
+
+\emph{Solution}
+
+The space of $N$ symbols, with the transition matrix $A$ is 
+
+$$
+\Sigma_A^N = \left\{ s = [\dots s_{-2}, s_{-1}, s_0, s_1, s_2 \dots]: s_i \in \{1, 2, \dots, N\},\  A_{s_i, s_{i+1}}\ne 0,\ A_{i,j}\in \{0,1\},\  \forall i \right\}
+$$
+
+The map $\sigma$ acts on $\Sigma_A^N$ by shifting the sequence
+$$
+\sigma: \{s_i\}_{i=-\infty}^{\infty} \mapsto \{s_{i+1}\}_{i=-\infty}^{\infty}.
+$$
+The fixed points of $\sigma$ have the property 
+$$
+s_i = s_0 \quad \forall i.
+$$
+The number of possible fixed point is the number of elements in the set
+$$
+n^1 = |\{ s_0\in \{ 1, 2, ..., N\}: A_{s_0, s_0} = 1\}| = \text{trace} A. 
+$$
+
+(b) Show that the total number of admissible $k$-periodic points (i.e., $k$-periodic points whose minimal
+period may be less than $k$) is equal to trace($A^k$).
+
+\emph{Solution}
+
+$s\in \Sigma_A^N$ is $k$-periodic if 
+$$
+\sigma^k(s) = s.
+$$
+Which means, $s$ consists of repeating blocks of length $k$:
+$$
+s_i = s_{i+k}.
+$$
+Assume that these repeating blocks start with $s_0$ and end with $s_k$.
+
+The $ij$ element of the matrix $A^k$ is
+$$
+(A^k)_{i,j} = \sum_{l_1}\sum_{l_2}\dots \sum_{l_k} A_{il_1}A_{l_1l_2}\dots A_{l_k j}. 
+$$
+
+Viewed as an itinerary of a point $s$, if the transitions $s_i \to s_{l_1} \to s_{l_2} \to \dots \to s_j$ are all allowed, then this orbit will contribute to the above sum. If even one transition is not allowed, the whole product is 0. This shows that the number of blocks of length $k$, that start with $s_i$ and end in $s_j$ is given by the matrix element $(A^k)_{ij}$.
+
+Then, the number of admissible $k$-periodic orbits, which are represented by blocks, starting from the symbol $s_0$ is $(A^k)_{s_0,s_0}$. 
+
+To get all admissible periodic orbits, sum over the possible $s_0$ values
+$$
+n^k = \sum_{s_0} (A^k)_{s_0,s_0} = \text{trace } A^k. 
+$$
+\section*{Exercise 3}
+For one-dimensional iterated maps $x_{n+1} = f(x_n)$ defined by a smooth function $f$ : $\R \to \R$, define the Lyapunov-exponent as
+$$
+\lambda(x_0) = \lim_{n\to \infty}\frac{1}{n}\lim_{\delta \to 0^+} \log \frac{|f^n(x_0 + \delta) - f^n(x_0)|}{\delta},
+$$
+
+where $f^n = f\circ f \circ \dots \circ f$ is the n times iterated mapping. 
+
+(a) Show that
+$$
+\lambda(x_0) = \lim_{n\to \infty}\frac{1}{n}\sum_{i=0}^{n-1}\log |f'(f^i(x_0))|,
+$$
+whenever the limit exists. 
+
+\emph{Solution}
+
+In the definition, the limit of the logarithm is a limit of composite functions, which is equivalent to  
+$$
+\lim_{\delta \to 0^+} \log \frac{|f^n(x_0 + \delta) - f^n(x_0)|}{\delta} = \log \lim_{\delta \to 0^+} \left \vert \frac{f^n(x_0 + \delta) - f^n(x_0)}{\delta}\right \vert,
+$$
+because the logarithm is continuous at 
+$$
+\lim_{\delta \to 0^+} \left \vert \frac{f^n(x_0 + \delta) - f^n(x_0)}{\delta}\right \vert = \left \vert \lim_{\delta \to 0^+} \frac{f^n(x_0 + \delta) - f^n(x_0)}{\delta}\right \vert = |(f^n(x_0))'|.
+$$
+
+The derivative of the $n$-th iterate of $f$ is, by a repeated application of the chain rule,
+
+$$
+(f^n(x_0))'=(f\circ f^{n-1}(x_0))' = (f'\circ f^{n-1}(x_0))\cdot (f^{n-1}(x_0))' = \prod_{i=0}^{n-1} f'\circ f^{i}(x_0) = \prod_{i=0}^{n-1} f'(f^{i}(x_0)).
+$$
+
+Substituting this into the logarithm, gives the result
+$$
+\lambda(x_0) = \lim_{n\to \infty}\frac{1}{n}\log \prod_{i=0}^{n-1} |f'(f^{i}(x_0))| = \lim_{n\to \infty}\frac{1}{n} \sum_{i=1}^{n-1} \log |f'(f^{i}(x_0))|.
+$$
+\end{document}
