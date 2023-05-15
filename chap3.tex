@@ -212,6 +212,27 @@ In addition to \eqref{eq4:1star} being nonlinear, the boundary conditions are al
 	\end{align}
 \end{enumerate}
 
+\begin{exercise}
+Consider the discrete dynamical system
+\begin{align}
+	x_{n+1} &= Ax_n + f(x_n, y_n), \\
+	y_{n+1} &= By_n + g(x_n, y_n),
+\end{align}
+where $x_n \in \mathbb{R}^c$, $y_n \in \mathbb{R}^d$, $A \in \mathbb{R}^{c \times c}$, $B \in \mathbb{R}^{d \times d}$; $f$ and $g$ are $\mathcal{C}^r$ functions with no linear terms. Assume that all eigenvalues of $A$ have modulus one, and none of the eigenvalues of $B$ have modulus one. Then the linearized system at the origin admits a center subspace $E^c$ aligned with the $x$-coordinate plane.
+
+\begin{enumerate}[label=(\alph*)]
+	\item Derive a general algebraic equation for the center manifold $W^C$, which is known to exist by a theorem analogous to the center manifold theorem for continuous dynamical systems.
+	\item Find a cubic order approximation for the center manifold of the discrete system
+	\begin{align}
+		x_{n+1} &= x_n + x_ny_n, \\
+		y_{n+1} &= \lambda y_n - x_n^2,
+	\end{align}
+	where $\lambda \in (0,1).$
+	\item Reduce the dynamics to the center manifold and determine the stability of the origin. Verify your results by a numerical simulation of a few initial conditions near the origin.
+\end{enumerate}
+\end{exercise}
+
+
 \begin{ex}[Finding the center manifold]
 	Consider the dynamical system
 	\begin{align}

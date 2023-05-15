@@ -1,0 +1,349 @@
+\documentclass[a4paper,11pt,pdftex]{article}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[magyar]{babel} %needed in Hungarian reports
+\usepackage{fancyhdr} %for the nice header
+\usepackage{graphicx} %grapics input
+\usepackage{tikz} %tikz figures
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\newcommand{\R}{\mathbb{R}} 
+\newcommand{\T}{\mathbb{T}} 
+
+\newcommand{\W}{W^{ss}_{loc}(0)}
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm,pdftex]{geometry} %margins
+
+\usepackage{color}
+\usepackage{url}
+\usepackage{breqn}
+\usepackage{hyperref} %links
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+urlcolor=blue,
+citecolor=red
+}
+
+\rhead{NLDC II.}
+\lhead{Homework 2}
+\chead{B. Kaszas}
+
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0em}
+
+\title{Nonlinear Dynamics and Chaos II. \\ Homework 2}
+\author{Kaszás Bálint}
+\date{\today}
+
+\begin{document}
+\pagestyle{fancy}
+
+\maketitle
+
+
+\section*{Exercise 1}
+Derive the Hamiltonian equations of motion for  the coupled pendulums
+
+\emph{Solution}
+
+Fix the origin at the suspension point. Then, the Cartesian coordinates of the two point masses are
+\begin{align*}
+    &x_1 = L \sin \alpha ; \quad x_2 = L \sin \beta + x_1 = L(\sin \alpha + \sin \beta) \\
+    &y_1 = -L\cos \alpha; \quad y_2 = -L(\cos \alpha + \cos \beta).
+\end{align*}
+
+The Lagrangian for the double pendulum in Cartesian coordinates is 
+$$
+L (x, y, \dot{x}, \dot{y}) = \frac{1}{2}m (\dot{x}^2_1+ \dot{x}^2_2 + \dot{y}^2_1 + \dot{y}^2_2) - mg(y_1 + y_2).
+$$
+
+Calculating the velocities, in terms of the generalized coordinates $\alpha, \beta$, we get
+$$
+\dot{x}_1^2 + \dot{y}^2_1 = L^2 \dot{\alpha}^2
+$$
+
+$$
+\dot{x}_2 = L\cos \alpha \dot{\alpha} + L \cos \beta \dot{\beta}
+$$
+$$
+\dot{y}_2 = L\sin \alpha \dot{\alpha} + L \sin \beta \dot{\beta}
+$$
+$$
+\dot{x}^2_2 + \dot{y}^2_2 = L^2[\dot{\alpha}^2 + \dot{\beta}^2 + 2\dot{\alpha}\dot{\beta}(\cos \alpha \cos \beta + \sin \alpha \sin \beta)] = L^2[\dot{\alpha}^2 + \dot{\beta}^2 + 2\dot{\alpha}\dot{\beta}\cos(\alpha - \beta)].
+$$
+
+The Lagrangian is
+$$
+L(\alpha, \beta, \dot{\alpha}, \dot{\beta}) = \frac{mL^2}{2}(2\dot{\alpha}^2 + \dot{\beta}^2 + 2\dot{\alpha}\dot{\beta}\cos(\alpha - \beta)) + mgL(2\cos \alpha + \cos \beta ).
+$$
+
+The generalized momenta are
+$$
+p_\alpha = \frac{\partial L}{\partial \dot{\alpha}} = mL^2(2\dot{\alpha} + \dot{\beta}\cos(\alpha - \beta))
+$$
+$$
+p_\beta = \frac{\partial L}{\partial \dot{\beta}} = mL^2(\dot{\beta} + \dot{\alpha}\cos(\alpha - \beta)).
+$$
+To invert this relation, express $\dot{\alpha}$ and $\dot{\beta}$ with $p_\alpha$ and $p_{\beta}$.
+From the second equation, we get
+$$
+\dot{\beta} = \frac{p_\beta}{mL^2} - \dot{\alpha}\cos(\alpha - \beta). 
+$$
+Substituting this into the first,
+$$
+\dot{\alpha} = \frac{p_\alpha}{2mL^2} - \frac{\dot{\beta} \cos(\alpha - \beta) }{2} = \frac{p_\alpha}{2mL^2} - \frac{1}{2}\cos(\alpha-\beta)\left(\frac{p_\beta}{mL^2} - \dot{\alpha}\cos(\alpha - \beta)\right) 
+$$
+$$
+\dot{\alpha}\left(1 - \frac{1}{2}\cos^2(\alpha - \beta)\right)= \frac{p_\alpha- p_\beta \cos(\alpha-\beta)}{2mL^2} 
+$$
+$$
+\dot{\alpha} = \frac{p_\alpha- p_\beta \cos(\alpha-\beta)}{mL^2(2-\cos^2(\alpha - \beta))}.
+$$
+
+Then, using $\dot{\alpha}$ in the first equation,
+$$
+\dot{\beta} = \frac{p_\beta}{mL^2} -  \frac{p_\alpha- p_\beta \cos(\alpha-\beta)}{mL^2(2-\cos^2(\alpha - \beta))}\cos(\alpha - \beta) = \frac{2p_\beta - p_\alpha \cos(\alpha-\beta)}{mL^2(1+\sin^2(\alpha - \beta))}. 
+$$
+
+The Hamiltonian is obtained by a Legendre transform
+\begin{align*}
+    H(\alpha, p_\alpha, \beta, p_\beta) &= \dot{\alpha}p_\alpha + \dot{\beta}p_\beta - L = \frac{p^2_\alpha+ 2p^2_\beta - 2p_\beta p_\alpha \cos(\alpha-\beta)}{mL^2(1+\sin^2(\alpha - \beta))} - \\
+    -&\frac{mL^2}{2}(2\dot{\alpha}^2 + \dot{\beta}^2 + 2\dot{\alpha}\dot{\beta}\cos(\alpha - \beta)) - mgL(2\cos \alpha + \cos \beta ) 
+\end{align*}
+The second  term is
+\begin{align*}
+    &\frac{mL^2}{2}(2\dot{\alpha}^2 + \dot{\beta}^2 + 2\dot{\alpha}\dot{\beta}\cos(\alpha - \beta)) = \frac{mL^2}{2}[2\left(\frac{p_\alpha- p_\beta \cos(\alpha-\beta)}{mL^2(1+\sin^2(\alpha - \beta))}\right)^2 + \\
+    & +\left(\frac{2p_\beta - p_\alpha \cos(\alpha-\beta)}{mL^2(1+\sin^2(\alpha - \beta))}\right)^2 +  2 \frac{2p_\beta - p_\alpha \cos(\alpha-\beta)}{mL^2(1+\sin^2(\alpha - \beta))}\frac{p_\alpha- p_\beta \cos(\alpha-\beta)}{mL^2(1+\sin^2(\alpha - \beta))}\cos(\alpha-\beta)]= \\
+    & = \frac{2p^2_\alpha + 2p^2_\beta\cos^2(\alpha-\beta) - 4p_\alpha p_\beta \cos(\alpha-\beta) + 4p^2_\beta + p^2_\alpha \cos^2(\alpha-\beta) - 4p_\alpha p_\beta \cos (\alpha-\beta)}{2mL^2(1+\sin^2(\alpha - \beta))^2} + \\
+    & + \frac{4p_\beta p_\alpha \cos(\alpha-\beta) -4p^2_\beta\cos^2(\alpha - \beta) - 2 p^2_\alpha\cos^2(\alpha-\beta) + 2p_\beta p_\alpha \cos^3(\alpha-\beta)}{2mL^2(1+\sin^2(\alpha - \beta))^2} = \\
+    &= \frac{p^2_\alpha(2-\cos^2(\alpha-\beta)) + 2p^2_\beta(2-\cos^2(\alpha-\beta)) - 2p_\beta p_\alpha\cos(\alpha-\beta)(2 -\cos^2(\alpha-\beta))}{2mL^2(1+\sin^2(\alpha - \beta))^2} = \\
+    &= \frac{p^2_\alpha + 2p^2_\beta - 2p_\beta p_\alpha\cos(\alpha-\beta)}{2mL^2(1+\sin^2(\alpha - \beta))}.
+\end{align*}
+
+Substituting it into the Hamiltonian,
+$$
+H(\alpha, p_\alpha, \beta, p_\beta) = \frac{p^2_\alpha + 2p^2_\beta - 2p_\beta p_\alpha\cos(\alpha-\beta)}{2mL^2(1+\sin^2(\alpha - \beta))}- mgL(2\cos \alpha + \cos \beta).
+$$
+Hamilton's Equations are
+\begin{align*}
+    \dot{\alpha} = \frac{p_\alpha- p_\beta \cos(\alpha-\beta)}{mL^2(2-\cos^2(\alpha - \beta))} \\
+    \dot{\beta} = \frac{2p_\beta - p_\alpha \cos(\alpha-\beta)}{mL^2(1+\sin^2(\alpha - \beta))}\\
+    \dot{p}_\alpha = -\frac{\partial H}{\partial \alpha} \\
+    \dot{p}_\beta = -\frac{\partial H}{\partial \beta} 
+\end{align*}
+For the momentum equations, let $\lambda(\alpha, \beta) = 2mL^2(1+\sin^2(\alpha - \beta))$.
+\begin{align*}
+&\dot{p}_\alpha = -\frac{\partial H}{\partial \alpha}= -\frac{1}{\lambda^2}\left(2\lambda p_\alpha p_\beta \sin(\alpha -\beta ) - \frac{\partial \lambda}{\partial \alpha}(p^2_\alpha + 2p^2_\beta-2p_\alpha p_\beta \cos(\alpha-\beta))\right) - 2mgL\sin \alpha \\
+& = \frac{-2p_\alpha p_\beta \sin(\alpha - \beta)}{\lambda}+ \frac{2mL^2(2\sin(\alpha-\beta)\cos(\alpha-\beta))(p^2_\alpha + 2p^2_\beta-2p_\alpha p_\beta \cos(\alpha-\beta))}{\lambda^2} - 2mgL\sin \alpha \\
+& \dot{p}_\alpha = -2mgL \sin \alpha- \frac{p_\alpha p_\beta \sin(\alpha -\beta)}{mL^2 (1+\sin^2(\alpha-\beta))} + \frac{\sin(2(\alpha-\beta))(p^2_\alpha + 2p^2_\beta-2p_\alpha p_\beta \cos(\alpha-\beta)))}{2mL^2 (1+\sin^2(\alpha-\beta))} \\
+&\dot{p}_\beta = -mgL\sin\beta + \frac{p_\alpha p_\beta \sin(\alpha -\beta)}{mL^2 (1+\sin^2(\alpha-\beta))} - \frac{\sin(2(\alpha-\beta))(p^2_\alpha + 2p^2_\beta-2p_\alpha p_\beta \cos(\alpha-\beta)))}{2mL^2 (1+\sin^2(\alpha-\beta))}
+\end{align*}
+
+
+\section*{Exercise 2}
+Consider the Lotka–Volterra model
+
+\begin{align*}
+    \dot{h} &= a_1 h(1-bp) \\
+    \dot{p} &= -a_2p(1-ch)
+\end{align*}
+
+for the interaction of a predator and a prey population. Here $h(t)$ and $p(t)$ denote the predator and prey populations, respectively, as a function of time. $a_1, a_2, b, c >0$. 
+
+(a) Show that the system is Hamiltonian for $h,p>0$ for an appropriate rescaling of time. 
+
+\emph{Solution}
+
+The system can be written as
+\begin{align*}
+    \dot{h} &= hp\left(\frac{a_1}{p}-a_1b\right) \\ 
+    \dot{p} &= hp\left(a_2c-\frac{a_2}{h}\right).
+\end{align*}
+
+We can rescale time by $A(h,p)=hp$, which is a positive function for $h,p>0$, introducing a new time variable 
+$$
+\tau = \int_0^t h(s)p(s)ds.
+$$
+
+\begin{align*}
+    \begin{bmatrix}\frac{d h}{d\tau} \\
+    \frac{d p}{d\tau}
+    \end{bmatrix} = \begin{bmatrix} \frac{a_1}{p}-a_1b\\
+    a_2c-\frac{a_2}{h}\end{bmatrix} := \begin{bmatrix}C(p) \\ D(h) \end{bmatrix}
+\end{align*}
+
+For this system to be Hamiltonian, $C$ and $D$ must be the the appropriate partial derivatives of a function $H:\R^+ \times \R^+ \to \R$. That is,
+
+$$
+\frac{\partial H}{\partial p} = C(p)
+$$
+
+and
+$$
+\frac{\partial H}{\partial h} = -D(h).
+$$
+
+We can integrate the equations to get
+\begin{align*}
+&\frac{a_1}{p}-a_1b = \frac{\partial H}{\partial p}\\
+& H(h,p) = a_1\log p - a_1bp + F(h) \\
+&  F'(h) = \frac{\partial H}{\partial h} = -a_2c + \frac{a_2}{h}\\
+& F(h) = -a_2ch +a_2\log h + K \\
+& H(h,p) = a_1\log p -a_1bp + a_2\log h -a_2ch +K,
+\end{align*}
+where $K$ is a constant. Taking $H$ as the Hamiltonian, the system can be written as (in the rescaled time)
+\begin{align*}
+    &\frac{d h}{ d\tau} = \frac{\partial H}{\partial p} \\
+    &\frac{d p}{d\tau} = -\frac{\partial H}{\partial h}. 
+\end{align*}
+
+(b) Using the Hamiltonian, argue that the two species can exhibit stable coexistence, i.e., the system admits a stable fixed point. 
+
+\emph{Solution}
+
+In the region $h,p>0$, (where the rescaling is valid), the system has a single fixed point, defined by 
+$$
+C(h) = D(h) = 0. 
+$$
+This is satisfied by $\frac{a_1}{p_0} = a_1b$ and $\frac{a_2}{h_0} = a_2c$, or 
+$$
+(h_0, p_0) = \left(\frac{1}{b}, \frac{1}{c} \right).
+$$
+
+To establish stability of $(h_0, p_0)$, take $H$ as a Lyapunov function. $(h_0, p_0)$ is a critical point of $H$, which is conserved along trajectories, $\dot{H}=0$. 
+
+The Hessian matrix of $H$ is
+$$
+D^2H = \begin{bmatrix}\frac{\partial^2 H}{\partial h^2} &  \frac{\partial^2 H}{\partial h\partial p} \\
+\frac{\partial^2 H}{\partial h\partial p} & \frac{\partial^2 H}{\partial p^2}\end{bmatrix} = \begin{bmatrix} -\frac{a_2}{h^2} & 0 \\ 0 & -\frac{a_1}{p^2} \end{bmatrix} 
+$$
+$$
+D^2 H_{(h_0,p_0)} = \begin{bmatrix}-a_2b^2 & 0 \\ 0 & -a_1c^2\end{bmatrix}.
+$$
+This is negative definite at $(h_0, p_0)$, so by taking $V=-H$ as a Lyapunov function, we can conclude nonlinear stability. 
+
+
+\section*{Exercise 3}
+Consider a two-dimensional steady compressible fluid flow with velocity field $\mathbf{v}(\mathbf{x})=(u(x,y), v(x,y))$. Assume that the flow conserves mass, i.,e., its density function $\rho(\mathbf{x})>0$ satisfies the equation of continuity,
+$$
+\frac{\partial \rho}{\partial t}+ \nabla \cdot (\rho \mathbf{v}) = 0,
+$$
+valid for general, unsteady flow. Show that the equation of fluid particle motion becomes a canonical Hamiltonian system after a rescaling of time. 
+
+\emph{Solution}
+
+For a steady flow, $\frac{\partial \rho}{\partial t} = 0$, which means $\rho \mathbf{v}$ is divergence free, by the continuity equation. This condition means
+$$
+\frac{\partial(\rho u)}{\partial x} = -\frac{\partial (\rho v)}{\partial y}.
+$$
+
+If we extend $\rho \mathbf{v}$ to be a 3 dimensional vector, the above relation means that there is a vector-potential $\mathbf{A}:\R^3\to \R^3$. In particular, with a scalar function $\Psi:\R^2 \to \R$,
+$$
+\begin{bmatrix}\rho u \\ \rho v\\ 0 \end{bmatrix}=\text{rot } \mathbf{A} = \text{rot } \begin{bmatrix} 0 \\ 0 \\ \Psi \end{bmatrix} = \begin{bmatrix} \partial_y \Psi \\ -\partial_x \Psi \\ 0 \end{bmatrix}. 
+$$
+
+The (massless) fluid particles' motion obeys the differential equation
+\begin{align*}
+    &\dot{x} = u \\
+    &\dot{y} = v.
+\end{align*}
+
+Multiplying the equations by the density, and substituting $\Psi$, gives the desired form
+\begin{align*}
+    &\rho\dot{x} = \rho u \\
+    &\rho\dot{y} = \rho v \\
+    &\dot{x} = \frac{1}{\rho}\frac{\partial \Psi}{\partial y}\\
+    &\dot{y} = -\frac{1}{\rho}\frac{\partial \Psi}{\partial x}. 
+\end{align*}
+
+We can bring it to the canonical form, by introducing a rescaling of time, $\tau = \int_0^t\frac{1}{\rho(x(s),y(s))}ds$.
+\begin{align}
+    \frac{d x}{d\tau} = \frac{\partial \Psi}{\partial y} \\
+    \frac{d y}{d\tau} = -\frac{\partial \Psi}{\partial x} 
+\end{align}
+
+
+\section*{Exercise 4}
+
+Consider a dynamical system defined on the two-dimensional torus, $\T^2 = S^1 \times S^2$. Such systems admit the general form
+\begin{align*}
+    \dot{\phi}_1 &= a(\phi_1, \phi_2) \\
+    \dot{\phi}_2 &= b(\phi_1, \phi_2),
+\end{align*}
+where $\phi_i\in S^1$. 
+
+(a) Show that a physical example is found in the motion of two uncoupled linear undamped oscillators. Specifically, show that orbits of
+
+\begin{align*}
+    \ddot{x} + x &= 0 \\
+    \ddot{y} + y &= 0 
+\end{align*}
+are confined to two-dimensional tori of the phase space. 
+
+\emph{Solution}
+
+The orbits of the linear equation are described in the space space, spanned by the variables $x, \dot{x}=v_x, y, \dot{y}=v_y$. 
+
+The differential equations are satisfied by
+$$
+x(t) = r_x \cos(t + \delta_x) \qquad y(t) = r_y\cos (t+\delta_y).
+$$
+This can be verified by direct substitution,
+$$
+\ddot{x} = -r_x \cos(t+\delta_x)=-x(t) \qquad \ddot{y} = -r_y \cos(t+\delta_y)=-y(t).
+$$
+
+The velocity variables are 
+$$
+v_x=\dot{x} = -r_x\sin(t+\delta_x) \qquad v_y=\dot{y} = -r_y\sin(t+\delta_y).
+$$
+
+The trajectory is given by the parametrization, using the notation $\phi_1 = t+\delta_x$, $\phi_2 = t+\delta_y$
+$$
+\begin{bmatrix} x \\ v_x \\ y \\ v_y \end{bmatrix} = \begin{bmatrix} r_x \cos(\phi_1) \\ -r_x \sin(\phi_1)\\ r_y\cos(\phi_2) \\ -r_y\sin(\phi_2) \end{bmatrix}
+$$
+Which describes a 2-torus, embedded in $\R^4$. 
+
+(b) Assume that the system has no fixed point (which is the case in the oscillator example). Argue that the system then cannot be Hamiltonian, even after a rescaling of time. 
+
+\emph{Solution}
+
+Assume the converse, that the system is Hamiltonian, in the generalized sense. That is, there is a smooth function $H:\T^2 \to \R$ and $F : \T^2 \to \R$, $F(\phi_1, \phi_2) \neq 0$
+\begin{align}
+    \dot{\phi}_1 &= F(\phi_1, \phi_2) \frac{\partial H}{\partial \phi_2}\\
+    \dot{\phi}_2 &= -F(\phi_1, \phi_2)\frac{\partial H}{\partial \phi_1}.
+\end{align}
+
+Because $F$ cannot be zero, all possible fixed points must correspond to critical points of $H$. We also know that $H$ is a continuous function, defined on a compact domain ($\T^2$ is compact). Then, by a theorem from analysis, $H$ must have a minimum and a maximum value on $\T^2$. 
+
+Since the 2-torus is a manifold without a boundary, these extremum points must correspond to critical points of $H$, where $DH = 0$. 
+
+We conclude that if the original system, $[\dot{\phi}_1, \dot{\phi}_2]$, is Hamiltonian, then it must have a fixed point. 
+
+If we assume that  $[\dot{\phi}_1, \dot{\phi}_2]$ does not have a fixed point, then it cannot be Hamiltonian. 
+
+\section*{Exercise 5}
+
+Show that for any dynamical system $\dot{q}=f(q,t)$, $q\in \R^n$, one can select a canonically conjugate variable $p\in \R^n$, such that the evolution of ($q(t), p(t)$) is governed by the Hamiltonian system. (Thus any type of dynamics can be viewed as a projection from a higher-dimensional Hamiltonian dynamical system.)
+
+\emph{Solution}
+
+Consider the function $H:\R^n \times \R^n\times \R \to \R$, defined by
+$$
+H(x,p,t) = \mathbf{f}(x,t)\cdot \mathbf{p}.
+$$
+
+This function defines a Hamiltonian dynamical system on $(x,p)\in \R^n\times \R^n$. The evolution equations are
+\begin{align}
+    &\dot{x} = f(x,t) \\
+    &\dot{p} = -\nabla_x H(x,p,t) = -\nabla_x \mathbf{f}(x,t)\cdot \mathbf{p}
+\end{align}
+
+Projecting this system to any $\mathbf{p} =$ constant subspace gives the original dynamics, defined by the ODEs
+$$
+\dot{q} = f(q,t).
+$$
+\end{document}

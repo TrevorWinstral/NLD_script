@@ -1,0 +1,278 @@
+\documentclass[a4paper,11pt,pdftex]{article}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[magyar]{babel} %needed in Hungarian reports
+\usepackage{fancyhdr} %for the nice header
+\usepackage{graphicx} %grapics input
+\usepackage{tikz} %tikz figures
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm,pdftex]{geometry} %margins
+
+\usepackage{color}
+\usepackage{url}
+\usepackage{hyperref} %links
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+urlcolor=blue,
+citecolor=red
+}
+
+\rhead{NLDC II.}
+\lhead{Homework 3}
+\chead{B. Kaszas}
+
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0em}
+
+\title{Nonlinear Dynamics and Chaos II. \\ Homework 3}
+\author{Kaszás Bálint}
+\date{\today}
+
+\begin{document}
+\pagestyle{fancy}
+
+\maketitle
+
+
+\section*{Exercise 1}
+Show that if $\lambda$ is an eigenvalue of a linearized Hamiltonian system, then so is $-\lambda$. (Hint: For any symmetric matrix $A$ and any nonsingular matrix $B$, the eigenvalues of $BA$ and $B^{-1}(BA)B$ coincide.)
+
+\emph{Solution}
+
+Given a Hamiltonian system $\dot{x} = JDH(x)$, for $x\in \mathbb{R}^{2n}$ its linearization is 
+$$
+\dot{y} = (JD^2H)y,
+$$
+with the matrix 
+
+$$J = \begin{bmatrix}
+    0 & \mathbb{I}_{n\times n} \\
+    -\mathbb{I}_{n\times n} &  0
+\end{bmatrix}.
+$$
+
+From the hint, $BA$ and $B^{-1}(BA)B$ have the same eigenvalues. This is a similarity transformation. I will call $BA=G$, and the similar matrix $B^{-1}GB=F$. The inverse transform is $G=BFB^{-1}$. 
+
+Assume $\lambda$ is an eigenvalue of $G$ with eigenvector $v$. Then, for $F$ we have that
+$$
+BFB^{-1}v = \lambda v
+$$
+and 
+\begin{equation}
+\label{nn1}
+    F(B^{-1}v) = \lambda (B^{-1}v),
+\end{equation}
+
+
+Showing that $\lambda$ is an eigenvalue of $F$ with eigenvector $B^{-1}v$.
+
+Also note, that for the linearized Hamiltonian, the matrix $D^2HJ$ has the property (written in index notation) 
+$$
+(D^2H)_{ij}J_{jk} = - J_{kj}(D^2H)_{ji}, 
+$$
+because of $J_{ij} = - J_{ji}$ and $D^2H_{ij} = D^2H_{ji}$. 
+\begin{equation}
+\label{nn2}
+     D^2HJ = - (JD^2H)^T
+\end{equation}
+
+Substituting $B=J$ and $A=D^2H$ into (\ref{nn1}) gives
+\begin{align*}
+    &J^{-1}J(D^2H)J(J^{-1}v) = \lambda J^{-1}v \\
+    &(D^2H) J (J^{-1}v) = \lambda J^{-1}v.
+\end{align*}
+Using (\ref{nn2}) we get
+$$
+(JD^2H)^T(J^{-1}v) = -\lambda J^{-1}v.
+$$
+This means that $-\lambda$ is an eigenvalue of $(JD^2H)^T$ (with eigenvector $J^{-1}v$), and since the eigenvalues of a matrix and its transpose coincide, it proves the statement. 
+
+
+\section*{Exercise 2}
+A gradient system is a dynamical system of the form 
+$$
+\dot{x} = -DV(x), \qquad x\in \mathbb{R}^{n},
+$$
+with some smooth function $V$. 
+
+(a) Show that the eigenvalues of a linearized gradient system are always real.
+
+(b) Find a condition for $V$ under which a fixed point of a gradient system is asymptotically stable.
+
+(c) Show that gradient systems cannot have periodic orbits.
+
+(d) Given a smooth function $f(x)$, propose a numerical method for finding the local minima and maxima of f. 
+
+\emph{Solution}
+
+(a): The linearized system for the gradient system is 
+$$
+\dot{y} = -D^2Vy.
+$$
+
+$V$ is assumed to be smooth, so the Hessian $D^2V$ is a symmetric matrix, because of the symmetry of second partial derivatives. 
+
+Since symmetric matrices have real eigenvalues, the linearized gradient system too, has real eigenvalues.
+
+(b): The fixed points satisfy $DV(x_0) = 0$.
+That is, $x_0$ is a fixed point if and only if it is a critical point of V. 
+
+Claim: If $x_0$ is a local minimum of $V$, then $x_0$ is asymptotically stable.
+
+To show this, we can use $V$ as a Lyapunov function:
+
+If $V(x_0)$ is a minimum, that means there is an open subset $U$, such that 
+$\forall x\in U$, $V(x)>V(x_0)$.
+
+Then, define $L(x):= V(x)-V(x_0)$. This function has the property that $L(x)>0$ $\forall x\in U\setminus \{x_0\}$. Its time derivative is
+
+$$
+\frac{\text{d}L}{\text{d}t} = DV(x)\cdot \dot{x} = -DV(x)\cdot DV(x) = - ||DV(x)||^2 < 0.
+$$
+The norm of the gradient is always positive if $x\ne x_0$. 
+This shows that $L(x)$ is positive definite and $\dot{L}$ is negative definite  on $U\setminus \{x_0\}$, which, by Lyapnunov's theorem, guarantees asymptotic stability for $x_0$.
+
+(c): The statement is, if $x_0$ is not a fixed point, there is no $T>0$ such that $x(T) = x_0$. Assume the converse: 
+
+$\exists T>0$ such that $x(T)=x(0)=x_0$. Consider the net change in $V$ along this trajectory, using Newton-Leibniz:
+
+\begin{equation}
+\label{nl}
+    V(x(T)) - V(x(0)) = \int_0^T \frac{\text{d}V(t)}{\text{d}t} \text{d}t.
+\end{equation}
+From the previous exercise, 
+
+\begin{equation}
+    \label{n2}
+    \int_0^T \frac{\text{d}V(t)}{\text{d}t} \text{d}t = -\int_0^T ||DV(x(t))||^2 \text{d}t < 0.
+\end{equation}
+
+This is strictly negative, if $x_0$ is not a fixed point. By assumption, the left hand side of (\ref{nl}) is 0, which is in contradiction with (\ref{n2}). This shows that there is no periodic orbit in a gradient system.
+
+(d) Based on this result, we can numerically find the minima of a smooth function $f(x)$ by considering the gradient system
+
+\begin{equation}
+\label{n3}
+\dot{x} = - Df(x).
+\end{equation}{}
+
+
+If $\hat{x}$ is a local minimum of $f(x)$, then there is an open subset $U$, such that 
+$\forall x\in U$, $f(x)>f(\hat{x})$. By the result in (b), $\hat{x}$ is an asymptotically stable fixed point of (\ref{n3}). 
+
+To numerically find $\hat{x}$, take an initial guess $x_0$ in $U$. Then, we solve the initial value problem $x(0)=x_0$, with $x(t)$ satisfying (\ref{n3}). The solution will converge to $x_0$. To be specific, simply using the Euler-scheme
+$$
+x_{n+1} = x_{n} - Df(x_{n}),
+$$
+is the gradient descent method. For finding maxima, put $F(x):=-f(x)$, and repeat the process for the gradient system $\dot{x} = -DF(x)$.
+
+\section*{Exercise 3}
+Let $f : X \to Y$ be a smooth function, where $X\subset \mathbb{R}^n$ is a ($k$-dimensional) manifold. Prove that the graph of $f$
+
+$$
+\text{graph}(f) = \{(x,y)\in X\times Y : y = f(x)\}
+$$
+is always a manifold. 
+
+\emph{Solution}
+
+$X\subset \mathbb{R}^n$ is a manifold, which means $\forall x\in X$ there is an open subset $V\subset \mathbb{R}^k$ around $\xi\in \mathbb{R}^k$ and a local parametrization $\varphi : V \to \mathbb{R}^n$, $\varphi(\xi) = x$. I also assume that $Y\subset \mathbb{R}^l$ for some $l$. The product $X\times Y$ is a subset of the ambient space $\mathbb{R}^n\times \mathbb{R}^l$.
+
+Let us call the graph of $f$, $M$. The goal is to show that for each $(x,y)\in M$, there is an open subset $U$ of $R^k$, with $\xi'\in U$ and a local parametrization $F:U\to \mathbb{R}^n\times \mathbb{R}^l$ with $F(\xi') = (x,y)\in M$, which is a diffeomorphism from $U$ to  $M\cap W$, for an open set $W\subset \mathbb{R}^n\times \mathbb{R}^l$ [$W\cap M$ is relatively open].
+
+Consider the map 
+$$
+F:V\subset \mathbb{R}^k \to \mathbb{R}^n\times \mathbb{R}^l
+$$ given by
+
+$$
+F(\xi) = (\varphi(\xi), f\circ \varphi (\xi)).
+$$
+This map is smooth, because its components are smooth. It is also a bijection on  $M\cap W$:
+\begin{itemize}
+    \item It is injective, since if $F(\xi_1) = F(\xi_2)$, we must have $\varphi(\xi_1)=\varphi(\xi_2)$ because of the first component. $\varphi$ is a bijection, so $\xi_1 = \xi_2$. 
+    \item It is surjective, because if $(x,y)\in M\cap W$, then we have $f(x)=y$ and $x=\varphi(\xi)$ for some $\xi \in V$, since $\varphi$ is a local parametrization for $X$. This means we can write $(x,y) = F(\xi) = (\varphi(\xi), f\circ \varphi(\xi)$.
+\end{itemize}
+
+Its inverse is given by 
+$$
+F^{-1} : M\cap W \to V
+$$
+
+$$
+F^{-1}= \varphi^{-1}\circ \pi,
+$$
+where $\pi:X\times Y \to X$, $\pi(x,y) = x$ is the projection onto the first factor, so
+$F^{-1}(x,y) = \varphi^{-1}(x)$.
+This function is smooth, because it has a smooth extension to $W\subset \mathbb{R}^n\times \mathbb{R}^l$: $\pi$ is already smooth on $W$, and because $\varphi$ was a local parametrization, $\varphi^{-1}$ has to have a smooth extension. 
+
+This shows that that around a point $(x,y)\in M$, the map $F$ is a local parametrization from an open subset $U=V\subset \mathbb{R}^k$, with $x\in \varphi(V)$, for some local parametrization of $X$ around $x$. 
+
+\section*{Exercise 4}
+
+Show that the tangent space of a manifold at any point is independent of the local parametrization used in its construction (i.e., another local parametrization would give the same tangent space).
+
+\emph{Solution}
+
+Given an m-dimensional manifold $M\subset \mathbb{R}^n$, the tangent space at $p\in M$ is defined by 
+$$
+df_x(\mathbb{R}^m),
+$$
+for some local parametrization around $p$, $f:U\subset \mathbb{R}^m \to \mathbb{R}^n$ and $f(x)=p$. Assume that there is a different local parametrization, $g: V\subset \mathbb{R}^m \to \mathbb{R}^n$, $p\in f(U) \cap g(V)$, with  $f(x)=p=g(y)$. 
+
+The differentials are the linear maps
+$$
+df_x : \mathbb{R}^m \to \mathbb{R}^n \qquad dg_y : \mathbb{R}^m \to \mathbb{R}^n.
+$$
+Since both $f$ and $g$ are local parametrizations, $df_x$ and $dg_y$ are injective and they (as linear maps) have $\text{Rank } f =\text{Rank } g = m$. 
+
+$\text{Rank } f = \text{dim} (\text{Image }f) = \text{dim} (\text{Image }g) = m$. This shows that the tangent spaces we obtain using $f$ and $g$ are both $m$ dimensional subspaces of $\mathbb{R}^n$. That is, the vector spaces $df_x(\mathbb{R}^m)$ and $dg_y(\mathbb{R}^m)$ are isomorphic, because they are finite dimensional, with the same dimension. 
+
+\section*{Exercise 5}
+Prove that the tangent bundle of a manifold is a manifold by constructing an explicit local parametrization.
+
+\emph{Solution}
+
+Let $M\subset \mathbb{R}^n$ be an $m$ dimensional manifold. Its tangent bundle is 
+$$
+TM = \bigcup_{p\in M} \{p\}\times TM_p. 
+$$
+
+We show, that $TM$ is a $2m$ dimensional manifold. Consider a point $(p,v)\in TM$, such that $v\in TM_p$. Since $M$ is a manifold, there is a local parametrization $\varphi:\Tilde{U}\subset \mathbb{R}^m \to \mathbb{R}^n$, with $x\in \Tilde{U}, \varphi(x)=p$.
+
+Let $U = \Tilde{U} \times \mathbb{R}^m$ be an open set, and define a function
+$\Phi :U \to \mathbb{R}^n\times \mathbb{R}^n$, by
+
+$$
+\Phi(x, \eta) = (\varphi(x), d\varphi_x(\eta)).
+$$
+
+Since both $\varphi$ and $d\varphi_x$ are smooth functions, $\Phi$ is also smooth. 
+We still need to show that $\Phi$ is a diffeomorphism onto $TM\cap W$ for an open set $W\subset \mathbb{R}^n \times \mathbb{R}^n$.
+
+$\Phi$ is a bijection, because:
+
+If $\Phi(x,\eta) = \Phi(x', \eta')$, for $(x, \eta), (x', \eta') \in TM\cap W$ then $\varphi(x) = \varphi(x')$ from the first component, which means $x=x'$. This is because $\varphi$ is a local parametrization. From the second component: $d\varphi_x(\eta) = d\varphi_x(\eta')$ means $\eta = \eta'$, since the linear map $d\varphi_x$ is injective. This shows $\Phi$ is injective on the relatively open set $TM\cap W$. 
+
+For surjectivity, for a point $(p, v)\in TM\cap W$ we can find $x=\varphi^{-1}(p)$, since the local parametrization is already bijective. We also know that its inverse is smooth, so with $\eta := d(\varphi^{-1})_p(v)$, we see that
+
+$$d\varphi_p(\eta)=d\varphi_p[d(\varphi^{-1})_p(v)] = d\varphi_{\varphi^{-1}(p)}\circ d(\varphi^{-1})_p(v) = d(\varphi^{-1}\circ \varphi)_p(v) = v,$$
+by the chain rule. So, we have found a point $(x, \eta)$ for each $(p,v)\in  TM\cap W$, with $\Phi(x,\eta) = (p,v)$.
+
+This also gives the inverse function on this relatively open set: 
+$$
+\Phi^{-1}: TM\cap W \to U
+$$
+
+$$
+\Phi^{-1}(p, v) = \left[\varphi^{-1}(p), d(\varphi^{-1})_p(v)\right].
+$$
+
+We know that $\varphi^{-1}$ can be extended to a smooth function, and the same is true for its differential. Then, we have that $\Phi: U\to \mathbb{R}^n\times \mathbb{R}^n$ is a diffeomorphism, and is a suitable local parametrization for $TM$, around a point $(p,v)=\Phi(x, \eta)$,
+\end{document}

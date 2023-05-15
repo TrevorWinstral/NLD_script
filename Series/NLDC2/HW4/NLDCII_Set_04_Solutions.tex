@@ -1,0 +1,520 @@
+\documentclass[a4paper,11pt,pdftex]{article}
+
+\usepackage[utf8]{inputenc}
+%\usepackage[magyar]{babel} %needed in Hungarian reports
+\usepackage{fancyhdr} %for the nice header
+\usepackage{graphicx} %grapics input
+\usepackage{tikz} %tikz figures
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm,pdftex]{geometry} %margins
+
+\usepackage{color}
+\usepackage{url}
+\usepackage{hyperref} %links
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+urlcolor=blue,
+citecolor=red
+}
+
+\rhead{NLDC II.}
+\lhead{Homework 3}
+\chead{B. Kaszas}
+
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0em}
+
+\title{Nonlinear Dynamics and Chaos II. \\ Homework 4}
+\author{Kaszás Bálint}
+\date{\today}
+
+\begin{document}
+\pagestyle{fancy}
+
+\maketitle
+
+
+\section*{Exercise 1}
+Computing the Lyapunov-type numbers $\nu(p)$ and $\sigma(p)$ in the example
+
+\begin{align}
+\label{eq1}\dot{x} &= -x(1-x^2) \\
+\label{eq2}\dot{y} &= -by, \qquad b>0,
+\end{align}
+on the overflowing invariant manifold $M = \{ (x,y) \in \mathbb{R}^2 : y = 0, x\in [-3/2, 3/2]\}$.
+
+\emph{Solution}
+
+To define the Lyapunov-type numbers at a point $p$ on an overflowing invariant manifold $M$, let $w_0\in NM_p$ be a vector in the normal space of $M$ at $p$ and $v_0\in TM_p$ be a vector in the tangent space at $p$. Their images under the linearized backward flow are 
+\begin{align*}
+    v_{-t} &= DF^{-t}_p(v_0) \text{ and } \\
+    w_{-t} &= \Pi_{F^{-t}(p)}\circ DF^{-t}_p(w_0). 
+\end{align*}
+Here, $DF^{-t}_p$ is the differential of the (backward) flow-map at the point $p$ (which is a linear map on the tangent space of the full phase-space at $p$) and $\Pi_q$ is the orthogonal projection onto the normal space of $M$ at $q$. 
+
+
+With this notation, the Lyapunov-type numbers, for a point $p$ on an overflowing invariant manifold $M$, are defined to be
+
+\begin{equation}
+    \nu(p) = \text{inf}\left\{a>0: \frac{||w_{0}||}{|| w_{-t}||a^t} \to 0 \text{ as } t \to \infty, \forall w_0 \in NM_p \right\}
+\end{equation}
+
+\begin{equation}
+    \sigma(p) = \text{inf} \left\{ b \in \mathbb{R}: \frac{||w_0||/ ||w_{-t}||^b}{||v_0||/||v_{-t}||} \to 0 \text{ as } t\to \infty, \forall w_0\in NM_p, v_0 \in TM_p \right\}.
+\end{equation}
+
+To calculate $\nu(p)$ and $\sigma(p)$, we first define the two operators
+\begin{equation}
+    A_t(p) := DF_p^{-t}|_{TM_p}
+\end{equation}
+\begin{equation}
+    B_t(p) := \Pi_p \circ DF_{F^{-t}(p)}^{t}|_{NM_{F^{-t}(p)}}.
+\end{equation}
+Then, a theorem by Fenichel states that
+\begin{equation}
+    \label{eqnu}
+    \nu(p) = \text{lim sup}_{t\to \infty} ||B_t||^{1/t}.
+\end{equation}
+If in addition, $\nu(p)<1$ then
+\begin{equation}
+    \label{eqsigma}
+    \sigma(p) = \text{lim sup}_{t\to \infty} \frac{\log ||A_t(p)||}{-\log ||B_t(p)||}.
+\end{equation}
+
+To compute the operators $A_t(p)$ and $B_t(p)$, we calculate the flow-map of system (\ref{eq1})-(\ref{eq2}) explicitly. Equations (\ref{eq1}) and (\ref{eq2}) are decoupled, so we can find the flow map by integrating the equations separately. The equation for $y$ is a homogeneous, linear, scalar equation, which has the solution, assuming the initial condition is given as $y(t_0):= y_0$,
+$$
+y(t;y_0,t_0) = y_0e^{-b(t-t_0)}.
+$$
+The system is autonomous, which means we can also set $t_0 = 0$ without loss of generality:
+\begin{equation}
+\label{eqy}
+y(t;y_0) = y_0e^{-bt}.
+\end{equation}
+
+We can solve (\ref{eq1}) by separation of variables:
+\begin{align*}
+    \dot{x} &= -x(1-x^2) \\ 
+    t &= \int_{x_0}^{x} -\frac{dx'}{x'(1-x'^2)}d x' .
+\end{align*}
+    The integral on the right side can be evaluated using the expression (partial fraction decomposition)
+    $$
+    -\frac{1}{x(1-x^2)} = -\frac{1}{x} - \frac{1}{2(1-x)} + \frac{1}{2(1+x)}.
+    $$
+Then, using Newton-Leibniz, we get
+\begin{align*}
+t &= -(\log x - \log x_0) + \frac{1}{2}\left[\log(1-x) - \log(1-x_0)\right] + \frac{1}{2}\left[\log(1+x) - \log(1+x_0)\right ] \\
+e^t &= \frac{x_0}{x}\sqrt{\frac{1-x^2}{1-x_0^2}} 
+\end{align*}
+
+This expression only makes sense if $x$ and $x_0$ have the same sign. In this case, we can square it to get 
+$$
+\frac{x^2 e^{2t}}{x_0^2} = \frac{1-x^2}{1-x_0^2}$$
+Rearranging to solve for $x^2$, we have
+$$
+x^2 = \frac{x_0^2}{x_0^2 + (1-x_0^2)e^{2t}}.
+$$
+In the relevant case, when $x$ and $x_0$ have the same sign, we can take the (positive) square root 
+
+\begin{equation}
+\label{eqx}
+    x(t;x_0) = \frac{x_0}{\sqrt{x_0^2 + (1-x_0^2)e^{2t}}}.
+\end{equation}
+The components of the flow-map are then given by the functions (\ref{eqy}) and (\ref{eqx}). 
+
+\begin{equation}
+    F^t(x_0,y_0) := \begin{bmatrix} 
+    x(t; x_0) \\
+    y(t; y_0)
+    \end{bmatrix} = \begin{bmatrix} 
+    \frac{x_0}{\sqrt{x_0^2 + (1-x_0^2)e^{2t}}}\\
+    y_0e^{-bt}
+    \end{bmatrix}
+\end{equation}
+
+The linearized backward flow-map is the matrix
+\begin{equation}
+    DF^{-t}_{(x_0,y_0)} := \begin{bmatrix} 
+    \frac{\partial x(-t; x_0)}{\partial x_0} & 0 \\
+    0 & \frac{\partial y(-t;y_0)}{\partial y_0}
+    \end{bmatrix}.
+\end{equation}
+To compute the first entry, I use the short-hand $a:=x_0^2 + (1-x_0^2)e^{-2t}$. 
+$$
+\frac{\partial x(t;x_0)}{\partial x_0} = \frac{1}{a}\left[\sqrt{a} - \frac{x_0^2(1-e^{-2t})}{\sqrt{a}}\right] = \frac{a - x_0^2(1-e^{-2t})}{a^{3/2}} = \frac{e^{-2t}}{a^{3/2}}
+$$
+\begin{equation*}
+    DF^{-t}_{x_0} := \begin{bmatrix} 
+    \frac{e^{-2t}}{a^{3/2}} & 0 \\
+    0 & e^{bt}
+    \end{bmatrix}
+\end{equation*}
+Restricting this matrix onto the tangent space of $M$ at $p=x_0$, means that it acts on vectors of the ambient space, that have the form
+$$
+\mathbf{v_0} = \begin{bmatrix}
+v_0 \\
+0
+\end{bmatrix},
+$$ as
+
+\begin{equation*}
+    DF^{-t}_{x_0}|_{TM_{x_0}} \mathbf{v_0} = \begin{bmatrix}\frac{e^{-2t}}{a^{3/2}}v_0 \\ 0 \end{bmatrix} \in TM_{F^{-t}(x_0)}
+\end{equation*}
+Which shows that the operator $A_t(x_0)$ is simply the scalar multiplication by
+\begin{equation}
+    \label{eqat}
+    A_t(x_0) = \frac{e^{-2t}}{(x_0^2 + (1-x_0^2)e^{-2t})^{3/2}}.
+\end{equation}
+
+Similarly, with the notation $x_{-t} = F^{-t}(x_0)$,
+$$
+DF^{t}_{F^{-t}(x_0)} = \begin{bmatrix} \frac{e^{2t}}{(x_{-t}^2 + (1-x_{-t}^2)e^{2t})^{3/2}} & 0 \\
+0  & e^{-bt}\end{bmatrix}$$
+Restricting it to the normal space at $x_{-t}$ (vectors parallel to the y axis), and then projecting to the normal space at $x_0$ (again, vectors parallel to the y axis) we have
+\begin{equation}
+\label{eqbt}
+B_t(x_0) = e^{-bt}. 
+\end{equation}
+
+Substituting the expressions (\ref{eqat}) and (\ref{eqbt}) into the theorem (\ref{eqnu}) and (\ref{eqsigma}) gives
+\begin{align*}
+    &\nu(x_0) = \text{lim sup}_{t\to \infty} ||B_t||^{1/t} = \text{lim sup}_{t\to \infty} e^{-b} = e^{-b}. \\
+    &\sigma(x_0) = \text{lim sup}_{t\to \infty} \frac{\log ||A_t(p)||}{-\log ||B_t(p)||} =\text{lim sup}_{t\to \infty}  \frac{-2t -\frac{3}{2}\log (x_0^2 + (1-x_0^2)e^{-2t})}{bt} = \\
+    & = -\frac{2}{b} - \text{lim sup}_{t\to \infty} \frac{3}{2b}\frac{\log(x_0^2 + (1-x_0^2)e^{-2t}))}{t}
+\end{align*}
+
+Since $\nu(x_0) = e^{-b} <1 $, we could use the second part of the theorem as well. In the last line, we have the lim. sup. of product of two functions, one of which is $1/t$, which goes to zero as $t\to \infty$. 
+The limit of the numerator is
+$$
+\text{lim}_{t\to \infty} \frac{3}{2b}\log(x_0^2 + (1-x_0^2)e^{-2t})) = \frac{3}{b}\log x_0.
+$$
+If this limit exists, then the whole limit is zero, since it is a product of two convergent functions. 
+
+However, for $x_0=0$, $\log x_0$ is divergent. Then, we use the original expression and set $x_0=0$:
+$$
+\text{lim sup}_{t\to \infty} \frac{3}{2b}\frac{\log(x_0^2 + (1-x_0^2)e^{-2t}))}{t} = \text{lim sup}_{t\to \infty} \frac{3}{2b}\frac{\log e^{-2t}}{t} = -\frac{3}{b}.
+$$
+Then, the Lyapunov-type numbers on the manifold $M$ are
+\begin{align*}
+    \nu(x_0) &= e^{-b} \\
+    \sigma(x_0) &= \begin{cases} \frac{1}{b}, \qquad \text{ for } x_0 = 0 \\
+                    -\frac{2}{b} \qquad \text{ otherwise}.
+    \end{cases}
+\end{align*}
+\section*{Exercise 2}
+Consider the three dimensional nonlinear dynamical system
+\begin{align}
+   \label{eqsys2}
+     \dot{x} &= -\varepsilon(x + y^2) \\
+    \dot{y} &= -y \\
+    \dot{z} &= z,
+\end{align}
+with a small parameter $\varepsilon\geq 0$.
+
+(a) Show that the set $M_0 = \{ y=z=0, x\in [-1,1]\}$ is a normally hyperbolic invariant manifold for $\varepsilon = 0$.
+
+\emph{Solution}
+
+The set $M_0$ is an invariant manifold, since setting $\varepsilon =0$ and restricting to $y=z=0$, the dynamics becomes $\dot{x}=\dot{y}=\dot{z}=0$, there is no dynamics on this set. It is also a 1-manifold with boundary, $\partial M_0 = \{ -1, 1\}$. 
+
+The system can be seen as the fast-time formulation of a singularly perturbed problem. In the limit $\varepsilon =0$, the fast subsystem is 
+\begin{align*}
+    \dot{y} &= -y \\
+    \dot{z} &= z,
+\end{align*}
+and the critical manifold is $M_0$. To establish normal hyperbolicity, we restrict the dynamics to invariant subspaces $x=$const., where it is given by the fast subsystem. In this case, the fast subsystem is linear for all $x$, and has nonzero eigenvalues, showing that the dynamics in the direction normal to $M_0$ is hyperbolic. 
+
+A direct application of Fenichel's definition of normal hyperbolicity is not applicable, since the manifold is not overflowing invariant. This can be fixed by a local modification of the vector field near the boundary points (Wiggins (1994) - 7.2) . 
+
+(b) Find the manifold $M_\varepsilon$ into which $M_0$ perturbs for small $\varepsilon>0$.
+
+\emph{Solution}
+
+Restricting the perturbed system onto the set $M_\varepsilon := \{ y=z=0, x\in [-1,1]\}$, the dynamics is  $\dot{x} = -\varepsilon x$. This means that $M_\varepsilon$ is an invariant manifold of the perturbed system, which coincides with the unperturbed manifold $M_0$. 
+
+(c) Show that for any base point $p\in M_\varepsilon $ the corresponding stable fiber $f^s(p)\subset W^s_{\text{loc}}(M_\varepsilon)$, 
+
+$$
+f^s(p) = \left\{ (x,y,z): x = x_p+ \frac{\varepsilon}{2-\varepsilon}y^2, z=0 \right\}.
+$$
+
+
+\emph{Solution}
+
+The local stable manifold is contained in the $x-y$ plane. Because of the normal hyperbolicty of $M_\varepsilon$, it admits an invariant foliation:
+$$
+W^s_{\text{loc}}(M_\varepsilon) = \bigcup_{p\in M_\varepsilon} f^s(p).
+$$
+
+In particular, this foliation has the property, that given a base point $p\in M_\varepsilon$, the trajectories starting in $f^s(p)\subset W^s_{\text{loc}}(M_\varepsilon) $ have the fastest rate of convergence towards the trajectory $\gamma(p)\subset M_\varepsilon$ through p. That is, given $q\in f^s(p)$ and $q'\in f^s(p')$
+
+\begin{equation}
+\label{conds}
+    \frac{||F^t(q) - F^t(p)||}{||F^t(q') - F^t(p)||}\to 0, \text{ as } t\to \infty.
+\end{equation}
+
+To use this property to find the nonlinear surface $f^s(p)$, we first calculate the flow-map of system (\ref{eqsys2}). The $y$ and $z$ coordinates decouple from $x$, and they can be integrated first
+$$
+y(t;y_0) = y_0e^{-t} \qquad z(t;z_0) = z_0e^{t}.
+$$
+Substituting this into the $x$ equation, we get the inhomogeneous, linear scalar equation
+$$
+    \dot{x} = -\varepsilon x - \varepsilon y_0^2 e^{-2t}, 
+$$
+which we can solve by variation of constants. The solution of the homogeneous part is $x_h = ce^{-\varepsilon t}$. To obtain a particular solution for the inhomogeneous equation, look for a solution of the form $x(t)=c(t)e^{-\varepsilon t}$. This leads to
+$$
+\dot{c} = -y_0^2\varepsilon e^{(\varepsilon-2)t}
+$$
+$$
+c = \frac{y_0^2 \varepsilon }{2-\varepsilon}e^{(\varepsilon-2)t}.
+$$
+The full solution is the sum of the general solution to the homogeneous part and the particular solution
+$$
+x(t) = c_0e^{-\varepsilon t} + \frac{y_0^2 \varepsilon }{2-\varepsilon}e^{-2t}.
+$$
+
+Eliminating the constant of integration $c_0$, using the initial condition $x(0) = x_0$, we get
+$$
+x(t;x_0) = \left(x_0 - \frac{y_0^2 \varepsilon }{2-\varepsilon}\right)e^{-\varepsilon t} + \frac{y_0^2\varepsilon}{2-\varepsilon}e^{-2t}.
+$$
+
+The flow-map of system (\ref{eqsys2}) is 
+
+\begin{equation}
+\label{eqflowmap2}
+F^t(x_0,y_0,z_0) = \begin{bmatrix}
+\left(x_0 - \frac{y_0^2 \varepsilon }{2-\varepsilon}\right)e^{-\varepsilon t} + \frac{y_0^2\varepsilon}{2-\varepsilon}e^{-2t} \\
+y_0e^{-t} \\
+z_0e^{t}
+\end{bmatrix}.
+\end{equation}
+
+
+Consider the points $p = (x_p, 0, 0), p' = (x'_p, 0, 0)\in M_\varepsilon $ and $q = (x_q, y_q, 0) \in f^s(p)\subset W^u_{\text{loc}}(M_\varepsilon)$, $q' = (x'_q, y'_q, 0)\in f^s(p')\subset W^u_{\text{loc}}(M_\varepsilon)$.
+Then, 
+
+\begin{equation}
+\label{eqflowmapdiff}
+F^t(q) - F^t(p) = \begin{bmatrix}
+\left(x_q - \frac{y_q^2 \varepsilon}{2-\varepsilon}\right)e^{-\varepsilon t} + \frac{y_q^2 \varepsilon }{2-\varepsilon}e^{-2t} - x_p e^{-\varepsilon t}\\
+y_q e^{-t} \\
+0
+\end{bmatrix} = \begin{bmatrix}
+e^{-\varepsilon t} \left(x_q - \frac{y_q^2 \varepsilon }{2-\varepsilon} - x_p \right) + \frac{y_q^2 \varepsilon }{2-\varepsilon}e^{-2t}\\
+y_q e^{-t} \\
+0
+\end{bmatrix}.
+\end{equation}
+
+Similarly, for the denominator of (\ref{conds})
+$$
+F^t(q') - F^t(p) = \begin{bmatrix}
+e^{-\varepsilon t} \left(x_q' - \frac{y_q'^2 \varepsilon}{2-\varepsilon} - x_p \right) + \frac{y_q'^2 \varepsilon }{2-\varepsilon}e^{-2t}\\
+y_q' e^{-t} \\
+0
+\end{bmatrix}
+$$
+
+In general, both the denominator and the numerator of (\ref{conds}) go to 0 as $t\to \infty$ (because they are the sums of exponentially decaying terms), the limit of the ratio is undetermined. However, since $\varepsilon \ll 1$, the slowest decaying term in the first component of the flow-map is the one which is multiplied by $e^{-\varepsilon t}$. We can set its coefficient to 0, which guarantees that the numerator goes to $0$ at a faster rate than the denominator. This way, the ratio will go to 0. 
+
+This establishes a relation between $x_p$, the base point and the points $(x_q,y_q,0)$ on the stable fiber connected to it. This relation is
+$$
+x_q = x_p + \frac{y_q^2\varepsilon}{2-\varepsilon},
+$$
+as claimed.
+
+(d) Find a similar expression for the unstable fibers $f^u(p)$.
+
+\emph{Solution}
+
+The local unstable manifold of $M_\varepsilon$, is the local stable manifold under the backward flow. Reversing time in the original system, we obtain 
+\begin{align*}
+     \dot{x} &= \varepsilon(x + y^2) \\
+    \dot{y} &= y \\
+    \dot{z} &= -z,
+\end{align*}
+
+for which the local stable manifold is contained in the $x-z$ plane. To obtain the foliation, we use the property (\ref{conds}) for the backward flow map.
+
+\begin{equation*}
+\label{eqflowmap2}
+F^{-t}(x_0,y_0,z_0) = \begin{bmatrix}
+\left(x_0 - \frac{y_0^2 \varepsilon }{2-\varepsilon}\right)e^{\varepsilon t} + \frac{y_0^2\varepsilon}{2-\varepsilon}e^{2t} \\
+y_0e^{t} \\
+z_0e^{-t}
+\end{bmatrix} 
+\end{equation*}
+
+Taking points $p = (x_p, 0, 0), p' = (x'_p, 0, 0)\in M_\varepsilon $ and $q = (x_q, 0, z_q) \in f^u(p)\subset W^u_{\text{loc}}(M_\varepsilon)$, $q' = (x'_q, 0, z_q')\in f^u(p')\subset W^u_{\text{loc}}(M_\varepsilon)$, and evaluating the expressions $F^{-t}(p)-F^{-t}(q)$ and $F^{-t}(q')-F^{-t}(p)$ gives
+
+\begin{equation}
+\label{eqdiffback}
+F^{-t}(q) - F^{-t}(p) = \begin{bmatrix}
+e^{\varepsilon t} \left(x_q  - x_p \right)\\
+0 \\
+z_q e^{-t}
+\end{bmatrix}; \qquad  F^{-t}(q') - F^{-t}(p) = \begin{bmatrix}
+e^{\varepsilon t} \left(x_q' - x_p \right)\\
+0 \\
+z_q' e^{-t}
+\end{bmatrix}.
+\end{equation}
+Following a similar argument as we made with the stable fibers, the ratio (\ref{conds}) converges to zero, if the numerator goes to zero much faster than the denominator. In this case, the numerator and the denominator do not go to zero term-by-term, since the exponent of the first term is positive. The ratio is 
+$$
+    \frac{||F^{-t}(q) - F^{-t}(p)||}{||F^{-t}(q') - F^{-t}(p)||} = \frac{e^{2\varepsilon t}(x_q-x_p)^2 + z_q^2 e^{-2t}}{e^{2\varepsilon t}(x_q'-x_p)^2 + z_q'^2 e^{-2t}}.
+$$
+To ensure a faster convergence in the denominator, we can set $x_q = x_p$ and see that the ratio goes to zero
+$$
+    \frac{||F^{-t}(q) - F^{-t}(p)||}{||F^{-t}(q') - F^{-t}(p)||} = \frac{z_q^2 e^{-2t}}{e^{2\varepsilon t}(x_q'-x_p)^2 + z_q'^2 e^{-2t}} = \frac{z_q^2 }{(x_q'-x_p)^2e^{2t(\varepsilon +1)} + z_q'^2} \to 0.
+$$
+
+The unstable fibers are the straight lines parallel to the $z$ axis, given by
+$$
+f^u(p) = \left \{ \right (x,y,z) : x = x_p, y=0\}.
+$$
+
+(e) Verify explicitly the properties of the stable fibers in this example.
+\begin{itemize}
+    \item $f^s(p)$ is a $C^r$ smooth (given by a smooth graph), 1 dimensional submanifold of the 2 dimensional manifold $W^s_\text{loc}(M_\varepsilon)$. Its intersection with the manifold is $f^s(p)\cap M_\varepsilon = \{(x,y,z):x=x_p, y=0, z=0 \} = p $, the base point.
+    \item The local section of the stable subbundle $N^s_pM_\varepsilon$ is the stable subspace of the normal space at $p$: $N^s_pM_\varepsilon$. In this example, the normal space is the plane $N_p M_\varepsilon = \{ (x,y,z) : x=x_p\}$, the stable subspace is the line $N^s_p M_\varepsilon = \{ (x,y,z) : x=x_p, z=0\}$. The local tangent vector to $f^s(p)$ is $(0, 1, 0)$, which is in this subspace. 
+    \item The stable fibers form a positively invariant family.
+    The stable fibers of the images of the basepoints are
+    \begin{align*}
+        &f^s(F^t(p)) = f^s(F^t(x_p,0,0)) = \left\{ (x,y,z): x = x_p e^{-\varepsilon t}+ \frac{\varepsilon}{2-\varepsilon}y^2, z=0 \right\}. 
+    \end{align*}
+    While the images of the stable fibers are:
+    \begin{align*}
+        &F^t(f^s(p)) = F^t\left(\left\{ (x,y,z): x = x_p+ \frac{\varepsilon}{2-\varepsilon}y^2, z=0 \right\}\right) = \\
+    &=\left\{ F^t(\overline{x},\overline{y},\overline{z}): \overline{x} = x_p + \frac{\varepsilon}{2-\varepsilon}\overline{y}^2, \overline{z}=0 \right\} = \\
+    & = \left\{ (x,y,z): x = x(t; \overline{x}), y= y(t;\overline{y}); z=z(t;\overline{z}) \right\} = \\
+    &= \left\{ (x,y,z): x = \left(x_p + \frac{\varepsilon}{2-\varepsilon}\overline{y}^2 - \frac{\varepsilon}{2-\varepsilon}\overline{y}^2 \right)e^{-\varepsilon t} + \frac{\varepsilon}{2-\varepsilon}\overline{y}^2 e^{-2t}, y= \overline{y}e^{-t}; z = 0 \right\} =\\  
+    & = \left\{ (x,y,z): x = x_p e^{-\varepsilon t} + \frac{\varepsilon}{2-\varepsilon}\overline{y}^2 e^{-2t}, y= \overline{y}e^{-t}; z = 0 \right\}
+    \end{align*}
+    Since we can eliminate $\overline{y}$ using the second coordinate $\overline{y}=ye^t$, this is the same set as
+    $$
+    \left\{ (x,y,z): x = x_p e^{-\varepsilon t} + \frac{\varepsilon}{2-\varepsilon}y^2 ; z = 0 \right\},
+    $$
+    which coincides with $f^s(F^t(p))$.
+    \item There exist positive constants $C_s$ and $\lambda_s$, such that for any $q \in f^s(p)$ we have $|F^t(q)-F^t(p)|< C_s e^{-\lambda_s t}$.
+    
+    For a point $q=(x_q,y_q,0) \in f^s(p)$, we can use the expression describing the fiber to get
+    $$
+    F^t(q)-F^t(p) = \begin{bmatrix}
+\left(x_q - \frac{y_q^2 \varepsilon}{2-\varepsilon}\right)e^{-\varepsilon t} + \frac{y_q^2 \varepsilon }{2-\varepsilon}e^{-2t} - x_p e^{-\varepsilon t}\\
+y_q e^{-t} \\
+0
+\end{bmatrix} = \begin{bmatrix}
+\frac{y_q^2 \varepsilon }{2-\varepsilon}e^{-2t}\\
+y_q e^{-t} \\
+0
+\end{bmatrix}.
+    $$
+    $$
+    |F^t(q)-F^t(p)|^2 = \frac{y_q^2\varepsilon^2}{(2-\varepsilon)^2}e^{-4t} + y_q^2 e^{-2t} = y_q^2e^{-2t}\left( \frac{\varepsilon^2}{(2-\varepsilon)^2}e^{-2t} +1 \right)
+    $$
+    $$
+    |F^t(q)-F^t(p)| = |y_q|e^{-t}\sqrt{ \frac{\varepsilon^2}{(2-\varepsilon)^2}e^{-2t} +1}
+    $$
+    The square root is bounded by the constant $L = \sqrt{\frac{\varepsilon^2}{(2-\varepsilon)^2} + 1}$, so we can bound the distance between the trajectory through p and the trajectory through q as
+    $$
+    |F^t(q)-F^t(p)| \leq |y_q|L e^{-t}. 
+    $$
+    The local stable manifold is compact set, that contains $M_\varepsilon$ intersected with the $x-y$ plane, so we can choose a $C>0$, such that $C>|y_q|$ for any $(x_q,y_q,z_q)\in W^s_\text{loc}(M_\varepsilon)$.  
+    Then, we can set $C_s =CL$ and $\lambda_s = 1$. 
+    
+\item Given a base point $p\in M_\varepsilon$, the trajectories starting in $f^s(p)\subset W^s_{\text{loc}}(M_\varepsilon) $ have the fastest rate of convergence towards the trajectory $\gamma(p)\subset M_\varepsilon$ through p. That is, given $q\in f^s(p)$ and $q'\in f^s(p')$
+\begin{equation*}
+\label{cond}
+    \frac{||F^t(q) - F^t(p)||}{||F^t(q') - F^t(p)||}\to 0, \text{ as } t\to \infty.
+\end{equation*}
+We already used this property, to arrive at the expression for the stable fibers.
+
+\item $f^s(p)\cap f^s(p') = \{ \}$ if $p\neq p'$. 
+$$
+f^s(p)\cap f^s(p') = \left\{ (x,y,z): x = x_p+ \frac{\varepsilon}{2-\varepsilon}y^2, z=0 \right\} \cap \left\{ (x',y',z'): x' = x_p'+ \frac{\varepsilon}{2-\varepsilon}y'^2, z'=0 \right\}
+$$
+For this to be nonempty, we need $x=x'$, $y=y'$, $z=z'$, but this means
+$$
+x_p + \frac{\varepsilon}{2-\varepsilon}y^2 = x_p'+ \frac{\varepsilon}{2-\varepsilon}y^2,
+$$
+which cannot be equal if $x_p\neq x_p'$. 
+\item The stable fiber $f^s(p)$ is a $C^{r-1}$ smooth function of its base point $p$. 
+The set $f^s(p)=f^s(x_p)$, which is given by a graph of a $C^\infty$ function of $x_p$.
+\item The stable fibers $C^r$-smoothly persist under small $C^1$ perturbations of the dynamical system.
+
+First, consider that the perturbation is only in $\varepsilon$: $\varepsilon:= \varepsilon_0 + \Delta \varepsilon$. The stable fiber is well defined for any $\varepsilon \neq 2$ and it is also differentiable in $\varepsilon$. 
+
+
+For a general $C^1$-small perturbation to (\ref{eqsys2}), (say, order $\delta$) the flow-map is also perturbed by an order $\delta$ term, since we can Taylor-expand it to first order
+$$
+F^t(p;\delta) = F^t(p;0) + \delta \frac{\partial F^t}{\partial \delta} + O(\delta^2).
+$$
+Then, it can probably (?) be argued that this is only an order $\delta$ perturbation to the equation that prescribes the maximal convergence rate for points in the fiber (exercise (c)).
+\end{itemize}
+(f) For any trajectory $\gamma \subset M_\varepsilon$, find explicit expressions for $W^{ss}_\text{loc}(\gamma)$, $W^{uu}_\text{loc}(\gamma)$, $W^{s}_\text{loc}(\gamma)$, $W^{u}_\text{loc}(\gamma)$.
+
+From the definition, 
+$$
+W^{ss}_\text{loc}(\gamma) = \bigcup_{\overline{p}\in \gamma(p)} f^s(\overline{p}).
+$$
+On the manifold, the trajectory is given by $\gamma(p)=\gamma(x_p) = x_p e^{-\varepsilon t}$. After substituting, we obtain
+$$
+W^{ss}_\text{loc}(\gamma) = \bigcup_{x\in \gamma(x_p)}\left\{(\overline{x}, \overline{y}, \overline{z}) : \overline{x} = x + \frac{\varepsilon}{2-\varepsilon}\overline{y}^2 , \overline{z} = 0\right\}
+ =\bigcup_{t\geq 0} \left\{(\overline{x}, \overline{y}, \overline{z}) : \overline{x}= x_pe^{-\varepsilon t} + \frac{\varepsilon}{2-\varepsilon}\overline{y}^2, \overline{z}=0 \right\},
+ $$
+ which is the same set as (if $x_p>0$) $W^{ss}_\text{loc}(\gamma) = \{(x,y,z): \frac{\varepsilon}{2-\varepsilon}y^2 \leq x \leq x_p +\frac{\varepsilon}{2-\varepsilon}y^2 , z=0\}$. And in case $x_p<0$ $W^{ss}_\text{loc}(\gamma) = \{(x,y,z): \frac{\varepsilon}{2-\varepsilon}y^2 +x_p \leq x \leq \frac{\varepsilon}{2-\varepsilon}y^2 , z=0\}$.
+ 
+For the unstable fibers, we have (if $x_p>0$)
+$$
+W^{uu}_\text{loc}(\gamma) = \bigcup_{\overline{p}\in \gamma(p)} f^u(\overline{p}) = \bigcup_{t\geq 0} \left\{ x_pe^{-\varepsilon t}, y= 0 \right\} = \{(x,y,z): x \leq x_p, y=0\}
+$$
+and if $x_p<0$
+$$
+W^{uu}_\text{loc}(\gamma) = \{(x,y,z): x \geq x_p, y=0\}
+$$
+
+
+The local stable manifold of trajectory $\gamma(p)$ is the set of initial conditions, through which trajectories converge to $\gamma(p)$.
+
+$$
+W^s_\text{loc}(\gamma) = \{ (x,y,z): ||F^t(x,y,z) - \gamma(p)|| \to 0 \text{ as } t\to \infty\}. 
+$$
+
+Using (\ref{eqflowmapdiff}), we can write the difference between the trajectories as
+
+$$
+F^t(x,y,z) - \gamma(x_p)= F^t(x,y,z) - F^t(x_p, 0, 0) = \begin{bmatrix}
+e^{-\varepsilon t} \left(x - \frac{y^2 \varepsilon }{2-\varepsilon} - x_p \right) + \frac{y^2 \varepsilon }{2-\varepsilon}e^{-2t}\\
+y e^{-t} \\
+z e^{t}
+\end{bmatrix}.
+$$
+
+For convergence, we need to set $z=0$ and then we have
+$$
+||F^t(x,y,0) - F^t(x_p, 0, 0)|| =\left[ e^{-\varepsilon t} \left(x - \frac{y^2 \varepsilon }{2-\varepsilon} - x_p \right) + \frac{y^2 \varepsilon }{2-\varepsilon}e^{-2t} \right]^2 + y^2e^{-2t},
+$$
+which converges for all $x,y$. $W^s_\text{loc}(\gamma) = \{ (x,y,z): z=0\}$. 
+
+
+The local unstable manifold of trajectory $\gamma(p)$ is the set of initial conditions, through which trajectories converge to $\gamma(p)$ in backward time.
+
+Using the expression (\ref{eqdiffback}), we have
+$$
+F^{-t}(x,y,z) - F^{-t}(x_p, 0, 0) = \begin{bmatrix}
+e^{\varepsilon t} \left(x - \frac{y^2 \varepsilon }{2-\varepsilon} - x_p \right) + \frac{y^2 \varepsilon }{2-\varepsilon}e^{2t}\\
+y e^{t} \\
+z e^{-t}
+\end{bmatrix}.
+$$
+Setting $y=0$, we get
+$$
+||F^{-t}(x,0,z) - F^{-t}(x_p, 0, 0)|| = e^{2\varepsilon t} \left(x - x_p \right)^2 + z^2e^{-2t},
+$$
+which converges if $x=x_p$. $W^u_\text{loc}(\gamma) = \{ (x,y,z): x=x_p, y=0\}$. 
+\end{document}

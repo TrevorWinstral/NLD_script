@@ -345,6 +345,51 @@ The system exhibits full spatial symmetry in $x$ and $y$, hence the eigenmodes w
 We have that $ \textrm{Re} \lambda _{k}=0$ for $k=1,2,3,4$. Also $a_k=2$ for $k=1,2,3,4$. Now assume $g_k < 2$. Then there would exists solutions of the form $te^{\pm i \omega t}{s}_k$, but this would contradict the conservation of energy, as either the (nonnegative) kinetic energy and/or the (nonnegative) potential energy would grow unbounded. Hence, the total energy could not be conserved. Therefore we know that $g_k = a_k$ and we can apply (ii) to find $x=y=0$ is Lyapunov stable for the linearized system. What does this imply for the nonlinear system?
 \end{ex}
 
+\begin{exercise}
+Consider a discrete dynamical system given by the iterated mapping
+\begin{align}
+	x_{k+1} = f(x_k); \quad f: \mathbb{R}^n \rightarrow \mathbb{R}^n,\ x_k \in \mathbb{R}^n.
+\end{align}
+Assume that $x = p$ is a fixed point for the mapping, i.e., $p = f(p)$.
+
+\begin{enumerate}[label=(\alph*)]
+	\item Derive a linearized mapping of the form
+	\begin{align}\label{Q02E01}
+		y_{k+1} = Ay_k
+	\end{align}
+	to describe the discrete dynamics in the vicinity of the fixed point.
+	\item Assume that $A$ has eigenvalues $\lambda_1, \ldots, \lambda_n \in \mathbb{C}$ with corresponding $n$ linearly independent eigenvectors $s_1, \ldots, s_n \in \mathbb{C}^n$. Show that the general solution of (\ref{Q02E01}) is of the form
+	\begin{equation}\label{Q02E02}
+		y_k = c_1 \varphi_1(k) + \cdots + c_n \varphi_n(k), \qquad \varphi_i(k) = \lambda_i^ks_i.
+	\end{equation}
+	\item Formulate a definition of stability, asymptotic stability, and instability for the $y=0$ fixed point of (\ref{Q02E01}).
+	\item Using (\ref{Q02E02}), find a sufficient and necessary condition for the asymptotic stability you have defined in (c).
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise} \label{s3q1}
+Consider a ball of mass $m$ that slides on a rotating hoop (see Fig. \ref{3Q01D01}).
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.9]{figures/ch3/Q01D01.pdf}
+	\caption{Mass on a hoop}
+	\label{3Q01D01}
+\end{figure}
+The angular velocity of the hoop is $\Omega$, the viscous friction coefficient between the hoop and the ball is $b$, and the constant of gravity in $g$. The equation of motion for the sliding ball is given by
+\begin{align}
+	mR^2 \ddot{\alpha} + bR^2 \dot{\alpha} + mR^2(g/R - \Omega^2 \cos(\alpha)) \sin(\alpha) = 0.
+\end{align}
+
+\begin{enumerate}[label=(\alph*)]
+	\item Plot the location of equilibria of the ball as a function of the non-dimensionalized rotation parameter $\nu = R\Omega^2 /g$.
+	\item Using linearization, determine the stability type of the different equilibrium branches on the plot. Identify the critical angular velocity at which a bifurcation of equilibria occurs.
+\end{enumerate}
+
+\end{exercise}
+
+
+
 \section{Stability of fixed points in nonlinear systems}
 Following the previous example, we would like to know what information about the stability of fixed points of nonlinear systems we can derive from the linearized system. The full nonlinear system is
 \begin{align*}
@@ -676,6 +721,27 @@ For a given $i$ we construct the matrix used for calculating $D_i$ as follows: w
 	forms a sufficient and necessary condition for asymptotic stability ($a_i >0$ follows from here) for $n=3$.
 \end{ex}
 
+\begin{exercise}
+The first three modes of a convecing fluid motion in a two-dimensional layer heated from below are described by the famous \emph{Lorenz equations}
+\begin{align}
+	\dot{x} &= a(y - x), \\
+	\dot{y} &= bx - y - xz, \\
+	\dot{z} &= xy - cz.
+\end{align}
+Here $a>0$ denotes the Prandtl number, $b>0$ is the Rayleigh number, and $c>0$ is the aspect ratio. Lorenz's original assumption is that $a > 1 + c$.
+
+The above equations describe the evolution of the amplitudes of one velocity mode and two temperature modes. As a paradigm of chaotic dynamics, this system has inspired much of the development of the modern geometric theory of dynamical systems.
+
+\begin{enumerate}[label=(\alph*)]
+	\item Complicated dynamics arise when all possible equilibria of the system become unstable, and hence solutions cannot settle down to any simple steady state. Show that this is the case when
+	\begin{align}
+		b > \frac{a(3 + a + c)}{a - c - 1}
+	\end{align}
+	\textit{Note}: Note: A negative sign for one of the Routh-Hurwitz determinants actually implies instability, not just the lack of asymptotic stability.
+	\item Solve the Lorenz equations numerically for $a=10$, $b=28$, and $c=8/3$, choosing an initial condition close to $x=y=z=0$. Plot the trajectory in three dimensions to show that it converges to a complicated surface, a \emph{chaotic attractor}.
+\end{enumerate}
+\end{exercise}
+
 A more refined linearization result comes from Sternberg's Theorem \cite{Chicone}.
 \begin{theorem}[Sternberg]
 Assume the following
@@ -697,8 +763,8 @@ Then the following holds: $\dot{x}=f(x)$ with $f(0)=0$ is locally $\mathcal{C}^{
 	Now we put together everything built until now in the example of Watt's centrifugal governor for steam engines. Originally this system was used in mills in the 1700's, then it was adapted by Watt to the steam engine in 1788. This adaptation has been credited as a major factor in the industrial revolution, and is a first example of feedback control. The system is outlined in Fig. \ref{fig:governor}.
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.34\textwidth]{figures/ch2/20governor.png}
-	\caption{Schematic for Watt's centrifugal governor. The yellow arrow points towards a damper on the rotation about the spindle (red arrow). On the right the blue arrow designates a steam engine cylinder.}
+	\includegraphics[width=0.6\textwidth]{figures/ch2/20governor.pdf}
+	\caption{Schematic for Watt's centrifugal governor. The sleeve acts as a damper on the rotation about the spindle (drawn in grey).}
 	\label{fig:governor}
 \end{figure}
 The two masses (of mass $\frac{m}{2}$) rotate counter clockwise, and their position in radians is given by $\theta$, with their rotational velocity $\dot{\theta}$. The masses are attached by a rod of length $L$ and their deflection from the vertical position is measured by $\varphi$. Smaller $\dot{\theta}$ allowed for an increase in steam supply.
@@ -887,6 +953,13 @@ We denote the truncated approximation of $B$ as $B_r = Y (X_r)^\dagger.$
 \end{enumerate}
 \end{remark}
 	
+\begin{exercise}
+Consider the damped pendulum equation
+\begin{align}
+	\ddot{x} + c\dot{x} + \sin(x) = 0.
+\end{align}
+Using the energy of the pendulum as a Lyapunov function, can we conclude the nonlinear asymptotic stability of the $x=0$ equilibrium? Give detailed reasoning why.
+\end{exercise}
 	
 \section{Lyapunov's direct (second) method for stability}
 Stability analysis via linearization is not perfect. For nonhyperbolic fixed points, the results obtained are inconclusive, and this case turns out to be somewhat common for conservative systems. Furthermore, linearization does not give any insight into the size of the domain of stability. Hence, a method for determining stability type without relying on linearization would be desirable. This is given to us by Lyapunov's direct method.
@@ -1169,3 +1242,52 @@ D^2V(x_0) &=
 The Hessian is positive definite as long as $\overline{x}_1 \in \left(-\frac{\pi }{2}, \frac{\pi }{2}\right)$, and all fixed points in this region are stable by Theorem \ref{thm:direct}. The Hessian is indefinite if $\overline{x}_1 \not \in \left[-\frac{\pi }{2}, \frac{\pi }{2}\right]$, but in this case Theorem 4 is not applicable as $\dot{V}$ is not definite. More detailed discussion and further results on Lyapunov's direct method can be found in \cite{LiapunovDirect}.
  \end{ex}
  
+\begin{exercise}
+	Recall from Exercise \ref{s3q1} that a ball of mass $m$ sliding on a hoop rotating with angular velocity $\Omega$ satisfies the differential equation
+\begin{equation}\label{3Q04E01}
+	mR^2 \ddot{\alpha} + mR^2(g/R - \Omega^2 \cos(\alpha)) \sin(\alpha) = 0
+\end{equation}
+if there is no friction between the hoop and the mass, i.e. we assume $b=0$. 
+ Assume that the parameter values are such that the lower equilibrium position of the ball is stable in linear approximation.
+
+\begin{enumerate}[label=(\alph*)]
+	\item Show that in this case, the equilibrium is also nonlinearly stable. 
+	
+	\textit{Hint}: Note that system (\ref{3Q04E01}) is not conservative: an external torque is required to maintain the constant rotation of the hoop. As a result, the total mechanical energy of the system is not expected to work as a Lyapunov function. To find another candidate for a Lyapunov function, find a quantity that \textit{is} conserved along trajectories. Such a quantity can be found by multiplying equation (\ref{3Q04E01}) by $\dot{\alpha}$ and integrating in time.
+	\item Prove that the equilibrium \textit{cannot} be asymptotically stable for the nonlinear system.
+	
+	\textit{Hint}: use the Lyapunov function you have found in (a).
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Consider the damped pendulum equation
+\begin{align}\label{3Q05E01}
+	\ddot{x} + c\dot{x} + \sin(x) = 0.
+\end{align}
+
+\begin{enumerate}[label=(\alph*)]
+	\item A theorem due to Krasovski states the following: Assume that $x=0$ is a fixed point for the $n$-dimensional dynamical system $\dot{x}=f(x)$. Assume that there exists a smooth scalar function $V(x)$ such that
+	\begin{enumerate}[label=(\roman*)]
+		\item $V(x)$ is positive definite on an open neighborhood $U$ of $x=0$;
+		\item $\dot{V}$ is negative semi-definite on the same neighborhood;
+		\item the only trajectory lying \textit{completely} in the set $S= \{ x\in U \, : \, \dot{V}=0 \}$ is the fixed point $x=0$. Then $x=0$ is asymptotically stable.
+	\end{enumerate}
+	Use Krasovski's theorem to conclude the asymptotic stability of the origin for (\ref{3Q05E01}).
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Consider an $n$-degree-of-freedom holonomic mechanical system (i.e. one that has only position-dependent constraints) with generalized coordinates $q\in \mathbb{R}^n$ and generalized velocities $\dot{q}\in \mathbb{R}^n$. The total energy of the system is of the form
+\begin{align}
+	E(q, \dot{q}) = \frac{1}{2} \dot{q}^T M(q)\dot{q} + V(q),
+\end{align}
+where $M \in \mathbb{R}^{n \times n}$ is the mass matrix (symmetric ans positive definite), and $V(q)$ is the potential energy. In the absence of external forces, the associated Lagrangian equations of motion are
+\begin{align}
+	\frac{d}{dt} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L}{\partial q} = 0,
+\end{align}
+where $L(q, \dot{q}) = \frac{1}{2}\dot{q}^T M(q)\dot{q} - V(q)$ is the Lagrangian of the mechanical system.
+
+Show that if $V(q)$ admits a strict local minimum at a point $q_0$, then $q_0$ is a (nonlinearly) stable equilibrium for the mechanical system. (This result is also known as \textit{Dirichlet's Theorem} in classical mechanics).
+
+\end{exercise}
