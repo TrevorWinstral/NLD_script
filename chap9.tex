@@ -244,7 +244,7 @@ There are three central questions for what happens to this manifold which we wil
 		\end{dcases}
 		;\quad 0 \leq \varepsilon \ll 1.
 	\end{align}
-	The fixed points $A_0$, $B_0$, and $C_0$ are hyperbolic, therefore they persist. In fact $B_0$ does not move at all. The other fixed points move to new perturbed counterparts, i.e. $A_0,C_0 \to A_{\varepsilon}, C_{\varepsilon}$. From the second equation, we see that the y coordinate of the perturbed fixed point becomes $y_\varepsilon= \varepsilon/\alpha x_\varepsilon$. That is, $C_\varepsilon$ moves upwards and $A_\varepsilon$ moves downwards.
+	The fixed points $A_0=(-1,0)$, $B_0=(0,0)$, and $C_0=(1,0)$ are hyperbolic, therefore they persist. In fact $B_0$ does not move at all. The other fixed points move to new perturbed counterparts, i.e. $A_0,C_0 \to A_{\varepsilon}, C_{\varepsilon}$. From the second equation, we see that the y coordinate of the perturbed fixed point becomes $y_\varepsilon= \varepsilon/\alpha x_\varepsilon$. That is, $C_\varepsilon$ moves upwards and $A_\varepsilon$ moves downwards.
 
 	At $B_0 = B_{\varepsilon}$ we can linearize to find
 	\begin{align}
@@ -270,7 +270,14 @@ Depending on $\alpha $ we differentiate two cases.
 			\caption{The eigenvalues splitting in a vertical fashion for $\alpha=1$.}
 			\label{fig:eigv_vertical_split}
 		\end{figure}
-	\item $\bm{\alpha<1}$ Now change the perturbation to $\varepsilon^{2}$ such that both fixed points move upwards, the perturbed curve will have a cusp at 0, so we have again no diffeomorphism to $M_0$.	
+	\item $\bm{0<\alpha<1}$ The eigenvalues remain real, but the manifold $M_0$ does not persist smoothly. To show this, consider a perturbation of the form
+		\begin{align}
+		\begin{dcases}
+			\dot{x} = -x(1-x)(1+x) -\varepsilon y \\
+			\dot{y} = - \alpha y + \varepsilon x^2
+		\end{dcases}
+		;\quad 0 \leq \varepsilon \ll 1.
+	\end{align}The perturbation in the $\dot{y}$-equation, $\varepsilon x^2$, causes the perturbed fixed points $A_\varepsilon$ and $C_\varepsilon$ to move upwards, since their $y-$coordinates are $y_\varepsilon  = \frac{\varepsilon}{\alpha}x_\varepsilon^2$. The perturbed curve connecting $A_\varepsilon$, $B_\varepsilon$ and $C_\varepsilon$ has a cusp at $B_\varepsilon$ and cannot be diffeomorphic to $M_0$.
 \end{enumerate}
 Thus in each case, no smooth transformation to $M_0$ exists and therefore there is no persistence. The perturbed geometries are shown in Fig. \ref{fig:nondiffeo_pertubation}.
 \begin{figure}[h!]
@@ -679,9 +686,9 @@ where $\| \cdot \|$ denotes the Euclidean matrix norm. The unperturbed system an
 
 A more general approach to particle motion is given by \cite{Sapsis2008} using the Maxey-Riley equations. For neutrally buoyant particles (ones which are suspended in the fluid) we have
 \begin{align}
-	\varepsilon \dot{v} - \varepsilon \frac{Du}{Dt} = -(v-y);\quad \varepsilon = \frac{3St}{2}\ll 1, \label{eq9:maxeyriley}	
+	\varepsilon \dot{v} - \varepsilon \frac{Du}{Dt} = -(v-u);\quad \varepsilon = \frac{3St}{2}\ll 1, \label{eq9:maxeyriley}	
 \end{align}
-where $S$ denotes the Strouhal number. Formulating this in terms of geometric singular perturbation theory, with $x \in \mathbb{R}^{d}$ ($d=2,3$) we get
+where $St$ denotes the Stokes number. Formulating this in terms of geometric singular perturbation theory, with $x \in \mathbb{R}^{d}$ ($d=2,3$) we get
 \begin{align}
 	\begin{dcases}
 		\dot{x} = y\\
@@ -705,7 +712,7 @@ The time transformation used was $t = t_0 + \varepsilon \tau$. From here we have
 Also, we have 
 \begin{align}
 	y' &= u - \left( u + \varepsilon u_{1} + \mathcal{O}(\varepsilon^{2}) \right) + \varepsilon \left( u_{t} + u_{x}u \right) \\
-	   &=-u_{1} + \varepsilon \frac{Du}{Dt} + \mathcal{O}(\varepsilon^{2}).
+	   &=-\varepsilon u_{1} + \varepsilon \frac{Du}{Dt} + \mathcal{O}(\varepsilon^{2}).
 \end{align}
 By  comparing terms we see that $u_{1} =0$, in fact this holds up to any order. 
 
