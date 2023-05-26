@@ -946,6 +946,131 @@ where in \eqref{eq9:MVT} the mean value theorem was used. This inequality implie
 For the general, mulit-dimensional case see \cite{Chicone}. A similar argument also work for the strong stable manifold.
 
 \section{Spectral submanifolds and model reduction}
+Often dynamical systems approach to model reduction. This leads us to want to identify globally attracting invariant sets $S$ and understand the reduced dynamics on said sets, i.e. the reduced order model. However, we must address the issue of the existence, uniqueness, and smoothness of these sets. Smoothness is not a given, as attractors are very often not smooth manifolds, as seen in Fig. \ref{fig:nonsmooth_set}.
+\begin{figure}[h!]
+	\centering
+	%\includegraphics[width=\textwidth]{}
+	\caption{An example of a globally attracting set which is not a smooth manifold.}
+	\label{fig:nonsmooth_set}
+\end{figure}
+
+In order to study these objects, we must first set out a few definitions.
+\begin{definition}
+	The \emph{global attractor} is the largest bounded, invariant, set (in forward and backward time) that attracts trajectories.
+\end{definition}
+\begin{definition}
+An \emph{inertial manifold} is a lower-dimensional, attracting, forward-invariant manifold that is at least Lipschitz and contains the global attractor.
+\end{definition}
+
+The existence of inertial manifolds is not guaranteed in general, however the following proposition provides a sufficient condition \cite{FoiasInertial}.
+\begin{proposition}[] \label{prop:FoiasExistence}
+	If we have the dynamical system for a Hilbert space $H$
+	\begin{align}
+		\dot{u} = Au + R(u,u);\quad u\in H.
+	\end{align}
+Then given the following conditions:
+\begin{enumerate}
+	\item $A$ is self-adjoint, negative definite, and densely defined;
+	\item $A^{-1}$ is compact;
+	\item $R(u,u)$ is suitably dominated in norm by $Au$;
+\end{enumerate}
+then we have that the following hold:
+\begin{enumerate}
+	\item All trajectories enter a ball $B$ at some point;
+	\item The timit set of the whole ball is the global attractor (inside the ball);
+	\item An inertial manifold $M$ exists.
+\end{enumerate}
+Such a global attractor within a ball $B$ and the inertial manifold $M$ is depicted in Fig. \ref{fig:FoiaProp}.
+\end{proposition}
+\begin{figure}[h!]
+	\centering
+	%\includegraphics[width=\textwidth]{}
+	\caption{The red global attractor contained within the ball $B$ and the inertial manifold $M$ in the case of proposition \ref{prop:FoiasExistence}}
+	\label{fig:FoiaProp}
+\end{figure}
+
+An example in which such an $M$ is proven to exist can be found in the reaction-diffusion equation. In contrast, the proposition is not applicable to Navier-Stokes equations, even in 2 dimensions. Due to this restrictiveness we may insteade approximate the inertial manifold, following \cite{FoiasApprox}.
+
+Assume we have the decomposition $u=p+q$ where $p$ is the projection $Pu$ of $u$, and $q$ is the residual after projection $q=(I-P)u$. We envision $p$ to be the slow variable and $q$ to be the fast variable. Using the self-adjointness of $A$, we obtain the projected equations
+\begin{align}
+	\begin{dcases}
+		\dot{p} = Ap + PR(p+q, p+q) \\
+		\dot{q} = Aq + (I-P)R(p+q, p+q).
+	\end{dcases}
+\end{align}
+
+Next, we mimick geometric singular perturbation theory and set $\dot{p}=0$ which implies that $p$ is constant $p=p_0$. Therefore we get that the solutions to
+\begin{align}
+	Aq - (I-P)R(p_0 + q, p_0 +q) =0
+\end{align}
+yield the critical manifold. Next if we assume that $R(p_{0}+q, p_{0}+q) \approx R(p_0, p_0)$ then we find
+\begin{align}
+	q = \phi_0(p) = - A^{-1}(I-P)R(p,p).
+\end{align}
+The aim here is similar to critical manifold, and it should be kept in mind that we have relied on strong assumptions.
+
+Now we may examine the simplest setting for a nonlinear model reduction, namely reduction near a fixed point in finite dimensions. Given the dynamical system
+\begin{align}
+\dot{x} = Ax + f(x);\quad x \in \mathbb{R}^{n},\ A \in \mathbb{R}^{n\times n},\ f\in \mathcal{C}^{r},\ f=\mathcal{O}\left(\|x\|^{2}\right).
+\end{align}
+Assume that $x=
+\begin{pmatrix}
+	x_s \\ X_f
+\end{pmatrix}
+$ where $x_s$ is aligned with the $s$ slower decaying modes and $x_f $ is aligned with the $f$ faster decaying modes. This enables us to write
+\begin{align} \label{eq9:approx_inert_mfd}
+	\begin{dcases}
+		\dot{x}_s = A_{s}x_{s} + f_s(x_s, x_f) \\
+		\dot{x}_f = A_{f}x_{f} + f_f(x_s, x_f). 
+	\end{dcases}
+\end{align}
+In the simplest form, this entails a 2-dimensional dynamical system with $
+\begin{pmatrix}
+	x_s \\ x_f
+\end{pmatrix}
+=
+\begin{pmatrix}
+	x \\y
+\end{pmatrix}
+$ and the operators $f=0$ and $A_s,A_f = -a,-b$ where $0<a<b$. This case is illustrated in Fig. \ref{fig:simplestReduction}. The solutions of this system are
+\begin{align}
+	\begin{dcases}
+		x(t) = x_0 e^{-at} \\
+		y(t) = y_0 e^{-bt}.
+	\end{dcases}
+\end{align}
+A family of attracting, invariant, manifolds if formed by this solution namely the solutions to
+\begin{align}
+	\frac{1}{a}\log\left(\frac{x}{x_0}\right) =\frac{1}{b}\log\left(\frac{y}{y_0}\right)
+\end{align}
+The solution is given in this case by $y = C x^{\frac{b}{a}}$, which is generally only $\lfloor \frac{b}{a} \rfloor$-times differentiable except when $C=0$ in which case the manifold is $\mathcal{C}^{\infty }$.
+{\color{blue} as long as $b/a$ isn't an integer, shouldn't this be smooth?}
+\begin{figure}[h!]
+	\centering
+	%\includegraphics[width=\textwidth]{}
+	\caption{An example of the simplest setting for a nonlinear model reduction.}
+	\label{fig:simplestReduction}
+\end{figure}
+
+The reduced dynamics is the same on all of these invariant manifolds, namely
+\begin{align}
+	\dot{x} = -ax.
+\end{align}
+
+The conclusions are similar for general $n\geq 1$ in \ref{eq9:approx_inert_mfd} as long as $f(x) = 0$. Now we may ask ourselves if it is possible to find similar low-dimensional attracting, invariant, manifolds for $f(x) \neq 0$? To this end the simplest approach is to use linearization theorems to relate the invariant manifolds of the $f(x)=0$ case to those of the $f(x) \neq 0$ case. These come in various forms
+\begin{enumerate}
+	\item Hartman-Grobman theorem: If $ \textrm{Re} (\lambda_j) \neq 0$ for $j=1,\ldots,n$ then there exists a $\mathcal{C}^{0}$ linearization, thus this is insufficient for constructing smooth manifolds.
+	\item Hartman theorem: If $ \textrm{Re} (\lambda_j)<0$ for $j=1,\ldots,n$ and $f\in \mathcal{C}^{2}$ then there exists a $\mathcal{C}^{1}$ linearization. This is insufficient for any Taylor expansion and does not carry over the smoothness of any manifold smoother than $\mathcal{C}^{1}$ in the linearized system.
+
+\end{enumerate}
+
+
+
+
+
+
+{\color{blue}After this is the older version}
+
 For reference, see \cite{Ponsioen2016}. A typical model reduction involves a projection onto subspaces, even for nonlinear systems.
 
 \begin{ex}[]

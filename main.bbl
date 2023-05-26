@@ -27,6 +27,17 @@ Fenichel, N. (1979).
   equations.
 \newblock {\em Journal of Differential Equations}, 31:53--98.
 
+\bibitem[Foias et~al., 1989]{FoiasApprox}
+Foias, C., Sell, G., and Titi, E. (1989).
+\newblock Exponential tracking and approximation of inertial manifolds for
+  dissipative nonlinear equations.
+\newblock {\em Journal of Dynamics and Differential Equations}, 1:199--244.
+
+\bibitem[Foias et~al., 1988]{FoiasInertial}
+Foias, C., Sell, G.~R., and Temam, R. (1988).
+\newblock Inertial manifolds for nonlinear evolutionary equations.
+\newblock {\em Journal of Differential Equations}, 73(2):309--353.
+
 \bibitem[Guckenheimer and Holmes, 1990]{GuckenheimerHolmes}
 Guckenheimer, J. and Holmes, P. (1990).
 \newblock {\em Nonlinear Oscillations, Dynamical Systems, and Bifurcations of
