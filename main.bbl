@@ -103,6 +103,14 @@ Palis, J. (1969).
 \newblock On morse-smale dynamical systems.
 \newblock {\em Topology}, 8:385--404.
 
+\bibitem[Poincar{\'e}, 1952]{poincare1951}
+Poincar{\'e}, H. (1952).
+\newblock {{\OE}}uvres. {Publi{\'e}s} sous les auspices de l'{Acad{\'e}mie} des
+  {Sciences} par la {Section} de {G{\'e}om{\'e}trie}. {Tome} {VII}: {Masses}
+  fluides en rotation. {Pri ncipes} de m{\'e}canique analytique. {Probl{\`e}me}
+  des trois corps. {Publi{\'e}} avec la collaboration de {Jacques} {L{\'e}vy}.
+  {Tome} {VIII}. {Publi{\'e}} avec la collaboration d e {Pierre} {S{\'e}mirot}.
+
 \bibitem[Rouche et~al., 1977]{LiapunovDirect}
 Rouche, N., Habets, P., and Laloy, M. (1977).
 \newblock {\em Stability Theory by Liapunov’s Direct Method}.
@@ -124,6 +132,11 @@ Sapsis, T. and Haller, G. (2010).
 Schmid, P. (2010).
 \newblock Dynamic mode decomposition of numerical and experimental data.
 \newblock {\em Journal of Fluid Mechanics}, 656:5 -- 28.
+
+\bibitem[Sternberg, 1957]{Sterberg1957}
+Sternberg, S. (1957).
+\newblock Local contractions and a theorem of poincare.
+\newblock {\em American Journal of Mathematics}, 79(4):809--824.
 
 \bibitem[Strogatz, 2000]{Strogatz}
 Strogatz, S. (2000).
