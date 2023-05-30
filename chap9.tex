@@ -1073,6 +1073,7 @@ The conclusions are similar for general $n\geq 1$ in \ref{eq9:approx_inert_mfd} 
 			\sum_{i=1}^{n} m_i \lambda_i \neq \lambda_j;\quad \forall m\in\mathbb{N}^{n}:\ \sum_{i-1}^{n} m_{i} \geq 2
 		\end{align}
 		then there exists a unique $\mathcal{C}^{a}$ linearization. In this case, all invariant manifolds of the linear part of \ref{eq9:approx_inert_mfd} continue to exist for $f(x)\neq 0$ without any change in their smoothness. It should be noted that the nonresonance condition still allows for 1:1 resonances, but no others.
+	\item Strong Sterberg linearization theorem: Under all of the conditions of the Poincaré-Dulac theorem, but for $f\in \mathcal{C}^{r}$, then there exists a $\mathcal{C}^{r}$ linearization including the case of $r=\infty $. Under nonresonance, all $\mathcal{C}^{r}$ manifolds of the linearization continue to exists for $r \in \mathbb{N}^{+}\cup \{\infty \}$.
 	\item Sterberg linearization theorem \cite{Sterberg1957}: With the same non-resonance theorem as above along with $f\in\mathcal{C}^{r}$ for $r \in \mathbb{N}^{+}\cup \infty $ then there exists a $\mathcal{C}^{\rho}$ linearization where $\rho\leq r$ and $\lim_{r\to \infty }\rho = \infty $. Note that this requires no assumptions on the eigenvalues as we had before. In the general non-resonant case, only $f\in \mathcal{C}^{\infty }$ gives specific enough linearization that preserves the smoothness of all invariant manifolds of the linearization.  
 		
 \end{enumerate}
@@ -1182,9 +1183,66 @@ With this theorem, we can see that high-enough-order Taylor-series expansion put
 	\begin{align}
 		\sigma(E) = \left\lfloor \frac{-1}{-\frac{1}{4}} \right\rfloor = 4.
 	\end{align}
-	It can also be seen that $m_1$ exists such that $m_1\lambda_1 = -m_1 \frac{1}{4} = -1 = \lambda_2 $ with $2 \leq |m| =m_1 \leq 4$, namely $m_1=4$, therefore the non-resonance condition for $E$ is not fulfilled and no unique spectral submanifold exists. This is because a nonlinear continuation of $E$ can be concluded to exist from the theorem.
-	Hence, we modify the system
+	It can also be seen that $m_1$ exists such that $m_1\lambda_1 = -m_1 \frac{1}{4} = -1 = \lambda_2 $ with $2 \leq |m| =m_1 \leq 4$, namely $m_1=4$, therefore the non-resonance condition for $E$ is not fulfilled and no unique spectral submanifold as a nonlinear continuation of $E$ exists. This is because a nonlinear continuation of $E$ can be concluded to exist from the theorem.
+	Hence, we modify the system to
+	\begin{align}
+		\begin{dcases}
+			\dot{x} = -\frac{1}{\alpha } x + xy + x^{3}\\
+			\dot{y} = -y - 2x^2
+		\end{dcases};\quad
+		\alpha \not \in \mathbb{N}^{+} -\{1\}.
+	\end{align}
+	With this modification we find that $\sigma(E) = \lfloor \alpha \rfloor$, the non-resonance condition fails if $-m_1 \frac{1}{\alpha } \neq 1$ for $2\leq m_1 \leq \lfloor \alpha \rfloor$, thus we can see why we need the restriction on $\alpha $. Assuming such an $\alpha $ we find that there exists a unique spectral submanifold in the class of $\mathcal{C}^{\lfloor alpha \rfloor + 1}$.
+
+	Next, we look for a spectral submanifold as a Taylor expansion over $E$, to do this write the manifold as
+	\begin{align}
+		y = ax^2 + bx^3 + cx^4 + \mathcal{O}(x^5) = h(x).
+	\end{align}
+	We can derive this to find
+	\begin{align} 
+		\dot{y} = h'(x)\dot{x} &= \left(2ax + 3bx^2 + 4cx^3 + \mathcal{O}(x^4)\right) \left( - \frac{1}{\alpha } x + xh(x) + x^3 \right) \\
+				       &= -\frac{2a}{\alpha } x^2 - \frac{3b}{\alpha }x^3 - \frac{4h}{\alpha }x^4 + 2a(a+1) x^4 + \mathcal{O}(x^5). \label{eq9:uno} 
+       \end{align}
+       Alternatively we find
+       \begin{align}
+		\dot{y} =\left. -y \right|_{W_E(0)} - 2x^2 &= -\left(ax^2 + bx^3 _ cx^4 + \mathcal{O}(x^5)\right) - 2x^2\\
+							   &= -(a+2)x^2 - bx^3 - cx^4 + \mathcal{O}(x^5). \label{eq9:dos}
+	\end{align}
+	By comparing \ref{eq9:uno} and \ref{eq9:dos} we can see
+	\begin{align}
+		\mathcal{O}(x^2)&:\quad \frac{2a}{\alpha } = a+2 \quad &&\implies a(2-\alpha ) = 2\alpha; \\ 
+		\mathcal{O}(x^3)&:\quad \frac{3b}{\alpha } = b \quad &&\implies b(3-\alpha ) = 0;\\
+		\mathcal{O}(x^4)&:\quad 2a(a+1)- \frac{4c}{\alpha }= -c \quad &&\implies c(4-\alpha )= 2a(a+1)\alpha .
+	\end{align}
+These equations cannot be solved when a resonance is present. Furthermore, below that order all manifolds have the same expansion.
+
+We may select $\alpha =\frac{3}{2}$ which implies $\lambda_1 = -\frac{2}{3}$ and $\lambda _2 = -1$, thus we have that $a=6$, $b=0$, and $c= \frac{2a(a+1)\alpha }{\alpha -1}>0$. Hence the spectral quotient can be calculate as $\sigma(E) = \left\lfloor \frac{-1}{-\frac{2}{3}}\right\rfloor = 1$, and thus $W_E(0)$ is already unique among the class of $\mathcal{C}^{2}$ invariant manifolds. Based on this we can see that the second order Taylor expansion only exists for $W_E(0)$ 
+\begin{align}
+	y = bx^2 + cx^4 + \mathcal{O}(x^5).
+\end{align}
+We may now write the reduced dynamics
+\begin{align}
+	\dot{x} = - \frac{2}{3} x + x(6x^2+cx^4 + \mathcal{O}(x^5)) + x^3 = -\frac{2}{3}x + 7x^3 + \mathcal{O}(x^4).
+\end{align}
+From here we derive the leading order model
+\begin{align}
+	\dot{x} = x\left( -\frac{2}{3} + 7x^2\right)
+\end{align}
+which has two nontrivial fixed points at $x = \pm \sqrt{\frac{2}{21}}$. NOw we may ask if the full system has fixed points, namely by attempting to solve
+\begin{align}
+	\begin{dcases}
+		-\frac{2}{3} x + xy + x^3 = 0\\
+		-y - 2x^2 = 0.
+	\end{dcases}
+\end{align}
+By setting the condition implied from the second equation into the first we find
+\begin{align}
+	-\frac{2}{3}x - x(2x^2) + x^3 = 0 \implies x\left(-\frac{2}{3} - x^2 \right) =0. 
+\end{align}
+This implies that no fixed point exist outside of the origin! The first order approximation to {\color{blue}(of?)} the spectral submanifold may not suffice, but we have the opportunity to go to \emph{any} order, without increasing the dimension of the reduced order model.
 \end{ex}
+
+Following the results of the previous example, we now look to extending the spectral submanifold to non-autonomous (forced) dynamical systems.
 
 {\rule{\textwidth}{0.5pt}}
 
