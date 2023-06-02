@@ -1131,7 +1131,7 @@ An illustration of these two values are given in Fig. \ref{fig:spect_quotient}.
 	\centering
 	\includegraphics[width=0.6\textwidth]{figures/ch9/26spect_quot.pdf}
 	\caption{The eigenvalue constellation, the left dotted green line designates the smallest real part outside of $E$ and the right dotted green line designates the largest real part inside of $E$.}
-	\label{fig:spect_quotient}
+	\label{fig:spect_quotient2}
 \end{figure}
 \end{definition}
 
@@ -1228,7 +1228,7 @@ From here we derive the leading order model
 \begin{align}
 	\dot{x} = x\left( -\frac{2}{3} + 7x^2\right)
 \end{align}
-which has two nontrivial fixed points at $x = \pm \sqrt{\frac{2}{21}}$. NOw we may ask if the full system has fixed points, namely by attempting to solve
+which has two nontrivial fixed points at $x = \pm \sqrt{\frac{2}{21}}$. Now we may ask if the full system has fixed points, namely by attempting to solve
 \begin{align}
 	\begin{dcases}
 		-\frac{2}{3} x + xy + x^3 = 0\\
@@ -1242,7 +1242,104 @@ By setting the condition implied from the second equation into the first we find
 This implies that no fixed point exist outside of the origin! The first order approximation to {\color{blue}(of?)} the spectral submanifold may not suffice, but we have the opportunity to go to \emph{any} order, without increasing the dimension of the reduced order model.
 \end{ex}
 
-Following the results of the previous example, we now look to extending the spectral submanifold to non-autonomous (forced) dynamical systems.
+Following the results of the previous example, we now look to extending the spectral submanifold to non-autonomous (forced) dynamical systems. For this we will assume the setup with $0\leq \varepsilon \ll 1$
+\begin{align}
+	\dot{x} = Ax + f_0(x) + \varepsilon f_1(x, \Omega t, \varepsilon);\quad x \in \mathbb{R}^{n},\ A \in \mathbb{R}^{n\times n},\ f_0,f_1 \in \mathcal{C}^{r},\ f_0 = \mathcal{O}(\|x\|^2).
+\end{align}
+Further we assume that $\Omega = (\Omega_1,\ldots,\Omega_k)\in \mathbb{R}^{k}$ has rationally independent entries and that $f_1$ is $2\pi$-periodic in the $\Omega t$ arguments. Furthermore we assume that the real parts of the eigenvalues are ascending and all strictly less than 0, i.e. the system restricted to $\dot{x}=Ax$ is asymptotically stable (and hyperbolic). We are interested in the spectral subspace $E= \bigoplus_{i}=E_{i}$, the direct sum of eigenspaces forming a $q$ dimensional space with $q\leq n$. Expanding on the definition the spectral quotient, define the absolute spectral quotient 
+\begin{align}
+	\Sigma(E) = \left\lfloor \frac{ \textrm{smallest Re}(\lambda_i)  \textrm{ in spect} (A) }{ \textrm{largest RE} (\lambda _2)\textrm{ in spect} (A|_{E})} \right\rfloor
+\end{align}
+
+The extended phase space is given by $\mathbb{R}^{n} \times \Pi^{k}$ where the dynamics is 
+\begin{align}
+\begin{dcases}
+	\dot{x} = Ax + f_0(x) + \varepsilon f_1(x, \phi, \varepsilon) \\
+	\dot{\phi} = \Omega 
+\end{dcases}
+;\quad \phi = \phi_0 + \Omega(t-t_0) \in \Pi^{k}.
+\end{align}
+The geometry of this system for $\varepsilon=0$ is shown in Fig. \ref{fig:ssm_eps0}.
+\begin{figure}[h!]
+	\centering
+	%\includegraphics[width=\textwidth]{}
+	\caption{The geometry of the $\mathbb{R}^{k}$ portion of the dynamical system}
+	\label{fig:ssm_eps0}
+\end{figure}
+\begin{theorem}[]
+If we have that $\langle m, \lambda \rangle_E \neq \lambda_l$ for $2 \leq \|m\|_{1} \leq \sigma(E)$, $\lambda)i \in  \textrm{spect} (A|_{E})$, and $\lambda_l \in  \textrm{spect} (A)- \textrm{spect} (A|_{E})$, then the following hold for $\varepsilon >0$ small enough
+\begin{enumerate}
+	\item There exists a unique $\mathcal{C}^{r}$ invariant torus $T_{\varepsilon}$ ;
+	\item There exists a unique spectral submanifold $W_{E}(T_{\varepsilon})$ of dimension $q+k$ which is $\mathcal{O}(\varepsilon)$ $\mathcal{C}^{r}$-close to $W_{E}(0)\times T_0$;
+	\item $W_{E}(T_{\varepsilon})$ is already unique among all $\mathcal{C}^{\Sigma(E) + 1}$ invariant manifolds satisfying (ii);
+	\item If $f_0$ and $f_1$ are smooth or analytics, then so is $W_{E}(T_\varepsilon)$ in $\varepsilon$ too.
+\end{enumerate}
+\end{theorem}
+\begin{remark}[]
+	Note that the non-resonance condition here is stronger than the previous, and is already violated when the real part of the spectrum has an outer resonance.
+\end{remark}
+
+\begin{ex}[]
+	Consider the dynamical system
+	\begin{align}
+		\begin{dcases}
+			\dot{x} = -x \\
+			\dot{y} = -\sqrt{24}y + \underbrace{x^2 + X^3 + x^4 + x^5}_{f_0} + \underbrace{\varepsilon(\sin(t) + \sin(\sqrt{2}t))}_{\varepsilon f_1}.
+		\end{dcases}
+	\end{align}
+	Therefore we have $\Omega = (1,\sqrt(2))$, i.e. $k=2$. We have $E = E_1$ and $\Sigma(E) = \left\lfloor \frac{- \sqrt(24)}{-1}\right\rfloor = 4$, this already tells use that if it exists then $W_{E}(T_{\varepsilon})$ is unique in $\mathcal{C}^{5}$. Next we check that the non-resonance condition is satisfied
+	\begin{align}
+		m_1(-1) \neq - \sqrt{24}:\quad \forall m_1\in\mathbb{N}^{+}.
+	\end{align}
+	Thus we have that there exists a unique, invariant, 2 dimensional torus $T_{\varepsilon}$ which is $\mathcal{O}(\varepsilon)$ $\mathcal{C}^{r}$-close to $T_0=0\times\Pi^{2}$ and that there exists a unique spectral submanifold $W_{E}(T_{\varepsilon})$ which is 3 dimensional. Both $T_{\varepsilon}$ and $W_{E}(T_\varepsilon)$ are explicitly computable and are indeed unique in the appropriate sense. These are shown in Fig. \ref{fig:ssm_ex2}
+	\begin{figure}[h!]
+		\centering
+		%\includegraphics[width=\textwidth]{}
+		\caption{A projection of the extended phase space, the teal surface is the unique, analytic, quasiperiodic spectral submanifold, emanating from the unique quasiperiodic nonlinear normal mode in red.}
+		\label{fig:ssm_ex2}
+	\end{figure}	
+\end{ex}
+
+We may now reduce the setting to mechanical systems, i.e. with $n$ degrees-of-freedom, damped-forced, weakly  nonlinear mechanical systems. Consider the dynamical system
+\begin{align} \label{eq9:mech_ssm}
+	M \ddot{q} + C \dot{q} + K q + N(q, \dot{q}) = \varepsilon F(q, \dot{q}, \Omega t, \varepsilon_);\quad q = 
+	\begin{pmatrix}
+		q_1 \\ \vdots \\q_n
+	\end{pmatrix} \in \mathbb{R}^{n}.
+\end{align}
+Again we require that $F$ is quasi-periodic in the argument $\Omega t$ with rationally independent frequency vector $\Omega = (\Omega_1, \ldots, \Omega_k)$ with $\Omega_i\in\mathbb{R}^k$. The matrices $M$, $K$, and $C$ are all symmetric $\in \mathbb{R}^{n\times n}$ and are called the mass, stiffness, and damping matrices respectively, and all fulfill $M,K,C \succ 0$. 
+
+The structural damping hypothesis states that $C = \alpha K + \beta M$, is convenient but is not required. Note that for $\varepsilon=0$ the eigenvalues of the linearization satisfy the characteristic equation $\det(\lambda^2 M + \lambda C + K) = 0$. This implies that $ \textrm{Re}(\lambda _{2n})\leq \ldots \leq  \textrm{Re} (\lambda _1) < 0$. For the linear system we have the Ansatz $q = e^{\lambda t}A$ for $A\neq 0$. The corresponding eigensolution (linear normal modes)
+\begin{align}
+	q_{j}(t) = \exp( \textrm{Re} (\lambda_j)t) \sin( \textrm{Im} (\lambda_j)t + \varphi_j) q_{0}^{j}.
+\end{align}
+The $j$-th mode shape is the constant vector $q_{0}^{j}\in \mathbb{R}^{n}$. If $ \textrm{Im} (\lambda_j) = 0$ we have an overdamped mode, otherwise if $ \textrm{Im} (\lambda _j)\neq 0$ we have an underdamped mode. The model coordinates are 
+\begin{align}
+	q=Tx,\ T = ( q_{0}^{1},\ldots, q_{0}^{n})	;\quad x \in \mathbb{R}^{n}.
+\end{align}
+In these coordinates \eqref{eq9:mech_ssm} becomes
+\begin{align}
+	\ddot{x}_{i}2 \xi_i\omega_i \dot{x}_{i} + \omega_{i}^{2}x_i + s_i(x, \dot{x}) = \varepsilon f_i(x, \dot{x}, \Omega t, \varepsilon).
+\end{align}
+The natural frequency $\omega_i$ is equal to $ \textrm{Im} (\lambda_i)$ and the modal damping factor $\xi_i$ is considering overdamping if $\xi_i >1$ and underdamped if $\xi_i<1$. The modal forcing terms are contained in $f_i$. Possible nonlinear responses are shown in Fig. \ref{fig:frf}.
+\begin{figure}[h!]
+	\centering
+	%\includegraphics[width=\textwidth]{}
+	\caption{Illustration of the frequency response phenomena in mechanical systems. The dark and ligh red curves identify the frequency response for low and high forcing amplitudes, respectively, while blue curves depict conservative backbone curves and grey curves represent force-damped backbone curves. \cite{Cenedese_2020}}
+	\label{fig:frf}
+\end{figure}
+
+We can formulate this autonomously in the extended phase space $\mathbb{R}^{2n}\times \Pi^{k}$ 
+\begin{align}
+	\begin{dcases}
+		\dot{x}_i = y_i \\
+		\dot{y}_i = 2- \xi_i \omega_i y_i - \omega_i^2 x_i + S_i(x,y) +\varepsilon f(x,y,\phi, \varepsilon)\\
+		\dot{\phi} = \Omega.
+	\end{dcases}
+\end{align}
+The generalized quasiperiod spectral submanifold results apply here, for a typical forced response curve the forsing is periodic, $k=1$. The model subspace is the spectral subspace of the form $E=E_j$ with $E_j$ the eigenspace corresponding to the 2 eigenvalues of the $j$-th mode. Implied by the mode being overdamped, i.e. $\xi_j>1$, is that we only have negative real eigenvalues, thus the dynamics on $E_j$ form a node. Meanwhile in the underdamped case, we have a complex conjugate pair of eigenvalues, thus the dynamics on $E_j$ form a stable focus.  
+
+The modal submanifolds are the nonlinear continuations of $E_j \times \Pi^{k}$ under forcing, i.e. the spectral subbundle of perturbed invariant tori $W_{E_j}(T_{\varepsilon)}$.
 
 {\rule{\textwidth}{0.5pt}}
 
@@ -1257,12 +1354,6 @@ this is always an invariant subspace for $\dot{x} = Ax$. The \emph{spectral quot
 	\Sigma(E) = Iu + \left\lfloor \frac{ \textrm{smallest Re} [\lambda _k] \textrm{ outside of }E}{ \textrm{largest Re} [\lambda _i]  \textrm{ inside of } E}\right\rfloor.
 \end{align}
 An illustration of these values are given in Fig. \ref{fig:spect_quotient}.
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.6\textwidth]{figures/ch9/26spect_quot.pdf}
-	\caption{The eigenvalue constellation, the left dotted green line designates the smallest real part outside of $E$ and the right dotted green line designates the largest real part inside of $E$.}
-	\label{fig:spect_quotient}
-\end{figure}
 
 We can check in a 2-dimensional linear example, that this spectral quotient was the degree of differentiability for the general slow manifolds.
 
