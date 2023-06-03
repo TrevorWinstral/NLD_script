@@ -14,44 +14,46 @@ A level-1 auxiliary file: chap9.aux
 A level-1 auxiliary file: chap10.aux
 The style file: apalike.bst
 Database file #1: refs.bib
-You've used 32 entries,
+Warning--empty journal in Ponsioen2020
+You've used 33 entries,
             1935 wiz_defined-function locations,
-            704 strings with 8780 characters,
-and the built_in function-call counts, 11159 in all, are:
-= -- 1086
-> -- 360
+            709 strings with 8941 characters,
+and the built_in function-call counts, 11489 in all, are:
+= -- 1115
+> -- 378
 < -- 27
-+ -- 118
-- -- 112
-* -- 886
-:= -- 1979
-add.period$ -- 97
-call.type$ -- 32
-change.case$ -- 205
-chr.to.int$ -- 32
-cite$ -- 32
-duplicate$ -- 452
-empty$ -- 842
-format.name$ -- 162
-if$ -- 2203
++ -- 124
+- -- 118
+* -- 914
+:= -- 2041
+add.period$ -- 99
+call.type$ -- 33
+change.case$ -- 213
+chr.to.int$ -- 33
+cite$ -- 34
+duplicate$ -- 465
+empty$ -- 862
+format.name$ -- 169
+if$ -- 2263
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 41
-newline$ -- 162
-num.names$ -- 96
-pop$ -- 181
+missing$ -- 42
+newline$ -- 166
+num.names$ -- 99
+pop$ -- 191
 preamble$ -- 1
-purify$ -- 216
+purify$ -- 224
 quote$ -- 0
-skip$ -- 346
+skip$ -- 356
 stack$ -- 0
-substring$ -- 782
+substring$ -- 794
 swap$ -- 43
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 170
-warning$ -- 0
-while$ -- 85
+type$ -- 176
+warning$ -- 1
+while$ -- 87
 width$ -- 0
-write$ -- 408
+write$ -- 418
+(There was 1 warning)

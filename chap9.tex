@@ -1051,7 +1051,6 @@ A family of attracting, invariant, manifolds if formed by this solution namely t
 	\frac{1}{a}\log\left(\frac{x}{x_0}\right) =\frac{1}{b}\log\left(\frac{y}{y_0}\right)
 \end{align}
 The solution is given in this case by $y = C x^{\frac{b}{a}}$, which is generally only $\lfloor \frac{b}{a} \rfloor$-times differentiable except when $C=0$ in which case the manifold is $\mathcal{C}^{\infty }$.
-{\color{blue} as long as $b/a$ isn't an integer, shouldn't this be smooth?}
 \begin{figure}[h!]
 	\centering
 	%\includegraphics[width=\textwidth]{}
@@ -1096,9 +1095,9 @@ To answer this we introduce the theory of (primary) spectral submanifolds and fo
 \end{align}
 for $r \in \mathbb{N}^{+}\cup\{\infty , \textrm{a} \}$ where a signifies the $f_0$ being analytic. Note here that the first condition on $f_0$ implies that $x=0$ is a fixed point. The eigenvalues of $A$ given by $\lambda_1,\ldots,\lambda_N$ fulfill
 \begin{align}
-	\textrm{Re} (\lambda_N) \leq  \textrm{Re} (\lambda_{n-1}) \leq \ldots \leq  \textrm{Re} \lambda_1 	
+	\textrm{Re} (\lambda_n) \leq  \textrm{Re} (\lambda_{n-1}) \leq \ldots \leq  \textrm{Re} \lambda_1 	
 \end{align}
-{\color{blue} he has some condition here $N\leq n$, not exactly sure how that interacts here, shouldn't $N=n$?}
+
 This implies that $x=0$ is asymptotically stable. Assume that the eigenspaces are such that every eigenspace $E_j$ is the span of the real and imaginary parts of all eigenvectors and generalized eigenvectors corresponding to $\lambda_j$ for $j=1,\ldots,n$, thus we have
 \begin{align}
 \mathbb{R}^{n} = \bigoplus_{j=1}^{N}E_j	.
@@ -1294,8 +1293,8 @@ If we have that $\langle m, \lambda \rangle_E \neq \lambda_l$ for $2 \leq \|m\|_
 	Thus we have that there exists a unique, invariant, 2 dimensional torus $T_{\varepsilon}$ which is $\mathcal{O}(\varepsilon)$ $\mathcal{C}^{r}$-close to $T_0=0\times\Pi^{2}$ and that there exists a unique spectral submanifold $W_{E}(T_{\varepsilon})$ which is 3 dimensional. Both $T_{\varepsilon}$ and $W_{E}(T_\varepsilon)$ are explicitly computable and are indeed unique in the appropriate sense. These are shown in Fig. \ref{fig:ssm_ex2}
 	\begin{figure}[h!]
 		\centering
-		%\includegraphics[width=\textwidth]{}
-		\caption{A projection of the extended phase space, the teal surface is the unique, analytic, quasiperiodic spectral submanifold, emanating from the unique quasiperiodic nonlinear normal mode in red.}
+		\includegraphics[width=0.6\textwidth]{figures/ch9/ponsioen2016.pdf}
+		\caption{A projection of the extended phase space, the teal surface is the unique, analytic, quasiperiodic spectral submanifold, emanating from the unique quasiperiodic nonlinear normal mode in red \cite{Ponsioen2016}.}
 		\label{fig:ssm_ex2}
 	\end{figure}	
 \end{ex}
@@ -1324,7 +1323,7 @@ In these coordinates \eqref{eq9:mech_ssm} becomes
 The natural frequency $\omega_i$ is equal to $ \textrm{Im} (\lambda_i)$ and the modal damping factor $\xi_i$ is considering overdamping if $\xi_i >1$ and underdamped if $\xi_i<1$. The modal forcing terms are contained in $f_i$. Possible nonlinear responses are shown in Fig. \ref{fig:frf}.
 \begin{figure}[h!]
 	\centering
-	%\includegraphics[width=\textwidth]{}
+	\includegraphics[width=0.99\textwidth]{figures/ch9/frf.pdf}
 	\caption{Illustration of the frequency response phenomena in mechanical systems. The dark and ligh red curves identify the frequency response for low and high forcing amplitudes, respectively, while blue curves depict conservative backbone curves and grey curves represent force-damped backbone curves. \cite{Cenedese_2020}}
 	\label{fig:frf}
 \end{figure}
@@ -1339,26 +1338,41 @@ We can formulate this autonomously in the extended phase space $\mathbb{R}^{2n}\
 \end{align}
 The generalized quasiperiod spectral submanifold results apply here, for a typical forced response curve the forsing is periodic, $k=1$. The model subspace is the spectral subspace of the form $E=E_j$ with $E_j$ the eigenspace corresponding to the 2 eigenvalues of the $j$-th mode. Implied by the mode being overdamped, i.e. $\xi_j>1$, is that we only have negative real eigenvalues, thus the dynamics on $E_j$ form a node. Meanwhile in the underdamped case, we have a complex conjugate pair of eigenvalues, thus the dynamics on $E_j$ form a stable focus.  
 
-The modal submanifolds are the nonlinear continuations of $E_j \times \Pi^{k}$ under forcing, i.e. the spectral subbundle of perturbed invariant tori $W_{E_j}(T_{\varepsilon)}$.
+The modal submanifolds are the nonlinear continuations of $E_j \times \Pi^{k}$ under forcing, i.e. the spectral subbundle of perturbed invariant tori $W_{E_j}(T_{\varepsilon})$. We can observe an example of the geometry in Fig. \ref{fig:ssm_ex3}.
 
-{\rule{\textwidth}{0.5pt}}
+\begin{figure}[h!]
+	\centering
+	%\includegraphics[width=\textwidth]{}
+	\caption{An example of the geometry of a nonlinear continuation of the extended phase space.}
+	\label{fig:ssm_ex3}
+\end{figure}
 
-{\color{blue}After this is the older version}
+We may choose the dimension of the reduced order model (of the relevant spectral submanifold), this should be selected depending on how many of the transient time scales we would like to model (often stemming from the resonances with external forcing). Another consideration in this selection is that the lower-order internal resonances must be included in the spectral submanifold.
 
-We call the direct sum of an arbitrary number of distinct eigenspaces the \emph{spectral subspace} 
+The most important case in nonlinear system id {\color{blue} what is this word?} and testing is with periodic external forcing ($k=1$, i.e. $T_0 \sim T_{\varepsilon} \sim S^1$). Of interest to us is predicting the forced response curve. Idealling we would find a nontrivial response near resonance which can be analyzed by reduction to $W_{E_j}(T_{\varepsilon})$. In this case $E_j$ is the modal subspace corresponding to the resonance.
+
+The normal form for the reduced dynamics an 2 dimensional modal submanifolds is
 \begin{align}
-E = \bigoplus_{j=1}^{t}E_{j};\quad 1 \leq k \leq N,	
+	\begin{dcases}
+	\dot{\rho} = a(\rho) + \varepsilon (b_1(\rho, \Omega) \cos(\Psi) + b_2(\rho, \Omega)\sin(\Psi)) + \mathcal{O}(\varepsilon^2)\\
+	\dot{\Psi} = b(\rho) - \Omega + \frac{\varepsilon}{\rho}(c_1(\rho, \Omega) \cos(\Psi) + c_2(\rho, \Omega)\cos(\Psi))+ \mathcal{O}(\varepsilon^2). 
+	\end{dcases}
 \end{align}
-this is always an invariant subspace for $\dot{x} = Ax$. The \emph{spectral quotient of $A$} is given by
+Where we have
 \begin{align}
-	\Sigma(E) = Iu + \left\lfloor \frac{ \textrm{smallest Re} [\lambda _k] \textrm{ outside of }E}{ \textrm{largest Re} [\lambda _i]  \textrm{ inside of } E}\right\rfloor.
+	a(\rho) &=  \textrm{Re} (\lambda_j) + \sum_{i}^{} a_i \rho^{2i+1} \\
+	b(\rho) &=  \textrm{Im} (\lambda_j) + \sum_{i}^{} b_i \rho^{2i}, 
 \end{align}
-An illustration of these values are given in Fig. \ref{fig:spect_quotient}.
-
-We can check in a 2-dimensional linear example, that this spectral quotient was the degree of differentiability for the general slow manifolds.
-
-
-Now we ask if the full nonlinear system has a \emph{spectral submanifold} (SSM), i.e. a nonlinear continuation of $E$.
- 
+further $b_i$ and $c_i$ are Taylor series in $\rho$, which is convergend if $W_{E_j}(T_\varepsilon)$ is analytic. We call $\rho $ the polar radius, $\Psi $ the phase lag between the polar angle $\varphi $ and phase of the forcing, i.e. $\Psi = \varphi-\Omega t$. 
+\begin{theorem}[]
+	Nontrivial non-spurious transverse zeros of $a(\rho)$ (at $\rho_0$) give rise to isola, created around the point $(\Omega, \rho) = (b(\rho_0), \rho_0)$.
+\end{theorem}
+An illustration of the time periodic spectral submanifold and isola as in the theorem are given in Fig. \ref{fig:time_periodic_ssm}.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/ch9/time_periodic_ssm.pdf}
+	\caption{Illustration of a time periodic spectral submanifold. For a given forcing frequency $\Omega  $, here it is ullustrated how the spectral submanifold may contain three limit cycles, of which two fall in an isola \cite{Ponsioen2020}.}
+	\label{fig:time_periodic_ssm}
+\end{figure}
 
 
