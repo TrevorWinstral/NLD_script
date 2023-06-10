@@ -204,6 +204,34 @@ The averaging principle is depicted in Fig. \ref{fig:avg_principle}.
 	\label{fig:avg_principle}
 \end{figure}
 
+\begin{exercise}
+Show that on time scales of $\mathcal{O}(1/\varepsilon)$, a solution ${x}(t)$ with ${x}(0) = {x}_0$ of the dynamical system
+\begin{align}
+	\dot{{x}} = \varepsilon {f}({x},t, \varepsilon); \quad {x} \in \mathbb{R}^n, \label{eq:ex61_1}
+\end{align}
+($\varepsilon$ is a small parameter and ${f}$ is a smooth function that is $T$-periodic in time) remains $\mathcal{O}(\varepsilon)$-close to any solution ${y}(t)$ with ${y}(0) = {x}_0 + \mathcal{O}(\varepsilon)$ of the averaged system
+\begin{align}
+	\dot{{y}} = \varepsilon \bar{{f}}_0 ({y}); \quad {y} \in \mathbb{R}^n,\label{eq:ex61_2}
+\end{align}
+where
+\begin{align}
+	\bar{{f}}_0 ({y}) = \frac{1}{T} \int_0^T f(y,t,0) \, \text{d}t.
+\end{align}
+\textit{Hint}: Subtract \eqref{eq:ex61_2} from \eqref{eq:ex61_1} and integrate to obtain an expression for $|{x}(t) - {y}(t)|$. Estimate $|{x}(t) - {y}(t)|$ from above using the facts that $\bar{{f}}$ is Lipschitz and $|\hat{f} - \bar{f}|/\varepsilon$ is uniformly bounded, where $\hat{f}$ is the right-hand-side of the system into which \eqref{eq:ex61_1} is transformed by the averaging transformation ${x} = {y} + \varepsilon {w}({y},t)$. Then use the following generalized Gronwall inequality:
+
+If $u(t), v(t), c(t)$ are non-negative functions, $c(t)$ is differentiable, and
+\begin{align*}
+	v(t) \leq c(t) + \int_0^t u(s)v(s) \, \text{d}s,
+\end{align*}
+then
+\begin{align*}
+	v(t) \leq c(0) e^{\int_0^t u(s)\, \text{d}s} + \int_0^t c'(s)e^{\int_s^t u(\tau)\,\text{d}\tau}\, \text{d}s.
+\end{align*}
+
+	
+\end{exercise}
+
+
 This has implications for the Poincaré map of the original equation
 \begin{align}
 	P_{t_0}^{\varepsilon}:x_0 \mapsto x(t_0+T, x_0; \epsilon);\quad P_{t_0}^{\varepsilon} = P_{t_0}^{0} + \mathcal{O}(\epsilon) \implies \left( P_{t_0}^{\varepsilon}\right)^{n} = \left( P_{t_0}^{0}\right)^{n} + \mathcal{O}(\varepsilon).
@@ -391,8 +419,40 @@ Next, recall that $x(t) = u(t) \cos(\omega t) - v(t) \sin(\omega t) = r(t)\cos(\
 	\caption{The forced response curve for the Duffing equation. The parameters are selected as $F_0 = 2, \omega_0=1, \alpha=0.35, \zeta = 0.12$. }
 	\label{fig:forced_response}
 \end{figure}
-
 \end{ex}
+
+\begin{exercise}
+Fluid trajectories ${x}(t) = (x(t),y(t))$ in a two-dimensional time-periodic flow satisfy the differential equations
+\begin{align}
+	\begin{dcases}
+		\dot{x} &= u(x,y,t); \quad u(x,y,t) = u(x,y,t+T) \\
+		\dot{y} &= v(x,y,t); \quad v(x,y,t) = v(x,y,t+T),
+	\end{dcases}
+	\label{eq:ex62_1}
+\end{align}
+where $T>0$ is the period, $u$ and $v$ are smooth velocity components satisfying the incompressibility condition $u_x + v_y \equiv 0$. Assume that the fluid is bounded by a wall at $y=0$, on which the velocity field satisfies the no-slip boundary conditions $u(x,0,t) = v(x,0,t)=0$. As a result, all boundary points are nonhyperbolic fixed points for \eqref{eq:ex62_1}.
+
+We say that a boundary point ${p}_0 = (x_0,0)$ is a separation point for the flow \eqref{eq:ex62_1} if ${p}_0$ admits an unstable manifold $W^u({p}_0)$. Physically, $W^u({p}_0)$ is a time-dependent curve of fluid particles that shrinks to ${p}_0$ is backward time. In forward time, $W^u({p}_0)$ attracts fluid particles, then ejects them from the vicinity of the wall (see Fig. \ref{fig:ex62_1}). Show that separation points satisfy the criteria
+\begin{align}
+	\int_0^T u_y(x_0,0,t) \, \text{d}t = 0, \quad \int_0^T v_{yy}(x_0,0,t)\, \text{d}t > 0,
+\end{align}
+i.e., separation takes place where the average of the wall-shear is zero and the average of $v_{yy}$ is positive.
+
+\textit{Hint}: Use incompressibility and the boundary conditions to show that \eqref{eq:ex62_1} can be rewritten as
+\begin{align}
+	\dot{x} &= yU(x,y,t), \\
+	\dot{y} &= y^2V(x,y,t).
+\end{align}
+To focus on the vicinity of the boundary, introduce the scaled variable $y=\varepsilon \eta$, where $0 \leq \varepsilon \ll 1$. Show that the resulting $(\dot{x},\dot{\eta})$ equations are slowly varying and find the corresponding averaged equations. For the averaged equations, rescale time on trajectories by letting $\frac{d\tau}{dt} = \eta(t)$ in order to remove the common $\eta$ factor from the right-hand-side, and look for a hyperbolic fixed point with an unstable manifold off the wall. Use the averaging theorem to relate your results to the original system \eqref{eq:ex62_1}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.15]{figures/ch5/Series/Q03D01.png}
+	\label{fig:ex62_1}
+	\caption{Unsteady separation from a no-slip wall.}
+\end{figure}
+\end{exercise}
+
 
 \section{The Harmonic Balance Method}
 Averaging and other perturbation techniques are often restrictive due to their small-parameter assumptions and result in cumbersome expressions limiting their application in high-dimensional systems. To avoid these constraints, the \emph{Harmonic Balance} method computes the Fourier series approximation of the periodic response and is formally applicable without the previous restrictions. Consider the setup 

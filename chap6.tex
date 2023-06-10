@@ -490,6 +490,12 @@ It is possible to classify all of the orbits of $\sigma $ in $\Sigma$, the class
 		\end{align}
 		orbits of period exactly $k$, the notation $\langle i,k\rangle$ signifies integers $i$ which are divisors of $k$.	
 \end{enumerate}
+
+\begin{exercise}
+Show that the map the binary expansion map $g(x) = 2x$ mod $1$ is chaotic on $[0, 1]$.
+\end{exercise}
+
+
 There exists a countable infinity (i.e. the elements can be organized uniquely into an infinite countable sequence) of periodic orbits of arbitrarily high period. The countable sequence ordering can be done by listing each orbit in the row corresponding to its minimal period. An orbit of period $k$  is made up of $k$ points along that orbit. We assign a single number to the orbit by concatenating the decimal representations of the individual points along the orbit, starting from the one with the smallest value. Within a row, we can then order the periodic orbits based on the magnitudes of the concatenated numbers representing them. Thus $\overline{112}\bm{.} \overline{112}$ would go in the third row as it has the minimal period $3$, as the fixed points have period length $0$ and occupy the first row, and in the leftmost position as $\overline{112} \prec \overline{122}$. Each row has a finite number of elements, so ordering each row is not a problem. Then the complete order is done by starting with $0$ for the first element in the first row (the fixed point $\overline{1}\bm{.} \overline{1}$), then reading from left to right before continuing to the next row. This list is well defined and countably infinite, containing all of the orbits of $\sigma$.
 
 Before further study, it is important to introduce a notion of distance on the space $\Sigma$.
@@ -558,6 +564,21 @@ For example, heteroclinic orbits are asymptotically periodic.
 \end{figure}
 
 In fact there also exists an uncountable infinity of non-periodic (not even asymptotically periodic) orbits in $\Sigma$. To show this, we will show that $\Sigma$ is uncountable, i.e. that it cannot be arranged into a well-defined, countable sequence.
+
+\begin{exercise}
+For one-dimensional iterated maps $x_{n+1} = f(x_n)$ defined by a smooth function $f$ : $\mathbb{R} \to \mathbb{R}$, define the Lyapunov-exponent as
+\begin{align}
+\lambda(x_0) = \lim_{n\to \infty}\frac{1}{n}\lim_{\delta \to 0^+} \log \frac{|f^n(x_0 + \delta) - f^n(x_0)|}{\delta},
+\end{align}
+where $f^n = f\circ f \circ \dots \circ f$ is the $n$ times iterated mapping. 
+
+Show that
+\begin{align}
+\lambda(x_0) = \lim_{n\to \infty}\frac{1}{n}\sum_{i=0}^{n-1}\log |f'(f^i(x_0))|,
+\end{align}
+whenever the limit exists. 
+\end{exercise}
+
 \begin{definition}
 	The binary expansion of a number $x\in [0,1]$ is the sequence $(b_i)_{i=1}^{\infty }$ of 1s and 0s  such that 
 	\begin{align}
@@ -656,6 +677,11 @@ is within distance $2^{-(k+1)}$ of $s_{i}^{k}$, for $L$ and $R$ arbirary. This i
 	\end{align}
 \end{proposition}
 	This is also called the \emph{mixing property}. In the case of the Bernoulli shift map, it can be concluded from the existence of a dense orbit.
+
+\begin{exercise}
+
+\end{exercise}
+	
 \begin{proposition}[Sensitive dependence on initial conditions]
 	Regardless of how close two distinct initial conditions $s$ and $s'$ are chosen, they will not remain close. There exists a $\Delta>0$ such that for every $s\in\Sigma$ and any $\delta>0$, there exists an $s' \in \mathcal{B}\left(s, \delta\right)$ such that for an $N$ large enough the following holds
 	\begin{align}

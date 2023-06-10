@@ -198,8 +198,28 @@ We now introduce two theorems which give us more insight into these limit sets.
 		\caption{A forward-invariant, bounded open set without fixed points as in the remark. Such a set must contain a limit cycle.}
 		\label{fig:PB_consequence}
 	\end{figure}
-	
 \end{remark}
+
+\begin{exercise}
+	Consider a planar dynamical system with the following phase portrait (Fig. \ref{fig:ex51}).
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.9]{figures/ch4/Series/Q04D01.pdf}
+	\label{fig:ex51}
+	\caption{Phase portrait of the planar dynamical system}
+\end{figure}
+
+Which of the following statement is true?
+\begin{enumerate}
+	\item The $\omega$-limit set of $\gamma$ is empty.
+	\item By the Poincaré-Bendixson theorem, the $\omega$-limit set of $\gamma$ is composed of the lines $y = 1$ and $y = -1$.
+	\item The Poincaré-Bendixson theorem does not apply to $\gamma$.
+	\item None of the above
+\end{enumerate}
+
+\end{exercise}
+
+
 \begin{proposition}[Bendixson criterion]
 	Consider the following
 	\begin{align}
@@ -245,4 +265,18 @@ Here, $\Gamma^{\degree}$ denotes the interior of the area enclosed by $\Gamma$. 
 	\end{align}
 	If we assume pure damping or forcing, the divergence of $f$ cannot be 0 on any open set. If it is positive, we have pure forcing, alternatively if it is negative we have pure damping. In either case no limit cycle can exist.	
 \end{remark}
+
+\begin{exercise}
+Consider a planar Hamiltonian system
+\begin{align}
+	\begin{dcases}
+	\dot{x} &= \frac{\partial H(x,y)}{\partial y} + f_1(x,y) \\
+	\dot{y} &= - \frac{\partial H(x,y)}{\partial x} + f_2(x,y),
+	\end{dcases}
+\end{align}
+where the twice continuously differentiable function $H(x,y)$ is the Hamiltonian associated with the system (say, the energy in classical mechanics, or the stream function in fluid mechanics), and the continuously differentiable ${f} = (f_1, f_2)$ is a dissipative term (say, damping in classical mechanics, or compressible terms in fluid mechanics). Assume that $\nabla \cdot {f} \neq 0$ for all $(x,y) \in \mathbb{R}^2$ (linear damping, for instance has this property.)
+
+Show that the above system can have no limit cycles.
+	
+\end{exercise}
 
