@@ -1,0 +1,672 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{TCIstyle=LaTeX article (bright).cst}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Thursday, September 13, 2001 12:48:34}
+%TCIDATA{LastRevised=Friday, April 28, 2006 16:52:00}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Exams and Syllabi\SW\Assignment">}
+%TCIDATA{Language=American English}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\textheight}{9.25in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+\setlength{\textwidth}{6.5in}
+\def\labelenumi{\arabic{enumi}.}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumii{(\alph{enumii})}
+\def\theenumii{\alph{enumii}}
+\def\p@enumii{\theenumi.}
+\def\labelenumiii{\arabic{enumiii}.}
+\def\theenumiii{\arabic{enumiii}}
+\def\p@enumiii{(\theenumi)(\theenumii)}
+\def\labelenumiv{\arabic{enumiv}.}
+\def\theenumiv{\arabic{enumiv}}
+\def\p@enumiv{\p@enumiii.\theenumiii}
+
+
+\parindent=0pt
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 0
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle plain
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\align center
+
+\series bold
+151-0530-00L, Spring, 2021
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Nonlinear Dynamics and Chaos II
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+Homework Assignment 4
+\end_layout
+
+\begin_layout Standard
+\align center
+Due: Wednesday, May 5
+\begin_inset Newline newline
+\end_inset
+
+Please email PDF file to Balint Kaszas <bkaszas@ethz.ch>
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Compute the Lyapunov-type numbers 
+\begin_inset Formula $\nu(p)$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma(p)$
+\end_inset
+
+ in the example
+\begin_inset Formula 
+\begin{align*}
+\dot{x} & =-x(1-x^{2}),\\
+\dot{y} & =-by,
+\end{align*}
+
+\end_inset
+
+for all points 
+\begin_inset Formula $p\in M_{0}$
+\end_inset
+
+, with the parameter 
+\begin_inset Formula $b\in\mathbb{R}^{+}$
+\end_inset
+
+ and with overflowing-invariant manifold 
+\begin_inset Formula $M_{0}$
+\end_inset
+
+ defined as
+\begin_inset Formula 
+\[
+M_{0}=\left\{ (x,y)\in\mathbb{R}^{2}:\,\,\,y=0,\,\,x\in\left[-3/2,3/2\right]\right\} .
+\]
+
+\end_inset
+
+ (
+\emph on
+Hint
+\emph default
+: Use the operators 
+\begin_inset Formula $A_{t}(p)$
+\end_inset
+
+ and 
+\begin_inset Formula $B_{t}(p)$
+\end_inset
+
+ defined in class).
+ 
+\end_layout
+
+\begin_layout Enumerate
+The stable and unstable manifolds of a normally hyperbolic invariant manifold
+ 
+\begin_inset Formula $M$
+\end_inset
+
+ turn out to admit a delicate internal structure, an 
+\emph on
+invariant foliation, 
+\emph default
+which is useful in determining the exact asymptotic behavior of trajectories
+ in 
+\begin_inset Formula $W^{u}(M)$
+\end_inset
+
+ and 
+\begin_inset Formula $W^{s}(M)$
+\end_inset
+
+.
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset space \qquad{}
+\end_inset
+
+More specifically, if 
+\begin_inset Formula $M\subset\mathbb{R}^{n}$
+\end_inset
+
+ is a compact, 
+\begin_inset Formula $C^{r}$
+\end_inset
+
+ smooth, 
+\begin_inset Formula $k$
+\end_inset
+
+-dimensional, 
+\begin_inset Formula $r$
+\end_inset
+
+-normally hyperbolic invariant manifold with boundary, and 
+\begin_inset Formula $\dim\left[W^{s}(M)\right]=k+s$
+\end_inset
+
+, then 
+\begin_inset Formula $W^{s}(M)$
+\end_inset
+
+ has the following properties (some of which are sketched in Fig.
+ 1.):
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../Homeworks2017/fiber.eps
+	width 40text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The geometry of stable fibers
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(i) Near 
+\begin_inset Formula $M$
+\end_inset
+
+, the stable manifold 
+\begin_inset Formula $W^{s}(M)$
+\end_inset
+
+ can be written as
+\begin_inset Formula 
+\[
+W_{\mathrm{loc}}^{s}(M)=\cup_{p\in M}\,\,f^{s}(p),
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $f^{s}(p)$
+\end_inset
+
+ is a 
+\begin_inset Formula $C^{r}$
+\end_inset
+
+ smooth, 
+\begin_inset Formula $s$
+\end_inset
+
+-dimensional submanifold of 
+\begin_inset Formula $W_{\mathrm{loc}}^{s}(M)$
+\end_inset
+
+ for which 
+\begin_inset Formula $f^{s}(p)\cap M=p$
+\end_inset
+
+.
+ We refer to the point 
+\begin_inset Formula $p$
+\end_inset
+
+ on 
+\begin_inset Formula $M$
+\end_inset
+
+ as the base point of the 
+\emph on
+stable fiber 
+\emph default
+
+\begin_inset Formula $f^{s}(p)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+(ii) The stable fiber 
+\begin_inset Formula $f^{s}(p)$
+\end_inset
+
+ is tangent to 
+\begin_inset Formula $N_{p}^{s}M$
+\end_inset
+
+, the local section of the stable subbundle 
+\begin_inset Formula $N^{s}M.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(iii) The stable fibers form a positively invariant family, i.e., 
+\begin_inset Formula $F^{t}(f^{s}(p))\subset f^{s}(F^{t}(p))$
+\end_inset
+
+.
+ In words, stable fibers are mapped into stable fibers by the flow map,
+ although individual stable fibers are not invariant under the flow.
+\end_layout
+
+\begin_layout Standard
+(iv) There exist positive constants 
+\begin_inset Formula $C_{s}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda_{s}$
+\end_inset
+
+, such that for any 
+\begin_inset Formula $q\in f^{s}(p)$
+\end_inset
+
+, we have 
+\begin_inset Formula $\left\vert F^{t}(q)-F^{t}(p)\right\vert <C_{s}e^{-\lambda_{s}t}.$
+\end_inset
+
+ In other words, trajectories intersecting a stable fiber will exponentially
+ converge to the trajectory on 
+\begin_inset Formula $M$
+\end_inset
+
+ that passes through the base point of that stable fiber.
+\end_layout
+
+\begin_layout Standard
+(v) For any 
+\begin_inset Formula $q\in f^{s}(p)$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{q}\in f^{s}(\hat{p}),$
+\end_inset
+
+ we have
+\begin_inset Formula 
+\[
+\frac{\left\Vert F^{t}(q)-F^{t}(p)\right\Vert }{\left\Vert F^{t}(\hat{q})-F^{t}(p)\right\Vert }\rightarrow0,
+\]
+
+\end_inset
+
+as 
+\begin_inset Formula $t\rightarrow\infty$
+\end_inset
+
+, unless 
+\begin_inset Formula $p=\hat{p}.$
+\end_inset
+
+ In other words, out of all the trajectories that may converge to the positive
+ half-trajectory 
+\begin_inset Formula 
+\[
+\gamma(p)=\left\{ F^{t}(p)\right\} _{t\geq0},
+\]
+
+\end_inset
+
+the trajectories starting from the stable fiber 
+\begin_inset Formula $f^{s}(p)$
+\end_inset
+
+ converges at the fastest rate.
+ One therefore obtains a local stable manifold
+\begin_inset Formula 
+\[
+W_{\mathrm{loc}}^{ss}(\gamma(p))=\cup_{\tilde{p}\in\gamma(p)}\,f^{s}(\tilde{p})
+\]
+
+\end_inset
+
+for any trajectory 
+\begin_inset Formula $\gamma(p)$
+\end_inset
+
+ on the manifold 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ (The full stable manifold 
+\begin_inset Formula $W_{\mathrm{loc}}^{s}(\gamma(p))$
+\end_inset
+
+ may be larger than 
+\begin_inset Formula $W_{\mathrm{loc}}^{ss}(\gamma(p))$
+\end_inset
+
+, because 
+\begin_inset Formula $\gamma(p)$
+\end_inset
+
+ may also attract trajectories within 
+\begin_inset Formula $M$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Standard
+(vi) 
+\begin_inset Formula $f^{s}(p)\cap f^{s}(\hat{p})=\emptyset,$
+\end_inset
+
+ unless 
+\begin_inset Formula $p=\hat{p}.$
+\end_inset
+
+ In other words, stable fibers with different base points do not intersect.
+\end_layout
+
+\begin_layout Standard
+(vii) A stable fiber 
+\begin_inset Formula $f^{s}(p)$
+\end_inset
+
+ is a 
+\begin_inset Formula $C^{r-1}$
+\end_inset
+
+ smooth function of its base point 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+(viii) Stable fibers 
+\begin_inset Formula $C^{r}$
+\end_inset
+
+-smoothly persist under small 
+\begin_inset Formula $C^{1}$
+\end_inset
+
+ perturbations of the dynamical system.
+\end_layout
+
+\begin_layout Standard
+The local unstable manifold 
+\begin_inset Formula $W_{\mathrm{loc}}^{u}(M)$
+\end_inset
+
+ has a similar invariant foliation 
+\begin_inset Formula 
+\[
+W_{\mathrm{loc}}^{u}(M)=\cup_{p\in M}\,\,f^{u}(p),
+\]
+
+\end_inset
+
+with appropriate properties in backward time.
+ (For more information, see S.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ Wiggins, 
+\emph on
+Normally Hyperbolic Invariant Manifolds in Dynamical
+\begin_inset space \space{}
+\end_inset
+
+Systems
+\emph default
+, Springer 1994)
+\end_layout
+
+\begin_layout Standard
+Consider now the three-dimensional nonlinear dynamical system
+\begin_inset Formula 
+\begin{eqnarray*}
+\dot{x} & = & -\varepsilon\left(x+y^{2}\right),\\
+\dot{y} & = & -y,\\
+\dot{z} & = & z,
+\end{eqnarray*}
+
+\end_inset
+
+with the small parameter 
+\begin_inset Formula $\varepsilon\geq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+(a) Show that the set 
+\begin_inset Formula $M_{0}=\left\{ y=z=0,\,x\in\left[-1,1\right]\right\} $
+\end_inset
+
+ is a normally hyperbolic invariant manifold for 
+\begin_inset Formula $\varepsilon=0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(b) Find the manifold 
+\begin_inset Formula $M_{\varepsilon}$
+\end_inset
+
+ into which 
+\begin_inset Formula $M_{0}$
+\end_inset
+
+ perturbs for small 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+(c) Using the property (v), show that for any base point 
+\begin_inset Formula $p\in$
+\end_inset
+
+ 
+\begin_inset Formula $W_{\mathrm{loc}}^{s}(M)$
+\end_inset
+
+, the corresponding stable fiber is the nonlinear surface.
+\begin_inset Formula 
+\[
+f^{s}(p)=\left\{ \left(x,y,z\right)~|~x=x_{p}+\frac{\varepsilon}{2-\varepsilon}y^{2},\,z=0\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(d) Find a similar expression for the unstable fibers 
+\begin_inset Formula $f^{u}(p)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+(e) Verify explicitly the properties of the stable fibers listed in (i)-(vii)
+ in this example.
+\end_layout
+
+\begin_layout Standard
+(e) For any trajectory 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ in 
+\begin_inset Formula $M_{\varepsilon}$
+\end_inset
+
+, find explicit expressions for 
+\begin_inset Formula $W_{\mathrm{loc}}^{ss}(\gamma)$
+\end_inset
+
+, 
+\begin_inset Formula $W_{\mathrm{loc}}^{uu}(\gamma),$
+\end_inset
+
+ 
+\begin_inset Formula $W_{\mathrm{loc}}^{s}(\gamma)$
+\end_inset
+
+, and 
+\begin_inset Formula $W_{\mathrm{loc}}^{u}(\gamma).$
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\end_body
+\end_document

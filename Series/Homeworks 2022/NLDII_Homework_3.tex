@@ -1,0 +1,82 @@
+%% LyX 2.3.6.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\setlength{\evensidemargin}{0in}
+\setlength{\oddsidemargin}{.2in}
+\setlength{\textwidth}{6.in}
+\setlength{\topmargin}{-.5in}
+\setlength{\textheight}{8.7in}
+\setlength{\unitlength}{1cm}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\begin{center}
+\textbf{151-0530-00L, Spring, 2022}
+\par\end{center}
+
+\begin{center}
+\textbf{Nonlinear Dynamics and Chaos II}
+\par\end{center}
+
+\begin{center}
+\textbf{Homework Assignment 3}
+\par\end{center}
+
+\begin{center}
+Due: Monday, May 2\\
+Please email PDF file to Dr. Mattia Cenedese <mattiac@ethz.ch>
+\par\end{center}
+
+\bigskip{}
+
+\begin{enumerate}
+\item Show that if $\lambda$ is an eigenvalue of a linearized Hamiltonian
+system, then so is $-\lambda$. (\emph{Hint:} For any symmetric matrix
+$A$ and any nonsingular matrix $B$, the eigenvalues of $BA$ and
+$B^{-1}\left(BA\right)B$ coincide.)
+\item A \emph{gradient system} is a dynamical system of the form 
+\[
+\dot{x}=-DV(x),\qquad x\in\mathbb{R}^{n},
+\]
+with some smooth function $V$. Apart from the absence of the symplectic
+matrix $J$, gradient systems appear similar to Hamiltonian systems.
+In fact, they are rather different, as the following exercises show.
+
+(a) Show that the eigenvalues of a linearized gradient system are
+always real.
+
+(b) Find a condition for $V$ under which a fixed point of a gradient
+system is asymptotically stable.
+
+(c) Show that gradient systems cannot have periodic orbits.
+
+(d) Given a smooth function $f\left(x\right)$, propose a numerical
+method for finding the local minima and maxima of $f$.
+\item Let $f:X\rightarrow Y$ be a smooth function, where $X\subset\mathbb{R}^{n}$
+is a manifold. Prove that the graph of $f$,
+\[
+\mathrm{graph}(f)=\left\{ (x,y)\in X\times Y:\,\,\,y=f(x)\right\} 
+\]
+is always a manifold.
+\item Show that the tangent space of a manifold at any point is independent
+of the local parametrization used in its construction (i.e., another
+local parametrization would give the same tangent space).
+\item Prove that the tangent bundle of a manifold is a manifold by constructing
+an explicit local parametrization.
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,309 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{TCIstyle=LaTeX article (bright).cst}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Thursday, September 13, 2001 12:48:34}
+%TCIDATA{LastRevised=Friday, April 28, 2006 16:52:00}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Exams and Syllabi\SW\Assignment">}
+%TCIDATA{Language=American English}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\textheight}{9.25in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+\setlength{\textwidth}{6.5in}
+\def\labelenumi{\arabic{enumi}.}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumii{(\alph{enumii})}
+\def\theenumii{\alph{enumii}}
+\def\p@enumii{\theenumi.}
+\def\labelenumiii{\arabic{enumiii}.}
+\def\theenumiii{\arabic{enumiii}}
+\def\p@enumiii{(\theenumi)(\theenumii)}
+\def\labelenumiv{\arabic{enumiv}.}
+\def\theenumiv{\arabic{enumiv}}
+\def\p@enumiv{\p@enumiii.\theenumiii}
+
+
+\parindent=0pt
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 2
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 0
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle plain
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\align center
+
+\series bold
+Written Exam for Nonlinear Dynamics and Chaos II, Spring Semester, 2013
+\end_layout
+
+\begin_layout Standard
+\align center
+August 20, 2013;9:00-10:00am, ML F36
+\emph on
+.
+ Use of class-notes (hand-written or printed copy) is allowed
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thermohaline circulation (THC) is a part of the large-scale ocean circulation
+ that is driven by global density gradients created by surface heat and
+ freshwater fluxes.
+ Stommel's box model (1961) is a qualitative description of the trends and
+ equilibria in THC.
+ This model couples the two fundamental drivers of TLC, temperature (
+\emph on
+thermo
+\emph default
+) and salt concentration (
+\emph on
+-haline
+\emph default
+), in a nonlinear fashion.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename thermohaline.png
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The non-dimensional 
+\series bold
+variables
+\series default
+ of Stommel's model are:
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $x(t)$
+\end_inset
+
+: temperature difference between the tropics (lower latitudes) and the North-Atl
+antic (higher latitudes)
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $y(t)$
+\end_inset
+
+: salinity (i..e, salt concentration) difference between the above two regions
+ of the ocean
+\end_layout
+
+\begin_layout Description
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The non-dimensional 
+\series bold
+parameters
+\series default
+ of the model are:
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\tau_{x}$
+\end_inset
+
+: relaxation time to a constant temperature difference between northern
+ and southern latitudes in the absence of coupling
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\tau_{y}$
+\end_inset
+
+: relaxation time to zero salinity difference between higher and lower latitudes
+ in the absence of coupling.
+ In practice, 
+\begin_inset Formula $\tau_{x}/\tau_{y}=\epsilon\ll1.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\mu$
+\end_inset
+
+: measure of freshwater flux through clouds moving from lower to higher
+ latitudes
+\end_layout
+
+\begin_layout Description
+\begin_inset Formula $\eta:$
+\end_inset
+
+ nonlinear coupling parameter between temperature and salinity evolution
+\end_layout
+
+\begin_layout Standard
+With this notation, Stommel's model can be written as
+\begin_inset Formula 
+\begin{align*}
+\dot{x} & =-\frac{1}{\tau_{x}}(x-1)+\frac{1}{\tau_{y}}x\left[1+\eta^{2}(x-y)^{2}\right],\\
+\dot{y} & =\frac{\mu}{\tau_{y}}-\frac{1}{\tau_{y}}y\left[1+\eta^{2}(x-y)^{2}\right].
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Show that Stommel's model has a globally attracting slow manifold that governs
+ the asymptotic behavior of THC.
+ Find a leading order approximation to this manifold.
+ (
+\emph on
+Hint
+\emph default
+: rescale time by letting 
+\begin_inset Formula $s=\tau_{y}t.)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Compute the leading-order reduced flow on the slow manifold.
+ Determine qualitatively the possible dynamical behaviors on the slow manifold
+ as the parameters 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $\eta$
+\end_inset
+
+ are varied.
+\end_layout
+
+\end_body
+\end_document

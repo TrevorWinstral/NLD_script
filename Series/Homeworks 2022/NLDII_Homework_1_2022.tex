@@ -1,0 +1,111 @@
+%% LyX 2.3.6.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\pagestyle{plain}
+\setcounter{secnumdepth}{0}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{TCIstyle=LaTeX article (bright).cst}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Thursday, September 13, 2001 12:48:34}
+%TCIDATA{LastRevised=Wednesday, February 22, 2006 13:42:45}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Exams and Syllabi\SW\Assignment">}
+%TCIDATA{Language=American English}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\textheight}{9.25in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+\setlength{\textwidth}{6.5in}
+\def\labelenumi{\arabic{enumi}.}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumii{(\alph{enumii})}
+\def\theenumii{\alph{enumii}}
+\def\p@enumii{\theenumi.}
+\def\labelenumiii{\arabic{enumiii}.}
+\def\theenumiii{\arabic{enumiii}}
+\def\p@enumiii{(\theenumi)(\theenumii)}
+\def\labelenumiv{\arabic{enumiv}.}
+\def\theenumiv{\arabic{enumiv}}
+\def\p@enumiv{\p@enumiii.\theenumiii}
+
+
+\parindent=0pt
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\begin{center}
+\textbf{151-0530-00L, Spring, 2022}
+\par\end{center}
+
+\begin{center}
+\textbf{Nonlinear Dynamics and Chaos II}
+\par\end{center}
+
+\begin{center}
+\textbf{Homework Assignment 1}
+\par\end{center}
+
+\begin{center}
+Due: Monday, March 28\\
+Please email PDF file to Dr. Mattia Cenedese <mattiac@ethz.ch>
+\par\end{center}
+
+\bigskip{}
+
+\begin{enumerate}
+\item Show that the number of $k$-periodic orbits for the Bernoulli shift
+map on two symbols is
+\[
+N(k)=\frac{1}{k}\left(2^{k}-\sum_{(i,k)}i~N(i)\right),
+\]
+where $(i,k)$ means that the integer $i$ divides the integer $k$.
+\item Let $A$ denote the transition matrix for a sub-shift $\sigma\colon\Sigma_{A}^{N}\mapsto\Sigma_{A}^{N}$
+of finite type on $N$ symbols. 
+
+\begin{enumerate}
+\item Show that the number of fixed points of $\sigma$ is equal to $\mathrm{trace(}A)$. 
+\item Show that the total number of \emph{admissible} $k-$periodic points
+(i..e, $k-$periodic points whose minimal period may be less than
+$k$) is equal to $\mathrm{trace}(A^{k})$. 
+\end{enumerate}
+\item Show that any two periodic orbits of the Bernoulli shift map are connected
+by infinitely many heteroclinic orbits.
+\item Show that the Bernoulli shift map $\sigma$ is topologically transitive
+on the symbol space $\Sigma$ with respect to the metric $d(\cdot~,\cdot)$
+defined in class. Specifically, show that for any two open sets $A,B\subset\Sigma$,
+there exists an integer $N$ such that $\sigma^{N}(A)\cap B\neq\emptyset$.
+(\emph{Hint}: Use the existence of a dense orbit for $\sigma$ in
+$\Sigma$: there exists a symbol sequence $s^{*}\in\Sigma$ with the
+following property: for any $s\in\Sigma$ and for any $\delta>0$,
+there exists an integer $N(s,\delta)$ such that $d(\sigma^{N(s,\delta)}(s^{*}),s)<\delta$.)
+\item Show that the Bernoulli shift map $\sigma$ has sensitive dependence
+on initial conditions on the symbol space $\Sigma$. Specifically,
+show that there exists a nonzero distance $\Delta>0$, such that no
+matter how close two symbols $s^{\ast}$ and $\bar{s}$ are in $\Sigma$,
+we have
+\[
+d\left(\sigma^{N}(s^{\ast}),\sigma^{N}(\bar{s})\right)>\Delta
+\]
+for some $N.$
+\end{enumerate}
+
+\end{document}

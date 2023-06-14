@@ -1,0 +1,196 @@
+%% LyX 2.3.6.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\pagestyle{plain}
+\setcounter{secnumdepth}{0}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{TCIstyle=LaTeX article (bright).cst}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Thursday, September 13, 2001 12:48:34}
+%TCIDATA{LastRevised=Friday, April 28, 2006 16:52:00}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Exams and Syllabi\SW\Assignment">}
+%TCIDATA{Language=American English}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\textheight}{9.25in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+\setlength{\textwidth}{6.5in}
+\def\labelenumi{\arabic{enumi}.}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumii{(\alph{enumii})}
+\def\theenumii{\alph{enumii}}
+\def\p@enumii{\theenumi.}
+\def\labelenumiii{\arabic{enumiii}.}
+\def\theenumiii{\arabic{enumiii}}
+\def\p@enumiii{(\theenumi)(\theenumii)}
+\def\labelenumiv{\arabic{enumiv}.}
+\def\theenumiv{\arabic{enumiv}}
+\def\p@enumiv{\p@enumiii.\theenumiii}
+
+
+\parindent=0pt
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\begin{center}
+\textbf{151-0530-00L, Spring, 2022}
+\par\end{center}
+
+\begin{center}
+\textbf{Nonlinear Dynamics and Chaos II}
+\par\end{center}
+
+\begin{center}
+\textbf{Homework Assignment 4}
+\par\end{center}
+
+\begin{center}
+Due: Friday, May 20\\
+Please email PDF file to Dr. Mattia Cenedese <mattiac@ethz.ch>
+\par\end{center}
+
+\bigskip{}
+
+\begin{enumerate}
+\item Compute the Lyapunov-type numbers $\nu(p)$ and $\sigma(p)$ in the
+example
+\begin{align*}
+\dot{x} & =-x(1-x^{2}),\\
+\dot{y} & =-by,
+\end{align*}
+for all points $p\in M_{0}$, with the parameter $b\in\mathbb{R}^{+}$
+and with overflowing-invariant manifold $M_{0}$ defined as
+\[
+M_{0}=\left\{ (x,y)\in\mathbb{R}^{2}:\,\,\,y=0,\,\,x\in\left[-3/2,3/2\right]\right\} .
+\]
+ (\emph{Hint}: Use the operators $A_{t}(p)$ and $B_{t}(p)$ defined
+in class). 
+\item The stable and unstable manifolds of a normally hyperbolic invariant
+manifold $M$ turn out to admit a delicate internal structure, an
+\emph{invariant foliation, }which is useful in determining the exact
+asymptotic behavior of trajectories in $W^{u}(M)$ and $W^{s}(M)$.
+
+\qquad{}More specifically, if $M\subset\mathbb{R}^{n}$ is a compact,
+$C^{r}$ smooth, $k$-dimensional, $r$-normally hyperbolic invariant
+manifold with boundary, and $\dim\left[W^{s}(M)\right]=k+s$, then
+$W^{s}(M)$ has the following properties (some of which are sketched
+in Fig. 1.):
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.4\textwidth,bb = 0 0 200 100, draft, type=eps]{../Homeworks2017/fiber.eps}\caption{The geometry of stable fibers}
+\par\end{centering}
+\end{figure}
+
+(i) Near $M$, the stable manifold $W^{s}(M)$ can be written as
+\[
+W_{\mathrm{loc}}^{s}(M)=\cup_{p\in M}\,\,f^{s}(p),
+\]
+where $f^{s}(p)$ is a $C^{r}$ smooth, $s$-dimensional submanifold
+of $W_{\mathrm{loc}}^{s}(M)$ for which $f^{s}(p)\cap M=p$. We refer
+to the point $p$ on $M$ as the base point of the \emph{stable fiber
+}$f^{s}(p)$.
+
+(ii) The stable fiber $f^{s}(p)$ is tangent to $N_{p}^{s}M$, the
+local section of the stable subbundle $N^{s}M.$
+
+(iii) The stable fibers form a positively invariant family, i.e.,
+$F^{t}(f^{s}(p))\subset f^{s}(F^{t}(p))$. In words, stable fibers
+are mapped into stable fibers by the flow map, although individual
+stable fibers are not invariant under the flow.
+
+(iv) There exist positive constants $C_{s}$ and $\lambda_{s}$, such
+that for any $q\in f^{s}(p)$, we have $\left\vert F^{t}(q)-F^{t}(p)\right\vert <C_{s}e^{-\lambda_{s}t}.$
+In other words, trajectories intersecting a stable fiber will exponentially
+converge to the trajectory on $M$ that passes through the base point
+of that stable fiber.
+
+(v) For any $q\in f^{s}(p)$ and $\hat{q}\in f^{s}(\hat{p}),$ we
+have
+\[
+\frac{\left\Vert F^{t}(q)-F^{t}(p)\right\Vert }{\left\Vert F^{t}(\hat{q})-F^{t}(p)\right\Vert }\rightarrow0,
+\]
+as $t\rightarrow\infty$, unless $p=\hat{p}.$ In other words, out
+of all the trajectories that may converge to the positive half-trajectory
+\[
+\gamma(p)=\left\{ F^{t}(p)\right\} _{t\geq0},
+\]
+the trajectories starting from the stable fiber $f^{s}(p)$ converges
+at the fastest rate. One therefore obtains a local stable manifold
+\[
+W_{\mathrm{loc}}^{ss}(\gamma(p))=\cup_{\tilde{p}\in\gamma(p)}\,f^{s}(\tilde{p})
+\]
+for any trajectory $\gamma(p)$ on the manifold $M$. (The full stable
+manifold $W_{\mathrm{loc}}^{s}(\gamma(p))$ may be larger than $W_{\mathrm{loc}}^{ss}(\gamma(p))$,
+because $\gamma(p)$ may also attract trajectories within $M$.)
+
+(vi) $f^{s}(p)\cap f^{s}(\hat{p})=\emptyset,$ unless $p=\hat{p}.$
+In other words, stable fibers with different base points do not intersect.
+
+(vii) A stable fiber $f^{s}(p)$ is a $C^{r-1}$ smooth function of
+its base point $p$.
+
+(viii) Stable fibers $C^{r}$-smoothly persist under small $C^{1}$
+perturbations of the dynamical system.
+
+The local unstable manifold $W_{\mathrm{loc}}^{u}(M)$ has a similar
+invariant foliation 
+\[
+W_{\mathrm{loc}}^{u}(M)=\cup_{p\in M}\,\,f^{u}(p),
+\]
+with appropriate properties in backward time. (For more information,
+see S.\ Wiggins, \emph{Normally Hyperbolic Invariant Manifolds in
+Dynamical\ Systems}, Springer 1994)
+
+Consider now the three-dimensional nonlinear dynamical system
+\begin{eqnarray*}
+\dot{x} & = & -\varepsilon\left(x+y^{2}\right),\\
+\dot{y} & = & -y,\\
+\dot{z} & = & z,
+\end{eqnarray*}
+with the small parameter $\varepsilon\geq0$.
+
+(a) Show that the set $M_{0}=\left\{ y=z=0,\,x\in\left[-1,1\right]\right\} $
+is a normally hyperbolic invariant manifold for $\varepsilon=0.$
+
+(b) Find the manifold $M_{\varepsilon}$ into which $M_{0}$ perturbs
+for small $\varepsilon>0$.
+
+(c) Using the property (v), show that for any base point $p\in$ $W_{\mathrm{loc}}^{s}(M)$,
+the corresponding stable fiber is the nonlinear surface.
+\[
+f^{s}(p)=\left\{ \left(x,y,z\right)~|~x=x_{p}+\frac{\varepsilon}{2-\varepsilon}y^{2},\,z=0\right\} .
+\]
+
+(d) Find a similar expression for the unstable fibers $f^{u}(p)$.
+
+(e) Verify explicitly the properties of the stable fibers listed in
+(i)-(vii) in this example.
+
+(e) For any trajectory $\gamma$ in $M_{\varepsilon}$, find explicit
+expressions for $W_{\mathrm{loc}}^{ss}(\gamma)$, $W_{\mathrm{loc}}^{uu}(\gamma),$
+$W_{\mathrm{loc}}^{s}(\gamma)$, and $W_{\mathrm{loc}}^{u}(\gamma).$ 
+\end{enumerate}
+
+\end{document}

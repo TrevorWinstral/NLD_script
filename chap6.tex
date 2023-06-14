@@ -566,17 +566,7 @@ For example, heteroclinic orbits are asymptotically periodic.
 In fact there also exists an uncountable infinity of non-periodic (not even asymptotically periodic) orbits in $\Sigma$. To show this, we will show that $\Sigma$ is uncountable, i.e. that it cannot be arranged into a well-defined, countable sequence.
 
 \begin{exercise}
-For one-dimensional iterated maps $x_{n+1} = f(x_n)$ defined by a smooth function $f$ : $\mathbb{R} \to \mathbb{R}$, define the Lyapunov-exponent as
-\begin{align}
-\lambda(x_0) = \lim_{n\to \infty}\frac{1}{n}\lim_{\delta \to 0^+} \log \frac{|f^n(x_0 + \delta) - f^n(x_0)|}{\delta},
-\end{align}
-where $f^n = f\circ f \circ \dots \circ f$ is the $n$ times iterated mapping. 
-
-Show that
-\begin{align}
-\lambda(x_0) = \lim_{n\to \infty}\frac{1}{n}\sum_{i=0}^{n-1}\log |f'(f^i(x_0))|,
-\end{align}
-whenever the limit exists. 
+Show that any two periodic orbits of the Bernoulli shift map are connected.
 \end{exercise}
 
 \begin{definition}
@@ -670,7 +660,7 @@ is within distance $2^{-(k+1)}$ of $s_{i}^{k}$, for $L$ and $R$ arbirary. This i
 	To construct $s^{*}$, concatenate each of the strictly defined blocks (the block the the right of $\bm{.} $ and left $R$) of $s_{k}^{*}$ for each $k \in \mathbb{N}$. For any $n$, we know that we can get within distance $2^{-n}$ distance of each element in $\Sigma$, therefore we have constructed a dense orbit. This construction is well definied as the strictly defined block of any given $s_{k}^{*}$ is always of finite length. Thus we have constructed the element, whose orbit is dense in $\Sigma$.
 \end{proof}
 
-\begin{proposition}[]
+\begin{proposition}[] \label{prop:bernoulli_transitive}
 	The map $\sigma$ is topologically transitive, i.e. for any two open sets $A$ and $B$ in $\Sigma$, there exists an $N \in \mathbb{N}$ such that
 	\begin{align}
 		\sigma^{N}(A) \cap B \neq \emptyset.
@@ -679,16 +669,24 @@ is within distance $2^{-(k+1)}$ of $s_{i}^{k}$, for $L$ and $R$ arbirary. This i
 	This is also called the \emph{mixing property}. In the case of the Bernoulli shift map, it can be concluded from the existence of a dense orbit.
 
 \begin{exercise}
-
+	Prove Proposition \ref{prop:bernoulli_transitive}, i.e. show that the Bernoulli shift map $\sigma$ is topologically transitive on the symbol space $\Sigma$ with respect to the metric $d(\cdot~,\cdot)$ defined in class. Specifically, show that for any two open sets $A,B\subset\Sigma$, there exists an integer $N$ such that $\sigma^{N}(A)\cap B\neq\emptyset$. (\emph{Hint}: Use the existence of a dense orbit for $\sigma$ in $\Sigma$: there exists a symbol sequence $s^{*}\in\Sigma$ with the following property: for any $s\in\Sigma$ and for any $\delta>0$, there exists an integer $N(s,\delta)$ such that $d(\sigma^{N(s,\delta)}(s^{*}),s)<\delta$.)
 \end{exercise}
 	
-\begin{proposition}[Sensitive dependence on initial conditions]
+\begin{proposition}[Sensitive dependence on initial conditions] \label{prop:bernoulli_sensitive}
 	Regardless of how close two distinct initial conditions $s$ and $s'$ are chosen, they will not remain close. There exists a $\Delta>0$ such that for every $s\in\Sigma$ and any $\delta>0$, there exists an $s' \in \mathcal{B}\left(s, \delta\right)$ such that for an $N$ large enough the following holds
 	\begin{align}
 		d(\sigma^{N}(s), \sigma^{N}(s') ) > \Delta.
 	\end{align}
 	This is called the \emph{uniform instability of all orbits}. This fact is depicted in Fig. \ref{fig:unif_instab}.	
 \end{proposition}
+
+\begin{exercise}
+	Prove Proposition \ref{prop:bernoulli_sensitive}, i.e. show that the Bernoulli shift map $\sigma$ has sensitive dependence on initial conditions on the symbol space $\Sigma$. Specifically, show that there exists a nonzero distance $\Delta>0$, such that no matter how close two symbols $s^{\ast}$ and $\bar{s}$ are in $\Sigma$, we have
+\begin{align}
+d\left(\sigma^{N}(s^{\ast}),\sigma^{N}(\bar{s})\right)>\Delta
+\end{align}
+for some $N.$
+\end{exercise}
 
 \begin{figure}[h!]
 	\centering

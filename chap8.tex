@@ -138,6 +138,18 @@ Hence for this Hamiltonian system we have the Hamiltonian equations of motion
 \end{align}
 \end{ex}
 
+\begin{exercise}
+	Derive the Hamiltonian equations of motion for a the coupled pendulums shown in Fig. \ref{fig:ex81coupled_pendula}. (The two point masses $m$ are placed at the tips of two massless rods of length $L$. Both joints are frictionless; the constant of gravity is $g$.)
+\begin{figure}[h]
+\begin{centering}
+	\includegraphics[width=0.4\textwidth]{figures/ch8/Series/coupledpendula.pdf}
+	\label{fig:ex81coupled_pendula}
+	\caption{Coupled system of two pendulums.}
+\par\end{centering}
+\end{figure}
+	
+\end{exercise}
+
 \begin{ex}[2-dimensional incompressible fluids are Hamiltonian]
 	We begin on a domain $\mathcal{D}$ contained on the plane which is simply connected, i.e. it has no holes. For each position $x\in \mathcal{D}$ we have the velocity field
 	\begin{align}
@@ -207,6 +219,14 @@ Because of the third equation $\Psi$ has no z dependence and we can write our po
 Thus we have shown that particle motion is Hamiltonian.
 \end{ex}
 
+\begin{exercise}
+Consider a two-dimensional steady \emph{compressible} fluid flow with velocity field ${v(x})=\left(u(x,y),v(x,y)\right)$, where ${x}=\left(x,y\right)$. Assume that the flow conserves mass, i.e., its density function $\rho\left({x}\right)>0$ satisfies the equation of continuity. The latter equation, in its general form for unsteady flows, reads 
+\begin{align}
+\rho_{t}+\nabla\cdot\left(\rho{v}\right)=0,
+\end{align}
+valid or general, unsteady flow. Show that the equation of fluid particle motion becomes a canonical Hamiltonian system after a rescaling of time.
+\end{exercise}
+
 \begin{ex}[Planar, autonomous dynamical systems with a conserved quantity are Hamiltonian]
 	We begin with the dynamical system which has a first integral $U$ (which is not constant), i.e.
 	\begin{align}
@@ -273,6 +293,33 @@ Therefore, we have a canonical Hamiltonian system. In fact, all planar, autonomo
 \end{ex}
 
 Now that we have seen multiple examples of Hamiltonian systems, we would like to better understand what properties they all share.
+
+\begin{exercise}
+Consider a dynamical system defined on the two-dimensional torus $\mathbb{T}^{2}=\mathcal{S}^{1}\times \mathcal{S}^{1}$.
+Such systems admit the general form
+\begin{align}
+\dot{\phi}_{1} & =  a(\phi_{1},\phi_{2})\\
+\dot{\phi}_{2} & =  b(\phi_{1},\phi_{2}),\label{eq:ex83_2}
+\end{align}
+where $\phi_{i}\in \mathcal{S}^{1}$.
+
+\begin{enumerate}
+	\item Show that a physical example of system \eqref{eq:ex83_2} is found in
+the motion of two uncoupled linear undamped oscillators. Specifically,
+show that orbits of 
+\begin{align}
+\ddot{x}+x & =  0\\
+\ddot{y}+y & =  0,
+\end{align}
+are confined to two-dimensional invariant tori of the phase space.
+
+\item Assume that system \eqref{eq:ex83_2} has no fixed point (which is the
+	case in the oscillator example). Argue that \eqref{eq:ex83_2} then \emph{cannot}
+be Hamiltonian, even after a rescaling of time. (\emph{Hint:} Use
+the fact that a continuous function defined on a compact set must
+have a minimum and a maximum). 
+\end{enumerate}
+\end{exercise}
 
 \section{Properties of Hamiltonian systems}
 The setup going forward will be as follows for $n\geq 1$
@@ -714,12 +761,35 @@ Further, observe that if $\lambda $ is an eigenvalue of \eqref{eq8:lin_hamiltoni
 	\label{fig:new_eigv_configs}
 \end{figure}
 
+\begin{exercise}
+Show that if $\lambda$ is an eigenvalue of a linearized Hamiltonian system, then so is $-\lambda$. (\emph{Hint:} For any symmetric matrix $A$ and any nonsingular matrix $B$, the eigenvalues of $BA$ and $B^{-1}\left(BA\right)B$ coincide.)
+\end{exercise}
+
 Suppose $\lambda=0$ is an eigenvalue, then it is necessarily at least a double eigenvalue. Furthermore, under a variation of the parameters, purely imaginary eigenvalues can only leave the imaginary axis through a collision with another eigenvalue. 
 Recalling that a linearized Hamiltonian can only be neutrally stable leads to the conclusion that linear stability analysis, is never conclusive to establish Lyapunov stability  in Hamiltonian systems. 
 
 The previous examination leads us to focusing on the nonlinear stability of fixed points of Hamiltonian. The setup is the same as before with an autonomous Hamiltonian system underlying the dynamics. Recall that for such systems we have that $\frac{dH(x(t))}{dt}=0$, i.e. the Hamiltonian is conserved under the flow map, and as before a fixed point $x_0$ corresponds directly to a critical point of the Hamiltonian, i.e. $DH(x_0)=0$.
 
 These properties of $H$ make it a candidate for a Lyapunov function. Observe that if $D^{2}H(x_0)$ is positive definite, then it is cup shaped and choosing $H$ as a Lyapunov function implies that $x_0$ is Lyapunov stable. Meanwhile, if $D^{2}H(x_0)$ is negative definite, then choosing $-H$ as a Lyapunov function also implies that $x_0$ is stable. Hence, if $D^2H(x_0)$ is \underline{definite} then $x_0$ is nonlinearly Lyapunov stable.
+
+\begin{exercise}
+A \emph{gradient system} is a dynamical system of the form 
+\begin{align}
+\dot{x}=-DV(x);\quad x\in\mathbb{R}^{n},
+\end{align}
+with some smooth function $V$. Apart from the absence of the symplectic
+matrix $J$, gradient systems appear similar to Hamiltonian systems.
+In fact, they are rather different, as the following exercises show.
+\begin{enumerate}
+	\item Show that the eigenvalues of a linearized gradient system are
+always real.
+\item Find a condition for $V$ under which a fixed point of a gradient
+system is asymptotically stable.
+\item Show that gradient systems cannot have periodic orbits.
+\item Given a smooth function $f\left(x\right)$, propose a numerical
+method for finding the local minima and maxima of $f$.
+\end{enumerate}
+\end{exercise}
 
 \begin{ex}[Multiple degree of freedom nonlinear mechanical system]
 	Consider three pendulums, with masses $m_1$, $m_2$, and $m_3$ attached in order by nonlinear springs. The mass $m_3$ is attached to a mass $m_4$ which is constrained to move on a loop of radius $R$. The position of each mass is measured by its displacement from the unstretched spring position by the variable $q$, thus the springs are in their unstretched positions at the position $q=0$. The system is depicted in Fig. \ref{fig:multi_dof_mech}.
@@ -806,6 +876,21 @@ Each block $A_j$ corresponds to the eigenvalues $\pm i \omega _j$. There is no r
 	\caption{The product of the $n$ dynamical systems of the linearization forming the $n$-dimensional torus.}
 	\label{fig:linearization_geometry}
 \end{figure}
+
+\begin{exercise}
+Consider the Lotka-Volterra model
+\begin{align}
+	\begin{dcases}
+\dot{h} &=  a_{1}h\left(1-bp\right)\label{eq:ex86}\\
+\dot{p} &=  -a_{2}p\left(1-ch\right),
+	\end{dcases}
+\end{align}
+for the interaction of a predator and a prey population. Here $h(t)$ and $p(t)$ denote the predator and prey populations, respectively, as a function of time; $a_{1},\ a_{2},\ b,$ and $c$ are positive parameters.
+\begin{enumerate}
+	\item Show that system \eqref{eq:ex86} is Hamiltonian for $h,p>0$ after an appropriate rescaling of time. Find the Hamiltonian. (Hint: Rewrite \eqref{eq:ex86} as $\dot{h}=A(h,p)C(p)$, $\dot{p}=A(h,p)D(h)$ by defining the functions $A,C$ and $D$ appropriately.)
+\item Using the Hamiltonian, argue that the two species can exhibit stable coexistence, i.e., the system admits a stable fixed point. Hint: establish \emph{full nonlinear stability }for the fixed point.
+\end{enumerate}
+\end{exercise}
 
 Defining the vector of angular velocities $\omega=(\omega_1, \ldots, \omega_n)$ we get three cases for the structure of the orbits
 \begin{enumerate}

@@ -1,0 +1,336 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{TCIstyle=LaTeX article (bright).cst}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2606}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Thursday, September 13, 2001 12:48:34}
+%TCIDATA{LastRevised=Friday, April 28, 2006 16:52:00}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Exams and Syllabi\SW\Assignment">}
+%TCIDATA{Language=American English}
+
+\setlength{\topmargin}{-1.0in}
+\setlength{\textheight}{9.25in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+\setlength{\textwidth}{6.5in}
+\def\labelenumi{\arabic{enumi}.}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumii{(\alph{enumii})}
+\def\theenumii{\alph{enumii}}
+\def\p@enumii{\theenumi.}
+\def\labelenumiii{\arabic{enumiii}.}
+\def\theenumiii{\arabic{enumiii}}
+\def\p@enumiii{(\theenumi)(\theenumii)}
+\def\labelenumiv{\arabic{enumiv}.}
+\def\theenumiv{\arabic{enumiv}}
+\def\p@enumiv{\p@enumiii.\theenumiii}
+
+
+\parindent=0pt
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 0
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle plain
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\align center
+
+\series bold
+Written Exam for Nonlinear Dynamics and Chaos II, Spring Semester, 2016
+\end_layout
+
+\begin_layout Standard
+\align center
+June 3, 2013;10:00-12:00am, 
+\emph on
+CHN F42.
+ Use of class-notes is allowed
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The van der Pol oscillator is a model of an electric circuit with a triode
+ valve (see Fig.
+ 1, left).
+ In this circuit, negative resistance for low currents turns into positive
+ resistance for larger currents.
+ The same model is relevant for wind-induced oscillations of buildings due
+ to vortex shedding and for aerodynamic flutter.
+ The model is noted for reproducing experimentally observed relaxation oscillati
+ons.
+ These nonlinear periodic oscillations are composed of repeated fast transitions
+ between two slowly evolving states, as shown in Fig.
+ 1, right.
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/georgehaller/Dropbox/Courses/Nonlinear Dynamics II_new/2.Homework and exam/Van_der_pol_triode.svg.png
+	width 50text%
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Graphics
+	filename /Users/georgehaller/Dropbox/Courses/Nonlinear Dynamics II_new/2.Homework and exam/van_der_Pol_simualtion.gif
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Left: Van der Pol oscillator circuit.
+ Right: Relaxation oscillations.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The non-dimensional form of the van der Pol equation is 
+\begin_inset Formula 
+\begin{equation}
+\ddot{x}+\mu\left(x^{2}-1\right)\dot{x}+x=\beta p(t),\qquad x\in\mathbb{R},\label{eq:vdp}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mu\gg1$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta\geq0$
+\end_inset
+
+ are parameters, and 
+\begin_inset Formula $p(t)$
+\end_inset
+
+ is a 
+\begin_inset Formula $T$
+\end_inset
+
+-periodic external forcing term.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Show that for small enough 
+\begin_inset Formula $\beta>0$
+\end_inset
+
+, eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:vdp"
+
+\end_inset
+
+ has a small-amplitude, unstable, 
+\begin_inset Formula $T$
+\end_inset
+
+-periodic orbit.
+ (
+\emph on
+Hint
+\emph default
+: use a Poincare map argument)
+\end_layout
+
+\begin_layout Enumerate
+Consider now the unforced van der Pol equation with 
+\begin_inset Formula $\beta=0.$
+\end_inset
+
+ Prove that for 
+\begin_inset Formula $\mu\gg1$
+\end_inset
+
+ large enough, the system 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:vdp"
+
+\end_inset
+
+ has two-time-scale solutions of the type shown on the right in Fig.
+ 1.
+ (
+\emph on
+Hint
+\emph default
+: Introduce the fast time 
+\begin_inset Formula $\tau=\mu t$
+\end_inset
+
+ and the new variable 
+\begin_inset Formula $y=x^{\prime}+x^{3}/3-x$
+\end_inset
+
+, where prime denotes differentiation with respect to 
+\begin_inset Formula $\tau$
+\end_inset
+
+.
+ Analyze the resulting first-order system of differential equations for
+ 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+ as a perturbation of the formal zero limit of the small parameter 
+\begin_inset Formula $\epsilon=1/\mu^{2}$
+\end_inset
+
+; identify locations where the perturbation is likely to wipe out invariant
+ manifolds of the unperturbed limit.
+ Piece together persistent fast and slow solution segments.
+ You are not expected to conclude exact periodicity for these solutions,
+ just to argue for the existence of oscillatory motions of the type shown
+ on the right in Fig.
+ 1.)
+\end_layout
+
+\end_body
+\end_document
