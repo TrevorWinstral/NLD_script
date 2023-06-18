@@ -12,12 +12,13 @@ A level-1 auxiliary file: chap7.aux
 A level-1 auxiliary file: chap8.aux
 A level-1 auxiliary file: chap9.aux
 A level-1 auxiliary file: chap10.aux
+A level-1 auxiliary file: solutions.aux
 The style file: apalike.bst
 Database file #1: refs.bib
 Warning--I didn't find a database entry for "Sternberg1957"
 You've used 32 entries,
             1935 wiz_defined-function locations,
-            702 strings with 8808 characters,
+            703 strings with 8821 characters,
 and the built_in function-call counts, 11132 in all, are:
 = -- 1079
 > -- 371
