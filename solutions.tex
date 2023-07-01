@@ -1710,3 +1710,593 @@ For the unstable manifold to be off the wall, we need $\bar{V}(x_0)>0$. Using \e
 \end{align}
 \end{solution}
 
+\begin{solution}[7.1]
+		First note that there are $kN(k)$ elements with orbit length exactly (minimal) $k$, for all $k$. Next, we want to know how many elements have (not necessarily exactly) orbits of length $k$. This means if $k=4$, then we count $16$ elements, as we include elements with orbit length exactly 2 and/or 1 (2 and 1 each divide 4). This entails counting how many ways we can construct a block of length $k$. We consider one construction $C_1$ to be equal to another $C_2$, if there exists $n$ such that $\sigma^{n}(C_1)=C_2$, where $\sigma$ acts cyclically. Equivalently, we could say $C_1 \cong C_2$ if 
+\begin{align}
+	\exists n\geq 1:\quad \sigma^{n}\left(\overline{C}_1.\overline{C_1}\right) = \overline{C}_2.\overline{C}_2.	
+\end{align}
+Constructing a unique block in this case just means choosing a number $i$, $0 \leq i \leq k$, for the amount of symbols of one type, and choosing a constellation for placing these symbols. For a given $i$ there are $\binom{k}{i}$ ($k$ choose $i$) ways to place the $i$ elements in $k$ places. Next, we have to sum over all possible $i$ 
+\begin{align}
+	\sum_{i=0}^{k} \binom{k}{i} = 2^{k}.
+\end{align}
+In order to get the amount of elements with orbit length exactly $k$ we have to subtract out the elements which have orbit length exactly $i$ for $i | k$ ($i$ divides $k $). There are $i\cdot N(i)$ of these elements, thus
+\begin{align}
+	kN(k) = 2^{k} - \sum_{i|k}^{} iN(i).
+\end{align}
+Now dividing by $k$ yields the desired result.
+\end{solution}
+
+\begin{solution}[7.2]
+TODO	
+\end{solution}
+
+\begin{solution}[7.3]
+First note that the orbit $s^{*}$ visits $B(s,\delta)$ (ball of radius $\delta$ around $s$) infinitely often for all $s\not \in  \textrm{Orbit}(s^{*}) = \mathcal{O}(s^{*}) $, as if there were finite visits, there there would exist $0<\delta = 0.5 \min_{k}(d(\sigma^{k}(s^{*}),s))$, and there would not exist $N>0$ with $d(\sigma^{N}(s^{*}),s) < \delta'$. Define $B' = B \setminus \mathcal{O}(s^{*})$, nonempty (as the orbit is countable and $B$ is uncountable ($B$ is open)). For any $a\in A$ there exists $\delta>0$ with $B(a,\delta) \subset A$, there also exists $N$ such that $d(\sigma^{N}(s^{*}), a) < \delta$, call $\sigma^{N}(s^{*})= s_{a}$. Choose any $b\in B'$, there exists $\epsilon >0$ such that $B(b,\epsilon) \subset B$ and $M>N$ with $d(\sigma^{M}(s^{*}), b)<\epsilon$, such an $M$ exists due to the infinite visiting property. Call $\sigma^{M}(s^{*}) = s_{b}$, we know that $s_a \in A$ and that $\sigma^{M-N}(s_a) = \sigma^M(s^{*}) = s_{b}$. Thus we have that
+	\begin{align}
+		\sigma^{M-N}(A) \cap B \neq \emptyset,
+	\end{align}
+and the $N$ in question corresponds to the $M-N$ here. 
+
+It maybe unclear why $B$ open implies it is uncountable (ignoring $B=\emptyset$); take any $b\in B$ and there exists $0<\epsilon<1$ with $B(b, \epsilon) \subset B$. Now we want an injection from $(0, \epsilon)$ to $B$. For each $x \in (0, \epsilon)$, write the binary representation of $x= 0.b_1b_2 \ldots$, this mapping is bijective, call it $\varphi(x)$. Now construct an element by taking $b=\ldots\boldsymbol{.}s_0s_1s_2\ldots$ and for every $b_i=1$ set $s_i' = s \in \Sigma$ with $|s-s_i| =1$, and for $b_i=0$ $s_i' = s_i$. Set $S' = \ldots s_{-1}.s_0s_1's_2's_3'\ldots$ and call this $\Psi(\varphi(x)).$ $\Psi$ is clearly injective as every binary sequence is mapped to a unique element of $\Sigma$. Next, we see that $d(\Psi(\varphi(x)),b)$ is exactly equal to $x$, thus for all $x\in (0,\epsilon)$ we have $\Psi(\varphi(x)) \in B(b,\epsilon)\subset B$, so we have an injection from an uncountable set into $B$, showing $B$ to be uncountable.
+\end{solution}
+
+\begin{solution}[7.4]
+	Choose $\Delta = \frac{1}{2}$. For any two symbol sequences with $d(s,s')>0$ (non-equal), there exists a position $N\in \mathbb{Z}$ such that $s_N \neq s_N'$. Then we know that $\sigma^{N}(s)_0 \neq \sigma^{N}(s')$, therefore $d(\sigma^{N}(s), \sigma^{N}(s'))\geq 1> \Delta$.
+\end{solution}
+
+\begin{solution}[7.5]
+\begin{enumerate}
+	\item The matrix $A$ tells us if it is possible to transition from symbol $i$ to symbol $j$ in a single step if $A_{ij}=1$, and otherwise 0. Say $A_{ii}=1$, then $\overline{s}_i.\overline{s}_i$ is an admissible sequence and is a fixed point of $\sigma$ ($\sigma\left( \overline{s}_i. \overline{s}_i\right) =\overline{s}_i. \overline{s}_i$). Noting that all fixed points of $\sigma$ are in fact sequences consisting of a single symbol it is clear that the fixed points of $\sigma$ on $\Sigma_{A}^{N}$ are the sequences $\overline{s}_j. \overline{s}_j$ with $A_{j j}=1$.
+	
+		In conclusion, there are as many fixed points as $1 $s on the diagonal, and $A$ is binary (only consists of 0s and 1s), this is equal to $ \textrm{tr} (A)$. (This holds as $\overline{s}_j. \overline{s}_j$ is fixed and the type of fixed point, further it is only in $\Sigma_{A}^{N}$ if $A_{j j}=1$.)
+
+	\item $A_{ii}^{k}$ encodes the amount of unique admissible paths from $i \to i$ in $k$ steps. Any fixed point of $\sigma^k$ has the for $\overline{C}.\overline{C} $ with $C$ being a sequence of $k$ symbols. We will call $C$ admissible if for all $i$ $C_i C_{i+1} =: s_m s_n$ and $A_{mn}=1$. Thus we want to know how many admissible $C$ exist, as each of these correspond to a fixed point. Furthermore no other fixed points exist as all fixed points must be of this form. Hence we will have identified all fixed points of $\sigma^{k}$ ($k$-periodic orbits).
+
+		Since we repeat $C$ infinitely, there are $A_{j j}^{k}$ admissible $C$ which start with $s_j$, i.e. $C_1 = s_j$. If we sum over all $s_j$ to get the total amount of admissible $C$ we find $\sum_{i=1}^{N} A_{ii}^{k}= \textrm{tr} (A)$.
+\end{enumerate}
+\end{solution}
+
+\begin{solution}[8.1]
+First we need to define our generalized coordinate $q = \begin{bmatrix} \alpha \\ \beta \end{bmatrix}$. From here, our canonical coordinates are as follows.
+\begin{align}
+&	x_1 = L \sin \alpha \quad  &y_1 &= L \cos \alpha \\
+&	x_2 = L \sin \alpha + L \sin \beta  \quad &y_2 &= L \cos \alpha + L \cos \beta. 
+\end{align}
+Next we need to find the kinetic energy
+\begin{align}
+	T_1 &= \frac{m}{2}(\dot{x}_1^{2} + \dot{y}_1^2)= \frac{m}{2} L^2 \dot{\alpha }^2 \\
+	T_2 &= \frac{m}{2}(L^2 \dot{\alpha }^2 + L^2 \dot{\beta }^2 + 2L^2\cos (\alpha ) \cos (\beta ) \dot{\alpha }\dot{\beta } + 2L^2 \sin(\alpha ) \sin(\beta ) \dot{\alpha } \dot{\beta } )\\
+	    &= \frac{mL^2}{2} ( \dot{\alpha }^2 + \dot{\beta }^2 + 2 \cos(\alpha - \beta) \dot{\alpha }\dot{\beta }).
+\end{align}
+
+In order to get the Lagrangian we also need the potential energy
+\begin{align}
+	V_1 = -mg L \cos (\alpha ) \qquad V_2=- mgL (\cos(\alpha ) + \cos (\beta )).
+\end{align}
+So we get the Lagrangian
+\begin{align}
+	\mathcal{L} = T - V = \frac{mL^2}{2} \left( 2\dot{\alpha }^2 + \dot{\beta }^2 + 2 \cos(\alpha -\beta ) \dot{\alpha }\dot{\beta } \right) + mgL\left( 2 \cos(\alpha ) + \cos(\beta ) \right).
+\end{align}
+We constructed the Lagrangian to derive the generalized momenta.
+\begin{align}
+	p_1 &= \frac{\partial \mathcal{L}}{\partial \dot{\alpha }} = 2mL^2 \dot{\alpha } + mL^2 \cos(\alpha -\beta ) \dot{\beta }\\
+	p_2 &= \frac{\partial \mathcal{L}}{\partial \dot{\beta }} = mL^2 \dot{\beta } + mL^2 \cos(\alpha -\beta ) \dot{\alpha }.
+\end{align}
+Finally we would like to calculate the Hamiltonian $\mathcal{H} = p \cdot \dot{q} - \mathcal{L}$. To do this, we first have to find the correct coordinate transformation, we see that $p = A \dot{q}$; therefore we are interested in finding $A^{-1}$.
+\begin{align}
+	A &= 
+	\begin{bmatrix}
+		2mL^2 & mL^2 \cos(\alpha -\beta ) \\
+		mL^2 \cos(\alpha -\beta ) & mL^2
+	\end{bmatrix} \\
+	A^{-1} &= 
+		\frac{1}{m^2 L^4 \left( 2 -  \cos^2(\alpha -\beta ) \right)}
+	\begin{bmatrix}
+		m L^2 & - mL^2 \cos(\alpha -\beta ) \\
+		-m L^2 \cos(\alpha -\beta ) & 2mL^2
+	\end{bmatrix}.
+\end{align}
+Plugging in this transformation we find
+\begin{align}
+	\mathcal{H} &= p \cdot A^{-1} p - \mathcal{L} \\
+		    &= \frac{mL^2 p_1^2 + 2mL^2 p_2^2 - 2mL^2 \cos(\alpha -\beta ) p_1 p_2}{2m^2L^4 \left(2 - \cos^2(\alpha -\beta )\right)} - 2mgL \cos(\alpha ) - mgL \cos(\beta ).
+\end{align}
+This equality can also be seen as using $\mathcal{H} = T+V$ and  $T = \frac{1}{2} p^T A^{-1} p$. Recall, $2T = \frac{\partial \mathcal{L}}{\partial \dot{q}}\cdot \dot{q} = p \cdot q$.
+\end{solution}
+
+\begin{solution}[8.2]
+The first thing we will assume (due to steady flow) is that $\rho_t=0$. With this in hand, if we plug it into our given dynamics we get $\nabla \cdot (\rho v)=0$. We can rewrite this to get
+\begin{align}
+	\nabla \times
+	\begin{pmatrix}
+		-\rho v \\ \rho u \\ 0
+	\end{pmatrix}
+=0.	
+\end{align}
+If we assume that the domain is simply connected then we know (from the lecture) that there is a potential function.
+\begin{align}
+	\begin{pmatrix}
+		-\rho v \\ \rho u \\ 0
+	\end{pmatrix}
+	= \nabla \Psi = 
+	\begin{pmatrix}
+	\partial_x \Psi \\ \partial_y \Psi \\ \partial_z \Psi	
+	\end{pmatrix}
+.	
+\end{align}
+Where $\Psi = \Psi(x,y,t)$ this implies the following
+ \begin{align}
+	 \dot{x} = \partial_y \Psi, \quad \dot{y} =-\partial_x \Psi \quad \implies \quad \dot{\underline{x}}= \rho(\underline{x}) JD\Psi(\underline{x},t).
+\end{align}
+Similar to before, we can now rescale time with $\tau = \int_{0}^{t} \rho(s)ds$, to find $\underline{x}' = JD\Psi(\underline{x}, t)$, i.e. a canonical Hamiltonian system.
+\end{solution}
+
+\begin{solution}[8.3]
+In the lecture, we saw that each singular oscillator has a phase space given by a cylinder. If we confine to a given energy level $E_0>0$, we are given a 'slice' of the cylinder, more precisely a submanifold diffeomorphic to  $S^1$. Hence, we can choose an energy level for each oscillator, and we get that the orbit of each oscillator can be described by a respective copy of $S^1$. Taking the cross product of these gives us $S^1 \times S^1 = \mathbb{T}$, where equality here denotes existence of a diffeomorphism. We cannot take an energy level of 0, as this is the fixed point, and $S^1$ is not diffeomorphic to a point.
+
+For general dynamic systems on the torus, we can reverse engineer this last idea. If $ \mathcal{H}$ is a Hamiltonian function, it is at least  $\mathcal{C}^1$, therefore we have a maximum and a minimum, these points are our candidates for fixed points. However, if this point was actually a fixed point of the system, then we would have an orbit which is a point, hence could not be diffeomorphic to the torus.
+\end{solution}
+
+\begin{solution}[8.4]
+We will attempt to construct a Hamiltonian $\mathcal{H}$.
+\begin{align}
+	\frac{\partial \mathcal{H}}{\partial p} = \dot{q} = f(q,t) \quad &\implies \quad \mathcal{H}= f(q,t) p + g(q,t) \\
+	-\dot{p} = \frac{\partial \mathcal{H}}{\partial q} &= f_q(q,t)p + g_q(q,t). 
+\end{align}
+Thus we can choose $p \in \mathbb{R}^n$ with the given dynamics and $g \in \mathcal{C}^1$ such that $\dot{\mathcal{H}} = 0$. These then give us a Hamiltonian system, which when projected down to the space that $q$ lives in, gives us the desired dynamics. 
+\end{solution}
+
+\begin{solution}[8.5]
+Let the linearized Hamiltonian system be represented by $\dot{y} = JAy$. We have that $A=D^2H(x_0)$ fulfills 
+\begin{align}
+	-J(JA) = J^T (JA) = A = A^T = A^T J^T J =  (JA)^T J.
+\end{align}
+Thus calculating the characteristic polynomial of $JA$ gives
+\begin{align}
+	\varphi(x) &= \det (xI - JA) = \det(J) \det(xI-JA) = \det(xJ - JJA)\\ 
+		   &= \det(xJ + (JA)^TJ) = \det(xI +(JA)^T)\det(J) = \det([xI + JA]^T)\\
+		   &= \det(xI + JA) = \varphi(-x).
+\end{align}
+Therefore if $\varphi(\lambda) = 0$ then $\varphi(-\lambda)=0$.	
+\end{solution}
+
+
+\begin{solution}[8.6]
+\begin{enumerate}
+	\item Say $x_0$ is a fixed point, then set $y= x - x_0$. We have $\dot{y} = -DV(y+x_0) \approx -D^2V(x_0)y$. Because $D^2V(x_0)$ is symmetric (it is the Hessian), all of the eigenvalues are real.
+	\item If the Hessian is positive definite, then for $y$ small, the Hessian dominates $\dot{y}$. Hence $y \to 0$, i.e. $x_0$ is asymptotically stable. Note that $V(x(t))' = \nabla V(x(t)) \cdot x'(t) = \nabla V(x(t)) \cdot -\nabla V(x(t)) = - \| \nabla V(x(t)) \| \leq 0$.
+	\item Except for at fixed points, we can see (previous equation), is strictly decreasing along orbits. If we had a periodic orbit, then $x(t) = x(t+T)$, however $V(x(t)) > V(x(t+T))$, a contradiction. 
+	\item Numerically integrating $\dot{x}$ will lead to the local minimum of $V$, as $x$ is always going in the direction of the negative gradient, i.e. 'downhill the steepest way'. Analogously, integrating in backwards time will converge to the local maximum.
+\end{enumerate}
+\end{solution}
+
+\begin{solution}[8.7]
+First we would like to find if we can find a quantity which is independent of time. To do this we examine the following
+\begin{align}
+	\frac{dh}{dp} = \frac{dh}{dt} \frac{dt}{dp} = \frac{\dot{h}}{\dot{p}} = - \frac{a_1 h (1-bp)}{a_2 p (1-ch)}.
+\end{align}
+Next we split up the differentials to find
+\begin{align}
+	\frac{a_2 (1-ch)}{h}dh + \frac{a_1(1-bp)}{p}dp = 0.
+\end{align}
+We can then integrate both sides to find
+\begin{align}
+	a_2 \ln (h) - a_2 ch + a_1 \ln (p) - a_1 bp =  \textrm{constant}. 
+\end{align}
+Hence we have a conserved quantity, to confirm this applying $\frac{d}{dt}$ to this quantity yields 0. Call this quantity $U$. As in the lecture, we can see that $\dot{U}(x(t))=0$ implies that $D U (x(t)) \cdot \dot{x}(t) = D U \cdot f=0$, i.e. the two terms are orthogonal. So we can write 
+\begin{align}
+	f(x) = P(x) 
+	\begin{pmatrix}
+		0 & 1 \\
+		-1 & 0
+	\end{pmatrix}
+	DU(x)	
+.\end{align}
+So we find $\dot{x} = P(x) JDU(x)$, a noncanonical Hamiltonian system. Plugging this into our current system, we find
+\begin{align}
+	\begin{pmatrix}
+		\dot{h} \\
+		\dot{p}
+	\end{pmatrix}
+	= 
+	\begin{pmatrix}
+		a_1h(1-bp) \\
+		-a_2 p(1-ch)
+	\end{pmatrix}
+	= P(h,p) 
+	\begin{pmatrix}
+		0 & 1 \\
+		-1 & 0
+	\end{pmatrix}
+	\begin{pmatrix}
+		\frac{a_2 }{h} - a_2 c \\
+		\frac{a_1}{p} - a_1 b
+	\end{pmatrix}
+	=
+	P(h,p)
+	\begin{pmatrix}
+		\frac{a_1}{p} - a_1 b \\
+		-\frac{a_2}{h} + a_2 c
+	\end{pmatrix}
+.\end{align}
+Comparing terms reveals that $P(h,p) = hp$, because $h,p>0$ we can rescale time
+\begin{align}
+	\tau = \int_{0}^{t} h(s)p(s) ds.
+\end{align}
+Framing the time derivative with respect to this scaling yields
+\begin{align}
+	\dot{x} = \frac{dx}{dt} = \frac{dx}{d \tau} \frac{d \tau}{dt} = P(h,p) x'.
+\end{align}
+Hence we find
+\begin{align}
+	P(h,p) x' = P(x) JDU(x) \quad \implies \quad x' = JDU(x).
+\end{align}
+Thus we have shown that the Lotka-Volterra system is Hamiltonian, for $\mathcal{H} = U$.
+
+To test if the system admits a stable fixed point, we have to check if $\mathcal{H}$ is definite (since the Hamiltonian is conserved, if it is negative definite, we can just take $-\mathcal{H}$). The Hessian is
+\begin{align}
+\begin{pmatrix}
+	-\frac{a_2}{h^2} & 0 \\
+	0 & - \frac{a_1}{p^2}
+\end{pmatrix}
+.\end{align}
+This is clearly negative definite, as all of the variables are positive. The fixed point is found at the point where $ \dot{x}=0$, i.e. $p=\frac{1}{b}$ and $h=\frac{1}{c}$.
+\end{solution}
+
+\textbf{Note} From here on, to preserve notation a chart/local diffeomorphism will be denoted without mentioning the base point. Since we work with the arbitrary base points (we always need to prove something works for every point $x\in X$), the proof holds for the entire manifold.
+
+\begin{solution}[9.1]
+First, we note that we need a local diffeomorphism for every point in $X$. We will call this diffeomorphism $\varphi: U \to V$, where $U$ is a local neighborhood of $x$, and $V$ an open set in $\mathbb{R}^n$. We will tentatively define $\varphi: (x,y) \mapsto x$ (the projection), with inverse $\varphi^{-1}: x \mapsto (x, f(x))$. These are clearly smooth (due to smoothness of $f $) thus $\varphi_x$ is a diffeomorphism. This shows that the graph of $f$ is a manifold of $\mathbb{R}^n$.
+\end{solution}
+
+\begin{solution}[9.2]
+Let $\varphi$ and $\psi$ ($X\to \mathbb{R}^n$) be two different charts parameterizing the manifold $X$, then there exists a diffeomorphism $\phi : X \to X$, such that $\psi =\varphi \circ \phi$. This is due to all manifolds being diffeomorphic to themselves. $\phi$ allows us to take the set of all smooth curves on $\mathbb{R}^n$ and map it bijectively to itself, hence for any curve $\gamma$ used to generate to range of $d\varphi(0)$ corresponds to another curve $\phi \circ \gamma =: \tilde{\gamma}$. We have that $\psi \circ \gamma = \varphi \circ \phi \circ \gamma = \varphi \circ \tilde{\gamma}$. Hence $ \textrm{Range}(d\psi(0)) \subset  \textrm{Range}(d\varphi(0)) $. The same argument holds with the roles of $\varphi$ and $\psi$ swapped, hence we have equality, and thus the tangent space is independent of parameterization.
+\end{solution}
+
+\begin{solution}[9.3]
+We are looking for a chart $\varphi_{}:  \textrm{TM} \to \mathbb{R}^{2n}$. Let $\phi$ be a chart for $M$, this is a map between manifolds, namely $M \to \mathbb{R}^{n}$, inducing a map from $T_xM \to T_{\phi(x)}\mathbb{R}^{n} \cong \mathbb{R}^{n}$. Call the map $T_xM \to \mathbb{R}^{n}$ (where we used the implied existence of a map via the $\cong$ in the previous equation) $f$. Then we will propose $\varphi(x,v) = (\phi(x),f(v)) $, this is clearly a diffeomorphism, and we can see it is smooth with smooth inverse coordinate wise. 
+\end{solution}
+
+\begin{solution}[9.4]
+Since there is no interaction between $x$ and $y$, we can solve each equation independently.
+\begin{align}
+	x(t) = \frac{1}{\sqrt{c_1e^{2t} + 1}}; \quad y(t) = c_2 e^{-bt}.
+\end{align}
+Setting $t=0$ we can solve for the initial conditions $p =
+\begin{pmatrix}
+	x_0\\ y_0
+\end{pmatrix}
+$
+and find 
+\begin{align}
+	x(t) = \frac{1}{\sqrt{(x_0^{-2} -1)e^{2t}+1}}; \quad y(t) = y_0 e^{-bt}.
+\end{align}
+Thus we have the operator $F^t$ for the initial point $p$. Next, we have to calculate $A_t(p)$ and $B_t(p)$.
+\begin{align}
+	A_t(p) = \left.DF^{-t} \right|_{T_p M_0} &= 
+	\left.
+	\begin{pmatrix}
+		\frac{e^{-2t}}{x_0^{3} \left( (x_0^{-2} -1) e^{-2t} +1 \right)^{\frac{3}{2}}} & 0\\
+		0& e^{bt}
+	\end{pmatrix}
+	\right|_{T_pM_0} \\
+	B_t(p) = \Pi_p \left. DF^{t}(F^{-t}(p)) \right|_{N_{F^{-t}(p)}M_0} &= \left.\Pi_p  
+	\begin{pmatrix}
+		\frac{e^{2t}}{F^{-t}(p)_1^{3} \left( (F^{-t}(p)_1^{-2} -1) e^{2t} +1 \right)^{\frac{3}{2}}} & 0\\
+		k0& e^{-bt}
+	\end{pmatrix}
+	\right|_{N_{F^{-t}(p)M_0}}
+	\\
+									   &=	\left.\Pi_p 
+	\begin{pmatrix}
+		\frac{	e^{2t} \left[ (x_0^{-2} -1)e^{-2t}+1 \right]^{\frac{3}{2}}}{\left([(x_0^2 -1)e^{-2t} +1]-1)e^{2t}+1\right)^{\frac{3}{2}}} & 0 \\
+		0 & e^{-bt}
+	\end{pmatrix}
+	\right|_{N_{F^{-t}(p)M_0}}
+	\\								   &= \left.
+		\Pi_p 
+\begin{pmatrix}
+	\frac{e^{2t}\left[ (x_0^{-2} -1)e^{-2t}+1\right]^{\frac{3}{2}}}{x_0^{3}} & 0\\
+	0 & e^{-bt}
+\end{pmatrix}
+	\right|_{N_{F^{-t}(p)M_0}}.
+\end{align}
+Now we need to define the tangent and normal spaces for $p\in M_0$. Geometrically, these can be easily classified (with the ambient space being $\mathbb{R}^2$, with tangent vectors from point $p$ pointing in the positive/negative $x$ direction, and normal vectors from point $p$ pointing in the positive/negative $y$ direction. The projection becomes redundant as the map maps into the normal space at $p$.
+Thus we find 
+\begin{align}
+	\nu(p) = \lim_{t\to\infty} \| B_t(p)\|^{\frac{1}{t}} = \lim_{t\to\infty} \left(e^{-bt}\right)^{\frac{1}{t}} = e^{-b}<1.
+\end{align}
+Therefore, we can calculate $\sigma$ as follows
+\begin{align}
+	\sigma(p) = \limsup_{t\to\infty} \frac{\log \| A_t(p) \|}{- \log \|B_t(p) \|} = \frac{-2t - 3\log(x_0) - \frac{3}{2}\log\left((x_0^{-2}-1)e^{-2t}+1\right)}{bt} = \frac{-2}{b}.
+\end{align}
+This covers all trajectories, except those from the fixed point at $(0,0)$ which is a singularity of this equation. There we get $\|A_t(p)\| = e^{t}$ (the linearization is then $D \dot{x}|_{x=0} = -1$, yielding the linearized flow of $F^{t}(x_0) = x_0e^{-t}$ (which we then plug in for $A_t(p)$)), therefore $\sigma(p)=\frac{1}{b}$.
+\end{solution}
+
+\begin{solution}[9.5]
+\begin{enumerate}
+	\item 
+		First we must show that the manifold is invariant. The derivative of all points on $M_0$ for $\epsilon =0$ is 0 (by plugging in). Therefore, the manifold is clearly invariant as it is full of fixed points. Next we need to compute $\nu $ and $\sigma$, to do this we must once again compute $B_t$, we do not need $A_t$ as there is no tangential compression as $\dot{x}=0$. We begin by calculating the flow map. 
+\begin{align}
+	F^{t}(p) = 
+	\begin{pmatrix}
+		x_0 \\ y_0 e^{-t} \\ z_0 e^{t}
+	\end{pmatrix}	
+\end{align}
+Next we can calculate $B_t$ 
+\begin{align}
+	B_t(p) = \left. \Pi_p DF^{t}(F^{-t}(p)) \right|_{N_{F^{-t}(p)}M_0} = 
+	\left.
+	\begin{pmatrix}
+		1 & 0 & 0 \\
+		0 &  e^{-t} & 0 \\
+		0 & 0 &  e^{t} \\
+	\end{pmatrix}
+	\right|_{N_{F^{-t}(p)}M_0}
+.\end{align}
+The normal space of $M_0$ with base point $p$ comprises of vectors going in the $y$ and $z$ directions. Thus the operator norm of $B_t$ is $e^{t}$, by taking the normal vector pointing purely in the $z$ direction.
+\begin{align}
+	\lim_{t\to\infty} \left(e^{t}\right)^{\frac{1}{t}} = e \not< 1
+.\end{align}
+Thus $M_0$ is not a NHIM since $\nu > 1$. If however, we restrict $B_t(p)$ further to only the stable directions (this excludes the normal vectors with $z$ components), we find that
+\begin{align}
+	\nu = \lim_{t\to\infty} \left( e^{-t}\right)^{\frac{1}{t}} = e ^{-1}<1.
+\end{align}
+With this restriction $M_0$ is a NHIM with $\sigma=0$ and $\nu =e^{-1}$.
+\item
+	The invariant manifold $M_\epsilon = M_0$. 
+\item
+	Using property (v), we need for the trajectory starting from $q\in f^{s}(x_0)$ to converge the fastest, therefore the difference between the trajectories must have the maximal exponential decay. This immediately gives us that the stable fibre cannot contain nonzero values in the $z$ coordinate, as this direction is unstable. In the $y$ direction, this is trivially given by $y=y_q e^{-t}$. For the $x$ direction we will use the ansatz $x(t) = C_1 e^{-\epsilon t} + C_2 e^{-2t}$. Calculating we find
+\begin{align}
+	\dot{x}(t) = - \epsilon C_1 e^{-\epsilon t} -2 C_2 e^{-2t} \stackrel{ \textrm{!} }{=} -\epsilon (x+y^{2}) = -\epsilon (C_1 e^{-\epsilon t} + C_2 e^{-2t}+y_q^2 e^{-2t}).	
+\end{align}
+Hence $C_2 = \frac{\epsilon}{2-\epsilon}y_0^2$, and we have to find $C_1$ such that $x(0)=x_q$. This condition then requires $C_1 = x_q - \frac{\epsilon}{2-\epsilon }y_q^2$. Therefore we have 
+\begin{align}
+	x(t) = (x_q - \frac{\epsilon}{2-\epsilon}y_q^2)e^{-\epsilon t} + \frac{\epsilon}{2-\epsilon}y_q^2 e^{-2t} 
+\end{align}
+The decay between the trajectories $F ^t(x_0)$ and $F^t(x_q)$ to be maximized is then 
+\begin{align}
+	(x_q - \frac{\epsilon}{2 - \epsilon}y_q^2) e^{-\epsilon t} + \frac{\epsilon}{2-\epsilon}y_qe^{-2t} - x_0 e^{-\epsilon t}= (x_q - \frac{\epsilon}{2-\epsilon}y_q^2 - x_0) e^{-\epsilon t} + \frac{\epsilon}{2-\epsilon}y_q e^{-2t}.
+\end{align}
+Thus we set the first factor to 0 and get $x_q = x_0 + \frac{\epsilon}{2-\epsilon}y_q$. In conclusion the stable fibre from a point $p$ is $f^s(p) = \left\{ (x,y,z):\ x=x_p + \frac{\epsilon}{2-\epsilon}y^2,\ z=0 \right\}$.
+\item
+	For the unstable fibres, we will use the same process in backwards time. We know that any component in the $y$ direction will decay towards $M_\epsilon$ in forwards time, thus in backwards time, it is unstable. This allows us to set $y=0$. As above we set the first term equal to 0, to eliminate the  $e^{\epsilon t}$ term (note the direction of time has changed), and we find $x=x_0$. All together this gives $f^{u}(p) = \left\{ (x,y,z): \ x=x_p,\ y=0\right\}$.
+\item TODO
+\item Using fact (v) we find 
+	\begin{align}
+		W_{ \textrm{loc} }^{ss}(\gamma(p)) = \cup_{p' \in \gamma(p)} f^{s}(p') &= 
+		\left\{ (x,y,z):\ x=x_0 + \frac{\epsilon}{2-\epsilon}y^2,\ z=0,\ x_0\in\gamma(p),\ y \in \mathbb{R}\right\},\\
+		W_{ \textrm{loc} }^{uu}(\gamma(p)) = \cup_{p' \in \gamma(p)} f^{u}(p') &= 
+		\left\{ (x,y,z):\ y=0,\ x\in\gamma(p),\ z \in \mathbb{R}\right\},\\
+		W_{ \textrm{loc} }^{s}(\gamma(p)) &= \left\{ (x,y,z):\ x\in M_\epsilon,\ z=0\right\}, \\
+		W_{ \textrm{loc} }^{u}(\gamma(p)) &= \left\{ (x,y,z):\ x\in M_\epsilon,\  y=0\right\}. 
+	\end{align}
+\end{enumerate}
+\end{solution}
+
+\begin{solution}[9.6]
+TODO	
+\end{solution}
+
+\begin{solution}[9.7]
+TODO	
+\end{solution}
+
+\begin{solution}[9.8]
+Assume $\lambda_s > 0$, then $Df(0)$ is diagonalizable with the matrix $T$, formed from the eigenvectors of $Df(0)$, $T= [e_{ss}, e_{s}]$
+
+\begin{align}
+T^{-1}Df(0)T = \begin{bmatrix}
+-\lambda_{ss} & 0 \\
+0 & -\lambda_{s}
+ \end{bmatrix}.
+\end{align}
+Introducing a new variable $y$, defined by $x = Ty$, the differential equation reads,
+\begin{align}
+\dot{y} = T^{-1}\dot{x} = \begin{bmatrix} 
+\dot{y}_{ss} \\ 
+\dot{y}_{s}\end{bmatrix} = \begin{bmatrix}
+-\lambda_{ss} y_{ss} + g_{ss}(y) \\
+-\lambda_{s} y_{s} + g_{s}(y)
+\end{bmatrix} \label{sol98one}   
+\end{align}
+where $g_s$ and $g_{ss}$ are of order $O(|y|^2)$:
+\begin{align}
+    \limsup_{|y|\to 0} \frac{|g_{s,ss}(y)|}{|y|^2}\leq K,
+\end{align}
+for some $K$. 
+To characterize the strong stable manifold $W$, consider a modified form of \eqref{sol98one}. Outside a small neighborhood $B_\delta:=[-\delta, \delta] \times [-\delta, \delta]\subset \mathbb{R}^2$, the vector field is smoothly changed to a linear one. 
+
+This construction is done by using $C^\infty$ bump-functions $\psi_\delta : \mathbb{R} \to \mathbb{R}$, with the properties 
+\begin{align}
+	\psi_\delta(r) &= 1 \text{ for } |r|\leq \delta \\
+\psi_\delta(r) &\leq 1 \text{ for } \delta \leq |r|\leq 2\delta \\
+\psi_\delta(r) &= 0 \text{ for } 2\delta \leq |r| \\
+|\psi_\delta(r)'| &\leq \frac{K_0}{\delta}.
+\end{align}
+
+Then, define the new functions, the components of the modified nonlinear part of the vector field \eqref{sol98one} as 
+\begin{align}
+G_{s, ss}: \mathbb{R}^2 \to \mathbb{R}
+\end{align}
+\begin{align}
+G_{s, ss}(y) := \psi_\delta(y_s)\psi_\delta(y_{ss})g_{s,ss}(y).
+\end{align}
+
+The gradient of this function is (with the notation $\psi = \psi_\delta(y_{ss})\psi_\delta(y_s)$)
+\begin{align}
+\nabla G_{s, ss}(y) = g_{s,ss}(y)\begin{bmatrix}\psi_\delta(y_s)'\psi_\delta(y_{ss}) \\ \psi_\delta(y_{ss})'\psi_\delta(y_s) \end{bmatrix} + \psi(y) \nabla g_{s,ss}(y).
+\end{align}
+The norm can be bounded by
+\begin{align}
+|\nabla G_{s, ss}(y) | \leq \sqrt{2}|g_{s,ss}|\frac{K_0}{\delta} + |\nabla g_{s,ss}(y)| \leq K_0 C \delta + C_1 \delta = K_2 \delta,
+\end{align}
+because of the properties of the bump functions and we use the fact that $|g_{s,ss}|$ can be bounded by a quadratic function on the region $B_\delta$. 
+
+The modified vector takes the form  
+\begin{align}
+    \begin{bmatrix}
+    \dot{y}_{ss} \\
+    \dot{y}_{s} 
+    \end{bmatrix} = \begin{bmatrix} -\lambda_{ss} y_{ss} + G_{ss}(y)\\ -\lambda_{s} y_{s} + G_{s}(y)\end{bmatrix}.
+    \label{sol98two}
+\end{align}
+The strong stable manifold of system \eqref{sol98two} is $\overline{W}$, which coincides with the strong stable manfifold of the original system on $B_\delta$. It is distinguished by the property, that trajectories on the manifold decay at least as fast as $e^{-\gamma t}$ for positive times:
+\begin{align}
+W =\overline{W}\cap B_\delta = \left\{ y_0\in B_\delta : \sup_{t\geq 0} e^{\gamma t}|F^t(y_0)| < \infty \right \}.
+\end{align}
+
+To prove the existence of the strong stable manifold, we put system \eqref{sol98two} in a weak form, to make use of Banach's fixed point theorem. 
+
+As seen in the lecture notes, the solutions of a system of the form
+\begin{align}
+\dot{x} = Ax + f(x,t)
+\end{align}
+
+are the solutions to the integral equation
+\begin{align}
+x(t) = e^{A(t-t_0)}x_0 + \int_{t_0}^t e^{A(t-\tau)}f(x(\tau),\tau)d\tau.
+\end{align}
+
+Applying this general form to system \eqref{sol98two}, we have
+\begin{align}
+y_{ss}(t) &= e^{-\lambda_{ss}(t-t_{ss})}y_{ss}(t_{ss}) + \int_{t_0}^t e^{-\lambda_{ss}(t-\tau)}G_{ss}(y(\tau))d\tau \\
+\label{sol98five}
+y_s(t) &= e^{-\lambda_s(t-t_s)}y_s(t_s) + \int_{t_0}^t e^{-\lambda_s(t-\tau)}G_s(y(\tau))d\tau. 
+\end{align}
+
+Assuming $W$ is nonempty, pick an initial point $(y_{ss}(t_{ss}), y_s(t_s))\in W$. It has the property 
+\begin{align}
+e^{\gamma \tau}|y_s(\tau)| \leq e^{\gamma \tau}|y(\tau)| < \infty, \text{ for } \tau \geq 0.
+\end{align}
+Moreover, the norm of the first term in \eqref{sol98five} can be written as
+\begin{align}
+e^{-\lambda_s(t-t_s)}|y_s(t_s)| = |y_s(t_s)|e^{\gamma t_s} e^{-\lambda_s t}e^{-\lambda_s t_s}e^{-\gamma t_s} = |y_s(t_s)|e^{\gamma t_s} e^{-\lambda_s t} e^{(\lambda_s - \gamma)t_s}.
+\end{align}
+Because $|y_s(t_s)|e^{\gamma t_s} e^{-\lambda_s t}$ stays bounded for given $t$, (using the previous line, with $\tau = t_s$) and $\lambda_s<\gamma$, we have 
+\begin{align}
+e^{-\lambda_s(t-t_s)}|y_s(t_s)| \to 0 \text{ as } t_s \to \infty.
+\end{align}
+
+Then, we can choose the initial times to be $t_s = \infty$ and $t_{ss}=0$. Also, $y_{ss}(0)$ is the first coordinate of the initial point of the trajectory, when it enters $B_\delta$, that is, we can write $y_{ss}(0)=\delta$ to obtain the integral equations
+
+\begin{align}
+\label{sol98six}
+y_{ss}(t) &= e^{-\lambda_{ss}t}\delta + \int_{0}^t e^{-\lambda_{ss}(t-\tau)}G_{ss}(y(\tau))d\tau \\
+\label{sol98seven}
+y_s(t) &= - \int_{t}^\infty e^{-\lambda_s(t-\tau)}G_s(y(\tau))d\tau. 
+\end{align}
+
+Claim: The set 
+\begin{align}
+B : = \left \{ y(t): y\in C^0 ([0, \infty), B_\delta ), \quad  \sup_{t\geq 0} e^{\gamma t}|y(t)|\leq K <\infty \right \},
+\end{align}
+
+equipped with the metric 
+\begin{align}
+d(y_1, y_2) := \sup_{t\geq 0} |y_1 - y_2|e^{\gamma t}. 
+\end{align}
+
+becomes a complete metric space, on which the map
+\begin{align}
+\mathcal{F}_\delta  : B \to B,
+\end{align}
+defined by the integral equations \eqref{sol98six}, \eqref{sol98seven}
+\begin{align}
+\mathcal{F}_\delta (y) = \begin{bmatrix} e^{-\lambda_{ss}t}\delta + \int_{0}^t e^{-\lambda_{ss}(t-\tau)}G_{ss}(y(\tau))d\tau \\
+- \int_{t}^\infty e^{-\lambda_s(t-\tau)}G_s(y(\tau))d\tau
+\end{bmatrix}
+\end{align}
+is a contraction mapping, that is, for $q<1$, 
+\begin{align}
+d(\mathcal{F}_\delta(y_1), \mathcal{F}_\delta(y_2))\leq q d(y_1, y_2). 
+\end{align}
+
+First, we show that the map $d(y_1, y_2)$ is a metric, by showing that it satisfies the defining properties of a metric
+\begin{align}
+    d(y_1, y_2) &= 0 \text{ if and only if } |y_1-y_2|=0 \Longleftrightarrow y_1=y_2 \\
+    d(y_1, y_2) &= \sup_{t\geq 0} |y_1 - y_2|e^{\gamma t} = \sup_{t\geq 0} |y_2 - y_1|e^{\gamma t} = d(y_2, y_1) \\
+    d(y_1, y_3) &= \sup_{t\geq 0} |y_1 - y_3|e^{\gamma t} \leq  \sup_{t\geq 0} (|y_1 - y_2| + |y_2 - y_3|)e^{\gamma t} \\ &= \sup_{t\geq 0} |y_1 - y_2|e^{\gamma t} + \sup_{t\geq 0}  |y_2 - y_3|e^{\gamma t} = d(y_1,y_2) + d(y_2, y_3).
+\end{align}
+
+In the usual metric, a sequence of uniformly continuous functions does have a continuous limit. If, in addition, the sequence of functions is also bounded in this weighted sense, the limit will also have this property, which means that B is complete. 
+
+Next, we show that the map $\mathcal{F}_\delta$ defined above maps to $B$. 
+\begin{align}
+|\mathcal{F}_\delta(y(t))| &\leq |y_s(t)| + |y_{ss}(t)| \\
+			   &\leq \left|e^{-\lambda_{ss}t}\delta + \int_{0}^t e^{-\lambda_{ss}(t-\tau)}G_{ss}(y(\tau))d\tau \right| + \left|\int_{t}^\infty e^{-\lambda_s(t-\tau)}G_s(y(\tau))d\tau\right| \\    
+&\leq e^{-\lambda_{ss}t}\delta + \int_{0}^t e^{-\lambda_{ss}(t-\tau)}|G_{ss}(y(\tau))|d\tau + \int_{t}^\infty e^{-\lambda_s(t-\tau)}|G_s(y(\tau))|d\tau.
+\end{align}
+Using the mean value theorem, and the bound developed above, 
+\begin{align}
+|\nabla G_{s,ss}| \leq g_{s,ss} \leq K_2\delta, \qquad |G_{s,ss}(y_{s,ss})| \leq  K_2\delta |y_{s,ss}|.
+\end{align}
+We can derive the following
+\begin{align}
+|\mathcal{F}_\delta(y(t))| &= e^{-\lambda_{ss}t}\delta + \int_{0}^t e^{-\lambda_{ss}(t-\tau)}|G_{ss}(y(\tau))|d\tau + \int_{t}^\infty e^{-\lambda_s(t-\tau)}|G_s(y(\tau))|d\tau \\
+ &\leq e^{-\lambda_{ss}t}\delta + \int_{0}^t e^{-\lambda_{ss}(t-\tau)}K_2 \delta |y_{ss}(\tau)|d\tau + \int_{t}^\infty e^{-\lambda_s(t-\tau)}K_2 \delta |y_s(\tau )|d\tau. 
+\end{align}
+Multiply by $e^{\gamma t}$ and take the supremum
+\begin{align}
+\sup_{t\geq 0}|\mathcal{F}_\delta(y(t))|e^{\gamma t} &\leq \sup_{t\geq 0} \left \{ \delta e^{(\gamma -\lambda_{ss}) t}  + \int_{0}^t e^{-\lambda_{ss}(t-\tau)}K_2 \delta |y_{ss}(\tau)|e^{\gamma t}d\tau \right.\\
+						     &\qquad \left.+ \int_{t}^\infty e^{-\lambda_s(t-\tau)}K_2 \delta |y_s(\tau )|e^{\gamma t}d\tau \right \}   \\
+& \leq \sup_{t\geq 0} \left \{ \delta + \int_{0}^t e^{-\lambda_{ss}(t-\tau)}K_2 \delta |y_{ss}(\tau)|e^{\gamma \tau} e^{-\gamma \tau }e^{\gamma t}d\tau \right.\\
+&\qquad \left.+ \int_{t}^\infty e^{-\lambda_s(t-\tau)}K_2 \delta |y_s(\tau )|e^{\gamma \tau} e^{-\gamma \tau }e^{\gamma t}d\tau\right \} \\
+&\leq \sup_{t\geq 0} \left \{ \delta +  K_2 \delta K\int_{0}^t e^{(t-\tau)(\gamma - \lambda_{ss})} d\tau +  K_2 \delta K\int_{t}^\infty e^{(t-\tau)(\gamma - \lambda_s)} d\tau\right \}.
+\end{align}
+After carrying out the integrals, and using $\gamma -\lambda_{ss} < 0$ and $\gamma-\lambda_s> 0$
+\begin{align}
+\sup_{t\geq 0}|\mathcal{F}_\delta(y(t))|e^{\gamma t} &\leq 
+\sup_{t\geq 0} \left \{ \delta +  K_2 \delta K \left [ \frac{1}{\lambda_{ss} - \gamma}e^{(t-\tau)(\gamma - \lambda_{ss})}\right]_0^t\right.\\
+						     &\qquad \left.+ K_2 \delta K \left [ \frac{1}{\lambda_{s} - \gamma}e^{(t-\tau)(\gamma - \lambda_{s})}\right]_t^\infty \right \}   \\
+&=  \sup_{t\geq 0} \left \{ \delta +  K_2 \delta K  \frac{1 - e^{t(\gamma - \lambda_{ss})}}{\lambda_{ss} - \gamma} + K_2 \delta K \frac{1}{\gamma - \lambda_{s} }\right \}  \\
+& \leq \delta +  K_2 \delta K \left( \frac{1}{\lambda_{ss} - \gamma} + \frac{1}{\gamma - \lambda_{s} }\right)\\ 
+&= K \left[\frac{\delta}{K}+K_2 \delta \left( \frac{1}{\lambda_{ss} - \gamma} + \frac{1}{\gamma - \lambda_{s} }\right) \right ].
+\end{align}
+Choosing $\delta$, such that
+\begin{align}
+\delta \leq \frac{1}{\frac{1}{K}+K_2 \left( \frac{1}{\lambda_{ss} - \gamma} + \frac{1}{\gamma - \lambda_{s} }\right) },
+\end{align}
+guarantees that 
+\begin{align}
+\sup_{t\geq 0}|\mathcal{F}_\delta(y(t))|e^{\gamma t} \leq K < \infty,
+\end{align}
+which shows that the image of a function $y\in B$ under the functional $\mathcal{F}$ is still in $B$. 
+
+So far we have established that $B$ is a complete metric space and $\mathcal{F}$ is a map from $B$ to $B$. To show that $\mathcal{F}$ is a contraction mapping, consider the difference between two image-points in $B$
+\begin{align}
+    |\mathcal{F}(y_1) - \mathcal{F}(y_2)| &= \left \vert\int_{0}^t e^{-\lambda_{ss}(t-\tau)}[G_{ss}(y_1(\tau)) - G_{ss}(y_2(\tau))]d\tau \right \vert \\
+					  &\quad+  \left \vert \int_{t}^\infty e^{-\lambda_s(t-\tau)}[G_{s}(y_1(\tau)) - G_{s}(y_2(\tau))]d\tau \right \vert \\
+    & \leq \int_{0}^t e^{-\lambda_{ss}(t-\tau)}|[G_{ss}(y_1(\tau)) - G_{ss}(y_2(\tau))]|d\tau  \\
+    &\quad +  \int_{t}^\infty e^{-\lambda_s(t-\tau)}|[G_{s}(y_1(\tau)) - G_{s}(y_2(\tau))] | d\tau  \\
+    & \leq \int_{0}^t e^{-\lambda_{ss}(t-\tau)}K_2 \delta |y_1(\tau) - y_2(\tau)|d\tau \\ 
+    &\quad +  \int_{t}^\infty e^{-\lambda_s(t-\tau)}K_2\delta |y_1(\tau) - y_2(\tau) | d\tau.
+\end{align}
+
+Multiplying by $e^{\gamma t}$
+\begin{align}
+    |\mathcal{F}(y_1) - \mathcal{F}(y_2)|e^{\gamma t} &\leq \int_{0}^t e^{-\lambda_{ss}(t-\tau)}K_2 \delta |y_1(\tau) - y_2(\tau)|e^{\gamma t}d\tau  \\
+						      &\quad+  \int_{t}^\infty e^{-\lambda_s(t-\tau)}K_2\delta |y_1(\tau) - y_2(\tau) |e^{\gamma t} d\tau  \\
+    & = \int_{0}^t e^{-\lambda_{ss}(t-\tau)}K_2 \delta |y_1(\tau) - y_2(\tau)|e^{\gamma \tau} e^{\gamma t} e^{-\gamma \tau}d\tau  \\
+    &\quad+ \int_{t}^\infty e^{-\lambda_s(t-\tau)}K_2\delta |y_1(\tau) - y_2(\tau) |e^{\gamma \tau} e^{\gamma t} e^{-\gamma \tau} d\tau \\
+    &\leq \int_{0}^t e^{(\gamma-\lambda_{ss})(t-\tau)}K_2 \delta d\tau \sup_{t\geq 0} |y_1(t) - y_2(t) |e^{\gamma t}  \\
+    &\quad+ \int_{t}^\infty e^{(\gamma-\lambda_s)(t-\tau)}K_2\delta d\tau \sup_{t\geq 0} |y_1(t) - y_2(t) |e^{\gamma t} \\
+    & = K_2 \delta d(y_1, y_2) \left (\int_{0}^t e^{(\gamma-\lambda_{ss})(t-\tau)}d\tau + \int_{t}^\infty e^{(\gamma-\lambda_s)(t-\tau)} d\tau \right) \\
+    \end{align}
+    Thus we can surmise
+\begin{align}
+    \sup_{t\geq0}|\mathcal{F}(y_1) - \mathcal{F}(y_2)|e^{\gamma t}&\leq \delta K_2 d(y_1, y_2) \left( \frac{1}{\lambda_{ss} - \gamma} + \frac{1}{\gamma - \lambda_{s} }\right).
+\end{align}
+
+If we choose $\delta$ such that 
+\begin{align}
+\delta < \frac{1}{K_2 \left( \frac{1}{\lambda_{ss} - \gamma} + \frac{1}{\gamma - \lambda_{s} }\right)}
+\end{align}
+then we obtain the contraction-mapping criterion for $q<1$. Also note that if $\delta$ satisfies the earlier inequality, it automatically satisfies the contraction mapping criterion too. 
+
+Then, we can use Banach's fixed point theorem, and conclude that $\mathcal{F}$ has a unique fixed point in $B$, which, by construction must coincide with the strong stable manifold of the origin, within the small neighborhood $B_\delta$, which was to be proved. 
+
+
+	
+\end{solution}
+

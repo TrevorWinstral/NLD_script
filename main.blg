@@ -15,46 +15,44 @@ A level-1 auxiliary file: chap10.aux
 A level-1 auxiliary file: solutions.aux
 The style file: apalike.bst
 Database file #1: refs.bib
-Warning--I didn't find a database entry for "Sternberg1957"
-You've used 32 entries,
+You've used 33 entries,
             1935 wiz_defined-function locations,
-            703 strings with 8821 characters,
-and the built_in function-call counts, 11132 in all, are:
-= -- 1079
-> -- 371
-< -- 26
-+ -- 122
-- -- 116
-* -- 882
-:= -- 1981
-add.period$ -- 97
-call.type$ -- 32
-change.case$ -- 207
-chr.to.int$ -- 32
-cite$ -- 32
-duplicate$ -- 451
-empty$ -- 832
-format.name$ -- 166
-if$ -- 2194
+            710 strings with 8954 characters,
+and the built_in function-call counts, 11495 in all, are:
+= -- 1117
+> -- 378
+< -- 27
++ -- 124
+- -- 118
+* -- 913
+:= -- 2043
+add.period$ -- 100
+call.type$ -- 33
+change.case$ -- 213
+chr.to.int$ -- 33
+cite$ -- 33
+duplicate$ -- 465
+empty$ -- 862
+format.name$ -- 169
+if$ -- 2265
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 41
-newline$ -- 162
-num.names$ -- 96
-pop$ -- 186
+missing$ -- 42
+newline$ -- 167
+num.names$ -- 99
+pop$ -- 189
 preamble$ -- 1
-purify$ -- 218
+purify$ -- 224
 quote$ -- 0
-skip$ -- 345
+skip$ -- 356
 stack$ -- 0
-substring$ -- 757
-swap$ -- 43
+substring$ -- 794
+swap$ -- 44
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 170
+type$ -- 176
 warning$ -- 0
-while$ -- 83
+while$ -- 87
 width$ -- 0
-write$ -- 407
-(There was 1 warning)
+write$ -- 420
