@@ -376,7 +376,7 @@ The solution that is $O(\varepsilon)$ accurate, can be obtained as a solution to
 	\varphi_0(t) = A\sin(t) + B\cos(t) + C \cos(\omega t). \label{S02E023}
 \end{align}
 
-The constant $C$ can be determined by substituting into \ref{S02E021} as
+The constant $C$ can be determined by substituting into \eqref{S02E021} as
 
 $$
 -C\omega^2 \cos(\omega t) + C\cos(\omega t) = F \cos(\omega t).
@@ -530,7 +530,7 @@ Hence,
 \end{equation}
 Also note that since $|\lambda_i|<1 \,\forall i\in \{1,\ldots,n\}$, the matrix norm $||A||<1$.
 
-Hence $||y_{k+1}|| = ||Ay_k|| < ||y_k||. \Longrightarrow y=0$ is also stable. This together with (\ref{E0401}) implies asymptotic stability of the fixed point $y=0$.
+Hence $||y_{k+1}|| = ||Ay_k|| < ||y_k||. \Longrightarrow y=0$ is also stable. This together with \eqref{E0401} implies asymptotic stability of the fixed point $y=0$.
 
 \underline{Necessity}: Assume there is $i_0\in\{1,2,\ldots, n\}$ such that $|\lambda_{i_0}| \geq 1$.
 
@@ -988,7 +988,7 @@ Since $\displaystyle L = \frac{1}{2}M_{ij}\dot{q}_i \dot{q}_j - V$ we have:
 		\frac{\partial L}{\partial \dot{q}_k} &= M_{ik}\dot{q}_i \quad , \quad \frac{\partial L}{\partial q_k} = \frac{1}{2} \frac{\partial M_{ij}}{\partial q_k}\dot{q}_i\dot{q}_j - \frac{\partial V}{\partial q_k} \\
 		\frac{d}{dt} \frac{\partial L}{\partial \dot{q}_k} &= M_{ik}\ddot{q}_i + \frac{\partial M_{ik}}{\partial q_j}\dot{q}_j\dot{q}_i
 \end{align}
-Substituting (\ref{S03E042}) into (\ref{S03E041}), we get
+Substituting \eqref{S03E042} into \eqref{S03E041}, we get
 \begin{align}
 	M_{ik} \ddot{q}_i\dot{q}_k + \frac{\partial M_{ik}}{\partial q_j}\dot{q}_j\dot{q}_i\dot{q}_k - \frac{1}{2}\frac{\partial M_{ij}}{\partial q_k}\dot{q}_i\dot{q}_j\dot{q}_k + \frac{\partial V}{\partial q_k}\dot{q}_k = 0
 \end{align}
@@ -1048,9 +1048,9 @@ Therefore, the Taylor expansion of $h$ around $x=0$ has the form
 \begin{align}\label{S04E012}
 	h(x) = ax^2 + bx^3 + \mathcal{O}(x^4)
 \end{align}
-Equation (\ref{S04E011}) for the current system is: $\lambda h(x) - x^2 = h(x + xh(x))$.
+Equation \eqref{S04E011} for the current system is: $\lambda h(x) - x^2 = h(x + xh(x))$.
 
-Substituting (\ref{S04E012}) in this equation we get
+Substituting \eqref{S04E012} in this equation we get
 \begin{align}
 	\lambda(ax^2 + bx^3 + \mathcal{O}(x^4)) - x^2 &= h[x + ax^3 + \mathcal{O}(x^4)] \\
 	&= a(x + ax^3 + \mathcal{O}(x^4))^2 + b(x + ax^3 + \mathcal{O}(x^4))^3 + \cdots
@@ -1078,7 +1078,7 @@ Hence, the dynamics on the center manifold satisfy
 	x_{n+1} &= x_n + \frac{1}{\lambda - 1}x_n^3 \nonumber \\
 	\Longrightarrow x_{n+1} &= x_n \left( 1 + \frac{1}{\lambda - 1}x_n^2 \right) \label{S04E013}
 \end{align}
-In the following, we show that the fixed point $x=0$ of (\ref{S04E013}) is asymptotically stable. 
+In the following, we show that the fixed point $x=0$ of \eqref{S04E013} is asymptotically stable. 
 
 First let $x_0 \in \mathbb{R}$ with $|x_0|>0$ small enough be an initial condition. Then if
 \begin{align}\label{S04E014}
@@ -1088,7 +1088,7 @@ we have
 \begin{align}
 	|x_1| \leq \left\vert x_0 \left( 1 + \frac{1}{\lambda - 1}x_0^2 \right) \right\vert < |x_0|
 \end{align}
-Inequality (\ref{S04E014}) holds if and only if $|x_1| < |x_0| < \sqrt{2(1-\lambda)}$. That is for any $x_0$ with $|x_0|<\sqrt{2(1-\lambda)}$ we have $|x_1| < |x_0| < \sqrt{2(1-\lambda)}$.
+Inequality \eqref{S04E014} holds if and only if $|x_1| < |x_0| < \sqrt{2(1-\lambda)}$. That is for any $x_0$ with $|x_0|<\sqrt{2(1-\lambda)}$ we have $|x_1| < |x_0| < \sqrt{2(1-\lambda)}$.
 
 For such initial conditions, we have (by induction):
 \begin{align}\label{S04E015}
@@ -1099,12 +1099,12 @@ This proves that the stability of the fixed point $x=0$. To prove asymptotic sta
 	\lim_{n \rightarrow \infty} x_n = 0
 \end{align}
 
-Note that the sequence $\{|x_n|\}$ is a decreasing (due to (\ref{S04E015})) sequence that is bounded from below $(|x_n| \geq 0)$. Therefore, it must have a limit:
+Note that the sequence $\{|x_n|\}$ is a decreasing (due to \eqref{S04E015}) sequence that is bounded from below $(|x_n| \geq 0)$. Therefore, it must have a limit:
 \begin{align}
 	\lim_{n \rightarrow \infty} |x_n| = \alpha
 \end{align}
 
-This limit, in general, doesn't have to be zero. But taking the limit $n \rightarrow \infty$ in equation (\ref{S04E013}) we get
+This limit, in general, doesn't have to be zero. But taking the limit $n \rightarrow \infty$ in equation \eqref{S04E013} we get
 \begin{align}
 	\lim_{n \rightarrow \infty} |x_{n+1}| = \lim_{n \rightarrow \infty}
 	|x_n| \left( 1 + \frac{1}{\lambda - 1} \lim_{n \rightarrow \infty} |x_n|^2 \right)
@@ -1344,7 +1344,7 @@ Use invariance in (\eqref{S04E022}):
 	\label{S04E024}	
 	\text{But also } \dot{y} &= -\delta h(x, \beta) - \beta \left( x + \frac{h(x,\beta)}{\delta} \right) + \left( x + \frac{h(x, \beta)}{\delta} \right)^2
 \end{align}
-Comparing $\mathcal{O}(2)$ terms in (\ref{S04E023}) \& (\ref{S04E024}), we get:
+Comparing $\mathcal{O}(2)$ terms in \eqref{S04E023} \& \eqref{S04E024}) we get:
 \begin{align}
 	x^2: \qquad -\delta a_1 + 1 = 0 &\Longrightarrow a_1 = \frac{1}{\delta} \\
 	x\beta: \qquad -\delta a_2 - 1 = 0 &\Longrightarrow -a_2 = \frac{1}{\delta}
@@ -1353,7 +1353,7 @@ Thus, the $\beta$-dependent center manifold is given by
 \begin{equation} \label{S04E025}
 	h(x, \beta) = \frac{x^2}{\delta} - \frac{x \beta}{\delta} + \mathcal{O}(3)
 \end{equation} 
-Substitute (\ref{S04E025}) into first equation in (\ref{S04E021}) to obtain reduced dynamics on the center manifold: $W^C_\beta (0)$ up to quadratic order.
+Substitute \eqref{S04E025} into first equation in \eqref{S04E021} to obtain reduced dynamics on the center manifold: $W^C_\beta (0)$ up to quadratic order.
 \begin{align}
 	\dot{x} &= \frac{1}{\delta} \left[ \beta \left( x + \frac{h(x, \beta)}{\delta} \right) - \left( x + \frac{h(x, \beta)}{\delta} \right)^2 \right] \\
 	&= \frac{1}{\delta} [\beta x - x^2] + \mathcal{O}(3)
@@ -1593,7 +1593,7 @@ Therefore, it suffices to show that solutions of the averaged equation
 \begin{align}\label{S05E022}
 	\dot{y} = \varepsilon \bar{f}_0(y)
 \end{align}
-remain $\mathcal{O}(\varepsilon)$ close to the solutions of (\ref{S05E021}).
+remain $\mathcal{O}(\varepsilon)$ close to the solutions of \eqref{S05E021}.
 
 Subtracting \eqref{S05E022} from \eqref{S05E021}, integrating and dropping the tilde (\textasciitilde) sign, we get 
 \begin{align}
@@ -1711,367 +1711,1270 @@ For the unstable manifold to be off the wall, we need $\bar{V}(x_0)>0$. Using \e
 \end{solution}
 
 \begin{solution}[7.1]
-		First note that there are $kN(k)$ elements with orbit length exactly (minimal) $k$, for all $k$. Next, we want to know how many elements have (not necessarily exactly) orbits of length $k$. This means if $k=4$, then we count $16$ elements, as we include elements with orbit length exactly 2 and/or 1 (2 and 1 each divide 4). This entails counting how many ways we can construct a block of length $k$. We consider one construction $C_1$ to be equal to another $C_2$, if there exists $n$ such that $\sigma^{n}(C_1)=C_2$, where $\sigma$ acts cyclically. Equivalently, we could say $C_1 \cong C_2$ if 
+A periodic orbit is characterized by a string of $k$ symbols. There is a total of $2^k$ possible permutations of the symbols $1$ and $2$ over $k$ positions. However if this string consists of $k/i$ repetitions of a string of length $i$, that periodic orbit is already an $i$-orbit, and so will have to be excluded from the set of $k$-orbits. The number of $i$-orbits is $N(i)$, and there will be $i$ occurrences of $k$-strings consisting of repetitions of some shift of each $i$-orbit. Let $<i,k>$ denote the set of $i \in \mathbb{N}$ such that $k/i$ is an integer. Then 
 \begin{align}
-	\exists n\geq 1:\quad \sigma^{n}\left(\overline{C}_1.\overline{C_1}\right) = \overline{C}_2.\overline{C}_2.	
+    2^k - \sum_{i \in <i,k>} i N(i)
 \end{align}
-Constructing a unique block in this case just means choosing a number $i$, $0 \leq i \leq k$, for the amount of symbols of one type, and choosing a constellation for placing these symbols. For a given $i$ there are $\binom{k}{i}$ ($k$ choose $i$) ways to place the $i$ elements in $k$ places. Next, we have to sum over all possible $i$ 
+is the number of permutations of two symbols that are not a repetition of some string. Furthermore, since shifting a string does not change its represented periodic orbit, there will be $k$ shifted versions of each string, which we handle by dividing with $k$:
 \begin{align}
-	\sum_{i=0}^{k} \binom{k}{i} = 2^{k}.
+    N(k) = \frac{1}{k}\left(2^k - \sum_{i \in <i,k>} i N(i) \right)
 \end{align}
-In order to get the amount of elements with orbit length exactly $k$ we have to subtract out the elements which have orbit length exactly $i$ for $i | k$ ($i$ divides $k $). There are $i\cdot N(i)$ of these elements, thus
-\begin{align}
-	kN(k) = 2^{k} - \sum_{i|k}^{} iN(i).
-\end{align}
-Now dividing by $k$ yields the desired result.
+
+%		First note that there are $kN(k)$ elements with orbit length exactly (minimal) $k$, for all $k$. Next, we want to know how many elements have (not necessarily exactly) orbits of length $k$. This means if $k=4$, then we count $16$ elements, as we include elements with orbit length exactly 2 and/or 1 (2 and 1 each divide 4). This entails counting how many ways we can construct a block of length $k$. We consider one construction $C_1$ to be equal to another $C_2$, if there exists $n$ such that $\sigma^{n}(C_1)=C_2$, where $\sigma$ acts cyclically. Equivalently, we could say $C_1 \cong C_2$ if 
+%\begin{align}
+%	\exists n\geq 1:\quad \sigma^{n}\left(\overline{C}_1.\overline{C_1}\right) = \overline{C}_2.\overline{C}_2.	
+%\end{align}
+%Constructing a unique block in this case just means choosing a number $i$, $0 \leq i \leq k$, for the amount of symbols of one type, and choosing a constellation for placing these symbols. For a given $i$ there are $\binom{k}{i}$ ($k$ choose $i$) ways to place the $i$ elements in $k$ places. Next, we have to sum over all possible $i$ 
+%\begin{align}
+%	\sum_{i=0}^{k} \binom{k}{i} = 2^{k}.
+%\end{align}
+%In order to get the amount of elements with orbit length exactly $k$ we have to subtract out the elements which have orbit length exactly $i$ for $i | k$ ($i$ divides $k $). There are $i\cdot N(i)$ of these elements, thus
+%\begin{align}
+%	kN(k) = 2^{k} - \sum_{i|k}^{} iN(i).
+%\end{align}
+%Now dividing by $k$ yields the desired result.
 \end{solution}
 
 \begin{solution}[7.2]
-TODO	
+Given any two periodic orbits $\bar{s}.\bar{s}$ and $\bar{z}.\bar{z}$, any sequence $s^*$ defines a heteroclinic orbit between them by $\bar{s} s^*.\bar{z}$. To show this is a heteroclinic orbit, observe that 
+\begin{align}
+	\lim_{N \to \infty} d(\sigma^N (\bar{s} s^*.\bar{z}), \bar{z}.\bar{z}) &= 0 \\
+	\lim_{N \to -\infty} d(\sigma^N (\bar{s} s^*.\bar{z}), \bar{s}.\bar{s}) &= 0.
+\end{align}
+That is, any such trajectory approaches $\bar{z}.\bar{z}$ in forward iterations and $\bar{s}.\bar{s}$ in backward iterations of the shift map. Since there are infinitely many sequences $s^*$, and the periodic orbits were arbitrary, it follows that there are infinitely many heteroclinic orbits connecting any two periodic orbits.
 \end{solution}
 
 \begin{solution}[7.3]
-First note that the orbit $s^{*}$ visits $B(s,\delta)$ (ball of radius $\delta$ around $s$) infinitely often for all $s\not \in  \textrm{Orbit}(s^{*}) = \mathcal{O}(s^{*}) $, as if there were finite visits, there there would exist $0<\delta = 0.5 \min_{k}(d(\sigma^{k}(s^{*}),s))$, and there would not exist $N>0$ with $d(\sigma^{N}(s^{*}),s) < \delta'$. Define $B' = B \setminus \mathcal{O}(s^{*})$, nonempty (as the orbit is countable and $B$ is uncountable ($B$ is open)). For any $a\in A$ there exists $\delta>0$ with $B(a,\delta) \subset A$, there also exists $N$ such that $d(\sigma^{N}(s^{*}), a) < \delta$, call $\sigma^{N}(s^{*})= s_{a}$. Choose any $b\in B'$, there exists $\epsilon >0$ such that $B(b,\epsilon) \subset B$ and $M>N$ with $d(\sigma^{M}(s^{*}), b)<\epsilon$, such an $M$ exists due to the infinite visiting property. Call $\sigma^{M}(s^{*}) = s_{b}$, we know that $s_a \in A$ and that $\sigma^{M-N}(s_a) = \sigma^M(s^{*}) = s_{b}$. Thus we have that
-	\begin{align}
-		\sigma^{M-N}(A) \cap B \neq \emptyset,
-	\end{align}
-and the $N$ in question corresponds to the $M-N$ here. 
+Fix "points" $a \in A$ and $b \in B$. Since $A$ and $B$ are open sets, we can choose a neighborhood $U$ around $a$ and $V$ around $b$ such that all points closer to $a$ than $\delta_U$ lie in $U$, and all points closer to $b$ than $\delta_V$ lie in $V$. Pick $\delta = \min(\delta_U, \delta_V)$. The existence of a dense orbit for $\sigma$ in $\Sigma$ implies that there are integers $N(a)$, $N(b)$, and a sequence $s^* \in \Sigma$, such that $d(\sigma^{N(a)}(s^*), a) < \delta$ and $d(\sigma^{N(b)}(s^*), b) < \delta$. Since this sequence comes closer than $\delta$ to $a$ and $b$, it passes through both $U$ and $V$. Set $N = N(b) - N(a)$ and $z = \sigma^{N(a)}(s^*)$. Then $z \in A$ and $\sigma^N(z) = \sigma^{N(b)}(s^*) \in B$. The claim follows.
 
-It maybe unclear why $B$ open implies it is uncountable (ignoring $B=\emptyset$); take any $b\in B$ and there exists $0<\epsilon<1$ with $B(b, \epsilon) \subset B$. Now we want an injection from $(0, \epsilon)$ to $B$. For each $x \in (0, \epsilon)$, write the binary representation of $x= 0.b_1b_2 \ldots$, this mapping is bijective, call it $\varphi(x)$. Now construct an element by taking $b=\ldots\boldsymbol{.}s_0s_1s_2\ldots$ and for every $b_i=1$ set $s_i' = s \in \Sigma$ with $|s-s_i| =1$, and for $b_i=0$ $s_i' = s_i$. Set $S' = \ldots s_{-1}.s_0s_1's_2's_3'\ldots$ and call this $\Psi(\varphi(x)).$ $\Psi$ is clearly injective as every binary sequence is mapped to a unique element of $\Sigma$. Next, we see that $d(\Psi(\varphi(x)),b)$ is exactly equal to $x$, thus for all $x\in (0,\epsilon)$ we have $\Psi(\varphi(x)) \in B(b,\epsilon)\subset B$, so we have an injection from an uncountable set into $B$, showing $B$ to be uncountable.
+%First note that the orbit $s^{*}$ visits $B(s,\delta)$ (ball of radius $\delta$ around $s$) infinitely often for all $s\not \in  \textrm{Orbit}(s^{*}) = \mathcal{O}(s^{*}) $, as if there were finite visits, there there would exist $0<\delta = 0.5 \min_{k}(d(\sigma^{k}(s^{*}),s))$, and there would not exist $N>0$ with $d(\sigma^{N}(s^{*}),s) < \delta'$. Define $B' = B \setminus \mathcal{O}(s^{*})$, nonempty (as the orbit is countable and $B$ is uncountable ($B$ is open)). For any $a\in A$ there exists $\delta>0$ with $B(a,\delta) \subset A$, there also exists $N$ such that $d(\sigma^{N}(s^{*}), a) < \delta$, call $\sigma^{N}(s^{*})= s_{a}$. Choose any $b\in B'$, there exists $\epsilon >0$ such that $B(b,\epsilon) \subset B$ and $M>N$ with $d(\sigma^{M}(s^{*}), b)<\epsilon$, such an $M$ exists due to the infinite visiting property. Call $\sigma^{M}(s^{*}) = s_{b}$, we know that $s_a \in A$ and that $\sigma^{M-N}(s_a) = \sigma^M(s^{*}) = s_{b}$. Thus we have that
+%	\begin{align}
+%		\sigma^{M-N}(A) \cap B \neq \emptyset,
+%	\end{align}
+%and the $N$ in question corresponds to the $M-N$ here. 
+%
+%It maybe unclear why $B$ open implies it is uncountable (ignoring $B=\emptyset$); take any $b\in B$ and there exists $0<\epsilon<1$ with $B(b, \epsilon) \subset B$. Now we want an injection from $(0, \epsilon)$ to $B$. For each $x \in (0, \epsilon)$, write the binary representation of $x= 0.b_1b_2 \ldots$, this mapping is bijective, call it $\varphi(x)$. Now construct an element by taking $b=\ldots\boldsymbol{.}s_0s_1s_2\ldots$ and for every $b_i=1$ set $s_i' = s \in \Sigma$ with $|s-s_i| =1$, and for $b_i=0$ $s_i' = s_i$. Set $S' = \ldots s_{-1}.s_0s_1's_2's_3'\ldots$ and call this $\Psi(\varphi(x)).$ $\Psi$ is clearly injective as every binary sequence is mapped to a unique element of $\Sigma$. Next, we see that $d(\Psi(\varphi(x)),b)$ is exactly equal to $x$, thus for all $x\in (0,\epsilon)$ we have $\Psi(\varphi(x)) \in B(b,\epsilon)\subset B$, so we have an injection from an uncountable set into $B$, showing $B$ to be uncountable.
 \end{solution}
 
 \begin{solution}[7.4]
-	Choose $\Delta = \frac{1}{2}$. For any two symbol sequences with $d(s,s')>0$ (non-equal), there exists a position $N\in \mathbb{Z}$ such that $s_N \neq s_N'$. Then we know that $\sigma^{N}(s)_0 \neq \sigma^{N}(s')$, therefore $d(\sigma^{N}(s), \sigma^{N}(s'))\geq 1> \Delta$.
+Given $\delta$ and $s \ne z$, by the definition of distance in $\Sigma$ there must be some finite integer $N \in \mathbb{Z}$ such that the $N$th elements $s_{N} \ne z_{N}$. Now iterate both sequences $N$ times and compute the distance: 
+
+\begin{align}
+\begin{aligned}
+    d(\sigma^N(s), \sigma^N(z)) &= \sum_i \frac{|\sigma^N(s)_i - \sigma^N(z)_i|}{2^{|i|}} =\\&= \sum_i \frac{|s_{i+N} - z_{i+N}|}{2^{|i|}} \geq \frac{|s_{N} - z_{N}|}{2^{|0|}} = 1.
+\end{aligned}
+\end{align}
+
+Thus the claim follows from setting e.g. $\Delta = \frac{1}{2}$.
+
+%	Choose $\Delta = \frac{1}{2}$. For any two symbol sequences with $d(s,s')>0$ (non-equal), there exists a position $N\in \mathbb{Z}$ such that $s_N \neq s_N'$. Then we know that $\sigma^{N}(s)_0 \neq \sigma^{N}(s')$, therefore $d(\sigma^{N}(s), \sigma^{N}(s'))\geq 1> \Delta$.
 \end{solution}
 
 \begin{solution}[7.5]
-\begin{enumerate}
-	\item The matrix $A$ tells us if it is possible to transition from symbol $i$ to symbol $j$ in a single step if $A_{ij}=1$, and otherwise 0. Say $A_{ii}=1$, then $\overline{s}_i.\overline{s}_i$ is an admissible sequence and is a fixed point of $\sigma$ ($\sigma\left( \overline{s}_i. \overline{s}_i\right) =\overline{s}_i. \overline{s}_i$). Noting that all fixed points of $\sigma$ are in fact sequences consisting of a single symbol it is clear that the fixed points of $\sigma$ on $\Sigma_{A}^{N}$ are the sequences $\overline{s}_j. \overline{s}_j$ with $A_{j j}=1$.
-	
-		In conclusion, there are as many fixed points as $1 $s on the diagonal, and $A$ is binary (only consists of 0s and 1s), this is equal to $ \textrm{tr} (A)$. (This holds as $\overline{s}_j. \overline{s}_j$ is fixed and the type of fixed point, further it is only in $\Sigma_{A}^{N}$ if $A_{j j}=1$.)
+	\begin{enumerate}
+		\item The space of admissible sequences is
+\begin{align}
+    \Sigma_A^N = \{ s\in \Sigma^N : A_{s_i, s_{i+1}} \ne 0 \quad \forall i \in \mathbb{Z} \}.
+\end{align}
+For a fixed point $\bar{a}.\bar{a}$, $a \in \{1, \ldots , N\}$, we must therefore have $A_{a,a} \ne 0$. So the $a$th element on the diagonal of $A$ must be non-zero for $\bar{a}.\bar{a}$ to be in the space of admissible sequences. Furthermore since $\Sigma^N$ contains all permutations and therefore all possible fixed points, the condition $A_{a,a} \ne 0$ is both sufficient and necessary for $\bar{a}.\bar{a}$ to be an admissible fixed point. Therefore the number of fixed points is equal to the number of non-zero diagonal elements of $A$, which, since $A_{i,j} \in \{0,1\}$, is equal to $\text{tr}(A)$. 
+\item
+Apply the reasoning from a) to the map $\sigma^k$, i.e. the shift map repeated $k$ times. The matrix of admissible sequences is then $A$ repeated $k$ times, i.e. $A^k$. Again if $A^k_{a,a} = 0$, there is no admissible sequence going from $a$ back to $a$ in $k$ steps. Note that e.g. $A^3_{i,j} = \sum_{k,l} A_{i,k} A_{k,l} A_{l,j}$. Each of the terms represents an admissible sequence in 3 steps from $i$ to $j$. The sum is the total number of such admissible sequences. As in a), all possible sequences are in $\Sigma^N$, so $A^k_{a,a}$ is the number of ways to map $a$ into itself in $k$ steps. Again the total number of such admissible $k$-periodic points is the sum of $A^k_{i,i}$, i.e. $\text{tr}(A^k)$.
 
-	\item $A_{ii}^{k}$ encodes the amount of unique admissible paths from $i \to i$ in $k$ steps. Any fixed point of $\sigma^k$ has the for $\overline{C}.\overline{C} $ with $C$ being a sequence of $k$ symbols. We will call $C$ admissible if for all $i$ $C_i C_{i+1} =: s_m s_n$ and $A_{mn}=1$. Thus we want to know how many admissible $C$ exist, as each of these correspond to a fixed point. Furthermore no other fixed points exist as all fixed points must be of this form. Hence we will have identified all fixed points of $\sigma^{k}$ ($k$-periodic orbits).
-
-		Since we repeat $C$ infinitely, there are $A_{j j}^{k}$ admissible $C$ which start with $s_j$, i.e. $C_1 = s_j$. If we sum over all $s_j$ to get the total amount of admissible $C$ we find $\sum_{i=1}^{N} A_{ii}^{k}= \textrm{tr} (A)$.
-\end{enumerate}
+	\end{enumerate}
+%\begin{enumerate}
+%	\item The matrix $A$ tells us if it is possible to transition from symbol $i$ to symbol $j$ in a single step if $A_{ij}=1$, and otherwise 0. Say $A_{ii}=1$, then $\overline{s}_i.\overline{s}_i$ is an admissible sequence and is a fixed point of $\sigma$ ($\sigma\left( \overline{s}_i. \overline{s}_i\right) =\overline{s}_i. \overline{s}_i$). Noting that all fixed points of $\sigma$ are in fact sequences consisting of a single symbol it is clear that the fixed points of $\sigma$ on $\Sigma_{A}^{N}$ are the sequences $\overline{s}_j. \overline{s}_j$ with $A_{j j}=1$.
+%	
+%		In conclusion, there are as many fixed points as $1 $s on the diagonal, and $A$ is binary (only consists of 0s and 1s), this is equal to $ \textrm{tr} (A)$. (This holds as $\overline{s}_j. \overline{s}_j$ is fixed and the type of fixed point, further it is only in $\Sigma_{A}^{N}$ if $A_{j j}=1$.)
+%
+%	\item $A_{ii}^{k}$ encodes the amount of unique admissible paths from $i \to i$ in $k$ steps. Any fixed point of $\sigma^k$ has the for $\overline{C}.\overline{C} $ with $C$ being a sequence of $k$ symbols. We will call $C$ admissible if for all $i$ $C_i C_{i+1} =: s_m s_n$ and $A_{mn}=1$. Thus we want to know how many admissible $C$ exist, as each of these correspond to a fixed point. Furthermore no other fixed points exist as all fixed points must be of this form. Hence we will have identified all fixed points of $\sigma^{k}$ ($k$-periodic orbits).
+%
+%		Since we repeat $C$ infinitely, there are $A_{j j}^{k}$ admissible $C$ which start with $s_j$, i.e. $C_1 = s_j$. If we sum over all $s_j$ to get the total amount of admissible $C$ we find $\sum_{i=1}^{N} A_{ii}^{k}= \textrm{tr} (A)$.
+%\end{enumerate}
 \end{solution}
 
 \begin{solution}[8.1]
-First we need to define our generalized coordinate $q = \begin{bmatrix} \alpha \\ \beta \end{bmatrix}$. From here, our canonical coordinates are as follows.
+Fix the origin at the suspension point. Then, the Cartesian coordinates of the two point masses are
 \begin{align}
-&	x_1 = L \sin \alpha \quad  &y_1 &= L \cos \alpha \\
-&	x_2 = L \sin \alpha + L \sin \beta  \quad &y_2 &= L \cos \alpha + L \cos \beta. 
-\end{align}
-Next we need to find the kinetic energy
-\begin{align}
-	T_1 &= \frac{m}{2}(\dot{x}_1^{2} + \dot{y}_1^2)= \frac{m}{2} L^2 \dot{\alpha }^2 \\
-	T_2 &= \frac{m}{2}(L^2 \dot{\alpha }^2 + L^2 \dot{\beta }^2 + 2L^2\cos (\alpha ) \cos (\beta ) \dot{\alpha }\dot{\beta } + 2L^2 \sin(\alpha ) \sin(\beta ) \dot{\alpha } \dot{\beta } )\\
-	    &= \frac{mL^2}{2} ( \dot{\alpha }^2 + \dot{\beta }^2 + 2 \cos(\alpha - \beta) \dot{\alpha }\dot{\beta }).
+    &x_1 = L \sin \alpha ; \quad x_2 = L \sin \beta + x_1 = L(\sin \alpha + \sin \beta) \\
+    &y_1 = -L\cos \alpha; \quad y_2 = -L(\cos \alpha + \cos \beta).
 \end{align}
 
-In order to get the Lagrangian we also need the potential energy
+The Lagrangian for the double pendulum in Cartesian coordinates is 
 \begin{align}
-	V_1 = -mg L \cos (\alpha ) \qquad V_2=- mgL (\cos(\alpha ) + \cos (\beta )).
+L (x, y, \dot{x}, \dot{y}) = \frac{1}{2}m (\dot{x}^2_1+ \dot{x}^2_2 + \dot{y}^2_1 + \dot{y}^2_2) - mg(y_1 + y_2).
 \end{align}
-So we get the Lagrangian
+
+Calculating the velocities, in terms of the generalized coordinates $\alpha, \beta$, we get
 \begin{align}
-	\mathcal{L} = T - V = \frac{mL^2}{2} \left( 2\dot{\alpha }^2 + \dot{\beta }^2 + 2 \cos(\alpha -\beta ) \dot{\alpha }\dot{\beta } \right) + mgL\left( 2 \cos(\alpha ) + \cos(\beta ) \right).
+\dot{x}_1^2 + \dot{y}^2_1 = L^2 \dot{\alpha}^2
 \end{align}
-We constructed the Lagrangian to derive the generalized momenta.
+
 \begin{align}
-	p_1 &= \frac{\partial \mathcal{L}}{\partial \dot{\alpha }} = 2mL^2 \dot{\alpha } + mL^2 \cos(\alpha -\beta ) \dot{\beta }\\
-	p_2 &= \frac{\partial \mathcal{L}}{\partial \dot{\beta }} = mL^2 \dot{\beta } + mL^2 \cos(\alpha -\beta ) \dot{\alpha }.
+\dot{x}_2 = L\cos \alpha \dot{\alpha} + L \cos \beta \dot{\beta}
 \end{align}
-Finally we would like to calculate the Hamiltonian $\mathcal{H} = p \cdot \dot{q} - \mathcal{L}$. To do this, we first have to find the correct coordinate transformation, we see that $p = A \dot{q}$; therefore we are interested in finding $A^{-1}$.
 \begin{align}
-	A &= 
-	\begin{bmatrix}
-		2mL^2 & mL^2 \cos(\alpha -\beta ) \\
-		mL^2 \cos(\alpha -\beta ) & mL^2
-	\end{bmatrix} \\
-	A^{-1} &= 
-		\frac{1}{m^2 L^4 \left( 2 -  \cos^2(\alpha -\beta ) \right)}
-	\begin{bmatrix}
-		m L^2 & - mL^2 \cos(\alpha -\beta ) \\
-		-m L^2 \cos(\alpha -\beta ) & 2mL^2
-	\end{bmatrix}.
+\dot{y}_2 = L\sin \alpha \dot{\alpha} + L \sin \beta \dot{\beta}
 \end{align}
-Plugging in this transformation we find
 \begin{align}
-	\mathcal{H} &= p \cdot A^{-1} p - \mathcal{L} \\
-		    &= \frac{mL^2 p_1^2 + 2mL^2 p_2^2 - 2mL^2 \cos(\alpha -\beta ) p_1 p_2}{2m^2L^4 \left(2 - \cos^2(\alpha -\beta )\right)} - 2mgL \cos(\alpha ) - mgL \cos(\beta ).
+\dot{x}^2_2 + \dot{y}^2_2 = L^2[\dot{\alpha}^2 + \dot{\beta}^2 + 2\dot{\alpha}\dot{\beta}(\cos \alpha \cos \beta + \sin \alpha \sin \beta)] = L^2[\dot{\alpha}^2 + \dot{\beta}^2 + 2\dot{\alpha}\dot{\beta}\cos(\alpha - \beta)].
 \end{align}
-This equality can also be seen as using $\mathcal{H} = T+V$ and  $T = \frac{1}{2} p^T A^{-1} p$. Recall, $2T = \frac{\partial \mathcal{L}}{\partial \dot{q}}\cdot \dot{q} = p \cdot q$.
+
+The Lagrangian is
+\begin{align}
+L(\alpha, \beta, \dot{\alpha}, \dot{\beta}) = \frac{mL^2}{2}(2\dot{\alpha}^2 + \dot{\beta}^2 + 2\dot{\alpha}\dot{\beta}\cos(\alpha - \beta)) + mgL(2\cos \alpha + \cos \beta ).
+\end{align}
+
+The generalized momenta are
+\begin{align}
+p_\alpha = \frac{\partial L}{\partial \dot{\alpha}} = mL^2(2\dot{\alpha} + \dot{\beta}\cos(\alpha - \beta))
+\end{align}
+\begin{align}
+p_\beta = \frac{\partial L}{\partial \dot{\beta}} = mL^2(\dot{\beta} + \dot{\alpha}\cos(\alpha - \beta)).
+\end{align}
+To invert this relation, express $\dot{\alpha}$ and $\dot{\beta}$ with $p_\alpha$ and $p_{\beta}$.
+From the second equation, we get
+\begin{align}
+\dot{\beta} = \frac{p_\beta}{mL^2} - \dot{\alpha}\cos(\alpha - \beta). 
+\end{align}
+Substituting this into the first,
+\begin{align}
+\dot{\alpha} = \frac{p_\alpha}{2mL^2} - \frac{\dot{\beta} \cos(\alpha - \beta) }{2} = \frac{p_\alpha}{2mL^2} - \frac{1}{2}\cos(\alpha-\beta)\left(\frac{p_\beta}{mL^2} - \dot{\alpha}\cos(\alpha - \beta)\right) 
+\end{align}
+\begin{align}
+\dot{\alpha}\left(1 - \frac{1}{2}\cos^2(\alpha - \beta)\right)= \frac{p_\alpha- p_\beta \cos(\alpha-\beta)}{2mL^2} 
+\end{align}
+\begin{align}
+\dot{\alpha} = \frac{p_\alpha- p_\beta \cos(\alpha-\beta)}{mL^2(2-\cos^2(\alpha - \beta))}.
+\end{align}
+
+Then, using $\dot{\alpha}$ in the first equation,
+\begin{align}
+\dot{\beta} = \frac{p_\beta}{mL^2} -  \frac{p_\alpha- p_\beta \cos(\alpha-\beta)}{mL^2(2-\cos^2(\alpha - \beta))}\cos(\alpha - \beta) = \frac{2p_\beta - p_\alpha \cos(\alpha-\beta)}{mL^2(1+\sin^2(\alpha - \beta))}. 
+\end{align}
+
+The Hamiltonian is obtained by a Legendre transform
+\begin{align}
+    H(\alpha, p_\alpha, \beta, p_\beta) &= \dot{\alpha}p_\alpha + \dot{\beta}p_\beta - L = \frac{p^2_\alpha+ 2p^2_\beta - 2p_\beta p_\alpha \cos(\alpha-\beta)}{mL^2(1+\sin^2(\alpha - \beta))} - \\
+    -&\frac{mL^2}{2}(2\dot{\alpha}^2 + \dot{\beta}^2 + 2\dot{\alpha}\dot{\beta}\cos(\alpha - \beta)) - mgL(2\cos \alpha + \cos \beta ) 
+\end{align}
+The second  term is
+\begin{align}
+    &\frac{mL^2}{2}(2\dot{\alpha}^2 + \dot{\beta}^2 + 2\dot{\alpha}\dot{\beta}\cos(\alpha - \beta)) = \frac{mL^2}{2}[2\left(\frac{p_\alpha- p_\beta \cos(\alpha-\beta)}{mL^2(1+\sin^2(\alpha - \beta))}\right)^2 + \\
+    & +\left(\frac{2p_\beta - p_\alpha \cos(\alpha-\beta)}{mL^2(1+\sin^2(\alpha - \beta))}\right)^2 +  2 \frac{2p_\beta - p_\alpha \cos(\alpha-\beta)}{mL^2(1+\sin^2(\alpha - \beta))}\frac{p_\alpha- p_\beta \cos(\alpha-\beta)}{mL^2(1+\sin^2(\alpha - \beta))}\cos(\alpha-\beta)]= \\
+    & = \frac{2p^2_\alpha + 2p^2_\beta\cos^2(\alpha-\beta) - 4p_\alpha p_\beta \cos(\alpha-\beta) + 4p^2_\beta + p^2_\alpha \cos^2(\alpha-\beta) - 4p_\alpha p_\beta \cos (\alpha-\beta)}{2mL^2(1+\sin^2(\alpha - \beta))^2} + \\
+    & + \frac{4p_\beta p_\alpha \cos(\alpha-\beta) -4p^2_\beta\cos^2(\alpha - \beta) - 2 p^2_\alpha\cos^2(\alpha-\beta) + 2p_\beta p_\alpha \cos^3(\alpha-\beta)}{2mL^2(1+\sin^2(\alpha - \beta))^2} = \\
+    &= \frac{p^2_\alpha(2-\cos^2(\alpha-\beta)) + 2p^2_\beta(2-\cos^2(\alpha-\beta)) - 2p_\beta p_\alpha\cos(\alpha-\beta)(2 -\cos^2(\alpha-\beta))}{2mL^2(1+\sin^2(\alpha - \beta))^2} = \\
+    &= \frac{p^2_\alpha + 2p^2_\beta - 2p_\beta p_\alpha\cos(\alpha-\beta)}{2mL^2(1+\sin^2(\alpha - \beta))}.
+\end{align}
+
+Substituting it into the Hamiltonian,
+\begin{align}
+H(\alpha, p_\alpha, \beta, p_\beta) = \frac{p^2_\alpha + 2p^2_\beta - 2p_\beta p_\alpha\cos(\alpha-\beta)}{2mL^2(1+\sin^2(\alpha - \beta))}- mgL(2\cos \alpha + \cos \beta).
+\end{align}
+Hamilton's Equations are
+\begin{align}
+    \dot{\alpha} = \frac{p_\alpha- p_\beta \cos(\alpha-\beta)}{mL^2(2-\cos^2(\alpha - \beta))} \\
+    \dot{\beta} = \frac{2p_\beta - p_\alpha \cos(\alpha-\beta)}{mL^2(1+\sin^2(\alpha - \beta))}\\
+    \dot{p}_\alpha = -\frac{\partial H}{\partial \alpha} \\
+    \dot{p}_\beta = -\frac{\partial H}{\partial \beta} 
+\end{align}
+For the momentum equations, let $\lambda(\alpha, \beta) = 2mL^2(1+\sin^2(\alpha - \beta))$.
+\begin{align}
+&\dot{p}_\alpha = -\frac{\partial H}{\partial \alpha}= -\frac{1}{\lambda^2}\left(2\lambda p_\alpha p_\beta \sin(\alpha -\beta ) - \frac{\partial \lambda}{\partial \alpha}(p^2_\alpha + 2p^2_\beta-2p_\alpha p_\beta \cos(\alpha-\beta))\right) - 2mgL\sin \alpha \\
+& = \frac{-2p_\alpha p_\beta \sin(\alpha - \beta)}{\lambda}+ \frac{2mL^2(2\sin(\alpha-\beta)\cos(\alpha-\beta))(p^2_\alpha + 2p^2_\beta-2p_\alpha p_\beta \cos(\alpha-\beta))}{\lambda^2} - 2mgL\sin \alpha \\
+& \dot{p}_\alpha = -2mgL \sin \alpha- \frac{p_\alpha p_\beta \sin(\alpha -\beta)}{mL^2 (1+\sin^2(\alpha-\beta))} + \frac{\sin(2(\alpha-\beta))(p^2_\alpha + 2p^2_\beta-2p_\alpha p_\beta \cos(\alpha-\beta)))}{2mL^2 (1+\sin^2(\alpha-\beta))} \\
+&\dot{p}_\beta = -mgL\sin\beta + \frac{p_\alpha p_\beta \sin(\alpha -\beta)}{mL^2 (1+\sin^2(\alpha-\beta))} - \frac{\sin(2(\alpha-\beta))(p^2_\alpha + 2p^2_\beta-2p_\alpha p_\beta \cos(\alpha-\beta)))}{2mL^2 (1+\sin^2(\alpha-\beta))}
+\end{align}
+
+
+%First we need to define our generalized coordinate $q = \begin{bmatrix} \alpha \\ \beta \end{bmatrix}$. From here, our canonical coordinates are as follows.
+%\begin{align}
+%&	x_1 = L \sin \alpha \quad  &y_1 &= L \cos \alpha \\
+%&	x_2 = L \sin \alpha + L \sin \beta  \quad &y_2 &= L \cos \alpha + L \cos \beta. 
+%\end{align}
+%Next we need to find the kinetic energy
+%\begin{align}
+%	T_1 &= \frac{m}{2}(\dot{x}_1^{2} + \dot{y}_1^2)= \frac{m}{2} L^2 \dot{\alpha }^2 \\
+%	T_2 &= \frac{m}{2}(L^2 \dot{\alpha }^2 + L^2 \dot{\beta }^2 + 2L^2\cos (\alpha ) \cos (\beta ) \dot{\alpha }\dot{\beta } + 2L^2 \sin(\alpha ) \sin(\beta ) \dot{\alpha } \dot{\beta } )\\
+%	    &= \frac{mL^2}{2} ( \dot{\alpha }^2 + \dot{\beta }^2 + 2 \cos(\alpha - \beta) \dot{\alpha }\dot{\beta }).
+%\end{align}
+%
+%In order to get the Lagrangian we also need the potential energy
+%\begin{align}
+%	V_1 = -mg L \cos (\alpha ) \qquad V_2=- mgL (\cos(\alpha ) + \cos (\beta )).
+%\end{align}
+%So we get the Lagrangian
+%\begin{align}
+%	\mathcal{L} = T - V = \frac{mL^2}{2} \left( 2\dot{\alpha }^2 + \dot{\beta }^2 + 2 \cos(\alpha -\beta ) \dot{\alpha }\dot{\beta } \right) + mgL\left( 2 \cos(\alpha ) + \cos(\beta ) \right).
+%\end{align}
+%We constructed the Lagrangian to derive the generalized momenta.
+%\begin{align}
+%	p_1 &= \frac{\partial \mathcal{L}}{\partial \dot{\alpha }} = 2mL^2 \dot{\alpha } + mL^2 \cos(\alpha -\beta ) \dot{\beta }\\
+%	p_2 &= \frac{\partial \mathcal{L}}{\partial \dot{\beta }} = mL^2 \dot{\beta } + mL^2 \cos(\alpha -\beta ) \dot{\alpha }.
+%\end{align}
+%Finally we would like to calculate the Hamiltonian $\mathcal{H} = p \cdot \dot{q} - \mathcal{L}$. To do this, we first have to find the correct coordinate transformation, we see that $p = A \dot{q}$; therefore we are interested in finding $A^{-1}$.
+%\begin{align}
+%	A &= 
+%	\begin{bmatrix}
+%		2mL^2 & mL^2 \cos(\alpha -\beta ) \\
+%		mL^2 \cos(\alpha -\beta ) & mL^2
+%	\end{bmatrix} \\
+%	A^{-1} &= 
+%		\frac{1}{m^2 L^4 \left( 2 -  \cos^2(\alpha -\beta ) \right)}
+%	\begin{bmatrix}
+%		m L^2 & - mL^2 \cos(\alpha -\beta ) \\
+%		-m L^2 \cos(\alpha -\beta ) & 2mL^2
+%	\end{bmatrix}.
+%\end{align}
+%Plugging in this transformation we find
+%\begin{align}
+%	\mathcal{H} &= p \cdot A^{-1} p - \mathcal{L} \\
+%		    &= \frac{mL^2 p_1^2 + 2mL^2 p_2^2 - 2mL^2 \cos(\alpha -\beta ) p_1 p_2}{2m^2L^4 \left(2 - \cos^2(\alpha -\beta )\right)} - 2mgL \cos(\alpha ) - mgL \cos(\beta ).
+%\end{align}
+%This equality can also be seen as using $\mathcal{H} = T+V$ and  $T = \frac{1}{2} p^T A^{-1} p$. Recall, $2T = \frac{\partial \mathcal{L}}{\partial \dot{q}}\cdot \dot{q} = p \cdot q$.
 \end{solution}
 
 \begin{solution}[8.2]
-The first thing we will assume (due to steady flow) is that $\rho_t=0$. With this in hand, if we plug it into our given dynamics we get $\nabla \cdot (\rho v)=0$. We can rewrite this to get
+For a steady flow, $\frac{\partial \rho}{\partial t} = 0$, which means $\rho \mathbf{v}$ is divergence free, by the continuity equation. This condition means
 \begin{align}
-	\nabla \times
-	\begin{pmatrix}
-		-\rho v \\ \rho u \\ 0
-	\end{pmatrix}
-=0.	
+\frac{\partial(\rho u)}{\partial x} = -\frac{\partial (\rho v)}{\partial y}.
 \end{align}
-If we assume that the domain is simply connected then we know (from the lecture) that there is a potential function.
+
+If we extend $\rho \mathbf{v}$ to be a 3 dimensional vector, the above relation means that there is a vector-potential $\mathbf{A}:\mathbb{R}^3\to \mathbb{R}^3$. In particular, with a scalar function $\Psi:\mathbb{R}^2 \to \mathbb{R}$,
 \begin{align}
-	\begin{pmatrix}
-		-\rho v \\ \rho u \\ 0
-	\end{pmatrix}
-	= \nabla \Psi = 
-	\begin{pmatrix}
-	\partial_x \Psi \\ \partial_y \Psi \\ \partial_z \Psi	
-	\end{pmatrix}
-.	
+\begin{bmatrix}\rho u \\ \rho v\\ 0 \end{bmatrix}=\text{rot } \mathbf{A} = \text{rot } \begin{bmatrix} 0 \\ 0 \\ \Psi \end{bmatrix} = \begin{bmatrix} \partial_y \Psi \\ -\partial_x \Psi \\ 0 \end{bmatrix}. 
 \end{align}
-Where $\Psi = \Psi(x,y,t)$ this implies the following
- \begin{align}
-	 \dot{x} = \partial_y \Psi, \quad \dot{y} =-\partial_x \Psi \quad \implies \quad \dot{\underline{x}}= \rho(\underline{x}) JD\Psi(\underline{x},t).
+
+The (massless) fluid particles' motion obeys the differential equation
+\begin{align}
+    &\dot{x} = u \\
+    &\dot{y} = v.
 \end{align}
-Similar to before, we can now rescale time with $\tau = \int_{0}^{t} \rho(s)ds$, to find $\underline{x}' = JD\Psi(\underline{x}, t)$, i.e. a canonical Hamiltonian system.
+
+Multiplying the equations by the density, and substituting $\Psi$, gives the desired form
+\begin{align}
+    &\rho\dot{x} = \rho u \\
+    &\rho\dot{y} = \rho v \\
+    &\dot{x} = \frac{1}{\rho}\frac{\partial \Psi}{\partial y}\\
+    &\dot{y} = -\frac{1}{\rho}\frac{\partial \Psi}{\partial x}. 
+\end{align}
+
+We can bring it to the canonical form, by introducing a rescaling of time, $\tau = \int_0^t\frac{1}{\rho(x(s),y(s))}ds$.
+\begin{align}
+    \frac{d x}{d\tau} = \frac{\partial \Psi}{\partial y} \\
+    \frac{d y}{d\tau} = -\frac{\partial \Psi}{\partial x} 
+\end{align}
+
+
+%The first thing we will assume (due to steady flow) is that $\rho_t=0$. With this in hand, if we plug it into our given dynamics we get $\nabla \cdot (\rho v)=0$. We can rewrite this to get
+%\begin{align}
+%	\nabla \times
+%	\begin{pmatrix}
+%		-\rho v \\ \rho u \\ 0
+%	\end{pmatrix}
+%=0.	
+%\end{align}
+%If we assume that the domain is simply connected then we know (from the lecture) that there is a potential function.
+%\begin{align}
+%	\begin{pmatrix}
+%		-\rho v \\ \rho u \\ 0
+%	\end{pmatrix}
+%	= \nabla \Psi = 
+%	\begin{pmatrix}
+%	\partial_x \Psi \\ \partial_y \Psi \\ \partial_z \Psi	
+%	\end{pmatrix}
+%.	
+%\end{align}
+%Where $\Psi = \Psi(x,y,t)$ this implies the following
+% \begin{align}
+%	 \dot{x} = \partial_y \Psi, \quad \dot{y} =-\partial_x \Psi \quad \implies \quad \dot{\underline{x}}= \rho(\underline{x}) JD\Psi(\underline{x},t).
+%\end{align}
+%Similar to before, we can now rescale time with $\tau = \int_{0}^{t} \rho(s)ds$, to find $\underline{x}' = JD\Psi(\underline{x}, t)$, i.e. a canonical Hamiltonian system.
 \end{solution}
 
 \begin{solution}[8.3]
-In the lecture, we saw that each singular oscillator has a phase space given by a cylinder. If we confine to a given energy level $E_0>0$, we are given a 'slice' of the cylinder, more precisely a submanifold diffeomorphic to  $S^1$. Hence, we can choose an energy level for each oscillator, and we get that the orbit of each oscillator can be described by a respective copy of $S^1$. Taking the cross product of these gives us $S^1 \times S^1 = \mathbb{T}$, where equality here denotes existence of a diffeomorphism. We cannot take an energy level of 0, as this is the fixed point, and $S^1$ is not diffeomorphic to a point.
+	\begin{enumerate}
+\item The orbits of the linear equation are described in the space space, spanned by the variables $x, \dot{x}=v_x, y, \dot{y}=v_y$. 
 
-For general dynamic systems on the torus, we can reverse engineer this last idea. If $ \mathcal{H}$ is a Hamiltonian function, it is at least  $\mathcal{C}^1$, therefore we have a maximum and a minimum, these points are our candidates for fixed points. However, if this point was actually a fixed point of the system, then we would have an orbit which is a point, hence could not be diffeomorphic to the torus.
+The differential equations are satisfied by
+\begin{align}
+x(t) = r_x \cos(t + \delta_x) \qquad y(t) = r_y\cos (t+\delta_y).
+\end{align}
+This can be verified by direct substitution,
+\begin{align}
+\ddot{x} = -r_x \cos(t+\delta_x)=-x(t) \qquad \ddot{y} = -r_y \cos(t+\delta_y)=-y(t).
+\end{align}
+
+The velocity variables are 
+\begin{align}
+v_x=\dot{x} = -r_x\sin(t+\delta_x) \qquad v_y=\dot{y} = -r_y\sin(t+\delta_y).
+\end{align}
+
+The trajectory is given by the parametrization, using the notation $\phi_1 = t+\delta_x$, $\phi_2 = t+\delta_y$
+\begin{align}
+\begin{bmatrix} x \\ v_x \\ y \\ v_y \end{bmatrix} = \begin{bmatrix} r_x \cos(\phi_1) \\ -r_x \sin(\phi_1)\\ r_y\cos(\phi_2) \\ -r_y\sin(\phi_2) \end{bmatrix}
+\end{align}
+Which describes a 2-torus, embedded in $\mathbb{R}^4$. 
+
+\item Assume the converse, that the system is Hamiltonian, in the generalized sense. That is, there is a smooth function $H:\mathbb{T}^2 \to \mathbb{R}$ and $F : \mathbb{T}^2 \to \mathbb{R}$, $F(\phi_1, \phi_2) \neq 0$
+\begin{align}
+    \dot{\phi}_1 &= F(\phi_1, \phi_2) \frac{\partial H}{\partial \phi_2}\\
+    \dot{\phi}_2 &= -F(\phi_1, \phi_2)\frac{\partial H}{\partial \phi_1}.
+\end{align}
+
+Because $F$ cannot be zero, all possible fixed points must correspond to critical points of $H$. We also know that $H$ is a continuous function, defined on a compact domain ($\mathbb{T}^2$ is compact). Then, by a theorem from analysis, $H$ must have a minimum and a maximum value on $\mathbb{T}^2$. 
+
+Since the 2-torus is a manifold without a boundary, these extremum points must correspond to critical points of $H$, where $DH = 0$. 
+
+We conclude that if the original system, $[\dot{\phi}_1, \dot{\phi}_2]$, is Hamiltonian, then it must have a fixed point. 
+
+If we assume that  $[\dot{\phi}_1, \dot{\phi}_2]$ does not have a fixed point, then it cannot be Hamiltonian. 
+	\end{enumerate}
+%In the lecture, we saw that each singular oscillator has a phase space given by a cylinder. If we confine to a given energy level $E_0>0$, we are given a 'slice' of the cylinder, more precisely a submanifold diffeomorphic to  $S^1$. Hence, we can choose an energy level for each oscillator, and we get that the orbit of each oscillator can be described by a respective copy of $S^1$. Taking the cross product of these gives us $S^1 \times S^1 = \mathbb{T}$, where equality here denotes existence of a diffeomorphism. We cannot take an energy level of 0, as this is the fixed point, and $S^1$ is not diffeomorphic to a point.
+%
+%For general dynamic systems on the torus, we can reverse engineer this last idea. If $ \mathcal{H}$ is a Hamiltonian function, it is at least  $\mathcal{C}^1$, therefore we have a maximum and a minimum, these points are our candidates for fixed points. However, if this point was actually a fixed point of the system, then we would have an orbit which is a point, hence could not be diffeomorphic to the torus.
 \end{solution}
 
 \begin{solution}[8.4]
-We will attempt to construct a Hamiltonian $\mathcal{H}$.
+Consider the function $H:\mathbb{R}^n \times \mathbb{R}^n\times \mathbb{R} \to \mathbb{R}$, defined by
 \begin{align}
-	\frac{\partial \mathcal{H}}{\partial p} = \dot{q} = f(q,t) \quad &\implies \quad \mathcal{H}= f(q,t) p + g(q,t) \\
-	-\dot{p} = \frac{\partial \mathcal{H}}{\partial q} &= f_q(q,t)p + g_q(q,t). 
+H(x,p,t) = \mathbf{f}(x,t)\cdot \mathbf{p}.
 \end{align}
-Thus we can choose $p \in \mathbb{R}^n$ with the given dynamics and $g \in \mathcal{C}^1$ such that $\dot{\mathcal{H}} = 0$. These then give us a Hamiltonian system, which when projected down to the space that $q$ lives in, gives us the desired dynamics. 
+
+This function defines a Hamiltonian dynamical system on $(x,p)\in \mathbb{R}^n\times \mathbb{R}^n$. The evolution equations are
+\begin{align}
+    &\dot{x} = f(x,t) \\
+    &\dot{p} = -\nabla_x H(x,p,t) = -\nabla_x \mathbf{f}(x,t)\cdot \mathbf{p}
+\end{align}
+
+Projecting this system to any $\mathbf{p} =$ constant subspace gives the original dynamics, defined by the ODEs
+\begin{align}
+\dot{q} = f(q,t).
+\end{align}
+%We will attempt to construct a Hamiltonian $\mathcal{H}$.
+%\begin{align}
+%	\frac{\partial \mathcal{H}}{\partial p} = \dot{q} = f(q,t) \quad &\implies \quad \mathcal{H}= f(q,t) p + g(q,t) \\
+%	-\dot{p} = \frac{\partial \mathcal{H}}{\partial q} &= f_q(q,t)p + g_q(q,t). 
+%\end{align}
+%Thus we can choose $p \in \mathbb{R}^n$ with the given dynamics and $g \in \mathcal{C}^1$ such that $\dot{\mathcal{H}} = 0$. These then give us a Hamiltonian system, which when projected down to the space that $q$ lives in, gives us the desired dynamics. 
 \end{solution}
 
 \begin{solution}[8.5]
-Let the linearized Hamiltonian system be represented by $\dot{y} = JAy$. We have that $A=D^2H(x_0)$ fulfills 
+Given a Hamiltonian system $\dot{x} = JDH(x)$, for $x\in \mathbb{R}^{2n}$ its linearization is 
 \begin{align}
-	-J(JA) = J^T (JA) = A = A^T = A^T J^T J =  (JA)^T J.
+\dot{y} = (JD^2H)y,
 \end{align}
-Thus calculating the characteristic polynomial of $JA$ gives
+with the matrix 
+
 \begin{align}
-	\varphi(x) &= \det (xI - JA) = \det(J) \det(xI-JA) = \det(xJ - JJA)\\ 
-		   &= \det(xJ + (JA)^TJ) = \det(xI +(JA)^T)\det(J) = \det([xI + JA]^T)\\
-		   &= \det(xI + JA) = \varphi(-x).
+J = \begin{bmatrix}
+    0 & \mathbb{I}_{n\times n} \\
+    -\mathbb{I}_{n\times n} &  0
+\end{bmatrix}.
 \end{align}
-Therefore if $\varphi(\lambda) = 0$ then $\varphi(-\lambda)=0$.	
+
+From the hint, $BA$ and $B^{-1}(BA)B$ have the same eigenvalues. This is a similarity transformation. I will call $BA=G$, and the similar matrix $B^{-1}GB=F$. The inverse transform is $G=BFB^{-1}$. 
+
+Assume $\lambda$ is an eigenvalue of $G$ with eigenvector $v$. Then, for $F$ we have that
+\begin{align}
+BFB^{-1}v = \lambda v
+\end{align}
+and 
+\begin{align}
+    F(B^{-1}v) = \lambda (B^{-1}v), \label{nn1}
+\end{align}
+
+
+Showing that $\lambda$ is an eigenvalue of $F$ with eigenvector $B^{-1}v$.
+
+Also note, that for the linearized Hamiltonian, the matrix $D^2HJ$ has the property (written in index notation) 
+\begin{align}
+(D^2H)_{ij}J_{jk} = - J_{kj}(D^2H)_{ji}, 
+\end{align}
+because of $J_{ij} = - J_{ji}$ and $D^2H_{ij} = D^2H_{ji}$. 
+\begin{align}
+     D^2HJ = - (JD^2H)^T \label{nn2}
+\end{align}
+
+Substituting $B=J$ and $A=D^2H$ into \eqref{nn1} gives
+\begin{align}
+    &J^{-1}J(D^2H)J(J^{-1}v) = \lambda J^{-1}v \\
+    &(D^2H) J (J^{-1}v) = \lambda J^{-1}v.
+\end{align}
+Using \eqref{nn2} we get
+\begin{align}
+(JD^2H)^T(J^{-1}v) = -\lambda J^{-1}v.
+\end{align}
+This means that $-\lambda$ is an eigenvalue of $(JD^2H)^T$ (with eigenvector $J^{-1}v$), and since the eigenvalues of a matrix and its transpose coincide, it proves the statement. 
+
+%Let the linearized Hamiltonian system be represented by $\dot{y} = JAy$. We have that $A=D^2H(x_0)$ fulfills 
+%\begin{align}
+%	-J(JA) = J^T (JA) = A = A^T = A^T J^T J =  (JA)^T J.
+%\end{align}
+%Thus calculating the characteristic polynomial of $JA$ gives
+%\begin{align}
+%	\varphi(x) &= \det (xI - JA) = \det(J) \det(xI-JA) = \det(xJ - JJA)\\ 
+%		   &= \det(xJ + (JA)^TJ) = \det(xI +(JA)^T)\det(J) = \det([xI + JA]^T)\\
+%		   &= \det(xI + JA) = \varphi(-x).
+%\end{align}
+%Therefore if $\varphi(\lambda) = 0$ then $\varphi(-\lambda)=0$.	
 \end{solution}
 
 
 \begin{solution}[8.6]
-\begin{enumerate}
-	\item Say $x_0$ is a fixed point, then set $y= x - x_0$. We have $\dot{y} = -DV(y+x_0) \approx -D^2V(x_0)y$. Because $D^2V(x_0)$ is symmetric (it is the Hessian), all of the eigenvalues are real.
-	\item If the Hessian is positive definite, then for $y$ small, the Hessian dominates $\dot{y}$. Hence $y \to 0$, i.e. $x_0$ is asymptotically stable. Note that $V(x(t))' = \nabla V(x(t)) \cdot x'(t) = \nabla V(x(t)) \cdot -\nabla V(x(t)) = - \| \nabla V(x(t)) \| \leq 0$.
-	\item Except for at fixed points, we can see (previous equation), is strictly decreasing along orbits. If we had a periodic orbit, then $x(t) = x(t+T)$, however $V(x(t)) > V(x(t+T))$, a contradiction. 
-	\item Numerically integrating $\dot{x}$ will lead to the local minimum of $V$, as $x$ is always going in the direction of the negative gradient, i.e. 'downhill the steepest way'. Analogously, integrating in backwards time will converge to the local maximum.
+	\begin{enumerate}
+		\item The linearized system for the gradient system is 
+\begin{align}
+\dot{y} = -D^2Vy.
+\end{align}
+
+$V$ is assumed to be smooth, so the Hessian $D^2V$ is a symmetric matrix, because of the symmetry of second partial derivatives. 
+
+Since symmetric matrices have real eigenvalues, the linearized gradient system too, has real eigenvalues.
+
+\item The fixed points satisfy $DV(x_0) = 0$.
+That is, $x_0$ is a fixed point if and only if it is a critical point of V. 
+
+Claim: If $x_0$ is a local minimum of $V$, then $x_0$ is asymptotically stable.
+
+To show this, we can use $V$ as a Lyapunov function:
+
+If $V(x_0)$ is a minimum, that means there is an open subset $U$, such that 
+$\forall x\in U$, $V(x)>V(x_0)$.
+
+Then, define $L(x):= V(x)-V(x_0)$. This function has the property that $L(x)>0$ $\forall x\in U\setminus \{x_0\}$. Its time derivative is
+
+\begin{align}
+\frac{\text{d}L}{\text{d}t} = DV(x)\cdot \dot{x} = -DV(x)\cdot DV(x) = - ||DV(x)||^2 < 0.
+\end{align}
+The norm of the gradient is always positive if $x\ne x_0$. 
+This shows that $L(x)$ is positive definite and $\dot{L}$ is negative definite  on $U\setminus \{x_0\}$, which, by Lyapnunov's theorem, guarantees asymptotic stability for $x_0$.
+
+\item The statement is, if $x_0$ is not a fixed point, there is no $T>0$ such that $x(T) = x_0$. Assume the converse: 
+
+$\exists T>0$ such that $x(T)=x(0)=x_0$. Consider the net change in $V$ along this trajectory, using Newton-Leibniz:
+
+\begin{align}
+    V(x(T)) - V(x(0)) = \int_0^T \frac{\text{d}V(t)}{\text{d}t} \text{d}t. \label{nl}
+\end{align}
+From the previous exercise, 
+
+\begin{align}
+    \int_0^T \frac{\text{d}V(t)}{\text{d}t} \text{d}t = -\int_0^T ||DV(x(t))||^2 \text{d}t < 0. \label{n2}
+\end{align}
+
+This is strictly negative, if $x_0$ is not a fixed point. By assumption, the left hand side of \eqref{nl} is 0, which is in contradiction with \eqref{n2}. This shows that there is no periodic orbit in a gradient system.
+
+\item Based on this result, we can numerically find the minima of a smooth function $f(x)$ by considering the gradient system
+
+\begin{align}
+\dot{x} = - Df(x). \label{n3}
+\end{align}
+
+
+If $\hat{x}$ is a local minimum of $f(x)$, then there is an open subset $U$, such that 
+$\forall x\in U$, $f(x)>f(\hat{x})$. By the result in (b), $\hat{x}$ is an asymptotically stable fixed point of \eqref{n3}. 
+
+To numerically find $\hat{x}$, take an initial guess $x_0$ in $U$. Then, we solve the initial value problem $x(0)=x_0$, with $x(t)$ satisfying \eqref{n3}. The solution will converge to $x_0$. To be specific, simply using the Euler-scheme
+\begin{align}
+x_{n+1} = x_{n} - Df(x_{n}),
+\end{align}
+is the gradient descent method. For finding maxima, put $F(x):=-f(x)$, and repeat the process for the gradient system $\dot{x} = -DF(x)$.
 \end{enumerate}
+%\begin{enumerate}
+%	\item Say $x_0$ is a fixed point, then set $y= x - x_0$. We have $\dot{y} = -DV(y+x_0) \approx -D^2V(x_0)y$. Because $D^2V(x_0)$ is symmetric (it is the Hessian), all of the eigenvalues are real.
+%	\item If the Hessian is positive definite, then for $y$ small, the Hessian dominates $\dot{y}$. Hence $y \to 0$, i.e. $x_0$ is asymptotically stable. Note that $V(x(t))' = \nabla V(x(t)) \cdot x'(t) = \nabla V(x(t)) \cdot -\nabla V(x(t)) = - \| \nabla V(x(t)) \| \leq 0$.
+%	\item Except for at fixed points, we can see (previous equation), is strictly decreasing along orbits. If we had a periodic orbit, then $x(t) = x(t+T)$, however $V(x(t)) > V(x(t+T))$, a contradiction. 
+%	\item Numerically integrating $\dot{x}$ will lead to the local minimum of $V$, as $x$ is always going in the direction of the negative gradient, i.e. 'downhill the steepest way'. Analogously, integrating in backwards time will converge to the local maximum.
+%\end{enumerate}
 \end{solution}
 
 \begin{solution}[8.7]
-First we would like to find if we can find a quantity which is independent of time. To do this we examine the following
+\begin{enumerate}
+	\item The system can be written as
 \begin{align}
-	\frac{dh}{dp} = \frac{dh}{dt} \frac{dt}{dp} = \frac{\dot{h}}{\dot{p}} = - \frac{a_1 h (1-bp)}{a_2 p (1-ch)}.
+    \dot{h} &= hp\left(\frac{a_1}{p}-a_1b\right) \\ 
+    \dot{p} &= hp\left(a_2c-\frac{a_2}{h}\right).
 \end{align}
-Next we split up the differentials to find
-\begin{align}
-	\frac{a_2 (1-ch)}{h}dh + \frac{a_1(1-bp)}{p}dp = 0.
-\end{align}
-We can then integrate both sides to find
-\begin{align}
-	a_2 \ln (h) - a_2 ch + a_1 \ln (p) - a_1 bp =  \textrm{constant}. 
-\end{align}
-Hence we have a conserved quantity, to confirm this applying $\frac{d}{dt}$ to this quantity yields 0. Call this quantity $U$. As in the lecture, we can see that $\dot{U}(x(t))=0$ implies that $D U (x(t)) \cdot \dot{x}(t) = D U \cdot f=0$, i.e. the two terms are orthogonal. So we can write 
-\begin{align}
-	f(x) = P(x) 
-	\begin{pmatrix}
-		0 & 1 \\
-		-1 & 0
-	\end{pmatrix}
-	DU(x)	
-.\end{align}
-So we find $\dot{x} = P(x) JDU(x)$, a noncanonical Hamiltonian system. Plugging this into our current system, we find
-\begin{align}
-	\begin{pmatrix}
-		\dot{h} \\
-		\dot{p}
-	\end{pmatrix}
-	= 
-	\begin{pmatrix}
-		a_1h(1-bp) \\
-		-a_2 p(1-ch)
-	\end{pmatrix}
-	= P(h,p) 
-	\begin{pmatrix}
-		0 & 1 \\
-		-1 & 0
-	\end{pmatrix}
-	\begin{pmatrix}
-		\frac{a_2 }{h} - a_2 c \\
-		\frac{a_1}{p} - a_1 b
-	\end{pmatrix}
-	=
-	P(h,p)
-	\begin{pmatrix}
-		\frac{a_1}{p} - a_1 b \\
-		-\frac{a_2}{h} + a_2 c
-	\end{pmatrix}
-.\end{align}
-Comparing terms reveals that $P(h,p) = hp$, because $h,p>0$ we can rescale time
-\begin{align}
-	\tau = \int_{0}^{t} h(s)p(s) ds.
-\end{align}
-Framing the time derivative with respect to this scaling yields
-\begin{align}
-	\dot{x} = \frac{dx}{dt} = \frac{dx}{d \tau} \frac{d \tau}{dt} = P(h,p) x'.
-\end{align}
-Hence we find
-\begin{align}
-	P(h,p) x' = P(x) JDU(x) \quad \implies \quad x' = JDU(x).
-\end{align}
-Thus we have shown that the Lotka-Volterra system is Hamiltonian, for $\mathcal{H} = U$.
 
-To test if the system admits a stable fixed point, we have to check if $\mathcal{H}$ is definite (since the Hamiltonian is conserved, if it is negative definite, we can just take $-\mathcal{H}$). The Hessian is
+We can rescale time by $A(h,p)=hp$, which is a positive function for $h,p>0$, introducing a new time variable 
 \begin{align}
-\begin{pmatrix}
-	-\frac{a_2}{h^2} & 0 \\
-	0 & - \frac{a_1}{p^2}
-\end{pmatrix}
-.\end{align}
-This is clearly negative definite, as all of the variables are positive. The fixed point is found at the point where $ \dot{x}=0$, i.e. $p=\frac{1}{b}$ and $h=\frac{1}{c}$.
+\tau = \int_0^t h(s)p(s)ds.
+\end{align}
+
+\begin{align}
+    \begin{bmatrix}\frac{d h}{d\tau} \\
+    \frac{d p}{d\tau}
+    \end{bmatrix} = \begin{bmatrix} \frac{a_1}{p}-a_1b\\
+    a_2c-\frac{a_2}{h}\end{bmatrix} := \begin{bmatrix}C(p) \\ D(h) \end{bmatrix}
+\end{align}
+
+For this system to be Hamiltonian, $C$ and $D$ must be the the appropriate partial derivatives of a function $H:\mathbb{R}^+ \times \mathbb{R}^+ \to \mathbb{R}$. That is,
+
+\begin{align}
+\frac{\partial H}{\partial p} = C(p)
+\end{align}
+
+and
+\begin{align}
+\frac{\partial H}{\partial h} = -D(h).
+\end{align}
+
+We can integrate the equations to get
+\begin{align}
+&\frac{a_1}{p}-a_1b = \frac{\partial H}{\partial p}\\
+& H(h,p) = a_1\log p - a_1bp + F(h) \\
+&  F'(h) = \frac{\partial H}{\partial h} = -a_2c + \frac{a_2}{h}\\
+& F(h) = -a_2ch +a_2\log h + K \\
+& H(h,p) = a_1\log p -a_1bp + a_2\log h -a_2ch +K,
+\end{align}
+where $K$ is a constant. Taking $H$ as the Hamiltonian, the system can be written as (in the rescaled time)
+\begin{align}
+    &\frac{d h}{ d\tau} = \frac{\partial H}{\partial p} \\
+    &\frac{d p}{d\tau} = -\frac{\partial H}{\partial h}. 
+\end{align}
+
+\item In the region $h,p>0$, (where the rescaling is valid), the system has a single fixed point, defined by 
+\begin{align}
+C(h) = D(h) = 0. 
+\end{align}
+This is satisfied by $\frac{a_1}{p_0} = a_1b$ and $\frac{a_2}{h_0} = a_2c$, or 
+\begin{align}
+(h_0, p_0) = \left(\frac{1}{b}, \frac{1}{c} \right).
+\end{align}
+
+To establish stability of $(h_0, p_0)$, take $H$ as a Lyapunov function. $(h_0, p_0)$ is a critical point of $H$, which is conserved along trajectories, $\dot{H}=0$. 
+
+The Hessian matrix of $H$ is
+\begin{align}
+D^2H = \begin{bmatrix}\frac{\partial^2 H}{\partial h^2} &  \frac{\partial^2 H}{\partial h\partial p} \\
+\frac{\partial^2 H}{\partial h\partial p} & \frac{\partial^2 H}{\partial p^2}\end{bmatrix} = \begin{bmatrix} -\frac{a_2}{h^2} & 0 \\ 0 & -\frac{a_1}{p^2} \end{bmatrix} 
+\end{align}
+\begin{align}
+D^2 H_{(h_0,p_0)} = \begin{bmatrix}-a_2b^2 & 0 \\ 0 & -a_1c^2\end{bmatrix}.
+\end{align}
+This is negative definite at $(h_0, p_0)$, so by taking $V=-H$ as a Lyapunov function, we can conclude nonlinear stability. 
+\end{enumerate}
+
+%First we would like to find if we can find a quantity which is independent of time. To do this we examine the following
+%\begin{align}
+%	\frac{dh}{dp} = \frac{dh}{dt} \frac{dt}{dp} = \frac{\dot{h}}{\dot{p}} = - \frac{a_1 h (1-bp)}{a_2 p (1-ch)}.
+%\end{align}
+%Next we split up the differentials to find
+%\begin{align}
+%	\frac{a_2 (1-ch)}{h}dh + \frac{a_1(1-bp)}{p}dp = 0.
+%\end{align}
+%We can then integrate both sides to find
+%\begin{align}
+%	a_2 \ln (h) - a_2 ch + a_1 \ln (p) - a_1 bp =  \textrm{constant}. 
+%\end{align}
+%Hence we have a conserved quantity, to confirm this applying $\frac{d}{dt}$ to this quantity yields 0. Call this quantity $U$. As in the lecture, we can see that $\dot{U}(x(t))=0$ implies that $D U (x(t)) \cdot \dot{x}(t) = D U \cdot f=0$, i.e. the two terms are orthogonal. So we can write 
+%\begin{align}
+%	f(x) = P(x) 
+%	\begin{pmatrix}
+%		0 & 1 \\
+%		-1 & 0
+%	\end{pmatrix}
+%	DU(x)	
+%.\end{align}
+%So we find $\dot{x} = P(x) JDU(x)$, a noncanonical Hamiltonian system. Plugging this into our current system, we find
+%\begin{align}
+%	\begin{pmatrix}
+%		\dot{h} \\
+%		\dot{p}
+%	\end{pmatrix}
+%	= 
+%	\begin{pmatrix}
+%		a_1h(1-bp) \\
+%		-a_2 p(1-ch)
+%	\end{pmatrix}
+%	= P(h,p) 
+%	\begin{pmatrix}
+%		0 & 1 \\
+%		-1 & 0
+%	\end{pmatrix}
+%	\begin{pmatrix}
+%		\frac{a_2 }{h} - a_2 c \\
+%		\frac{a_1}{p} - a_1 b
+%	\end{pmatrix}
+%	=
+%	P(h,p)
+%	\begin{pmatrix}
+%		\frac{a_1}{p} - a_1 b \\
+%		-\frac{a_2}{h} + a_2 c
+%	\end{pmatrix}
+%.\end{align}
+%Comparing terms reveals that $P(h,p) = hp$, because $h,p>0$ we can rescale time
+%\begin{align}
+%	\tau = \int_{0}^{t} h(s)p(s) ds.
+%\end{align}
+%Framing the time derivative with respect to this scaling yields
+%\begin{align}
+%	\dot{x} = \frac{dx}{dt} = \frac{dx}{d \tau} \frac{d \tau}{dt} = P(h,p) x'.
+%\end{align}
+%Hence we find
+%\begin{align}
+%	P(h,p) x' = P(x) JDU(x) \quad \implies \quad x' = JDU(x).
+%\end{align}
+%Thus we have shown that the Lotka-Volterra system is Hamiltonian, for $\mathcal{H} = U$.
+%
+%To test if the system admits a stable fixed point, we have to check if $\mathcal{H}$ is definite (since the Hamiltonian is conserved, if it is negative definite, we can just take $-\mathcal{H}$). The Hessian is
+%\begin{align}
+%\begin{pmatrix}
+%	-\frac{a_2}{h^2} & 0 \\
+%	0 & - \frac{a_1}{p^2}
+%\end{pmatrix}
+%.\end{align}
+%This is clearly negative definite, as all of the variables are positive. The fixed point is found at the point where $ \dot{x}=0$, i.e. $p=\frac{1}{b}$ and $h=\frac{1}{c}$.
 \end{solution}
 
-\textbf{Note} From here on, to preserve notation a chart/local diffeomorphism will be denoted without mentioning the base point. Since we work with the arbitrary base points (we always need to prove something works for every point $x\in X$), the proof holds for the entire manifold.
+%\textbf{Note} From here on, to preserve notation a chart/local diffeomorphism will be denoted without mentioning the base point. Since we work with the arbitrary base points (we always need to prove something works for every point $x\in X$), the proof holds for the entire manifold.
 
 \begin{solution}[9.1]
-First, we note that we need a local diffeomorphism for every point in $X$. We will call this diffeomorphism $\varphi: U \to V$, where $U$ is a local neighborhood of $x$, and $V$ an open set in $\mathbb{R}^n$. We will tentatively define $\varphi: (x,y) \mapsto x$ (the projection), with inverse $\varphi^{-1}: x \mapsto (x, f(x))$. These are clearly smooth (due to smoothness of $f $) thus $\varphi_x$ is a diffeomorphism. This shows that the graph of $f$ is a manifold of $\mathbb{R}^n$.
+$X\subset \mathbb{R}^n$ is a manifold, which means $\forall x\in X$ there is an open subset $V\subset \mathbb{R}^k$ around $\xi\in \mathbb{R}^k$ and a local parametrization $\varphi : V \to \mathbb{R}^n$, $\varphi(\xi) = x$. I also assume that $Y\subset \mathbb{R}^l$ for some $l$. The product $X\times Y$ is a subset of the ambient space $\mathbb{R}^n\times \mathbb{R}^l$.
+
+Let us call the graph of $f$, $M$. The goal is to show that for each $(x,y)\in M$, there is an open subset $U$ of $R^k$, with $\xi'\in U$ and a local parametrization $F:U\to \mathbb{R}^n\times \mathbb{R}^l$ with $F(\xi') = (x,y)\in M$, which is a diffeomorphism from $U$ to  $M\cap W$, for an open set $W\subset \mathbb{R}^n\times \mathbb{R}^l$ [$W\cap M$ is relatively open].
+
+Consider the map 
+\begin{align}
+F:V\subset \mathbb{R}^k \to \mathbb{R}^n\times \mathbb{R}^l
+\end{align}
+given by
+
+\begin{align}
+F(\xi) = (\varphi(\xi), f\circ \varphi (\xi)).
+\end{align}
+This map is smooth, because its components are smooth. It is also a bijection on  $M\cap W$:
+\begin{itemize}
+    \item It is injective, since if $F(\xi_1) = F(\xi_2)$, we must have $\varphi(\xi_1)=\varphi(\xi_2)$ because of the first component. $\varphi$ is a bijection, so $\xi_1 = \xi_2$. 
+    \item It is surjective, because if $(x,y)\in M\cap W$, then we have $f(x)=y$ and $x=\varphi(\xi)$ for some $\xi \in V$, since $\varphi$ is a local parametrization for $X$. This means we can write $(x,y) = F(\xi) = (\varphi(\xi), f\circ \varphi(\xi)$.
+\end{itemize}
+
+Its inverse is given by 
+\begin{align}
+F^{-1} : M\cap W \to V;\quad \varphi^{-1}\circ \pi,
+\end{align}
+where $\pi:X\times Y \to X$, $\pi(x,y) = x$ is the projection onto the first factor, so
+$F^{-1}(x,y) = \varphi^{-1}(x)$.
+This function is smooth, because it has a smooth extension to $W\subset \mathbb{R}^n\times \mathbb{R}^l$: $\pi$ is already smooth on $W$, and because $\varphi$ was a local parametrization, $\varphi^{-1}$ has to have a smooth extension. 
+
+This shows that that around a point $(x,y)\in M$, the map $F$ is a local parametrization from an open subset $U=V\subset \mathbb{R}^k$, with $x\in \varphi(V)$, for some local parametrization of $X$ around $x$. 
+%First, we note that we need a local diffeomorphism for every point in $X$. We will call this diffeomorphism $\varphi: U \to V$, where $U$ is a local neighborhood of $x$, and $V$ an open set in $\mathbb{R}^n$. We will tentatively define $\varphi: (x,y) \mapsto x$ (the projection), with inverse $\varphi^{-1}: x \mapsto (x, f(x))$. These are clearly smooth (due to smoothness of $f $) thus $\varphi_x$ is a diffeomorphism. This shows that the graph of $f$ is a manifold of $\mathbb{R}^n$.
 \end{solution}
 
 \begin{solution}[9.2]
-Let $\varphi$ and $\psi$ ($X\to \mathbb{R}^n$) be two different charts parameterizing the manifold $X$, then there exists a diffeomorphism $\phi : X \to X$, such that $\psi =\varphi \circ \phi$. This is due to all manifolds being diffeomorphic to themselves. $\phi$ allows us to take the set of all smooth curves on $\mathbb{R}^n$ and map it bijectively to itself, hence for any curve $\gamma$ used to generate to range of $d\varphi(0)$ corresponds to another curve $\phi \circ \gamma =: \tilde{\gamma}$. We have that $\psi \circ \gamma = \varphi \circ \phi \circ \gamma = \varphi \circ \tilde{\gamma}$. Hence $ \textrm{Range}(d\psi(0)) \subset  \textrm{Range}(d\varphi(0)) $. The same argument holds with the roles of $\varphi$ and $\psi$ swapped, hence we have equality, and thus the tangent space is independent of parameterization.
+Given an m-dimensional manifold $M\subset \mathbb{R}^n$, the tangent space at $p\in M$ is defined by 
+\begin{align}
+df_x(\mathbb{R}^m),
+\end{align}
+for some local parametrization around $p$, $f:U\subset \mathbb{R}^m \to \mathbb{R}^n$ and $f(x)=p$. Assume that there is a different local parametrization, $g: V\subset \mathbb{R}^m \to \mathbb{R}^n$, $p\in f(U) \cap g(V)$, with  $f(x)=p=g(y)$. 
+
+The differentials are the linear maps
+\begin{align}
+df_x : \mathbb{R}^m \to \mathbb{R}^n \qquad dg_y : \mathbb{R}^m \to \mathbb{R}^n.
+\end{align}
+Since both $f$ and $g$ are local parametrizations, $df_x$ and $dg_y$ are injective and they (as linear maps) have $\text{Rank } f =\text{Rank } g = m$. 
+
+$\text{Rank } f = \text{dim} (\text{Image }f) = \text{dim} (\text{Image }g) = m$. This shows that the tangent spaces we obtain using $f$ and $g$ are both $m$ dimensional subspaces of $\mathbb{R}^n$. That is, the vector spaces $df_x(\mathbb{R}^m)$ and $dg_y(\mathbb{R}^m)$ are isomorphic, because they are finite dimensional, with the same dimension. 
+%Let $\varphi$ and $\psi$ ($X\to \mathbb{R}^n$) be two different charts parameterizing the manifold $X$, then there exists a diffeomorphism $\phi : X \to X$, such that $\psi =\varphi \circ \phi$. This is due to all manifolds being diffeomorphic to themselves. $\phi$ allows us to take the set of all smooth curves on $\mathbb{R}^n$ and map it bijectively to itself, hence for any curve $\gamma$ used to generate to range of $d\varphi(0)$ corresponds to another curve $\phi \circ \gamma =: \tilde{\gamma}$. We have that $\psi \circ \gamma = \varphi \circ \phi \circ \gamma = \varphi \circ \tilde{\gamma}$. Hence $ \textrm{Range}(d\psi(0)) \subset  \textrm{Range}(d\varphi(0)) $. The same argument holds with the roles of $\varphi$ and $\psi$ swapped, hence we have equality, and thus the tangent space is independent of parameterization.
 \end{solution}
 
 \begin{solution}[9.3]
-We are looking for a chart $\varphi_{}:  \textrm{TM} \to \mathbb{R}^{2n}$. Let $\phi$ be a chart for $M$, this is a map between manifolds, namely $M \to \mathbb{R}^{n}$, inducing a map from $T_xM \to T_{\phi(x)}\mathbb{R}^{n} \cong \mathbb{R}^{n}$. Call the map $T_xM \to \mathbb{R}^{n}$ (where we used the implied existence of a map via the $\cong$ in the previous equation) $f$. Then we will propose $\varphi(x,v) = (\phi(x),f(v)) $, this is clearly a diffeomorphism, and we can see it is smooth with smooth inverse coordinate wise. 
+Let $M\subset \mathbb{R}^n$ be an $m$ dimensional manifold. Its tangent bundle is 
+\begin{align}
+TM = \bigcup_{p\in M} \{p\}\times TM_p. 
+\end{align}
+
+We show, that $TM$ is a $2m$ dimensional manifold. Consider a point $(p,v)\in TM$, such that $v\in TM_p$. Since $M$ is a manifold, there is a local parametrization $\varphi:\Tilde{U}\subset \mathbb{R}^m \to \mathbb{R}^n$, with $x\in \Tilde{U}, \varphi(x)=p$.
+
+Let $U = \Tilde{U} \times \mathbb{R}^m$ be an open set, and define a function
+$\Phi :U \to \mathbb{R}^n\times \mathbb{R}^n$, by
+
+\begin{align}
+\Phi(x, \eta) = (\varphi(x), d\varphi_x(\eta)).
+\end{align}
+
+Since both $\varphi$ and $d\varphi_x$ are smooth functions, $\Phi$ is also smooth. 
+We still need to show that $\Phi$ is a diffeomorphism onto $TM\cap W$ for an open set $W\subset \mathbb{R}^n \times \mathbb{R}^n$.
+
+$\Phi$ is a bijection, because:
+
+If $\Phi(x,\eta) = \Phi(x', \eta')$, for $(x, \eta), (x', \eta') \in TM\cap W$ then $\varphi(x) = \varphi(x')$ from the first component, which means $x=x'$. This is because $\varphi$ is a local parametrization. From the second component: $d\varphi_x(\eta) = d\varphi_x(\eta')$ means $\eta = \eta'$, since the linear map $d\varphi_x$ is injective. This shows $\Phi$ is injective on the relatively open set $TM\cap W$. 
+
+For surjectivity, for a point $(p, v)\in TM\cap W$ we can find $x=\varphi^{-1}(p)$, since the local parametrization is already bijective. We also know that its inverse is smooth, so with $\eta := d(\varphi^{-1})_p(v)$, we see that
+
+\begin{align}
+d\varphi_p(\eta)=d\varphi_p[d(\varphi^{-1})_p(v)] = d\varphi_{\varphi^{-1}(p)}\circ d(\varphi^{-1})_p(v) = d(\varphi^{-1}\circ \varphi)_p(v) = v,
+\end{align}
+by the chain rule. So, we have found a point $(x, \eta)$ for each $(p,v)\in  TM\cap W$, with $\Phi(x,\eta) = (p,v)$.
+
+This also gives the inverse function on this relatively open set: 
+\begin{align}
+\Phi^{-1}: TM\cap W \to U
+\end{align}
+
+\begin{align}
+\Phi^{-1}(p, v) = \left[\varphi^{-1}(p), d(\varphi^{-1})_p(v)\right].
+\end{align}
+
+We know that $\varphi^{-1}$ can be extended to a smooth function, and the same is true for its differential. Then, we have that $\Phi: U\to \mathbb{R}^n\times \mathbb{R}^n$ is a diffeomorphism, and is a suitable local parametrization for $TM$, around a point $(p,v)=\Phi(x, \eta)$,
+%We are looking for a chart $\varphi_{}:  \textrm{TM} \to \mathbb{R}^{2n}$. Let $\phi$ be a chart for $M$, this is a map between manifolds, namely $M \to \mathbb{R}^{n}$, inducing a map from $T_xM \to T_{\phi(x)}\mathbb{R}^{n} \cong \mathbb{R}^{n}$. Call the map $T_xM \to \mathbb{R}^{n}$ (where we used the implied existence of a map via the $\cong$ in the previous equation) $f$. Then we will propose $\varphi(x,v) = (\phi(x),f(v)) $, this is clearly a diffeomorphism, and we can see it is smooth with smooth inverse coordinate wise. 
 \end{solution}
 
 \begin{solution}[9.4]
-Since there is no interaction between $x$ and $y$, we can solve each equation independently.
+To define the Lyapunov-type numbers at a point $p$ on an overflowing invariant manifold $M$, let $w_0\in NM_p$ be a vector in the normal space of $M$ at $p$ and $v_0\in TM_p$ be a vector in the tangent space at $p$. Their images under the linearized backward flow are 
 \begin{align}
-	x(t) = \frac{1}{\sqrt{c_1e^{2t} + 1}}; \quad y(t) = c_2 e^{-bt}.
+    v_{-t} &= DF^{-t}_p(v_0) \text{ and } \\
+    w_{-t} &= \Pi_{F^{-t}(p)}\circ DF^{-t}_p(w_0). 
 \end{align}
-Setting $t=0$ we can solve for the initial conditions $p =
-\begin{pmatrix}
-	x_0\\ y_0
-\end{pmatrix}
-$
-and find 
+Here, $DF^{-t}_p$ is the differential of the (backward) flow-map at the point $p$ (which is a linear map on the tangent space of the full phase-space at $p$) and $\Pi_q$ is the orthogonal projection onto the normal space of $M$ at $q$. 
+
+
+With this notation, the Lyapunov-type numbers, for a point $p$ on an overflowing invariant manifold $M$, are defined to be
+
 \begin{align}
-	x(t) = \frac{1}{\sqrt{(x_0^{-2} -1)e^{2t}+1}}; \quad y(t) = y_0 e^{-bt}.
+    \nu(p) = \text{inf}\left\{a>0: \frac{||w_{0}||}{|| w_{-t}||a^t} \to 0 \text{ as } t \to \infty, \forall w_0 \in NM_p \right\}
 \end{align}
-Thus we have the operator $F^t$ for the initial point $p$. Next, we have to calculate $A_t(p)$ and $B_t(p)$.
+
 \begin{align}
-	A_t(p) = \left.DF^{-t} \right|_{T_p M_0} &= 
-	\left.
-	\begin{pmatrix}
-		\frac{e^{-2t}}{x_0^{3} \left( (x_0^{-2} -1) e^{-2t} +1 \right)^{\frac{3}{2}}} & 0\\
-		0& e^{bt}
-	\end{pmatrix}
-	\right|_{T_pM_0} \\
-	B_t(p) = \Pi_p \left. DF^{t}(F^{-t}(p)) \right|_{N_{F^{-t}(p)}M_0} &= \left.\Pi_p  
-	\begin{pmatrix}
-		\frac{e^{2t}}{F^{-t}(p)_1^{3} \left( (F^{-t}(p)_1^{-2} -1) e^{2t} +1 \right)^{\frac{3}{2}}} & 0\\
-		k0& e^{-bt}
-	\end{pmatrix}
-	\right|_{N_{F^{-t}(p)M_0}}
-	\\
-									   &=	\left.\Pi_p 
-	\begin{pmatrix}
-		\frac{	e^{2t} \left[ (x_0^{-2} -1)e^{-2t}+1 \right]^{\frac{3}{2}}}{\left([(x_0^2 -1)e^{-2t} +1]-1)e^{2t}+1\right)^{\frac{3}{2}}} & 0 \\
-		0 & e^{-bt}
-	\end{pmatrix}
-	\right|_{N_{F^{-t}(p)M_0}}
-	\\								   &= \left.
-		\Pi_p 
-\begin{pmatrix}
-	\frac{e^{2t}\left[ (x_0^{-2} -1)e^{-2t}+1\right]^{\frac{3}{2}}}{x_0^{3}} & 0\\
-	0 & e^{-bt}
-\end{pmatrix}
-	\right|_{N_{F^{-t}(p)M_0}}.
+    \sigma(p) = \text{inf} \left\{ b \in \mathbb{R}: \frac{||w_0||/ ||w_{-t}||^b}{||v_0||/||v_{-t}||} \to 0 \text{ as } t\to \infty, \forall w_0\in NM_p, v_0 \in TM_p \right\}.
 \end{align}
-Now we need to define the tangent and normal spaces for $p\in M_0$. Geometrically, these can be easily classified (with the ambient space being $\mathbb{R}^2$, with tangent vectors from point $p$ pointing in the positive/negative $x$ direction, and normal vectors from point $p$ pointing in the positive/negative $y$ direction. The projection becomes redundant as the map maps into the normal space at $p$.
-Thus we find 
+
+To calculate $\nu(p)$ and $\sigma(p)$, we first define the two operators
 \begin{align}
-	\nu(p) = \lim_{t\to\infty} \| B_t(p)\|^{\frac{1}{t}} = \lim_{t\to\infty} \left(e^{-bt}\right)^{\frac{1}{t}} = e^{-b}<1.
+    A_t(p) := DF_p^{-t}|_{TM_p}
 \end{align}
-Therefore, we can calculate $\sigma$ as follows
 \begin{align}
-	\sigma(p) = \limsup_{t\to\infty} \frac{\log \| A_t(p) \|}{- \log \|B_t(p) \|} = \frac{-2t - 3\log(x_0) - \frac{3}{2}\log\left((x_0^{-2}-1)e^{-2t}+1\right)}{bt} = \frac{-2}{b}.
+    B_t(p) := \Pi_p \circ DF_{F^{-t}(p)}^{t}|_{NM_{F^{-t}(p)}}.
 \end{align}
-This covers all trajectories, except those from the fixed point at $(0,0)$ which is a singularity of this equation. There we get $\|A_t(p)\| = e^{t}$ (the linearization is then $D \dot{x}|_{x=0} = -1$, yielding the linearized flow of $F^{t}(x_0) = x_0e^{-t}$ (which we then plug in for $A_t(p)$)), therefore $\sigma(p)=\frac{1}{b}$.
+Then, a theorem by Fenichel states that
+\begin{align}
+    \nu(p) = \text{lim sup}_{t\to \infty} ||B_t||^{1/t}. \label{eqnu}
+\end{align}
+If in addition, $\nu(p)<1$ then
+\begin{align}
+    \sigma(p) = \text{lim sup}_{t\to \infty} \frac{\log ||A_t(p)||}{-\log ||B_t(p)||}. \label{eqsigma}
+\end{align}
+
+To compute the operators $A_t(p)$ and $B_t(p)$, we calculate the flow-map of system $\dot{x}-\dot{y}$ explicitly. Equations for $\dot{x}$ and $\dot{y}$ are decoupled, so we can find the flow map by integrating the equations separately. The equation for $y$ is a homogeneous, linear, scalar equation, which has the solution, assuming the initial condition is given as $y(t_0):= y_0$,
+\begin{align}
+y(t;y_0,t_0) = y_0e^{-b(t-t_0)}.
+\end{align}
+The system is autonomous, which means we can also set $t_0 = 0$ without loss of generality:
+\begin{align}
+\label{eq94y}
+y(t;y_0) = y_0e^{-bt}.
+\end{align}
+
+We can solve the equation in $\dot{x}$ by separation of variables:
+\begin{align}
+    \dot{x} &= -x(1-x^2) \\ 
+    t &= \int_{x_0}^{x} -\frac{dx'}{x'(1-x'^2)}d x' .
+\end{align}
+    The integral on the right side can be evaluated using the expression (partial fraction decomposition)
+    \begin{align}
+    -\frac{1}{x(1-x^2)} = -\frac{1}{x} - \frac{1}{2(1-x)} + \frac{1}{2(1+x)}.
+    \end{align}
+Then, using Newton-Leibniz, we get
+\begin{align}
+t &= -(\log x - \log x_0) + \frac{1}{2}\left[\log(1-x) - \log(1-x_0)\right] + \frac{1}{2}\left[\log(1+x) - \log(1+x_0)\right ] \\
+e^t &= \frac{x_0}{x}\sqrt{\frac{1-x^2}{1-x_0^2}} 
+\end{align}
+
+This expression only makes sense if $x$ and $x_0$ have the same sign. In this case, we can square it to get 
+\begin{align}
+\frac{x^2 e^{2t}}{x_0^2} = \frac{1-x^2}{1-x_0^2}\end{align}
+Rearranging to solve for $x^2$, we have
+\begin{align}
+x^2 = \frac{x_0^2}{x_0^2 + (1-x_0^2)e^{2t}}.
+\end{align}
+In the relevant case, when $x$ and $x_0$ have the same sign, we can take the (positive) square root 
+
+\begin{align}
+\label{eq94x}
+    x(t;x_0) = \frac{x_0}{\sqrt{x_0^2 + (1-x_0^2)e^{2t}}}.
+\end{align}
+The components of the flow-map are then given by the functions \eqref{eq94y} and \eqref{eq94x}. 
+
+\begin{align}
+    F^t(x_0,y_0) := \begin{bmatrix} 
+    x(t; x_0) \\
+    y(t; y_0)
+    \end{bmatrix} = \begin{bmatrix} 
+    \frac{x_0}{\sqrt{x_0^2 + (1-x_0^2)e^{2t}}}\\
+    y_0e^{-bt}
+    \end{bmatrix}
+\end{align}
+
+The linearized backward flow-map is the matrix
+\begin{align}
+    DF^{-t}_{(x_0,y_0)} := \begin{bmatrix} 
+    \frac{\partial x(-t; x_0)}{\partial x_0} & 0 \\
+    0 & \frac{\partial y(-t;y_0)}{\partial y_0}
+    \end{bmatrix}.
+\end{align}
+To compute the first entry, I use the short-hand $a:=x_0^2 + (1-x_0^2)e^{-2t}$. 
+\begin{align}
+\frac{\partial x(t;x_0)}{\partial x_0} = \frac{1}{a}\left[\sqrt{a} - \frac{x_0^2(1-e^{-2t})}{\sqrt{a}}\right] = \frac{a - x_0^2(1-e^{-2t})}{a^{3/2}} = \frac{e^{-2t}}{a^{3/2}}
+\end{align}
+\begin{align}
+    DF^{-t}_{x_0} := \begin{bmatrix} 
+    \frac{e^{-2t}}{a^{3/2}} & 0 \\
+    0 & e^{bt}
+    \end{bmatrix}
+\end{align}
+Restricting this matrix onto the tangent space of $M$ at $p=x_0$, means that it acts on vectors of the ambient space, that have the form
+\begin{align}
+\mathbf{v_0} = \begin{bmatrix}
+v_0 \\
+0
+\end{bmatrix},
+\end{align}
+as
+
+\begin{align}
+    DF^{-t}_{x_0}|_{TM_{x_0}} \mathbf{v_0} = \begin{bmatrix}\frac{e^{-2t}}{a^{3/2}}v_0 \\ 0 \end{bmatrix} \in TM_{F^{-t}(x_0)}
+\end{align}
+Which shows that the operator $A_t(x_0)$ is simply the scalar multiplication by
+\begin{align}
+    \label{eqat}
+    A_t(x_0) = \frac{e^{-2t}}{(x_0^2 + (1-x_0^2)e^{-2t})^{3/2}}.
+\end{align}
+
+Similarly, with the notation $x_{-t} = F^{-t}(x_0)$,
+\begin{align}
+DF^{t}_{F^{-t}(x_0)} = \begin{bmatrix} \frac{e^{2t}}{(x_{-t}^2 + (1-x_{-t}^2)e^{2t})^{3/2}} & 0 \\
+0  & e^{-bt}\end{bmatrix}\end{align}
+Restricting it to the normal space at $x_{-t}$ (vectors parallel to the y axis), and then projecting to the normal space at $x_0$ (again, vectors parallel to the y axis) we have
+\begin{align}
+\label{eqbt}
+B_t(x_0) = e^{-bt}. 
+\end{align}
+
+Substituting the expressions \eqref{eqat} and \eqref{eqbt} into the theorem \eqref{eqnu} and \eqref{eqsigma} gives
+\begin{align}
+    &\nu(x_0) = \text{lim sup}_{t\to \infty} ||B_t||^{1/t} = \text{lim sup}_{t\to \infty} e^{-b} = e^{-b}. \\
+    &\sigma(x_0) = \text{lim sup}_{t\to \infty} \frac{\log ||A_t(p)||}{-\log ||B_t(p)||} =\text{lim sup}_{t\to \infty}  \frac{-2t -\frac{3}{2}\log (x_0^2 + (1-x_0^2)e^{-2t})}{bt} = \\
+    & = -\frac{2}{b} - \text{lim sup}_{t\to \infty} \frac{3}{2b}\frac{\log(x_0^2 + (1-x_0^2)e^{-2t}))}{t}
+\end{align}
+
+Since $\nu(x_0) = e^{-b} <1 $, we could use the second part of the theorem as well. In the last line, we have the lim. sup. of product of two functions, one of which is $1/t$, which goes to zero as $t\to \infty$. 
+The limit of the numerator is
+\begin{align}
+\text{lim}_{t\to \infty} \frac{3}{2b}\log(x_0^2 + (1-x_0^2)e^{-2t})) = \frac{3}{b}\log x_0.
+\end{align}
+If this limit exists, then the whole limit is zero, since it is a product of two convergent functions. 
+
+However, for $x_0=0$, $\log x_0$ is divergent. Then, we use the original expression and set $x_0=0$:
+\begin{align}
+\text{lim sup}_{t\to \infty} \frac{3}{2b}\frac{\log(x_0^2 + (1-x_0^2)e^{-2t}))}{t} = \text{lim sup}_{t\to \infty} \frac{3}{2b}\frac{\log e^{-2t}}{t} = -\frac{3}{b}.
+\end{align}
+Then, the Lyapunov-type numbers on the manifold $M$ are
+\begin{align}
+    \nu(x_0) &= e^{-b} \\
+    \sigma(x_0) &= \begin{cases} \frac{1}{b}, \qquad \text{ for } x_0 = 0 \\
+                    -\frac{2}{b} \qquad \text{ otherwise}.
+    \end{cases}
+\end{align}
+%Since there is no interaction between $x$ and $y$, we can solve each equation independently.
+%\begin{align}
+%	x(t) = \frac{1}{\sqrt{c_1e^{2t} + 1}}; \quad y(t) = c_2 e^{-bt}.
+%\end{align}
+%Setting $t=0$ we can solve for the initial conditions $p =
+%\begin{pmatrix}
+%	x_0\\ y_0
+%\end{pmatrix}
+%$
+%and find 
+%\begin{align}
+%	x(t) = \frac{1}{\sqrt{(x_0^{-2} -1)e^{2t}+1}}; \quad y(t) = y_0 e^{-bt}.
+%\end{align}
+%Thus we have the operator $F^t$ for the initial point $p$. Next, we have to calculate $A_t(p)$ and $B_t(p)$.
+%\begin{align}
+%	A_t(p) = \left.DF^{-t} \right|_{T_p M_0} &= 
+%	\left.
+%	\begin{pmatrix}
+%		\frac{e^{-2t}}{x_0^{3} \left( (x_0^{-2} -1) e^{-2t} +1 \right)^{\frac{3}{2}}} & 0\\
+%		0& e^{bt}
+%	\end{pmatrix}
+%	\right|_{T_pM_0} \\
+%	B_t(p) = \Pi_p \left. DF^{t}(F^{-t}(p)) \right|_{N_{F^{-t}(p)}M_0} &= \left.\Pi_p  
+%	\begin{pmatrix}
+%		\frac{e^{2t}}{F^{-t}(p)_1^{3} \left( (F^{-t}(p)_1^{-2} -1) e^{2t} +1 \right)^{\frac{3}{2}}} & 0\\
+%		k0& e^{-bt}
+%	\end{pmatrix}
+%	\right|_{N_{F^{-t}(p)M_0}}
+%	\\
+%									   &=	\left.\Pi_p 
+%	\begin{pmatrix}
+%		\frac{	e^{2t} \left[ (x_0^{-2} -1)e^{-2t}+1 \right]^{\frac{3}{2}}}{\left([(x_0^2 -1)e^{-2t} +1]-1)e^{2t}+1\right)^{\frac{3}{2}}} & 0 \\
+%		0 & e^{-bt}
+%	\end{pmatrix}
+%	\right|_{N_{F^{-t}(p)M_0}}
+%	\\								   &= \left.
+%		\Pi_p 
+%\begin{pmatrix}
+%	\frac{e^{2t}\left[ (x_0^{-2} -1)e^{-2t}+1\right]^{\frac{3}{2}}}{x_0^{3}} & 0\\
+%	0 & e^{-bt}
+%\end{pmatrix}
+%	\right|_{N_{F^{-t}(p)M_0}}.
+%\end{align}
+%Now we need to define the tangent and normal spaces for $p\in M_0$. Geometrically, these can be easily classified (with the ambient space being $\mathbb{R}^2$, with tangent vectors from point $p$ pointing in the positive/negative $x$ direction, and normal vectors from point $p$ pointing in the positive/negative $y$ direction. The projection becomes redundant as the map maps into the normal space at $p$.
+%Thus we find 
+%\begin{align}
+%	\nu(p) = \lim_{t\to\infty} \| B_t(p)\|^{\frac{1}{t}} = \lim_{t\to\infty} \left(e^{-bt}\right)^{\frac{1}{t}} = e^{-b}<1.
+%\end{align}
+%Therefore, we can calculate $\sigma$ as follows
+%\begin{align}
+%	\sigma(p) = \limsup_{t\to\infty} \frac{\log \| A_t(p) \|}{- \log \|B_t(p) \|} = \frac{-2t - 3\log(x_0) - \frac{3}{2}\log\left((x_0^{-2}-1)e^{-2t}+1\right)}{bt} = \frac{-2}{b}.
+%\end{align}
+%This covers all trajectories, except those from the fixed point at $(0,0)$ which is a singularity of this equation. There we get $\|A_t(p)\| = e^{t}$ (the linearization is then $D \dot{x}|_{x=0} = -1$, yielding the linearized flow of $F^{t}(x_0) = x_0e^{-t}$ (which we then plug in for $A_t(p)$)), therefore $\sigma(p)=\frac{1}{b}$.
 \end{solution}
 
 \begin{solution}[9.5]
-\begin{enumerate}
-	\item 
-		First we must show that the manifold is invariant. The derivative of all points on $M_0$ for $\epsilon =0$ is 0 (by plugging in). Therefore, the manifold is clearly invariant as it is full of fixed points. Next we need to compute $\nu $ and $\sigma$, to do this we must once again compute $B_t$, we do not need $A_t$ as there is no tangential compression as $\dot{x}=0$. We begin by calculating the flow map. 
+	\begin{enumerate}
+		\item The set $M_0$ is an invariant manifold, since setting $\varepsilon =0$ and restricting to $y=z=0$, the dynamics becomes $\dot{x}=\dot{y}=\dot{z}=0$, there is no dynamics on this set. It is also a 1-manifold with boundary, $\partial M_0 = \{ -1, 1\}$. 
+
+The system can be seen as the fast-time formulation of a singularly perturbed problem. In the limit $\varepsilon =0$, the fast subsystem is 
 \begin{align}
-	F^{t}(p) = 
-	\begin{pmatrix}
-		x_0 \\ y_0 e^{-t} \\ z_0 e^{t}
-	\end{pmatrix}	
+    \dot{y} &= -y \\
+    \dot{z} &= z,
 \end{align}
-Next we can calculate $B_t$ 
-\begin{align}
-	B_t(p) = \left. \Pi_p DF^{t}(F^{-t}(p)) \right|_{N_{F^{-t}(p)}M_0} = 
-	\left.
-	\begin{pmatrix}
-		1 & 0 & 0 \\
-		0 &  e^{-t} & 0 \\
-		0 & 0 &  e^{t} \\
-	\end{pmatrix}
-	\right|_{N_{F^{-t}(p)}M_0}
-.\end{align}
-The normal space of $M_0$ with base point $p$ comprises of vectors going in the $y$ and $z$ directions. Thus the operator norm of $B_t$ is $e^{t}$, by taking the normal vector pointing purely in the $z$ direction.
-\begin{align}
-	\lim_{t\to\infty} \left(e^{t}\right)^{\frac{1}{t}} = e \not< 1
-.\end{align}
-Thus $M_0$ is not a NHIM since $\nu > 1$. If however, we restrict $B_t(p)$ further to only the stable directions (this excludes the normal vectors with $z$ components), we find that
-\begin{align}
-	\nu = \lim_{t\to\infty} \left( e^{-t}\right)^{\frac{1}{t}} = e ^{-1}<1.
-\end{align}
-With this restriction $M_0$ is a NHIM with $\sigma=0$ and $\nu =e^{-1}$.
+and the critical manifold is $M_0$. To establish normal hyperbolicity, we restrict the dynamics to invariant subspaces $x=$const., where it is given by the fast subsystem. In this case, the fast subsystem is linear for all $x$, and has nonzero eigenvalues, showing that the dynamics in the direction normal to $M_0$ is hyperbolic. 
+
+A direct application of Fenichel's definition of normal hyperbolicity is not applicable, since the manifold is not overflowing invariant. This can be fixed by a local modification of the vector field near the boundary points \cite{Wiggins1994} . 
+\item		
+Restricting the perturbed system onto the set $M_\varepsilon := \{ y=z=0, x\in [-1,1]\}$, the dynamics is  $\dot{x} = -\varepsilon x$. This means that $M_\varepsilon$ is an invariant manifold of the perturbed system, which coincides with the unperturbed manifold $M_0$. 
+
 \item
-	The invariant manifold $M_\epsilon = M_0$. 
+The local stable manifold is contained in the $x-y$ plane. Because of the normal hyperbolicty of $M_\varepsilon$, it admits an invariant foliation:
+\begin{align}
+W^s_{\text{loc}}(M_\varepsilon) = \bigcup_{p\in M_\varepsilon} f^s(p).
+\end{align}
+
+In particular, this foliation has the property, that given a base point $p\in M_\varepsilon$, the trajectories starting in $f^s(p)\subset W^s_{\text{loc}}(M_\varepsilon) $ have the fastest rate of convergence towards the trajectory $\gamma(p)\subset M_\varepsilon$ through p. That is, given $q\in f^s(p)$ and $q'\in f^s(p')$
+
+\begin{align}
+\label{conds}
+    \frac{||F^t(q) - F^t(p)||}{||F^t(q') - F^t(p)||}\to 0, \text{ as } t\to \infty.
+\end{align}
+
+To use this property to find the nonlinear surface $f^s(p)$, we first calculate the flow-map of system \eqref{eqsys2}. The $y$ and $z$ coordinates decouple from $x$, and they can be integrated first
+\begin{align}
+y(t;y_0) = y_0e^{-t} \qquad z(t;z_0) = z_0e^{t}.
+\end{align}
+Substituting this into the $x$ equation, we get the inhomogeneous, linear scalar equation
+\begin{align}
+    \dot{x} = -\varepsilon x - \varepsilon y_0^2 e^{-2t}, 
+\end{align}
+which we can solve by variation of constants. The solution of the homogeneous part is $x_h = ce^{-\varepsilon t}$. To obtain a particular solution for the inhomogeneous equation, look for a solution of the form $x(t)=c(t)e^{-\varepsilon t}$. This leads to
+\begin{align}
+\dot{c} = -y_0^2\varepsilon e^{(\varepsilon-2)t}
+\end{align}
+\begin{align}
+c = \frac{y_0^2 \varepsilon }{2-\varepsilon}e^{(\varepsilon-2)t}.
+\end{align}
+The full solution is the sum of the general solution to the homogeneous part and the particular solution
+\begin{align}
+x(t) = c_0e^{-\varepsilon t} + \frac{y_0^2 \varepsilon }{2-\varepsilon}e^{-2t}.
+\end{align}
+
+Eliminating the constant of integration $c_0$, using the initial condition $x(0) = x_0$, we get
+\begin{align}
+x(t;x_0) = \left(x_0 - \frac{y_0^2 \varepsilon }{2-\varepsilon}\right)e^{-\varepsilon t} + \frac{y_0^2\varepsilon}{2-\varepsilon}e^{-2t}.
+\end{align}
+
+The flow-map of the system is 
+
+\begin{align}
+\label{eqflowmap2}
+F^t(x_0,y_0,z_0) = \begin{bmatrix}
+\left(x_0 - \frac{y_0^2 \varepsilon }{2-\varepsilon}\right)e^{-\varepsilon t} + \frac{y_0^2\varepsilon}{2-\varepsilon}e^{-2t} \\
+y_0e^{-t} \\
+z_0e^{t}
+\end{bmatrix}.
+\end{align}
+
+
+Consider the points $p = (x_p, 0, 0), p' = (x'_p, 0, 0)\in M_\varepsilon $ and $q = (x_q, y_q, 0) \in f^s(p)\subset W^u_{\text{loc}}(M_\varepsilon)$, $q' = (x'_q, y'_q, 0)\in f^s(p')\subset W^u_{\text{loc}}(M_\varepsilon)$.
+Then, 
+
+\begin{align}
+\label{eqflowmapdiff}
+F^t(q) - F^t(p) = \begin{bmatrix}
+\left(x_q - \frac{y_q^2 \varepsilon}{2-\varepsilon}\right)e^{-\varepsilon t} + \frac{y_q^2 \varepsilon }{2-\varepsilon}e^{-2t} - x_p e^{-\varepsilon t}\\
+y_q e^{-t} \\
+0
+\end{bmatrix} = \begin{bmatrix}
+e^{-\varepsilon t} \left(x_q - \frac{y_q^2 \varepsilon }{2-\varepsilon} - x_p \right) + \frac{y_q^2 \varepsilon }{2-\varepsilon}e^{-2t}\\
+y_q e^{-t} \\
+0
+\end{bmatrix}.
+\end{align}
+
+Similarly, for the denominator of \eqref{conds}
+\begin{align}
+F^t(q') - F^t(p) = \begin{bmatrix}
+e^{-\varepsilon t} \left(x_q' - \frac{y_q'^2 \varepsilon}{2-\varepsilon} - x_p \right) + \frac{y_q'^2 \varepsilon }{2-\varepsilon}e^{-2t}\\
+y_q' e^{-t} \\
+0
+\end{bmatrix}
+\end{align}
+
+In general, both the denominator and the numerator of \eqref{conds} go to 0 as $t\to \infty$ (because they are the sums of exponentially decaying terms), the limit of the ratio is undetermined. However, since $\varepsilon \ll 1$, the slowest decaying term in the first component of the flow-map is the one which is multiplied by $e^{-\varepsilon t}$. We can set its coefficient to 0, which guarantees that the numerator goes to $0$ at a faster rate than the denominator. This way, the ratio will go to 0. 
+
+This establishes a relation between $x_p$, the base point and the points $(x_q,y_q,0)$ on the stable fiber connected to it. This relation is
+\begin{align}
+x_q = x_p + \frac{y_q^2\varepsilon}{2-\varepsilon},
+\end{align}
+as claimed.
+
 \item
-	Using property (v), we need for the trajectory starting from $q\in f^{s}(x_0)$ to converge the fastest, therefore the difference between the trajectories must have the maximal exponential decay. This immediately gives us that the stable fibre cannot contain nonzero values in the $z$ coordinate, as this direction is unstable. In the $y$ direction, this is trivially given by $y=y_q e^{-t}$. For the $x$ direction we will use the ansatz $x(t) = C_1 e^{-\epsilon t} + C_2 e^{-2t}$. Calculating we find
+The local unstable manifold of $M_\varepsilon$, is the local stable manifold under the backward flow. Reversing time in the original system, we obtain 
 \begin{align}
-	\dot{x}(t) = - \epsilon C_1 e^{-\epsilon t} -2 C_2 e^{-2t} \stackrel{ \textrm{!} }{=} -\epsilon (x+y^{2}) = -\epsilon (C_1 e^{-\epsilon t} + C_2 e^{-2t}+y_q^2 e^{-2t}).	
+     \dot{x} &= \varepsilon(x + y^2) \\
+    \dot{y} &= y \\
+    \dot{z} &= -z,
 \end{align}
-Hence $C_2 = \frac{\epsilon}{2-\epsilon}y_0^2$, and we have to find $C_1$ such that $x(0)=x_q$. This condition then requires $C_1 = x_q - \frac{\epsilon}{2-\epsilon }y_q^2$. Therefore we have 
+
+for which the local stable manifold is contained in the $x-z$ plane. To obtain the foliation, we use the property \eqref{conds} for the backward flow map.
+
 \begin{align}
-	x(t) = (x_q - \frac{\epsilon}{2-\epsilon}y_q^2)e^{-\epsilon t} + \frac{\epsilon}{2-\epsilon}y_q^2 e^{-2t} 
+\label{eqflowmap2}
+F^{-t}(x_0,y_0,z_0) = \begin{bmatrix}
+\left(x_0 - \frac{y_0^2 \varepsilon }{2-\varepsilon}\right)e^{\varepsilon t} + \frac{y_0^2\varepsilon}{2-\varepsilon}e^{2t} \\
+y_0e^{t} \\
+z_0e^{-t}
+\end{bmatrix} 
 \end{align}
-The decay between the trajectories $F ^t(x_0)$ and $F^t(x_q)$ to be maximized is then 
+
+Taking points $p = (x_p, 0, 0), p' = (x'_p, 0, 0)\in M_\varepsilon $ and $q = (x_q, 0, z_q) \in f^u(p)\subset W^u_{\text{loc}}(M_\varepsilon)$, $q' = (x'_q, 0, z_q')\in f^u(p')\subset W^u_{\text{loc}}(M_\varepsilon)$, and evaluating the expressions $F^{-t}(p)-F^{-t}(q)$ and $F^{-t}(q')-F^{-t}(p)$ gives
+
 \begin{align}
-	(x_q - \frac{\epsilon}{2 - \epsilon}y_q^2) e^{-\epsilon t} + \frac{\epsilon}{2-\epsilon}y_qe^{-2t} - x_0 e^{-\epsilon t}= (x_q - \frac{\epsilon}{2-\epsilon}y_q^2 - x_0) e^{-\epsilon t} + \frac{\epsilon}{2-\epsilon}y_q e^{-2t}.
+\label{eqdiffback}
+F^{-t}(q) - F^{-t}(p) = \begin{bmatrix}
+e^{\varepsilon t} \left(x_q  - x_p \right)\\
+0 \\
+z_q e^{-t}
+\end{bmatrix}; \qquad  F^{-t}(q') - F^{-t}(p) = \begin{bmatrix}
+e^{\varepsilon t} \left(x_q' - x_p \right)\\
+0 \\
+z_q' e^{-t}
+\end{bmatrix}.
 \end{align}
-Thus we set the first factor to 0 and get $x_q = x_0 + \frac{\epsilon}{2-\epsilon}y_q$. In conclusion the stable fibre from a point $p$ is $f^s(p) = \left\{ (x,y,z):\ x=x_p + \frac{\epsilon}{2-\epsilon}y^2,\ z=0 \right\}$.
-\item
-	For the unstable fibres, we will use the same process in backwards time. We know that any component in the $y$ direction will decay towards $M_\epsilon$ in forwards time, thus in backwards time, it is unstable. This allows us to set $y=0$. As above we set the first term equal to 0, to eliminate the  $e^{\epsilon t}$ term (note the direction of time has changed), and we find $x=x_0$. All together this gives $f^{u}(p) = \left\{ (x,y,z): \ x=x_p,\ y=0\right\}$.
-\item TODO
-\item Using fact (v) we find 
-	\begin{align}
-		W_{ \textrm{loc} }^{ss}(\gamma(p)) = \cup_{p' \in \gamma(p)} f^{s}(p') &= 
-		\left\{ (x,y,z):\ x=x_0 + \frac{\epsilon}{2-\epsilon}y^2,\ z=0,\ x_0\in\gamma(p),\ y \in \mathbb{R}\right\},\\
-		W_{ \textrm{loc} }^{uu}(\gamma(p)) = \cup_{p' \in \gamma(p)} f^{u}(p') &= 
-		\left\{ (x,y,z):\ y=0,\ x\in\gamma(p),\ z \in \mathbb{R}\right\},\\
-		W_{ \textrm{loc} }^{s}(\gamma(p)) &= \left\{ (x,y,z):\ x\in M_\epsilon,\ z=0\right\}, \\
-		W_{ \textrm{loc} }^{u}(\gamma(p)) &= \left\{ (x,y,z):\ x\in M_\epsilon,\  y=0\right\}. 
-	\end{align}
-\end{enumerate}
+Following a similar argument as we made with the stable fibers, the ratio \eqref{conds} converges to zero, if the numerator goes to zero much faster than the denominator. In this case, the numerator and the denominator do not go to zero term-by-term, since the exponent of the first term is positive. The ratio is 
+\begin{align}
+    \frac{||F^{-t}(q) - F^{-t}(p)||}{||F^{-t}(q') - F^{-t}(p)||} = \frac{e^{2\varepsilon t}(x_q-x_p)^2 + z_q^2 e^{-2t}}{e^{2\varepsilon t}(x_q'-x_p)^2 + z_q'^2 e^{-2t}}.
+\end{align}
+To ensure a faster convergence in the denominator, we can set $x_q = x_p$ and see that the ratio goes to zero
+\begin{align}
+    \frac{||F^{-t}(q) - F^{-t}(p)||}{||F^{-t}(q') - F^{-t}(p)||} = \frac{z_q^2 e^{-2t}}{e^{2\varepsilon t}(x_q'-x_p)^2 + z_q'^2 e^{-2t}} = \frac{z_q^2 }{(x_q'-x_p)^2e^{2t(\varepsilon +1)} + z_q'^2} \to 0.
+\end{align}
+
+The unstable fibers are the straight lines parallel to the $z$ axis, given by
+\begin{align}
+f^u(p) = \left \{ \right (x,y,z) : x = x_p, y=0\}.
+\end{align}
+
+(e) Verify explicitly the properties of the stable fibers in this example.
+\begin{itemize}
+    \item $f^s(p)$ is a $C^r$ smooth (given by a smooth graph), 1 dimensional submanifold of the 2 dimensional manifold $W^s_\text{loc}(M_\varepsilon)$. Its intersection with the manifold is $f^s(p)\cap M_\varepsilon = \{(x,y,z):x=x_p, y=0, z=0 \} = p $, the base point.
+    \item The local section of the stable subbundle $N^s_pM_\varepsilon$ is the stable subspace of the normal space at $p$: $N^s_pM_\varepsilon$. In this example, the normal space is the plane $N_p M_\varepsilon = \{ (x,y,z) : x=x_p\}$, the stable subspace is the line $N^s_p M_\varepsilon = \{ (x,y,z) : x=x_p, z=0\}$. The local tangent vector to $f^s(p)$ is $(0, 1, 0)$, which is in this subspace. 
+    \item The stable fibers form a positively invariant family.
+    The stable fibers of the images of the basepoints are
+    \begin{align}
+        &f^s(F^t(p)) = f^s(F^t(x_p,0,0)) = \left\{ (x,y,z): x = x_p e^{-\varepsilon t}+ \frac{\varepsilon}{2-\varepsilon}y^2, z=0 \right\}. 
+    \end{align}
+    While the images of the stable fibers are:
+    \begin{align}
+        &F^t(f^s(p)) = F^t\left(\left\{ (x,y,z): x = x_p+ \frac{\varepsilon}{2-\varepsilon}y^2, z=0 \right\}\right) = \\
+    &=\left\{ F^t(\overline{x},\overline{y},\overline{z}): \overline{x} = x_p + \frac{\varepsilon}{2-\varepsilon}\overline{y}^2, \overline{z}=0 \right\} = \\
+    & = \left\{ (x,y,z): x = x(t; \overline{x}), y= y(t;\overline{y}); z=z(t;\overline{z}) \right\} = \\
+    &= \left\{ (x,y,z): x = \left(x_p + \frac{\varepsilon}{2-\varepsilon}\overline{y}^2 - \frac{\varepsilon}{2-\varepsilon}\overline{y}^2 \right)e^{-\varepsilon t} + \frac{\varepsilon}{2-\varepsilon}\overline{y}^2 e^{-2t}, y= \overline{y}e^{-t}; z = 0 \right\} =\\  
+    & = \left\{ (x,y,z): x = x_p e^{-\varepsilon t} + \frac{\varepsilon}{2-\varepsilon}\overline{y}^2 e^{-2t}, y= \overline{y}e^{-t}; z = 0 \right\}
+    \end{align}
+    Since we can eliminate $\overline{y}$ using the second coordinate $\overline{y}=ye^t$, this is the same set as
+    \begin{align}
+    \left\{ (x,y,z): x = x_p e^{-\varepsilon t} + \frac{\varepsilon}{2-\varepsilon}y^2 ; z = 0 \right\},
+    \end{align}
+    which coincides with $f^s(F^t(p))$.
+    \item There exist positive constants $C_s$ and $\lambda_s$, such that for any $q \in f^s(p)$ we have $|F^t(q)-F^t(p)|< C_s e^{-\lambda_s t}$.
+    
+    For a point $q=(x_q,y_q,0) \in f^s(p)$, we can use the expression describing the fiber to get
+    \begin{align}
+    F^t(q)-F^t(p) = \begin{bmatrix}
+\left(x_q - \frac{y_q^2 \varepsilon}{2-\varepsilon}\right)e^{-\varepsilon t} + \frac{y_q^2 \varepsilon }{2-\varepsilon}e^{-2t} - x_p e^{-\varepsilon t}\\
+y_q e^{-t} \\
+0
+\end{bmatrix} = \begin{bmatrix}
+\frac{y_q^2 \varepsilon }{2-\varepsilon}e^{-2t}\\
+y_q e^{-t} \\
+0
+\end{bmatrix}.
+    \end{align}
+    \begin{align}
+    |F^t(q)-F^t(p)|^2 = \frac{y_q^2\varepsilon^2}{(2-\varepsilon)^2}e^{-4t} + y_q^2 e^{-2t} = y_q^2e^{-2t}\left( \frac{\varepsilon^2}{(2-\varepsilon)^2}e^{-2t} +1 \right)
+    \end{align}
+    \begin{align}
+    |F^t(q)-F^t(p)| = |y_q|e^{-t}\sqrt{ \frac{\varepsilon^2}{(2-\varepsilon)^2}e^{-2t} +1}
+    \end{align}
+    The square root is bounded by the constant $L = \sqrt{\frac{\varepsilon^2}{(2-\varepsilon)^2} + 1}$, so we can bound the distance between the trajectory through p and the trajectory through q as
+    \begin{align}
+    |F^t(q)-F^t(p)| \leq |y_q|L e^{-t}. 
+    \end{align}
+    The local stable manifold is compact set, that contains $M_\varepsilon$ intersected with the $x-y$ plane, so we can choose a $C>0$, such that $C>|y_q|$ for any $(x_q,y_q,z_q)\in W^s_\text{loc}(M_\varepsilon)$.  
+    Then, we can set $C_s =CL$ and $\lambda_s = 1$. 
+    
+\item Given a base point $p\in M_\varepsilon$, the trajectories starting in $f^s(p)\subset W^s_{\text{loc}}(M_\varepsilon) $ have the fastest rate of convergence towards the trajectory $\gamma(p)\subset M_\varepsilon$ through p. That is, given $q\in f^s(p)$ and $q'\in f^s(p')$
+\begin{align}
+\label{cond}
+    \frac{||F^t(q) - F^t(p)||}{||F^t(q') - F^t(p)||}\to 0, \text{ as } t\to \infty.
+\end{align}
+We already used this property, to arrive at the expression for the stable fibers.
+
+\item $f^s(p)\cap f^s(p') = \{ \}$ if $p\neq p'$. 
+\begin{align}
+f^s(p)\cap f^s(p') = \left\{ (x,y,z): x = x_p+ \frac{\varepsilon}{2-\varepsilon}y^2, z=0 \right\} \cap \left\{ (x',y',z'): x' = x_p'+ \frac{\varepsilon}{2-\varepsilon}y'^2, z'=0 \right\}
+\end{align}
+For this to be nonempty, we need $x=x'$, $y=y'$, $z=z'$, but this means
+\begin{align}
+x_p + \frac{\varepsilon}{2-\varepsilon}y^2 = x_p'+ \frac{\varepsilon}{2-\varepsilon}y^2,
+\end{align}
+which cannot be equal if $x_p\neq x_p'$. 
+\item The stable fiber $f^s(p)$ is a $C^{r-1}$ smooth function of its base point $p$. 
+The set $f^s(p)=f^s(x_p)$, which is given by a graph of a $C^\infty$ function of $x_p$.
+\item The stable fibers $C^r$-smoothly persist under small $C^1$ perturbations of the dynamical system.
+
+First, consider that the perturbation is only in $\varepsilon$: $\varepsilon:= \varepsilon_0 + \Delta \varepsilon$. The stable fiber is well defined for any $\varepsilon \neq 2$ and it is also differentiable in $\varepsilon$. 
+
+
+For a general $C^1$-small perturbation to the system, (say, order $\delta$) the flow-map is also perturbed by an order $\delta$ term, since we can Taylor-expand it to first order
+\begin{align}
+F^t(p;\delta) = F^t(p;0) + \delta \frac{\partial F^t}{\partial \delta} + O(\delta^2).
+\end{align}
+Then, it can probably (?) be argued that this is only an order $\delta$ perturbation to the equation that prescribes the maximal convergence rate for points in the fiber (exercise (c)).
+\end{itemize}
+(f) For any trajectory $\gamma \subset M_\varepsilon$, find explicit expressions for $W^{ss}_\text{loc}(\gamma)$, $W^{uu}_\text{loc}(\gamma)$, $W^{s}_\text{loc}(\gamma)$, $W^{u}_\text{loc}(\gamma)$.
+
+From the definition, 
+\begin{align}
+W^{ss}_\text{loc}(\gamma) = \bigcup_{\overline{p}\in \gamma(p)} f^s(\overline{p}).
+\end{align}
+On the manifold, the trajectory is given by $\gamma(p)=\gamma(x_p) = x_p e^{-\varepsilon t}$. After substituting, we obtain
+\begin{align}
+W^{ss}_\text{loc}(\gamma) = \bigcup_{x\in \gamma(x_p)}\left\{(\overline{x}, \overline{y}, \overline{z}) : \overline{x} = x + \frac{\varepsilon}{2-\varepsilon}\overline{y}^2 , \overline{z} = 0\right\}
+ =\bigcup_{t\geq 0} \left\{(\overline{x}, \overline{y}, \overline{z}) : \overline{x}= x_pe^{-\varepsilon t} + \frac{\varepsilon}{2-\varepsilon}\overline{y}^2, \overline{z}=0 \right\},
+ \end{align}
+ which is the same set as (if $x_p>0$) $W^{ss}_\text{loc}(\gamma) = \{(x,y,z): \frac{\varepsilon}{2-\varepsilon}y^2 \leq x \leq x_p +\frac{\varepsilon}{2-\varepsilon}y^2 , z=0\}$. And in case $x_p<0$ $W^{ss}_\text{loc}(\gamma) = \{(x,y,z): \frac{\varepsilon}{2-\varepsilon}y^2 +x_p \leq x \leq \frac{\varepsilon}{2-\varepsilon}y^2 , z=0\}$.
+ 
+For the unstable fibers, we have (if $x_p>0$)
+\begin{align}
+W^{uu}_\text{loc}(\gamma) = \bigcup_{\overline{p}\in \gamma(p)} f^u(\overline{p}) = \bigcup_{t\geq 0} \left\{ x_pe^{-\varepsilon t}, y= 0 \right\} = \{(x,y,z): x \leq x_p, y=0\}
+\end{align}
+and if $x_p<0$
+\begin{align}
+W^{uu}_\text{loc}(\gamma) = \{(x,y,z): x \geq x_p, y=0\}
+\end{align}
+
+
+The local stable manifold of trajectory $\gamma(p)$ is the set of initial conditions, through which trajectories converge to $\gamma(p)$.
+
+\begin{align}
+W^s_\text{loc}(\gamma) = \{ (x,y,z): ||F^t(x,y,z) - \gamma(p)|| \to 0 \text{ as } t\to \infty\}. 
+\end{align}
+
+Using \eqref{eqflowmapdiff}, we can write the difference between the trajectories as
+
+\begin{align}
+F^t(x,y,z) - \gamma(x_p)= F^t(x,y,z) - F^t(x_p, 0, 0) = \begin{bmatrix}
+e^{-\varepsilon t} \left(x - \frac{y^2 \varepsilon }{2-\varepsilon} - x_p \right) + \frac{y^2 \varepsilon }{2-\varepsilon}e^{-2t}\\
+y e^{-t} \\
+z e^{t}
+\end{bmatrix}.
+\end{align}
+
+For convergence, we need to set $z=0$ and then we have
+\begin{align}
+||F^t(x,y,0) - F^t(x_p, 0, 0)|| =\left[ e^{-\varepsilon t} \left(x - \frac{y^2 \varepsilon }{2-\varepsilon} - x_p \right) + \frac{y^2 \varepsilon }{2-\varepsilon}e^{-2t} \right]^2 + y^2e^{-2t},
+\end{align}
+which converges for all $x,y$. $W^s_\text{loc}(\gamma) = \{ (x,y,z): z=0\}$. 
+
+
+The local unstable manifold of trajectory $\gamma(p)$ is the set of initial conditions, through which trajectories converge to $\gamma(p)$ in backward time.
+
+Using the expression \eqref{eqdiffback}, we have
+\begin{align}
+F^{-t}(x,y,z) - F^{-t}(x_p, 0, 0) = \begin{bmatrix}
+e^{\varepsilon t} \left(x - \frac{y^2 \varepsilon }{2-\varepsilon} - x_p \right) + \frac{y^2 \varepsilon }{2-\varepsilon}e^{2t}\\
+y e^{t} \\
+z e^{-t}
+\end{bmatrix}.
+\end{align}
+Setting $y=0$, we get
+\begin{align}
+||F^{-t}(x,0,z) - F^{-t}(x_p, 0, 0)|| = e^{2\varepsilon t} \left(x - x_p \right)^2 + z^2e^{-2t},
+\end{align}
+which converges if $x=x_p$. $W^u_\text{loc}(\gamma) = \{ (x,y,z): x=x_p, y=0\}$. 
+	\end{enumerate}
+	
+%\begin{enumerate}
+%	\item 
+%		First we must show that the manifold is invariant. The derivative of all points on $M_0$ for $\epsilon =0$ is 0 (by plugging in). Therefore, the manifold is clearly invariant as it is full of fixed points. Next we need to compute $\nu $ and $\sigma$, to do this we must once again compute $B_t$, we do not need $A_t$ as there is no tangential compression as $\dot{x}=0$. We begin by calculating the flow map. 
+%\begin{align}
+%	F^{t}(p) = 
+%	\begin{pmatrix}
+%		x_0 \\ y_0 e^{-t} \\ z_0 e^{t}
+%	\end{pmatrix}	
+%\end{align}
+%Next we can calculate $B_t$ 
+%\begin{align}
+%	B_t(p) = \left. \Pi_p DF^{t}(F^{-t}(p)) \right|_{N_{F^{-t}(p)}M_0} = 
+%	\left.
+%	\begin{pmatrix}
+%		1 & 0 & 0 \\
+%		0 &  e^{-t} & 0 \\
+%		0 & 0 &  e^{t} \\
+%	\end{pmatrix}
+%	\right|_{N_{F^{-t}(p)}M_0}
+%.\end{align}
+%The normal space of $M_0$ with base point $p$ comprises of vectors going in the $y$ and $z$ directions. Thus the operator norm of $B_t$ is $e^{t}$, by taking the normal vector pointing purely in the $z$ direction.
+%\begin{align}
+%	\lim_{t\to\infty} \left(e^{t}\right)^{\frac{1}{t}} = e \not< 1
+%.\end{align}
+%Thus $M_0$ is not a NHIM since $\nu > 1$. If however, we restrict $B_t(p)$ further to only the stable directions (this excludes the normal vectors with $z$ components), we find that
+%\begin{align}
+%	\nu = \lim_{t\to\infty} \left( e^{-t}\right)^{\frac{1}{t}} = e ^{-1}<1.
+%\end{align}
+%With this restriction $M_0$ is a NHIM with $\sigma=0$ and $\nu =e^{-1}$.
+%\item
+%	The invariant manifold $M_\epsilon = M_0$. 
+%\item
+%	Using property (v), we need for the trajectory starting from $q\in f^{s}(x_0)$ to converge the fastest, therefore the difference between the trajectories must have the maximal exponential decay. This immediately gives us that the stable fibre cannot contain nonzero values in the $z$ coordinate, as this direction is unstable. In the $y$ direction, this is trivially given by $y=y_q e^{-t}$. For the $x$ direction we will use the ansatz $x(t) = C_1 e^{-\epsilon t} + C_2 e^{-2t}$. Calculating we find
+%\begin{align}
+%	\dot{x}(t) = - \epsilon C_1 e^{-\epsilon t} -2 C_2 e^{-2t} \stackrel{ \textrm{!} }{=} -\epsilon (x+y^{2}) = -\epsilon (C_1 e^{-\epsilon t} + C_2 e^{-2t}+y_q^2 e^{-2t}).	
+%\end{align}
+%Hence $C_2 = \frac{\epsilon}{2-\epsilon}y_0^2$, and we have to find $C_1$ such that $x(0)=x_q$. This condition then requires $C_1 = x_q - \frac{\epsilon}{2-\epsilon }y_q^2$. Therefore we have 
+%\begin{align}
+%	x(t) = (x_q - \frac{\epsilon}{2-\epsilon}y_q^2)e^{-\epsilon t} + \frac{\epsilon}{2-\epsilon}y_q^2 e^{-2t} 
+%\end{align}
+%The decay between the trajectories $F ^t(x_0)$ and $F^t(x_q)$ to be maximized is then 
+%\begin{align}
+%	(x_q - \frac{\epsilon}{2 - \epsilon}y_q^2) e^{-\epsilon t} + \frac{\epsilon}{2-\epsilon}y_qe^{-2t} - x_0 e^{-\epsilon t}= (x_q - \frac{\epsilon}{2-\epsilon}y_q^2 - x_0) e^{-\epsilon t} + \frac{\epsilon}{2-\epsilon}y_q e^{-2t}.
+%\end{align}
+%Thus we set the first factor to 0 and get $x_q = x_0 + \frac{\epsilon}{2-\epsilon}y_q$. In conclusion the stable fibre from a point $p$ is $f^s(p) = \left\{ (x,y,z):\ x=x_p + \frac{\epsilon}{2-\epsilon}y^2,\ z=0 \right\}$.
+%\item
+%	For the unstable fibres, we will use the same process in backwards time. We know that any component in the $y$ direction will decay towards $M_\epsilon$ in forwards time, thus in backwards time, it is unstable. This allows us to set $y=0$. As above we set the first term equal to 0, to eliminate the  $e^{\epsilon t}$ term (note the direction of time has changed), and we find $x=x_0$. All together this gives $f^{u}(p) = \left\{ (x,y,z): \ x=x_p,\ y=0\right\}$.
+%\item TODO
+%\item Using fact (v) we find 
+%	\begin{align}
+%		W_{ \textrm{loc} }^{ss}(\gamma(p)) = \cup_{p' \in \gamma(p)} f^{s}(p') &= 
+%		\left\{ (x,y,z):\ x=x_0 + \frac{\epsilon}{2-\epsilon}y^2,\ z=0,\ x_0\in\gamma(p),\ y \in \mathbb{R}\right\},\\
+%		W_{ \textrm{loc} }^{uu}(\gamma(p)) = \cup_{p' \in \gamma(p)} f^{u}(p') &= 
+%		\left\{ (x,y,z):\ y=0,\ x\in\gamma(p),\ z \in \mathbb{R}\right\},\\
+%		W_{ \textrm{loc} }^{s}(\gamma(p)) &= \left\{ (x,y,z):\ x\in M_\epsilon,\ z=0\right\}, \\
+%		W_{ \textrm{loc} }^{u}(\gamma(p)) &= \left\{ (x,y,z):\ x\in M_\epsilon,\  y=0\right\}. 
+%	\end{align}
+%\end{enumerate}
 \end{solution}
 
 \begin{solution}[9.6]
